@@ -1,0 +1,44 @@
+
+span {
+	background-color: yellow;
+}
+
+
+h3 {
+	text-decoration: underline;
+}
+
+.media {
+	text-align: center;
+}
+
+.cat_img {
+	width: 300px;
+	height: 200px;
+	border: 6px solid #496C89;
+}
+
+.difference {
+	margin: 0px 100px;
+}
+
+h4 {
+	text-align: center;
+	border: 1px solid red;
+	color: red;
+}
+
+th, td {
+	border: 1px solid black;
+}
+
+.lion_img {
+	width: 300px;
+	height: 250px;
+	border: 6px solid #8ABD5F;
+	margin: 20px;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 40%;
+}

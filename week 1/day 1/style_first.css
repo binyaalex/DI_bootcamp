@@ -1,0 +1,45 @@
+
+#hello {
+	color: red;
+}
+
+.lorem {
+	background-color: pink;
+}
+/*h1 {
+	color: blue;
+}*/
+/*
+h1+p {
+	color: blue;
+}*/
+
+#first:hover {
+	color: blue;
+}
+
+#section-flag {
+	width: 100%;
+	height: 100%;
+}
+
+.flag {
+	width: 100%;
+	height: 100%;
+	width: 100px;
+	height: 130px;
+	display: inline-block;
+}
+
+.blue {
+	background-color: blue;
+}
+
+.white {
+	background-color: white;
+}
+
+.red {
+	background-color: red;
+}
+
