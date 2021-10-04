@@ -1,0 +1,99 @@
+
+* {
+	margin: 0px;
+}
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 10vh;
+	background-color: black;
+}
+
+ul {
+	color: white;
+	height: 100%;
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+img {
+	height: 7vh;
+	width: 6vw;
+	justify-content: flex-start;
+}
+
+li {
+	list-style: none;
+	display: inline-block;
+	height: 100%;
+	width: 50%;
+	text-transform: capitalize;
+	font-size: 5vh;
+	margin: 2vw;
+
+}
+
+body {
+	background-image: url("https://marketresearchtelecast.com/wp-content/uploads/2021/08/1601498876_582320_1601498920_noticia_normal.jpg");
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-position: center;
+}
+
+section {
+	position: relative;
+}
+
+div {
+	position: absolute;
+	top: 40vh;
+	left: 10vh;
+}
+
+h1 {
+	font-size: 10vh;
+	margin-bottom: 2vh; 
+}
+
+p {
+	width: 60vw;
+}
+
+@media all and (max-width: 480px){
+
+	body {
+		background-image: url("https://images-na.ssl-images-amazon.com/images/I/81D3PzuB5pL.jpg");
+	  	background-size: cover;
+	}
+
+	nav {
+		height: 6vh;
+	}
+
+	img {
+		height: 4vh;
+		width: 10vw;
+	}
+
+	li {
+		font-size: 3vh;
+	}
+
+	div {
+		position: static;
+		text-align: center;
+	}
+
+	h1 {
+		font-size: 6vh;
+	}
+
+	p {
+		width: 100%;
+	}
+
+
+}
