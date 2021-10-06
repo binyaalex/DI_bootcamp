@@ -1,0 +1,9 @@
+
+img {
+	width: 20vw;
+}
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+}
