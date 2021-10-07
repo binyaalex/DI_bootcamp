@@ -1,0 +1,171 @@
+body {
+	background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v546batch3-mynt-34-badgewatercolor_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=89288ef4b47127f7f34a5998b50e4470);
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-position: center;
+  	background-size: cover;
+  	position: relative;
+  	height: 100vh;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+html,h1,h2,h3,h4,h5,h6,a{
+    font-family: "Raleway";
+}
+
+.center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 90vh;
+}
+
+.home h2, .home p {
+	width: 40vw;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	width: 60vw;
+}
+
+.about h2 {
+	margin-bottom: 50px;
+}
+
+.img {
+	padding-right: 20px;
+}
+
+.alexander {
+	border-left: 3px solid black;
+	padding-left: 20px;
+}
+
+.img p {
+	text-align: center;
+}
+
+.middle {
+	text-align: center;
+}
+
+.portfolio h2 {
+	margin-bottom: 40px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 50vw;
+}
+
+a img {
+	height: 120px;
+	width: 170px;
+	margin: 10px;
+	transition: all 0.5s 100ms;
+}
+
+a img:hover {
+	transform: scale(1.1);
+}
+
+.blog h2 {
+	margin: 40px 0;
+}
+
+.flexBlog {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;  
+}
+
+.flexBlog img {
+	height: 90px;
+	width: 170px;
+}
+
+.flexPost {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	margin-left: 32px; 
+}
+
+.flexPost h5, .flexPost a, .flexPost p {
+	text-align: left;
+	padding: 10px;
+	width: 170px;
+	margin: 0;
+	background-color: white;
+}
+
+.flexPost h5 {
+	font-size: 14px;
+}
+
+.flexPost h5, .flexPost p {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.flexPost a, .flexPost p {
+	font-size: 10px;
+}
+
+.flexPost a {
+	background-color: lightgray;
+	padding:8px 10px;
+}
+
+.flexPost p {
+	padding-bottom: 2px;
+}
+
+.contact {
+	margin: 75px 0; 
+}
+
+.left {
+	padding-right: 18px;
+	width: 17.7vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.flexContact {
+	display: flex;
+	justify-content: center;
+}
+
+/*.home, .aboute, .portfolio, .blog, .contact {
+	margin: 0 auto;
+}*/
+
+form {
+	width: 31vw;
+}
+
+.left div {
+	align-self: center;
+}
+
+i {
+	color: 
+}
+
+button {
+	width: 100%;
+}
+
+input, textarea, button {
+	margin: 10px 0;
+}
