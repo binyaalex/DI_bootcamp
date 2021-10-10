@@ -23,4 +23,4 @@ console.log(false - true);
 console.log(3 - 4);
 // -1
 console.log("Bob" - "bill");
-// Nan
+// NaN
