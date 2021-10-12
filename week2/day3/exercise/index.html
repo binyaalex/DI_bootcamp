@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>hi</h1>
+
+	<script type="text/javascript">
+		// exercise 1
+		// Create an array called colors where the value is a list of your favorite colors.
+		// Loop through the array and as you loop console.log a string like so: “My #1 choice is blue”, “My #2 choice is red” ect… 
+		let colors = [`lightblue`, `orange`, `purple`, `blue`];
+		for (let i = 0; i < colors.length; i++) {
+			console.log(`My #${i+1} choice is ${colors[i]}`);
+		};
+		// Bonus: Change it to console.log “My 1st choice”, “My 2nd choice”, “My 3rd choice”, picking the correct suffix for each number
+		let suffix = [`1st`, `2st`, `3st`, `4st`];
+		for (let i = 0; i < suffix.length; i++) {
+			console.log(`My ${suffix[i]} choice is ${colors[i]}`);
+		};
+		// exercise 2
+		let people = ["Greg", "Mary", "Devon", "James"];
+		// Write code to remove “Greg” from the people array.
+		people.shift();
+		// Write code to replace “James” to “Jason”.
+		people.splice(2, 1, `Jason`);
+		// Write code to add your name to the end of the people array.
+		people.push(`benji`);
+		// Using a loop, iterate through the people array and console.log each person.
+		for (let i = 0; i < people.length; i++) {
+			console.log(people[i]);
+		};
+		// Using a loop, iterate through the people array and after you console.log “Jason” exit the loop
+		for (let i = 0; i < people.length; i++) {
+			console.log(people[i]);
+			if (people[i] === `Jason`) {
+				break;
+			};
+		};
+		// Write code to make a copy of the people array using slice. The copy should NOT include “Mary” or your name.
+		let copy = people.slice(1, 3);
+		// Write code that console.logs Mary’s index. take a look at indexOf on google.
+		console.log(people.indexOf(`Mary`));
+		// Write code that gives the indexOf “Foo” (this should return -1). Why does it return -1? cause that the default of something that not exist in the array
+		console.log(people.indexOf(`Foo`));
+		// Create a variable called last which value is the last element of the array.
+		// Hint: What is the relationship between the index of the last element in the array and the length of the array?
+		let last = people[people.length-1];
+		// Exercise 3
+		// Prompt the user for a number, while the number is smaller than 10 continue asking the user for a new number.
+		let num
+		do {
+    		num = prompt(`Write a number`);
+		}
+		while (Number(num) < 10);
+		// exercise 4
+		let guestList = {
+		  randy: "Germany",
+		  karla: "France",
+		  wendy: "Japan",
+		  norman: "England",
+		  sam: "Argentina"
+		};
+		// Prompt the student for their name :
+		// If the name is in the object, console.log the name of the student and the country they come from.
+		// example: "Hi! I'm [name], and I'm from [country]."
+		// Hint: Look up the statement if ... in
+		// If the name is not in the object, console.log: "Hi! I'm a guest."
+		let student = prompt(`Pleas Write your name`);
+		if (student in guestList) {
+			console.log(`Hi! I'm ${student}, and I'm from ${guestList[student]}.`);
+		};
+		// exercise 5
+		// Create an object called family with a few key value pairs
+		let family = {
+		  dad: "david",
+		  mom: "sara",
+		  brother: "yosi",
+		  sister: "lea",
+		};
+		// Console.log the keys. (using a for loop)
+		for (let element in family){
+			console.log(element);
+		};
+		// Console.log the values. (using a for loop)
+		for (let element in family){
+			console.log(family[element]);
+		};
+		// exercise 6
+		let details = {
+		  my: 'name',
+		  is: 'Rudolf',
+		  the: 'raindeer'
+		};
+		// Given the object above, console.log “my name is Rudolf the raindeer”
+		let sentence = []
+		for (let element in details){
+			sentence.push(element);
+			sentence.push(details[element]);
+		};
+		console.log(sentence.join(` `));
+		// exercise 7
+		let names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
+		// A group of friends have decided to start a secret society. The society’s name will be the first letter of each of their names sorted in alphabetical order.
+		// Hint: a string is an array of letters
+		// Console.log the naletof their secret society.
+		let secret = ``
+		for (let i = 0; i < names.length; i++) {
+			secret += names[i][0]
+		}
+		console.log(secret)
+	</script>
+
+</body>
+</html>
