@@ -34,13 +34,8 @@
 	 	if (wordNot < wordBad && wordNot !== -1) {
 	 		sentenceAray.splice(wordNot, wordBad-wordNot+1, `good`);
 	 	}
-	 	sentence = sentenceAray.join();
-
-		while (sentence.includes(`,`)) {
-		 	sentence = sentence.replace (`,`, ` `);
-		} 
-		console.log(sentence);
-
+	 	sentence = sentenceAray.join(` `);
+	 	console.log(sentence)
 
 
 
