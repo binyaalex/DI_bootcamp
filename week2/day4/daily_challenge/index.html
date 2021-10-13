@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>hi</h1>
+
+	<script type="text/javascript">
+		// let array = [`sdfghjff`, `d`, `dfg`, `qwertyui`]
+		let words = prompt(`write some words separated by commas`)
+		let array = words.split(`,`)
+		function cool () {
+			let longWord = '';
+			for (let i = 0; i < array.length; i++) {
+				if (array[i].length > longWord.length) { 
+					longWord = array[i];
+				}
+			}
+			let star = `*`
+			console.log(star.repeat(longWord.length + 4))
+			for (var i = 0; i < array.length; i++) {
+				console.log(`* ${array[i]} ${` `.repeat(longWord.length - array[i].length)}*`)
+			}
+			console.log(star.repeat(longWord.length + 4))			
+		}
+		cool()
+
+	</script>
+
+</body>
+</html>
