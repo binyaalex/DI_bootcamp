@@ -222,7 +222,7 @@
 		function hotelCost (nights) {
 			if (nights > 0) {
 			} else {
-				nights = Number(prompt(`how many nights you would like to stay?`))
+				nights = Number(prompt(`how many nights you would like to stay? please write a number`))
 			}
 			let cost = nights * 140
 			return cost
@@ -238,12 +238,9 @@
 		let destination = prompt(`where you would like to go?`)
 		function planeRideCost(destination) {
 			let price = 0
-			if (typeof destination === 'string' ) {
-
-			} else {
-				destination = prompt(`where you would like to go?`)
-			}
-			if (destination === 'london') {
+			if (Number(destination) > -1000000 ) {
+				destination = prompt(`where you would like to go? please don't use numbers`)
+			} else 	if (destination === 'london') {
 				price = 183
 			} else if (destination === `paris`) {
 				price = 220
@@ -263,7 +260,7 @@
 		function rentalCarCost (days) {
 			if (days > 0) {
 			} else {
-				nights = Number(prompt(`for how many days you would like to rent?`))
+				nights = Number(prompt(`for how many days you would like to rent? please write a number`))
 			}
 			let carCost = 0
 			if (days < 11) {
