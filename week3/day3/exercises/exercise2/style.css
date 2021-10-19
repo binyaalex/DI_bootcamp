@@ -1,0 +1,29 @@
+
+
+.square {
+	height: 150px;
+	width: 150px;
+	border: 1px solid blue;
+	background-color: lightblue;
+	position: relative;
+	top: 5px;
+	left: 5px;
+}
+
+.box {
+	height: 160px;
+	width: 160px;
+	border: 2px solid black;
+	margin: 10px;
+	display: inline-block;
+}
+
+
+
+.hold {
+	opacity: 50%;
+}
+
+.invisible {
+	display: none;
+}
