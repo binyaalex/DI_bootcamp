@@ -1,0 +1,58 @@
+body {
+	background: linear-gradient(#e66465, #9198e5);
+	height: 100%;
+	background-attachment: fixed;
+}
+
+#main {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+}
+
+h3 {
+	color: whitesmoke;
+}
+
+form {
+	margin-bottom: 15px;
+}
+
+#head {
+	background-color: white;
+}
+
+form input {
+	border: 1px solid white;
+}
+
+button {
+	background-color: white;
+	border:0;
+	padding: 2.1px;
+}
+
+#list {
+	/*display: inline-block;*/
+	width: 16%
+}
+
+li {
+	border-bottom: 1px solid lightgray;
+	position: relative;
+	background-color: white;
+	padding: 0 5px;
+	list-style-type: none;
+}
+
+li > input {
+	position: absolute;
+	right: 12px;
+}
+
+i {
+	position: absolute;
+	right: 2px;
+	margin-top: 1px;
+}
