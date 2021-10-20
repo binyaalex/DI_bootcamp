@@ -1,8 +1,9 @@
 let sidebar = document.getElementById('sidebar');
 let main = document.getElementById('main');
-let colorArr = [`red`, `orangered`, `orange`, `yellow`, `yellowgreen`, `lightgreen`, `green`, `turquoise`, `cyan`, `lightskyblue`, `dodgerblue`, `blue`, `darkblue`, `indigo`, `darkmagenta`, `violet`, `lightpink`, `lightgray`, `gray`, `black`, `white`]
-let myColor
-let isMouseDown
+let colorArr = [`red`, `orangered`, `orange`, `yellow`, `yellowgreen`, `lightgreen`, `green`, `turquoise`, `cyan`, `lightskyblue`, `dodgerblue`, `blue`, `darkblue`, `indigo`, `darkmagenta`, `violet`, `lightpink`, `lightgray`, `gray`, `black`, `white`];
+let myColor;
+let isMouseDown;
+let btn = document.getElementById('btn');
 
 function pallet () {
 	for (let i = 0; i < colorArr.length; i++) {
@@ -51,4 +52,12 @@ function mouseCheck(e) {
 
 function mouseUp () {
 	isMouseDown = false;
+}
+
+btn.addEventListener(`click`, clearMain)
+
+function clearMain () {
+	for (let i = 0; i < 1440; i++) {
+		main.children[i].style.backgroundColor = `white`;
+	}
 }
