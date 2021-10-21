@@ -39,6 +39,11 @@ section {
 	justify-content: space-around;
 }
 
+section > button {
+	align-self: center;
+	width: 60px;
+}
+
 h1 {
 	margin-bottom: 0;
 }

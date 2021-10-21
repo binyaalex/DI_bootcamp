@@ -3,6 +3,8 @@ let start = document.getElementById('start')
 let h1 = document.getElementById('h1')
 let player1Dice = document.getElementById('player1')
 let player2Dice = document.getElementById('player2')
+let showHide1 = document.getElementById(`show1`)
+let showHide2 = document.getElementById(`show2`)
 let gambleBtn = document.getElementById('gamble')
 let many = document.getElementById('many')
 let dice = document.getElementById('dice')
@@ -20,6 +22,8 @@ let gamble = [1, 1]
 start.addEventListener(`click`,startGame)
 gambleBtn.addEventListener(`click`,raiseGamble)
 lie.addEventListener(`click`,whoWin)
+showHide1.addEventListener(`click`,showHideDice1)
+showHide2.addEventListener(`click`,showHideDice2)
 
 
 // the function create the dice of the players and mix them
@@ -29,12 +33,14 @@ function startGame () {
 		diceArr1[i] = Math.floor(Math.random() * 6) + 1;
 		let newD = document.createElement(`div`)
 		newD.textContent = diceArr1[i]
+		newD.style.display = `none`
 		player1Dice.appendChild(newD)
 	}
 	for (let i = 0; i < diceArr2.length; i++) {
 		diceArr2[i] = Math.floor(Math.random() * 6) + 1;
 		let newD = document.createElement(`div`)
 		newD.textContent = diceArr2[i]
+		newD.style.display = `none`
 		player2Dice.appendChild(newD)
 	}
 	start.style.display = `none`;
@@ -43,6 +49,33 @@ function startGame () {
 	allDice = []
 }
 
+function showHideDice1 () {
+	if (showHide1.textContent === `show`) {
+		for (let i = 0; i < player1Dice.children.length; i++) {
+			player1Dice.children[i].style.display = `block`;
+		}
+		showHide1.textContent = `hide`
+	} else {
+		for (let i = 0; i < player1Dice.children.length; i++) {
+			player1Dice.children[i].style.display = `none`;
+		}
+		showHide1.textContent = `show`
+	}
+}
+
+function showHideDice2 () {
+	if (showHide2.textContent === `show`) {
+		for (let i = 0; i < player2Dice.children.length; i++) {
+			player2Dice.children[i].style.display = `block`;
+		}
+		showHide2.textContent = `hide`
+	} else {
+		for (let i = 0; i < player1Dice.children.length; i++) {
+			player2Dice.children[i].style.display = `none`;
+		}
+		showHide2.textContent = `show`
+	}
+}
 // the function take the input of the player gamble
 //first check if the gamble legal
 //then update the gamble variable
