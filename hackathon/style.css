@@ -42,6 +42,7 @@ h1 {
 
 #inputs {
 	display: flex;
+	justify-content: center;
 }
 
 .input {
@@ -53,5 +54,6 @@ h1 {
 }*/
 
 #buttons > *{
-	margin: 10px
+	margin: 10px;
+	display: none;
 }
