@@ -1,0 +1,57 @@
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+section {
+	display: flex;
+	justify-content: space-around;
+}
+
+h1 {
+	margin-bottom: 0;
+}
+
+.playerdice {
+	display: flex;
+	flex-wrap: wrap;
+	height: 110px;
+}
+.playerdice > * {
+	font-size: 30px;
+}
+.playerdice div:nth-of-type(1) {
+	flex-basis: 50%
+}
+.playerdice div:nth-of-type(2) {
+	flex-basis: 50%
+}
+.playerdice div:nth-of-type(3) {
+	flex-basis: 50%
+}
+.playerdice div:nth-of-type(4) {
+	flex-basis: 50%
+}
+.playerdice div:nth-of-type(5) {
+	flex-basis: 100%
+}
+
+#inputs {
+	display: flex;
+}
+
+.input {
+	margin: 10px 5px;
+}
+
+/*#inputs > *{
+	margin: 10px 0;
+}*/
+
+#buttons > *{
+	margin: 10px
+}
