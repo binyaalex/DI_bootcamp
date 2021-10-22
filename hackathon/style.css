@@ -39,6 +39,11 @@ section {
 	justify-content: space-around;
 }
 
+section > button {
+	align-self: center;
+	width: 60px;
+}
+
 h1 {
 	margin-bottom: 0;
 }
@@ -47,6 +52,7 @@ h1 {
 	display: flex;
 	flex-wrap: wrap;
 	height: 110px;
+	justify-content: center;
 }
 .playerdice > * {
 	font-size: 30px;
