@@ -5,10 +5,11 @@ let player1Dice = document.getElementById('player1')
 let player2Dice = document.getElementById('player2')
 let showHide1 = document.getElementById(`show1`)
 let showHide2 = document.getElementById(`show2`)
-let gambleBtn = document.getElementById('gamble')
 let many = document.getElementById('many')
 let dice = document.getElementById('dice')
+let gambleBtn = document.getElementById('gamble')
 let lie = document.getElementById('lie')
+let playAgain = document.getElementById('playagain')
 
 // declare necessary variable
 let turn = 1
@@ -24,6 +25,7 @@ gambleBtn.addEventListener(`click`,raiseGamble)
 lie.addEventListener(`click`,whoWin)
 showHide1.addEventListener(`click`,showHideDice1)
 showHide2.addEventListener(`click`,showHideDice2)
+playAgain.addEventListener(`click`,clean)
 
 
 // the function create the dice of the players and mix them
@@ -124,8 +126,6 @@ function raiseGamble (e) {
 	} else {
 		h1.textContent = `player ${turn} a dice can be only between 1 to 6`
 	}
-	many.value = ``;
-	dice.value = ``;
 }
 
 // the function gather all the dice to one array
@@ -178,17 +178,19 @@ function whoWin (e) {
 		setTimeout(mixDice, 3000)	
 	} else  if (turn === 1){
 		h1.textContent = `player 2 you win!!!`
-		start.style.display = `inline-block`;
+		playAgain.style.display = `inline-block`;
 		gambleBtn.style.display = `none`;
 	} else {
 		h1.textContent = `player 1 you win!!!`
-		start.style.display = `inline-block`;
+		playAgain.style.display = `inline-block`;
 		gambleBtn.style.display = `none`;
 	}
 	
 	allDice = []
 	gamble = [0, 0]
 	lie.style.display = `none`;
+	many.value = ``;
+	dice.value = ``;
 }
 
 // the functions take one dice out from the loser
@@ -213,4 +215,21 @@ function mixDice () {
 	h1.textContent = `let's start another round, player ${turn} it's your turn`;
 	many.value = ``;
 	dice.value = ``;
+}
+
+
+function clean () {
+	for (let i = diceArr1.length; i >= 0; i--) {
+		player1Dice.children[i].remove()
+	}
+	for (let i = diceArr2.length; i >= 0; i--) {
+		console.log(i);
+		console.log(player2Dice.children[i])
+		player2Dice.children[i].remove()
+	}
+	console.log(player2Dice)
+	playAgain.style.display = `none`
+	showHide1.textContent = `show`
+	showHide1.textContent = `show`
+	startGame()
 }
