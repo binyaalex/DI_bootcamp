@@ -52,6 +52,7 @@ h1 {
 	display: flex;
 	flex-wrap: wrap;
 	height: 110px;
+	justify-content: center;
 }
 .playerdice > * {
 	font-size: 30px;

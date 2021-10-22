@@ -13,8 +13,8 @@ let lie = document.getElementById('lie')
 // declare necessary variable
 let turn = 1
 let loser
-let diceArr1 = [2, 1, 3, 3, 4]
-let diceArr2 = [3, 1, 2, 6, 2]
+let diceArr1 = []
+let diceArr2 = []
 let allDice = []
 let gamble = [1, 1]
 
@@ -29,50 +29,65 @@ showHide2.addEventListener(`click`,showHideDice2)
 // the function create the dice of the players and mix them
 // at the end stop display start button
 function startGame () {
-	for (let i = 0; i < diceArr1.length; i++) {
+	for (let i = 0; i < 5; i++) {
 		diceArr1[i] = Math.floor(Math.random() * 6) + 1;
 		let newD = document.createElement(`div`)
 		newD.textContent = diceArr1[i]
 		newD.style.display = `none`
 		player1Dice.appendChild(newD)
 	}
-	for (let i = 0; i < diceArr2.length; i++) {
+	for (let i = 0; i < 5; i++) {
 		diceArr2[i] = Math.floor(Math.random() * 6) + 1;
 		let newD = document.createElement(`div`)
 		newD.textContent = diceArr2[i]
 		newD.style.display = `none`
 		player2Dice.appendChild(newD)
 	}
+	let newD1 = document.createElement(`div`);
+	newD1.textContent = `?`;
+	newD1.style.fontSize = `90px`;
+	let newD2 = document.createElement(`div`);
+	newD2.textContent = `?`;
+	newD2.style.fontSize = `90px`;
+	player1Dice.appendChild(newD1);
+	player2Dice.appendChild(newD2);
 	start.style.display = `none`;
 	gambleBtn.style.display = `inline-block`;
 	h1.textContent = `player ${turn} it's your turn please gamble`
 	allDice = []
 }
 
+// the function show and hide the players dice
+// allows each player to hide the dice from the opponent
+// and to see the dice when asking the opponent to not lookS
 function showHideDice1 () {
 	if (showHide1.textContent === `show`) {
-		for (let i = 0; i < player1Dice.children.length; i++) {
+		for (let i = 0; i < player1Dice.children.length-1; i++) {
 			player1Dice.children[i].style.display = `block`;
 		}
+		player1Dice.children[player1Dice.children.length-1].style.display = `none`;
 		showHide1.textContent = `hide`
 	} else {
-		for (let i = 0; i < player1Dice.children.length; i++) {
+		for (let i = 0; i < player1Dice.children.length-1; i++) {
 			player1Dice.children[i].style.display = `none`;
 		}
+		player1Dice.children[player1Dice.children.length-1].style.display = `block`;
 		showHide1.textContent = `show`
 	}
 }
 
 function showHideDice2 () {
 	if (showHide2.textContent === `show`) {
-		for (let i = 0; i < player2Dice.children.length; i++) {
+		for (let i = 0; i < player2Dice.children.length-1; i++) {
 			player2Dice.children[i].style.display = `block`;
 		}
+		player2Dice.children[player2Dice.children.length-1].style.display = `none`;
 		showHide2.textContent = `hide`
 	} else {
-		for (let i = 0; i < player1Dice.children.length; i++) {
+		for (let i = 0; i < player2Dice.children.length-1; i++) {
 			player2Dice.children[i].style.display = `none`;
 		}
+		player2Dice.children[player2Dice.children.length-1].style.display = `block`;
 		showHide2.textContent = `show`
 	}
 }
@@ -109,6 +124,8 @@ function raiseGamble (e) {
 	} else {
 		h1.textContent = `player ${turn} a dice can be only between 1 to 6`
 	}
+	many.value = ``;
+	dice.value = ``;
 }
 
 // the function gather all the dice to one array
@@ -128,11 +145,15 @@ function whoWin (e) {
 	e.preventDefault()
 	gatherDice ()
 	let howMany = 0;
+	console.log(allDice)
+	console.log(gamble)
 	for (let i = 0; i < allDice.length; i++) {
 		if (allDice[i] == gamble[1] || allDice[i] === 1) {
 			howMany++
 		}
 	}
+	console.log(`howmany:${howMany}`)
+	console.log(`turn:${turn}`)
 	if (howMany >= gamble[0]) {
 		if (turn === 1) {
 			diceArr1.pop()
@@ -154,7 +175,7 @@ function whoWin (e) {
 	}
 	if (diceArr1.length > 0 && diceArr2.length > 0) {
 		h1.textContent = `player ${turn} you lost this round, you lost a dice`
-		setTimeout(mixDice, 3000)
+		setTimeout(mixDice, 3000)	
 	} else  if (turn === 1){
 		h1.textContent = `player 2 you win!!!`
 		start.style.display = `inline-block`;
@@ -172,11 +193,11 @@ function whoWin (e) {
 
 // the functions take one dice out from the loser
 function cutDice1() {
-	player1Dice.lastElementChild.remove()
+	player1Dice.firstElementChild.remove()
 }
 
 function cutDice2() {
-	player2Dice.lastElementChild.remove()
+	player2Dice.firstElementChild.remove()
 }
 
 //the function mix the dice and start another round
