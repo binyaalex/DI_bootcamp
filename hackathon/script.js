@@ -27,7 +27,14 @@ showHide1.addEventListener(`click`,showHideDice1)
 showHide2.addEventListener(`click`,showHideDice2)
 playAgain.addEventListener(`click`,clean)
 
-
+let i = 0;
+function typeWriter(text) {	
+  if (i < text.length) {
+    h1.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(function(){typeWriter(text)}, 100);
+  }
+}
 // the function create the dice of the players and mix them
 // at the end stop display start button
 function startGame () {
@@ -55,7 +62,10 @@ function startGame () {
 	player2Dice.appendChild(newD2);
 	start.style.display = `none`;
 	gambleBtn.style.display = `inline-block`;
-	h1.textContent = `player ${turn} it's your turn please gamble`
+	i = 0
+	h1.innerHTML = ``
+  	let text = `player ${turn} it's your turn please gamble`;
+	typeWriter(text)
 	allDice = []
 }
 
@@ -124,10 +134,16 @@ function checkGamble () {
 		} else if (dice.value != 1) {
 			raiseGamble()
 		} else {
-			h1.textContent = `player ${turn} you can't gamble on the first turn on 1`;	
+			i = 0
+			h1.innerHTML = ``
+  			let text = `player ${turn} you can't gamble on the first turn on 1`;
+			typeWriter(text)
 		}
 	} else {
-		h1.textContent = `player ${turn} a dice can be only between 1 to 6`;
+		i = 0
+		h1.innerHTML = ``
+		let text = `player ${turn} a dice can be only between 1 to 6`;
+		typeWriter(text)
 	}
 }
 
@@ -139,12 +155,18 @@ function raiseGamble() {
 		} else {
 			turn = 1
 		}
-		h1.textContent = `player ${turn} its you turn`
+		i = 0;
+		h1.innerHTML = ``
+		let text = `player ${turn} its you turn`;
+		typeWriter(text)
 		lie.style.display = `inline-block`;
 }
 
 function gambleNotRaised() {
-	h1.textContent = `player ${turn} you need to raise the gamble`;
+	i = 0;
+	h1.innerHTML = ``
+	let text = `player ${turn} you need to raise the gamble`;
+	typeWriter(text);
 }
 
 // the function gather all the dice to one array
@@ -193,18 +215,20 @@ function whoWin (e) {
 		}
 	}
 	if (diceArr1.length > 0 && diceArr2.length > 0) {
-		h1.textContent = `player ${turn} you lost this round, you lost a dice`
-		setTimeout(mixDice, 3000)	
-	} else  if (turn === 1){
-		h1.textContent = `player 2 you win!!!`
-		playAgain.style.display = `inline-block`;
-		gambleBtn.style.display = `none`;
+		i = 0;
+		h1.innerHTML = ``
+		let text = `player ${turn} you lost this round, you lost a dice`;
+		typeWriter(text);
+		setTimeout(mixDice, 5500)	
 	} else {
-		h1.textContent = `player 1 you win!!!`
+		i = 0;
+		h1.innerHTML = ``
+		let text = `player ${turn} you win!!!`;
+		typeWriter(text);
 		playAgain.style.display = `inline-block`;
 		gambleBtn.style.display = `none`;
-	}
-	
+	} 
+
 	allDice = []
 	gamble = [0, 0]
 	lie.style.display = `none`;
@@ -231,7 +255,10 @@ function mixDice () {
 		diceArr2[i] = Math.floor(Math.random() * 6) + 1;
 		player2Dice.children[i].textContent = diceArr2	[i]
 	}
-	h1.textContent = `let's start another round, player ${turn} it's your turn`;
+	i = 0;
+	h1.innerHTML = ``
+	let text = `let's start another round, player ${turn} it's your turn`;
+	typeWriter(text);
 	many.value = ``;
 	dice.value = ``;
 }
