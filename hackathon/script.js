@@ -28,12 +28,18 @@ showHide2.addEventListener(`click`,showHideDice2)
 playAgain.addEventListener(`click`,clean)
 
 let i = 0;
-function typeWriter(text) {	
-  if (i < text.length) {
-    h1.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(function(){typeWriter(text)}, 100);
-  }
+function typeWriter(text) {
+	gambleBtn.disabled = "disabled";
+	lie.disabled = "disabled";
+	if (i < text.length) {
+		h1.innerHTML += text.charAt(i);
+		i++;
+		setTimeout(function(){typeWriter(text)}, 100);
+	} else {
+		// gambleBtn.disabled = false;
+		lie.disabled = false;
+	}
+
 }
 // the function create the dice of the players and mix them
 // at the end stop display start button
@@ -68,6 +74,17 @@ function startGame () {
 	typeWriter(text)
 	allDice = []
 }
+
+function gambleBtnDisabled () {
+	gambleBtn.disabled = "disabled";
+	if (many.value !== `` && dice.value !== ``) {
+		gambleBtn.disabled = false;
+	}
+}
+
+gambleBtnDisabled()
+setInterval(gambleBtnDisabled, 100);
+
 
 // the function show and hide the players dice
 // allows each player to hide the dice from the opponent
