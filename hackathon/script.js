@@ -17,11 +17,11 @@ let loser
 let diceArr1 = []
 let diceArr2 = []
 let allDice = []
-let gamble = [1, 1]
+let gamble = [0, 0]
 
 //add event listeners to the buttons
 start.addEventListener(`click`,startGame)
-gambleBtn.addEventListener(`click`,raiseGamble)
+gambleBtn.addEventListener(`click`,checkGamble)
 lie.addEventListener(`click`,whoWin)
 showHide1.addEventListener(`click`,showHideDice1)
 showHide2.addEventListener(`click`,showHideDice2)
@@ -97,11 +97,42 @@ function showHideDice2 () {
 //first check if the gamble legal
 //then update the gamble variable
 //change the player turn and give Instructions
-function raiseGamble (e) {
-	e.preventDefault()
+function checkGamble () {
 	if (0 < dice.value && dice.value < 7) {
-		if (many.value > gamble[0]) {
-		gamble[0] = many.value
+		if (lie.style.display !== `none`) {
+			if ((dice.value == 1 && gamble[1] == 1) || (dice.value != 1 && gamble[1] != 1)) {
+				if (many.value > gamble[0]) {
+					raiseGamble()
+				} else if (many.value == gamble[0] && dice.value > gamble[1]) {
+					raiseGamble() 
+				} else {
+					gambleNotRaised();
+				}
+			} else if (dice.value == 1) {
+				if (many.value > gamble[0]/2) {
+					raiseGamble()
+				} else {
+					gambleNotRaised()
+				}
+			} else {
+				if (many.value >= gamble[0]*2) {
+					raiseGamble()
+				} else {
+					gambleNotRaised()
+				}
+			}
+		} else if (dice.value != 1) {
+			raiseGamble()
+		} else {
+			h1.textContent = `player ${turn} you can't gamble on the first turn on 1`;	
+		}
+	} else {
+		h1.textContent = `player ${turn} a dice can be only between 1 to 6`;
+	}
+}
+
+function raiseGamble() {
+	gamble[0] = many.value
 		gamble[1] = dice.value
 		if (turn === 1) {
 			turn = 2
@@ -110,22 +141,10 @@ function raiseGamble (e) {
 		}
 		h1.textContent = `player ${turn} its you turn`
 		lie.style.display = `inline-block`;
-		} else if (many.value == gamble[0] && dice.value > gamble[1]) {
-			gamble[0] = many.value
-			gamble[1] = dice.value
-			if (turn === 1) {
-				turn = 2
-			} else {
-				turn = 1
-			}
-			h1.textContent = `player ${turn} its you turn`
-			lie.style.display = `inline-block`; 
-		} else {
-			h1.textContent = `player ${turn} you need to raise the gamble`
-		}
-	} else {
-		h1.textContent = `player ${turn} a dice can be only between 1 to 6`
-	}
+}
+
+function gambleNotRaised() {
+	h1.textContent = `player ${turn} you need to raise the gamble`;
 }
 
 // the function gather all the dice to one array
