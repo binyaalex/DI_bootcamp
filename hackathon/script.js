@@ -23,8 +23,8 @@ let gamble = [0, 0]
 start.addEventListener(`click`,startGame)
 gambleBtn.addEventListener(`click`,checkGamble)
 lie.addEventListener(`click`,whoWin)
-showHide1.addEventListener(`click`,showHideDice1)
-showHide2.addEventListener(`click`,showHideDice2)
+showHide1.addEventListener(`click`,function () {showHideDice(showHide1,player1Dice)})
+showHide2.addEventListener(`click`,function() {showHideDice(showHide2,player2Dice)})
 playAgain.addEventListener(`click`,clean)
 
 // the function make type writer effect on the instructions to the player
@@ -48,30 +48,27 @@ function typeWriter(text) {
 // the function create the dice of the players and mix them
 // at the end stop display start button
 function startGame () {
+start1(diceArr1, player1Dice)
+start1(diceArr2, player2Dice)
+start2()
+}
+
+function start1 (diceArr, playerDice) {
 	for (let i = 0; i < 5; i++) {
-		diceArr1[i] = Math.floor(Math.random() * 6) + 1;
+		diceArr[i] = Math.floor(Math.random() * 6) + 1;
 		let newD = document.createElement(`div`)
-		newD.textContent = diceArr1[i]
+		newD.textContent = diceArr[i]
 		newD.style.display = `none`
-		player1Dice.appendChild(newD)
+		playerDice.appendChild(newD)
 	}
-	for (let i = 0; i < 5; i++) {
-		diceArr2[i] = Math.floor(Math.random() * 6) + 1;
-		let newD = document.createElement(`div`)
-		newD.textContent = diceArr2[i]
-		newD.style.display = `none`
-		player2Dice.appendChild(newD)
-	}
-	let newD1 = document.createElement(`div`);
-	newD1.textContent = `?`;
-	newD1.style.fontSize = `90px`;
-	newD1.style.fontFamily = `none`;
-	let newD2 = document.createElement(`div`);
-	newD2.textContent = `?`;
-	newD2.style.fontSize = `90px`;
-	newD2.style.fontFamily = `none`;
-	player1Dice.appendChild(newD1);
-	player2Dice.appendChild(newD2);
+	let newD = document.createElement(`div`);
+	newD.textContent = `?`;
+	newD.style.fontSize = `90px`;
+	newD.style.fontFamily = `none`;
+	playerDice.appendChild(newD);
+}
+
+function start2 () {	
 	start.style.display = `none`;
 	gambleBtn.style.display = `inline-block`;
 	i = 0
@@ -96,37 +93,22 @@ setInterval(gambleBtnDisabled, 100);
 // the function show and hide the players dice
 // allows each player to hide the dice from the opponent
 // and to see the dice when asking the opponent to not lookS
-function showHideDice1 () {
-	if (showHide1.textContent === `show`) {
-		for (let i = 0; i < player1Dice.children.length-1; i++) {
-			player1Dice.children[i].style.display = `block`;
+function showHideDice (showHide, playerDice) {
+	if (showHide.textContent === `show`) {
+		for (let i = 0; i < playerDice.children.length-1; i++) {
+			playerDice.children[i].style.display = `block`;
 		}
-		player1Dice.children[player1Dice.children.length-1].style.display = `none`;
-		showHide1.textContent = `hide`
+		playerDice.children[playerDice.children.length-1].style.display = `none`;
+		showHide.textContent = `hide`
 	} else {
-		for (let i = 0; i < player1Dice.children.length-1; i++) {
-			player1Dice.children[i].style.display = `none`;
+		for (let i = 0; i < playerDice.children.length-1; i++) {
+			playerDice.children[i].style.display = `none`;
 		}
-		player1Dice.children[player1Dice.children.length-1].style.display = `block`;
-		showHide1.textContent = `show`
+		playerDice.children[playerDice.children.length-1].style.display = `block`;
+		showHide.textContent = `show`
 	}
 }
 
-function showHideDice2 () {
-	if (showHide2.textContent === `show`) {
-		for (let i = 0; i < player2Dice.children.length-1; i++) {
-			player2Dice.children[i].style.display = `block`;
-		}
-		player2Dice.children[player2Dice.children.length-1].style.display = `none`;
-		showHide2.textContent = `hide`
-	} else {
-		for (let i = 0; i < player2Dice.children.length-1; i++) {
-			player2Dice.children[i].style.display = `none`;
-		}
-		player2Dice.children[player2Dice.children.length-1].style.display = `block`;
-		showHide2.textContent = `show`
-	}
-}
 // the function take the input of the player gamble
 //first check if the gamble legal
 //then update the gamble variable
@@ -218,20 +200,20 @@ function whoWin (e) {
 	if (howMany >= gamble[0]) {
 		if (turn === 1) {
 			diceArr1.pop()
-			cutDice1()
+			cutDice(player1Dice)
 		} else {
 			diceArr2.pop()
-			cutDice2()
+			cutDice(player2Dice)
 		}
 	} else {
 		if (turn === 1) {
 			turn = 2
 			diceArr2.pop()
-			cutDice2()
+			cutDice(player2Dice)
 		} else {
 			turn = 1
 			diceArr1.pop()
-			cutDice1()
+			cutDice(player1Dice)
 		}
 	}
 	if (diceArr1.length > 0 && diceArr2.length > 0) {
@@ -239,7 +221,7 @@ function whoWin (e) {
 		h1.innerHTML = ``
 		let text = `player ${turn} you lost this round, you lost a dice`;
 		typeWriter(text);
-		setTimeout(mixDice, 5500)	
+		setTimeout(nextRound, 5500)	
 	} else if (diceArr1.length == 0) {
 		turn = 2
 		i = 0;
@@ -257,7 +239,6 @@ function whoWin (e) {
 		playAgain.style.display = `inline-block`;
 		gambleBtn.style.display = `none`;
 	}
-
 	allDice = []
 	gamble = [0, 0]
 	lie.style.display = `none`;
@@ -266,24 +247,27 @@ function whoWin (e) {
 }
 
 // the functions take one dice out from the loser
-function cutDice1() {
-	player1Dice.firstElementChild.remove()
-}
-
-function cutDice2() {
-	player2Dice.firstElementChild.remove()
+function cutDice(playerDice) {
+	playerDice.firstElementChild.remove()
 }
 
 //the function mix the dice and start another round
-function mixDice () {
-	for (let i = 0; i < diceArr1.length; i++) {
-		diceArr1[i] = Math.floor(Math.random() * 6) + 1;
-		player1Dice.children[i].textContent = diceArr1[i]
+function nextRound () {
+	mixDice(diceArr1, player1Dice)
+	mixDice(diceArr2, player2Dice)
+	writeNext()
+}
+function mixDice (diceArr, playerDice) {
+	for (let i = 0; i < diceArr.length; i++) {
+		diceArr[i] = Math.floor(Math.random() * 6) + 1;
+		playerDice.children[i].textContent = diceArr[i]
 	}
-	for (let i = 0; i < diceArr2.length; i++) {
-		diceArr2[i] = Math.floor(Math.random() * 6) + 1;
-		player2Dice.children[i].textContent = diceArr2	[i]
-	}
+}
+	// for (let i = 0; i < diceArr2.length; i++) {
+	// 	diceArr2[i] = Math.floor(Math.random() * 6) + 1;
+	// 	player2Dice.children[i].textContent = diceArr2	[i]
+	// }
+function writeNext () {
 	i = 0;
 	h1.innerHTML = ``
 	let text = `let's start another round, player ${turn} it's your turn`;
