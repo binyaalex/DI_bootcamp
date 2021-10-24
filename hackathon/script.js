@@ -27,8 +27,11 @@ showHide1.addEventListener(`click`,showHideDice1)
 showHide2.addEventListener(`click`,showHideDice2)
 playAgain.addEventListener(`click`,clean)
 
+// the function make type writer effect on the instructions to the player
 let i = 0;
+let d;
 function typeWriter(text) {
+	d = 0
 	gambleBtn.disabled = "disabled";
 	lie.disabled = "disabled";
 	if (i < text.length) {
@@ -37,6 +40,7 @@ function typeWriter(text) {
 		setTimeout(function(){typeWriter(text)}, 100);
 	} else {
 		// gambleBtn.disabled = false;
+		d = 1
 		lie.disabled = false;
 	}
 
@@ -77,7 +81,7 @@ function startGame () {
 
 function gambleBtnDisabled () {
 	gambleBtn.disabled = "disabled";
-	if (many.value !== `` && dice.value !== ``) {
+	if (many.value !== `` && dice.value !== `` && d == 1) {
 		gambleBtn.disabled = false;
 	}
 }
@@ -128,23 +132,26 @@ function checkGamble () {
 	if (0 < dice.value && dice.value < 7) {
 		if (lie.style.display !== `none`) {
 			if ((dice.value == 1 && gamble[1] == 1) || (dice.value != 1 && gamble[1] != 1)) {
-				if (many.value > gamble[0]) {
+				if (Number(many.value) > gamble[0]) {
 					raiseGamble()
 				} else if (many.value == gamble[0] && dice.value > gamble[1]) {
 					raiseGamble() 
 				} else {
+					console.log(`1`)
 					gambleNotRaised();
 				}
 			} else if (dice.value == 1) {
-				if (many.value > gamble[0]/2) {
+				if (Number(many.value) > gamble[0]/2) {
 					raiseGamble()
 				} else {
+					console.log(`2`)
 					gambleNotRaised()
 				}
 			} else {
-				if (many.value >= gamble[0]*2) {
+				if (Number(many.value) >= gamble[0]*2) {
 					raiseGamble()
 				} else {
+					console.log(`3`)
 					gambleNotRaised()
 				}
 			}
@@ -237,14 +244,23 @@ function whoWin (e) {
 		let text = `player ${turn} you lost this round, you lost a dice`;
 		typeWriter(text);
 		setTimeout(mixDice, 5500)	
-	} else {
+	} else if (diceArr1.length == 0) {
+		turn = 2
 		i = 0;
 		h1.innerHTML = ``
 		let text = `player ${turn} you win!!!`;
 		typeWriter(text);
 		playAgain.style.display = `inline-block`;
 		gambleBtn.style.display = `none`;
-	} 
+	} else {
+		turn = 1
+		i = 0;
+		h1.innerHTML = ``
+		let text = `player ${turn} you win!!!`;
+		typeWriter(text);
+		playAgain.style.display = `inline-block`;
+		gambleBtn.style.display = `none`;
+	}
 
 	allDice = []
 	gamble = [0, 0]
