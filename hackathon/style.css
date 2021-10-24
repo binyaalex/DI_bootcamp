@@ -36,6 +36,10 @@ button {
 	background-color: rgba(255, 255, 230, 0.6);
 }
 
+h1 {
+	margin-bottom: 0;
+}
+
 section {
 	display: flex;
 	justify-content: space-around;
@@ -46,8 +50,8 @@ section > button {
 	width: 60px;
 }
 
-h1 {
-	margin-bottom: 0;
+h2 {
+	margin-bottom: 5px;
 }
 
 .playerdice {

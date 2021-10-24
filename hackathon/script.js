@@ -65,9 +65,11 @@ function startGame () {
 	let newD1 = document.createElement(`div`);
 	newD1.textContent = `?`;
 	newD1.style.fontSize = `90px`;
+	newD1.style.fontFamily = `none`;
 	let newD2 = document.createElement(`div`);
 	newD2.textContent = `?`;
 	newD2.style.fontSize = `90px`;
+	newD2.style.fontFamily = `none`;
 	player1Dice.appendChild(newD1);
 	player2Dice.appendChild(newD2);
 	start.style.display = `none`;
@@ -79,6 +81,8 @@ function startGame () {
 	allDice = []
 }
 
+// the function make buutons disabled while one of the inputs is empety
+// and also while inside typeWriter function
 function gambleBtnDisabled () {
 	gambleBtn.disabled = "disabled";
 	if (many.value !== `` && dice.value !== `` && d == 1) {
@@ -86,7 +90,6 @@ function gambleBtnDisabled () {
 	}
 }
 
-gambleBtnDisabled()
 setInterval(gambleBtnDisabled, 100);
 
 
@@ -137,21 +140,18 @@ function checkGamble () {
 				} else if (many.value == gamble[0] && dice.value > gamble[1]) {
 					raiseGamble() 
 				} else {
-					console.log(`1`)
 					gambleNotRaised();
 				}
 			} else if (dice.value == 1) {
 				if (Number(many.value) > gamble[0]/2) {
 					raiseGamble()
 				} else {
-					console.log(`2`)
 					gambleNotRaised()
 				}
 			} else {
 				if (Number(many.value) >= gamble[0]*2) {
 					raiseGamble()
 				} else {
-					console.log(`3`)
 					gambleNotRaised()
 				}
 			}
@@ -210,15 +210,11 @@ function whoWin (e) {
 	e.preventDefault()
 	gatherDice ()
 	let howMany = 0;
-	console.log(allDice)
-	console.log(gamble)
 	for (let i = 0; i < allDice.length; i++) {
 		if (allDice[i] == gamble[1] || allDice[i] === 1) {
 			howMany++
 		}
 	}
-	console.log(`howmany:${howMany}`)
-	console.log(`turn:${turn}`)
 	if (howMany >= gamble[0]) {
 		if (turn === 1) {
 			diceArr1.pop()
@@ -302,11 +298,8 @@ function clean () {
 		player1Dice.children[i].remove()
 	}
 	for (let i = diceArr2.length; i >= 0; i--) {
-		console.log(i);
-		console.log(player2Dice.children[i])
 		player2Dice.children[i].remove()
 	}
-	console.log(player2Dice)
 	playAgain.style.display = `none`
 	showHide1.textContent = `show`
 	showHide1.textContent = `show`
