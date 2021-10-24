@@ -86,32 +86,18 @@ let color = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
 let ordinal = ["th","st","nd","rd"];
 // Write a JavaScript program that displays the colors in the following order : “1st choice is Blue .” “2nd choice is Green.” “3rd choice is Red.” ect…
 
-
-function orderColors2 () {
-	for (let i = 0; i < color.length; i++) {
-		let d = 0
-		d++
-		if (i > 2) {
-			d = -1
-		}
-		console.log(`${i+1}${ordinal[d+1]} choice is ${colors[i]}`)
-	}
-}
-
-orderColors2()
+let orderColors2 = colors.forEach((element, index) => {
+		let d
+		index < 3 ?	d = index : d = -1 
+		console.log(`${index+1}${ordinal[d+1]} choice is ${colors[index]}`)	
+})
 
 // exercie 5
 // Write a JavaScript function that checks whether the value of an input is a string or not.
 
 // let isString = (array) => array.every(element => `number` !== typeof(element))
 
-console.log(isString('hello')); 
-//true
-console.log(isString([1, 2, 4, 0]));
-//false
-
-
-function isString (array) {
+let isString = array => {
 	if (`object` === typeof (array)) {
 		return array.every(element => `number` !== typeof(element))	
 	} else {
@@ -123,6 +109,10 @@ function isString (array) {
 	}
 
 }
+console.log(isString('hello')); 
+//true
+console.log(isString([1, 2, 4, 0]));
+//false
 
 // exercie 6
 // In this exercise, you have to decide which type of variables you have to use:
@@ -138,8 +128,7 @@ let bankAmount = 5000
 const vat = 1.17
 let details = ["+200", "-100", "+146", "+167", "-2900"]
 let moneyOfMonth = 0
-function endOfmonth () {
-	details.forEach((element, index, array) => {
+let endOfmonth = () => {details.forEach((element, index, array) => {
 		details[index] *= vat
 		moneyOfMonth += details[index]
 	})
