@@ -26,14 +26,15 @@ let users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resid
 // Using the map() method, say hello to the users using only their firstname (ie. “Hello Bradley”, “Hello Chloe” ect…)
 let first = users.map(element => `Hello ${element.firstName}`)
 for (let i = 0; i < first.length; i++) {
-	console.log(first[i])
+  console.log(first[i])
 }
 
 // Using the filter() method, congratulate only the Full Stack Residents.
-let full = users.filter(element => element.role === 'Full Stack Resident')
-for (let i = 0; i < full.length; i++) {
-	console.log(`Hello ${full[i].firstName}`)
-}
+let full = users
+           .filter(element => element.role === 'Full Stack Resident')
+           .map(element => element.firstName)
+           .forEach(element => console.log(`hello ${element}`))
+
 // exercise 3
 let epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
 // 1. Use the reduce() method to combine all of these into a single string.
@@ -49,9 +50,9 @@ let student = [{name: "Ray", course: "Computer Science", isPassed: true},
                {name: "Kimberly", course: "Artificial Intelligence", isPassed: false}, 
                {name: "Jamie", course: "Big Data", isPassed: false}];
 // Use the filter() method to congratulate the students that passed the course.
-let passed = student.filter(element => element.isPassed === true)
-for (let i = 0; i < passed.length; i++) {
-	console.log(`Hello ${passed[i].name}`)
-}
+let passed = student
+             .filter(element => element.isPassed === true)
+             .map(element => element.name)
+             .forEach(element => console.log(`Hello ${element}`))
 
 
