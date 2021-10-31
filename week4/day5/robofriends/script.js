@@ -90,26 +90,17 @@ class Robot {
 };
 
 
-robot0 = new Robot(robots[0].id, robots[0].name, robots[0].username, robots[0].email, robots[0].image);
-robot1 = new Robot(robots[1].id, robots[1].name, robots[1].username, robots[1].email, robots[1].image);
-robot2 = new Robot(robots[2].id, robots[2].name, robots[2].username, robots[2].email, robots[2].image);
-robot3 = new Robot(robots[3].id, robots[3].name, robots[3].username, robots[3].email, robots[3].image);
-robot4 = new Robot(robots[4].id, robots[4].name, robots[4].username, robots[4].email, robots[4].image);
-robot5 = new Robot(robots[5].id, robots[5].name, robots[5].username, robots[5].email, robots[5].image);
-robot6 = new Robot(robots[6].id, robots[6].name, robots[6].username, robots[6].email, robots[6].image);
-robot7 = new Robot(robots[7].id, robots[7].name, robots[7].username, robots[7].email, robots[7].image);
-robot8 = new Robot(robots[8].id, robots[8].name, robots[8].username, robots[8].email, robots[8].image);
-robot9 = new Robot(robots[9].id, robots[9].name, robots[9].username, robots[9].email, robots[9].image);
-
 for (let i = 0; i < robots.length; i++) {
+  let robot = new Robot(robots[i].id, robots[i].name, robots[i].username, robots[i].email, robots[i].image)
+  console.log(robot)
 	let newD = document.createElement(`div`)
 	newD.classList.add(`robot`)
 	let newI = document.createElement(`img`)
-	newI.setAttribute(`src`, robots[i].image) 
+	newI.setAttribute(`src`, robot.image) 
 	let newh = document.createElement(`h3`)
-	newh.textContent = robots[i].name
+	newh.textContent = robot.name
 	let newP = document.createElement(`p`)
-	newP.textContent = robots[i].email
+	newP.textContent = robot.email
 	newD.appendChild(newI)
 	newD.appendChild(newh)
 	newD.appendChild(newP)
