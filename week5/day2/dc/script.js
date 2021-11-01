@@ -3,8 +3,10 @@ let xhr = new XMLHttpRequest();
 const results = document.getElementById('results')
 let go = document.getElementById(`go`)
 let allData = {}
+const dltAll = document.getElementById(`dltAll`)
 
 go.addEventListener(`click`, search)
+dltAll.addEventListener(`click`, deleteAll)
 
 xhr.open('GET', `https://api.giphy.com/v1/gifs/trending?api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`);
 
@@ -82,4 +84,8 @@ function search() {
             results.children[i].style.display = `none`
         }
     })
+}
+
+function deleteAll() {
+    results.style.display = `none`
 }
