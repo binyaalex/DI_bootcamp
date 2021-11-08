@@ -1,0 +1,76 @@
+-- Database: public
+
+-- DROP DATABASE public;
+
+-- CREATE DATABASE public
+--     WITH 
+--     OWNER = postgres
+--     ENCODING = 'UTF8'
+--     LC_COLLATE = 'Hebrew_Israel.1255'
+--     LC_CTYPE = 'Hebrew_Israel.1255'
+--     TABLESPACE = pg_default
+--     CONNECTION LIMIT = -1;
+
+-- Instructions
+-- Use SQL to get the following from the database:
+-- All items, ordered by price (lowest to highest).
+-- Items with a price above 80 (80 included), ordered by price (highest to lowest).
+-- The first 3 customers in alphabetical order (A-Z) – exclude ‘id’ from the results.
+-- All last names (no other columns!), in reverse alphabetical order (Z-A)
+
+-- select * from items order by price
+-- select * from items where price >= 80 order by price desc
+-- select first_name, last_name from customers order by first_name limit 3
+-- select last_name from customers order by last_name desc
+
+-- Create a table named purchases. It should have 2 columns : customer_id and item_id. These columns are references from the tables customers and items. Edit the data of the purchases table:
+-- Add a row which references a customer by ID, but does not reference an item by ID (leave it blank). Does this work? Why/why not?
+-- Add 5 rows which reference existing customers and items.
+
+-- create table purchases (
+-- 	customer_id INTEGER REFERENCES customers (customer_id),
+-- 	item_id INTEGER REFERENCES items (item_id)
+-- )
+-- INSERT INTO purchases (customer_id)
+-- VALUES(1)
+-- INSERT INTO purchases (customer_id, item_id)
+-- VALUES(1,1);
+-- INSERT INTO purchases (customer_id, item_id)
+-- VALUES(2,2);
+-- INSERT INTO purchases (customer_id, item_id)
+-- VALUES(3,1);
+-- INSERT INTO purchases (customer_id, item_id)
+-- VALUES(4,2);
+-- INSERT INTO purchases (customer_id, item_id)
+-- VALUES(5,3);
+
+-- Use SQL to get the following from the database:
+-- All purchases. Is this information useful to us?
+-- All purchases, joining with the customers table.
+-- Purchases of the customer with the ID equal to 4.
+-- Purchases for a large desk AND a small desk
+
+-- select * from purchases
+
+-- SELECT *
+-- FROM customers
+-- inner JOIN purchases
+-- ON customers.customer_id = purchases.customer_id;
+
+-- SELECT *
+-- FROM items
+-- inner JOIN purchases
+-- ON items.item_id = purchases.item_id
+-- where items.measure = 'large' or items.measure = 'small';
+-- select * from items
+-- select * from customers
+-- select * from purchases
+-- insert into items (measure, item_name, price)
+-- values ('hard', 'drive', 50);
+-- INSERT INTO purchases (customer_id, item_id)
+-- VALUES(3,4);
+
+-- SELECT customers.first_name, customers.last_name, items.item_name
+-- FROM customers
+-- inner JOIN items
+-- ON customers.customer_id = items.item_id;
