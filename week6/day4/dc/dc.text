@@ -1,0 +1,84 @@
+-- Database: postgres
+
+-- DROP DATABASE postgres;
+
+-- CREATE DATABASE postgres
+--     WITH 
+--     OWNER = postgres
+--     ENCODING = 'UTF8'
+--     LC_COLLATE = 'Hebrew_Israel.1255'
+--     LC_CTYPE = 'Hebrew_Israel.1255'
+--     TABLESPACE = pg_default
+--     CONNECTION LIMIT = -1;
+
+-- COMMENT ON DATABASE postgres
+--     IS 'default administrative connection database';
+
+-- create table users (
+-- 	user_id serial primary key,
+-- 	name varchar(150)
+-- )
+
+-- create table orders (
+-- 	order_id serial primary key,
+-- 	user_id_fk integer references users (user_id) on delete cascade on update cascade
+-- )
+
+-- create table items (
+-- 	item_id serial primary key,
+-- 	name varchar(50),
+-- 	price integer not null,
+-- 	order_id_fk integer references orders (order_id) default null
+-- )
+
+-- insert into users (name)
+-- values('Dani Cohen')
+
+-- insert into orders (user_id_fk)
+-- values((select user_id from users where name = 'Dani Cohen'))
+
+-- insert into items (name, price, order_id_fk)
+-- values(
+-- 	'Doritos',
+-- 	7,
+-- 	(select order_id from orders where user_id_fk = 1)
+-- )
+
+-- Create a function that returns the total price for a given order.
+-- CREATE or REPLACE FUNCTION order_sum(oid integer) 
+-- RETURNS integer AS $total_price$
+-- declare
+-- 	total_price integer;
+-- BEGIN
+--    total_price := (SELECT sum(price) FROM items WHERE order_id_fk = oid);
+--    RETURN total_price;
+-- END;
+-- $total_price$ LANGUAGE plpgsql;
+
+-- insert into items (name, price, order_id_fk)
+-- values(
+-- 	'Bisli',
+-- 	8,
+-- 	(select order_id from orders where user_id_fk = 1)
+-- )
+
+-- SELECT * from order_sum(1)
+
+-- Create a function that returns the total price for a given order of a given user.
+-- CREATE or REPLACE FUNCTION user_order_sum(oid integer, uid integer) 
+-- RETURNS integer AS $total_price$
+-- declare
+-- 	total_price integer;
+-- BEGIN
+--    total_price := (SELECT sum(price) FROM items
+-- 				   inner join orders
+-- 				   on order_id_fk = order_id
+-- 				   WHERE order_id_fk = oid and user_id_fk = uid);
+--    RETURN total_price;
+-- END;
+-- $total_price$ LANGUAGE plpgsql;
+
+-- SELECT * from user_order_sum(1,1)
+
+
+
