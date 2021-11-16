@@ -39,12 +39,16 @@ app.get('/aboutMe/:hobby', (req, res)=>{
 
 app.get('/pic', (req, res)=>{
 	console.log(`url`)
-	res.send(urlJSON)
+	return res.sendFile(__dirname + '/public/pic.html')
 })
 
 
 app.listen(3000, ()=>{
   console.log('listen to port 3000');
+})
+
+app.get('/form', (req, res)=>{
+	return res.sendFile(__dirname + '/public/form.html')
 })
 
 app.get('/formData', (req,res)=>{
