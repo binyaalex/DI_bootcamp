@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="signin.css">
+</head>
+<body>
+	<header>
+		<h1>Travel Partner</h1>
+	</header>
+	<section>
+		<input type="text" name="destination" placeholder="destination">
+		<input class="date" type="text" name="from" placeholder="from" onfocus="(this.type='date')">
+		<input class="date" type="text" name="from" placeholder="to" onfocus="(this.type='date')">
+		<input list="types" name="type" placeholder="type of trip">
+		<datalist id="types">
+		    <option value="Nature">
+		    <option value="City">
+		    <option value="Shoping">
+		    <option value="Hiking">
+		    <option value="Beach">
+		    <option value="Football">
+		</datalist>
+		<button onclick="create()">create</button>
+	</section>
+	<script src="script.js"></script>
+
+</body>
+</html>
