@@ -11,6 +11,7 @@ const db = knex({
   }
 })
 
+// add the user sign in info to the database and return the info
 const addUser = (fn, ln, pw, user_age, user_email) => {
 	return db('users')
 	.insert({
@@ -23,6 +24,7 @@ const addUser = (fn, ln, pw, user_age, user_email) => {
 	.returning(['*'])
 }
 
+// sending the info the user to the server
 const log = (user_email, pw) => {
 	console.log(user_email)
 	return db('trips')
@@ -31,6 +33,7 @@ const log = (user_email, pw) => {
 	.where({email:user_email, password:pw})
 }
 
+// sending all the user trip to the server
 const allTrips = (user_id) => {
 	console.log(user_id)
 	return db('trips')
@@ -39,6 +42,7 @@ const allTrips = (user_id) => {
 	.where({'users.user_id':user_id})
 }
 
+// adding the trip to the database
 const addTrip = (uid, destination, start, end, type) => {
 	return db('trips')
 	.insert({
@@ -51,12 +55,58 @@ const addTrip = (uid, destination, start, end, type) => {
 	.returning(['*'])
 }
 
-const findTrip = (destination) => {
-	console.log(destination)
-	return db('trips')
-	.select('*')
-	.join('users', 'trips.user_id', 'users.user_id')
-	.where({destination:destination})
+// search the trip in the data base
+const findTrip = (destination, date, type) => {
+	console.log(date + type)
+	if (date == 'anydate' && type == 'anytype') {
+		console.log('only des')
+		return db('trips')
+		.select('*')
+		.join('users', 'trips.user_id', 'users.user_id')
+		.where({destination:destination})
+	} else if (date == 'anydate' && destination == 'anydestination') {
+		console.log('only des')
+		return db('trips')
+		.select('*')
+		.join('users', 'trips.user_id', 'users.user_id')
+		.where({type:type})
+	} else if (type == 'anytype' && destination == 'anydestination') {
+		console.log('only des')
+		return db('trips')
+		.select('*')
+		.join('users', 'trips.user_id', 'users.user_id')
+		.where('start_date', '<', date)
+		.where('end_date', '>', date)
+	} else if (date == 'anydate') {
+		console.log(destination)
+		return db('trips')
+		.select('*')
+		.join('users', 'trips.user_id', 'users.user_id')
+		.where({destination:destination, type:type})
+	} else if (type == 'anytype') {
+		console.log(destination + 'type0')
+		return db('trips')
+		.select('*')
+		.join('users', 'trips.user_id', 'users.user_id')
+		.where({destination:destination})
+		.where('start_date', '<', date)
+		.where('end_date', '>', date)
+	} else if (destination == 'anydestination') {
+		return db('trips')
+		.select('*')
+		.join('users', 'trips.user_id', 'users.user_id')
+		.where({type:type})
+		.where('start_date', '<', date)
+		.where('end_date', '>', date)
+	} else {
+		return db('trips')
+		.select('*')
+		.join('users', 'trips.user_id', 'users.user_id')
+		.where({type:type})
+		.where('start_date', '<', date)
+		.where('end_date', '>', date)
+	}
+	
 }
 
 module.exports = {

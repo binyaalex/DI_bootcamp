@@ -10,15 +10,8 @@ body {
 	justify-content: center;
 }
 
-div {
-	display: flex;
-	align-items: center;
-	height: 100%;
-	margin: 0 100px;
-}
-
-header, footer {
-	width: 35%;
+header, footer > div {
+	width: 35vw;
 	margin: 0;
 }
 
@@ -29,6 +22,16 @@ h1 {
 
 h2, h3, h4, h5 {
 	font-weight: 100;
+}
+
+div > h3 {
+	margin-top: 20px;
+	margin-bottom: 0; 
+}
+
+div > h4 {
+	margin-top: 2px;
+	margin-bottom: 0; 
 }
 
 section {
@@ -58,7 +61,7 @@ button:nth-child(1), button:nth-child(3), #find {
 	background-color: #1877F2;
 }
 
-button:nth-child(2), button:nth-child(4), button:nth-child(6), #back {
+button:nth-child(2), button:nth-child(4), button:nth-child(6) {
 	background-color: #42B72A;
 }
 	
@@ -66,4 +69,20 @@ button:nth-child(2), button:nth-child(4), button:nth-child(6), #back {
 	width: auto;
     background-color: white;
     text-align: left;
+}
+
+div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+#back {
+	background-color: black;
+}
+
+#out {
+	background-color: #6C757D;
 }

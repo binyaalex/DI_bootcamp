@@ -4,7 +4,6 @@
 	<title></title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="signin.css">
 </head>
 <body>
 	<header>
@@ -12,8 +11,18 @@
 	</header>
 	<section>
 		<input type="text" name="destination" placeholder="destination">
+		<input class="date" type="text" name="date" placeholder="date" onfocus="(this.type='date')">		
+		<input list="types" name="type" placeholder="type of trip">
+		<datalist id="types">
+		    <option value="Nature">
+		    <option value="City">
+		    <option value="Shoping">
+		    <option value="Hiking">
+		    <option value="Beach">
+		    <option value="Football">
+		</datalist>
 		<button id="find" onclick="find()">Find</button>
-		<button id="back" onclick="goLoggedin()">Back To Your Profile</button>
+		<button id="back" onclick="goProfile()">Back To Your Profile</button>
 	</section>
 	<footer>
 	</footer>
