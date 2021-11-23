@@ -6,77 +6,102 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      isToggleOn: true,
-      username: '',
-      age: null,
-      errormessage: '',
-      textarea:'bla bla',
-      select:'Volvo'
+
     }    
   }
-  header = ''
 
   render(){
-    const {color} = this.state
-    const clickHandler = () => {
-      alert('I was clicked')
+    const firstName = (e) => {
+      let name = document.querySelectorAll('p')[0]
+      name.textContent = `Your name: ${e.target.value}`
     }
-    const handleKeyPress = (e) => {
-      if (e.code === 'Enter') {
-        const value = e.target.value
-        alert(`the enter key was pressed, your input is: ${value}`)  
+    const lastName = (e) => {
+      let name = document.querySelectorAll('p')[0]
+      name.textContent = `Your name: ${e.target.previousElementSibling.previousElementSibling.value} ${e.target.value}`
+    }
+    const age = (e) => {
+      let age = document.querySelectorAll('p')[1]
+      age.textContent = `Your age: ${e.target.value}`
+    }
+    const gender = (e) => {
+      let gender = document.querySelectorAll('p')[2]
+      if (document.querySelectorAll('input')[3].checked || document.querySelectorAll('input')[4].checked) {
+        gender.textContent = `Your gender: ${e.target.value}` 
       }
     }
-    const toggle = (e) => {
-      if (e.target.textContent === 'ON') {
-        e.target.textContent = 'OFF'
-        this.setState({isToggleOn:false})
+    const destination = (e) => {
+      let destination = document.querySelectorAll('p')[3]
+      destination.textContent = `Your destination: ${e.target.value}`
+    }
+    const nuts = (e) => {
+      let nuts = document.querySelectorAll('span')[3]
+      if (document.querySelectorAll('input')[5].checked) {
+        nuts.textContent = `**Nuts free : Yes` 
       } else {
-        e.target.textContent = 'ON'
-        this.setState({isToggleOn:true})
+        nuts.textContent = `**Nuts free : No`
+      }
+    }
+    const Lactose = (e) => {
+      let Lactose = document.querySelectorAll('span')[4]
+      if (document.querySelectorAll('input')[6].checked) {
+        Lactose.textContent = `**Nuts free : Yes` 
+      } else {
+        Lactose.textContent = `**Nuts free : No`
+      }
+    }
+    const vegan = (e) => {
+      let vegan = document.querySelectorAll('span')[5]
+      if (document.querySelectorAll('input')[7].checked) {
+        vegan.textContent = `**Nuts free : Yes` 
+      } else {
+        vegan.textContent = `**Nuts free : No`
       }
     }
 
-    const displayUser = (e) => {
-      this.header = 'Hello '
-      const value = e.target.value
-      this.setState({username:value})
-    }
-    const displayAge = (e) => {
-      const value = e.target.value
-      
-      this.header = 'Hello '
-      this.setState({age:value})
-      if (isNaN(value)) {
-        this.setState({errormessage:'your age must be a number'})
-      }
-    }
-    const mySubmitHandler = (e) => {
-      e.preventDefault()
-      alert(`you are submitting ${this.state.username}`)
-    }
     return (
       <>
        <div>
-        <button onClick={clickHandler}>Click Me!</button>
-        <input onKeyPress={handleKeyPress} type='text' placeholder='press the ENTER key'/>
-        <button onClick={toggle}>ON</button>
-       </div>
-       <div>
-         <form onSubmit={mySubmitHandler}>
-          <h1>{this.header}{this.state.username} {this.state.age}</h1>
-          <p>Enter your name:</p>
-          <input onChange={displayUser} type='text'/>
-          <p>Enter your age:</p>
-          <input onChange={displayAge} type='text'/>{this.state.errormessage}
-          <input type="submit" value="submit"/>
-          <textarea value={this.state.textarea}/>
-          <select value={this.state.select}>
-            <option>Ford</option>
-            <option>Volvo</option>
-            <option>Fiat</option>
-          </select>
-         </form>
+        <main>
+          <h1>Sample form</h1>
+          <form class="inputForm">
+            <input onChange={firstName} class="text" name="firstName" placeholder="First Name"/><br/>
+            <input onChange={lastName} class="text" name="lastName" placeholder="Last Name"/><br/>
+            <input onChange={age} class="text" name="age" placeholder="Age"/><br/><br/>
+            <label>
+              <input onChange={gender} class="radiobutton" type="radio" name="gender" value="male"/>Male
+            </label>
+            <label><br/>
+              <input onChange={gender} class="radiobutton" type="radio" name="gender" value="female"/>Female
+            </label><br/>
+            <label class="destination-header">Select your destination</label><br/>
+            <select onChange={destination} class="destination-input" name="destination">
+              <option value="">-- Please Choose a destination --</option>
+              <option value="Thailand">Thailand</option>
+              <option value="Japan">Japan</option>
+              <option value="Brazil">Brazil</option>
+            </select><br/><br/>
+            <label class="restrictions-title">Dietary restrictions:</label><br/>
+            <div class="restrictions">
+              <input onChange={nuts} type="checkbox" name="nutsFree"/><span>Nuts free</span><br/>
+              <input onChange={Lactose} type="checkbox" name="lactoseFree"/><span>Lactose free</span><br/>
+              <input onChange={vegan} type="checkbox" name="isVegan"/><span>Vegan</span>
+            </div>
+            <button class="submit">Submit</button>
+          </form>
+          <hr/>
+          <div class="entered-info">
+            <h2>Entered information:</h2>
+            <p>Your name:  </p>
+            <p>Your age: </p>
+            <p>Your gender: </p>
+            <p>Your destination: </p>
+            <p>Your dietary restrictions: </p>
+            <div class="restrictions"><span>**Nuts free : No</span> 
+            <br/><span>**Lactose free : No</span> 
+            <br/><span>**Vegan meal : No</span>
+          </div>
+        </div>
+      </main>
        </div> 
       </>
     )
