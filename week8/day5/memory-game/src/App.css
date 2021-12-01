@@ -36,3 +36,78 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(to left top,#00f,red) 50% fixed;
+  padding-bottom: 10px;
+  color: whitesmoke;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header > div {
+  width: 64%;
+}
+
+.points {
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 23px;
+}
+
+.card {
+  background-color: white;
+  border: 5px solid white;
+  border-radius: 2px;
+  margin: 40px 20px;
+  position: relative;
+  height: 300px;
+  width: 250px;
+  box-shadow: 0 3px 6px gray, 0 3px 6px gray;
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px #999, 0 12px 24px #999;
+  height: 300px;
+  width: 250px;
+  cursor: pointer;
+}
+
+img {
+  width: 80%;
+  height: 80%;
+  margin-top:4px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  height: 18%;
+  justify-content: center;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.text > p {
+  margin: 0;
+  font-weight: lighter;
+}
+
+strong {
+  font-weight: 600;
+}

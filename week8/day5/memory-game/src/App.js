@@ -141,7 +141,18 @@ class App extends React.Component {
     const {superheroes} = this.state
     return (
       <>
-        <h1>your score: {this.state.score} your record: {this.state.record}</h1>
+        <header>
+          <div>
+            <div>
+              <h1>Superheroes Memory Game</h1>
+              <div className='points'>
+                <p>Score: {this.state.score}</p>
+                <p>Record: {this.state.record}</p>
+              </div>
+            </div>
+            <h2>Get points by clicking on an image but don't click on any more than once!</h2>
+          </div>
+        </header>
         <Container>
           <Cardlist choose={this.choose} arr={superheroes}/>
         </Container>

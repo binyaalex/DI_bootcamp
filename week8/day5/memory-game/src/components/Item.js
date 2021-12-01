@@ -11,12 +11,12 @@ const Item = (props) => {
 	const{id,clicked,name,image,occupation} = hero
 	return (
 		<Col cs={6} md={3}>
-			<Card onClick={() => choose(id)} style={{ width: '100px', height: '300px', border: '1px solid black' }}>
-			  <Card.Img variant="top" src={image} width='100px' />
-			  <Card.Body>
-			    <Card.Title>{name}</Card.Title>
+			<Card onClick={() => choose(id)} className='card'>
+			  <Card.Img variant="top" src={image} />
+			  <Card.Body className='text'>
+			    <Card.Title className='title'>{name}</Card.Title>
 			    <Card.Text>
-			      {occupation}
+			      <strong>occupation: </strong>{occupation}
 			    </Card.Text>
 			  </Card.Body>
 			</Card>	
