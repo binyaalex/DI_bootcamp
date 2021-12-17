@@ -122,6 +122,14 @@ input:focus-visible {
   outline: 0;
 }
 
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .signBtn {
   background: -webkit-linear-gradient(right,#00dbde,#fc00ff);
   border-radius: 30px;
@@ -279,7 +287,8 @@ input:focus-visible {
 
 .userMessage::before{
   background-color: #DCF8C6;
-  left:91px;
+  left:auto;
+  right: -4px;
 }
 
 .otherMessage {
@@ -292,6 +301,9 @@ input:focus-visible {
   justify-content: space-evenly;
   background-color: #E5DDD5;
   display: none;
+  position: absolute;
+  bottom: 0;
+  width: inherit;
 }
 
 .sendMessageDiv > * {

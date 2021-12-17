@@ -47,39 +47,57 @@ io.on('connection', socket => {
 
   })
 
-  socket.on('loginUserName', userName => {
-    console.log('From client: ', userName)
-    socket.userName = userName
+  socket.on('userPassword', userPassword => {
+    console.log('From client: ', userPassword)
+    socket.userPassword = userPassword
+
+  })
+
+  socket.on('loginUserPassword', userPassword => {
+    console.log('From client: ', userPassword)
+    socket.userPassword = userPassword
   })
 
   socket.on('loginUserNumber', userNumber => {
     console.log('From client: ', userNumber)
     socket.userNumber = userNumber
-    db.select('phone_number').from('users')
+    db.select('*').from('users')
     .where({phone_number: socket.userNumber})
     .returning('*')
     .then(data => {
-      console.log('data:', data)
-      if (data === []) {
-        socket.emit('loginfailed')         
+      console.log(data)
+      if (data.length > 0) {
+        if (data[0].phone_number == socket.userNumber && data[0].password == socket.userPassword) {
+          db.select('username', 'room_id').from('users')
+          .where({phone_number_1: socket.userNumber})
+          .whereNot({phone_number: socket.userNumber})
+          .orWhere({phone_number_2: socket.userNumber})
+          .whereNot({phone_number: socket.userNumber})
+          .join('rooms', function() {
+            this.on('phone_number_1', '=', 'phone_number').orOn('phone_number_2', '=', 'phone_number')
+          })
+          .returning('*')
+          .then(data => {
+            console.log(data)
+            socket.emit('getrooms', data)
+          })
+          .catch(e => {
+            console.log(e)
+          })
+          db.select('*').from('users')
+          .where({phone_number: socket.userNumber})
+          .then(data => {
+            socket.emit('getuser', data)
+          })
+          .catch(e => {
+            console.log(e)
+          })
+        } else { 
+          console.log('else')       
+          socket.emit('passworduncorrect')
+        }
       } else {
-        console.log('else')
-        db.select('username', 'room_id').from('users')
-        .where({phone_number_1: socket.userNumber})
-        .whereNot({phone_number: socket.userNumber})
-        .orWhere({phone_number_2: socket.userNumber})
-        .whereNot({phone_number: socket.userNumber})
-        .join('rooms', function() {
-          this.on('phone_number_1', '=', 'phone_number').orOn('phone_number_2', '=', 'phone_number')
-        })
-        .returning('*')
-        .then(data => {
-          console.log(data)
-          socket.emit('getrooms', data)
-        })
-        .catch(e => {
-          console.log(e)
-        })
+        socket.emit('loginfailed')         
       }
     })
     .catch( e => {
@@ -91,21 +109,43 @@ io.on('connection', socket => {
   socket.on('userNumber', userNumber => {
     console.log('From client: ', userNumber)
     socket.userNumber = userNumber
-    db('users')
-    .insert(
-      [
-        {
-          phone_number: socket.userNumber,
-          username: socket.userName
-        }
-      ]
-    )
+    db.select('phone_number').from('users')
+    .where({phone_number: socket.userNumber})
     .returning('*')
-    .then( data => {
+    .then(data => {
       console.log('data:', data)
+      if (data.length === 0) {
+        db('users')
+        .insert(
+          [
+            {
+              phone_number: socket.userNumber,
+              username: socket.userName,
+              password: socket.userPassword
+            }
+          ]
+        )
+        .returning('*')
+        .then( data => {
+          console.log('data:', data)
+        })
+        .catch(e => {
+          console.log('error:',e)
+        })
+        db.select('*').from('users')
+        .where({phone_number: socket.userNumber})
+        .then(data => {
+          socket.emit('getuser', data)
+        })
+        .catch(e => {
+          console.log(e)
+        }) 
+      } else {
+        socket.emit('signinfailed')         
+      }
     })
     .catch(e => {
-      console.log('error:',e)
+      console.log(e)
     })
   })
 
@@ -204,7 +244,12 @@ io.on('connection', socket => {
     console.log('room',socket.roomNumber)
     console.log('massage: ', message)
     console.log('username: ', socket.userName)
-    io.to(socket.roomNumber).emit('chat', {message : message, userName : socket.userName, userRoom : socket.roomNumber})
+    io.to(socket.roomNumber).emit('chat', {
+      message : message,
+      userName : socket.userName,
+      userNumber: socket.userNumber,
+      userRoom : socket.roomNumber
+    })
     db('chats')
     .insert(
       [

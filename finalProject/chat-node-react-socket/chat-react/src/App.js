@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Sign from './components/Sign';
@@ -15,10 +15,6 @@ let socket = io("http://localhost:5000", {
 });
 
 function App() {
-  // const [userInputName, setUserInputName] = useState('');
-  // const [userInputNumber, setUserInputNumber] = useState('');
-  // const [sendInputNumber, setSendInputNumber] = useState('');
-  // const [chatInput, setChatInput] = useState('');
 
   const ENDPOINT = 'http://localhost:5000/';
   const history = useHistory();
@@ -26,8 +22,16 @@ function App() {
   useEffect(() => {
         socket = io(ENDPOINT);
 
+        socket.on('signinfailed', data=> {
+          alert('this phone number already sign in, try to log in')
+        })
+
         socket.on('loginfailed', data=> {
           alert('there is not a user with this phone number you need to sign in')
+        })
+
+        socket.on('passworduncorrect', data=> {
+          alert('your password is not correct please try again')
         })
 
         socket.on('roomexist', data=> {
@@ -37,6 +41,14 @@ function App() {
         socket.on('getrooms', data=> {
           console.log(data)
           getRoomsF(data)
+        })
+
+        socket.on('getuser', user=> {
+          console.log(user)
+          let greeting = document.createElement('h1')
+          greeting.textContent = `Hello ${user[0].username}`
+          const conversation = document.querySelector('.conversation')
+          conversation.appendChild(greeting)
         })
 
         socket.on('getmessageshistory', data=> {
@@ -64,12 +76,13 @@ function App() {
         })
 
         socket.on('chat', chat => {
+          console.log(chat.userNumber)
           const conversation = document.querySelector('.conversation')
           console.log(conversation)
           console.log('From server: ', chat)
           let div = document.createElement('div')
           div.classList.add('message')
-          if (userInputName == chat.userName) {
+          if (userInputNumber == chat.userNumber) {
             div.classList.add('userMessage')  
           } else { 
             div.classList.add('otherMessage')  
@@ -92,16 +105,19 @@ function App() {
     console.log(1)
     userInputName = document.getElementById('userInputName').value
     userInputNumber = document.getElementById('userInputNumber').value
+    let userInputPassword = document.getElementById('userInputPassword').value
+    console.log(userInputPassword)
     socket.emit('userName', userInputName)
+    socket.emit('userPassword', userInputPassword)
     socket.emit('userNumber', userInputNumber)
     // window.location.href = '/main'
   }
 
   const LogInF = () => {
     console.log(1)
-    userInputName = document.getElementById('userInputName').value
     userInputNumber = document.getElementById('userInputNumber').value
-    socket.emit('loginUserName', userInputName)
+    let userInputPassword = document.getElementById('userInputPassword').value
+    socket.emit('loginUserPassword', userInputPassword)
     socket.emit('loginUserNumber', userInputNumber)
   }
 
@@ -176,6 +192,12 @@ function App() {
     socket.emit('inRoom', roomNumber)    
     console.log(e.target.classList[0])
     const rooms = document.querySelector('.conversation').children
+    console.log(rooms)
+    for (let i = 0; i < rooms.length; i++) {
+      if (rooms[i].localName === 'h1') {
+        rooms[i].remove()
+      } 
+    }
     for (let i = 0; i < rooms.length; i++) {
       if (rooms[i].className == roomNumber) {
         document.querySelector('.conversation').children[i].style.display = 'unset'
