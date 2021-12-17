@@ -6,7 +6,7 @@ const Main = (props) => {
 				<div className='contacts'>
 					<div className='addDiv'>
 						<div className='addInputs'>
-	      					<input onChange={saveSendNum} type="text" name="sendInputNumber" placeholder="phone number" className="sendInputNumber"/>
+	      					<input onChange={saveSendNum} type="number" name="sendInputNumber" placeholder="phone number" className="sendInputNumber"/>
 	      					<input onChange={saveSendName} type="text" name="sendInputName" placeholder="name" className="sendInputName"/>
 						</div>
 						<button onClick={add} className='addBtn' >+</button>

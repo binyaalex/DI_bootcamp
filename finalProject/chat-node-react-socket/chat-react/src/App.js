@@ -3,7 +3,9 @@ import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Sign from './components/Sign';
 import Main from './components/Main';
+import Login from './components/Login';
 import io from 'socket.io-client';
+import { useHistory } from "react-router-dom";
 
 let socket = io("http://localhost:5000", {
   withCredentials: true,
@@ -19,9 +21,48 @@ function App() {
   // const [chatInput, setChatInput] = useState('');
 
   const ENDPOINT = 'http://localhost:5000/';
+  const history = useHistory();
 
   useEffect(() => {
         socket = io(ENDPOINT);
+
+        socket.on('loginfailed', data=> {
+          alert('there is not a user with this phone number you need to sign in')
+        })
+
+        socket.on('roomexist', data=> {
+          alert('you already have this person at your contact list')
+        })
+
+        socket.on('getrooms', data=> {
+          console.log(data)
+          getRoomsF(data)
+        })
+
+        socket.on('getmessageshistory', data=> {
+          console.log(data)
+          const conversation = document.querySelector('.conversation')
+          console.log(conversation)
+          for (let i = 0; i < data.length; i++) {
+            let div = document.createElement('div')
+            div.classList.add('message')
+            if (userInputNumber == data[i].message_send) {
+              div.classList.add('userMessage')  
+            } else { 
+              div.classList.add('otherMessage')  
+            }
+            let text = document.createElement('div')
+            text.textContent = data[i].message_text
+            div.appendChild(text)
+            for (let i = 0; i < conversation.children.length; i++) {
+              if (conversation.children[i].className == data[i].room_id) {
+                conversation.children[i].children[1].appendChild(div)
+                conversation.children[i].children[1].scrollTop = conversation.children[i].children[1].scrollHeight
+              } 
+            }  
+          }
+        })
+
         socket.on('chat', chat => {
           const conversation = document.querySelector('.conversation')
           console.log(conversation)
@@ -33,10 +74,7 @@ function App() {
           } else { 
             div.classList.add('otherMessage')  
           }
-          // let userName = document.createElement('div')
           let text = document.createElement('div')
-          // userName.textContent = chat.userName + ': '
-          // div.appendChild(userName)
           text.textContent = chat.message
           div.appendChild(text)
           for (let i = 0; i < conversation.children.length; i++) {
@@ -56,6 +94,15 @@ function App() {
     userInputNumber = document.getElementById('userInputNumber').value
     socket.emit('userName', userInputName)
     socket.emit('userNumber', userInputNumber)
+    // window.location.href = '/main'
+  }
+
+  const LogInF = () => {
+    console.log(1)
+    userInputName = document.getElementById('userInputName').value
+    userInputNumber = document.getElementById('userInputNumber').value
+    socket.emit('loginUserName', userInputName)
+    socket.emit('loginUserNumber', userInputNumber)
   }
 
   let sendNum
@@ -69,8 +116,31 @@ function App() {
     console.log(sendName)
   }
 
-  let roomNumber
+  const getRoomsF = (data) => {
+    const contactList = document.querySelector('.contactList')
+    const conversation = document.querySelector('.conversation')
+    for (let i = 0; i < data.length; i++) {
+      let person = document.createElement('p')
+      person.textContent = data[i].username
+      person.addEventListener('click', getInRoom)
+      contactList.appendChild(person)
+      person.setAttribute('class', data[i].room_id)
+      let personRoom = document.createElement('div')
+      personRoom.setAttribute('class', data[i].room_id)
+      let personRoomName = document.createElement('div')
+      personRoomName.textContent = data[i].username
+      personRoom.appendChild(personRoomName)
+      personRoom.style.display = 'none'
+      let messages = document.createElement('div')
+      messages.classList.add('messages')
+      personRoom.appendChild(messages)
+      conversation.appendChild(personRoom)
+    }
+  }
+
+  let roomNumber = ''
   const add = () => {
+    console.log('userInputNumber:', userInputNumber)
     const contactList = document.querySelector('.contactList')
     let person = document.createElement('p')
     person.textContent = sendName
@@ -86,7 +156,7 @@ function App() {
     }
     console.log(roomNumber)
     person.setAttribute('class', roomNumber)
-    socket.emit('sendRoom', roomNumber)    
+    socket.emit('joinRoom', roomNumber)    
     personRoom.setAttribute('class', roomNumber)
     let personRoomName = document.createElement('div')
     personRoomName.textContent = sendName
@@ -103,7 +173,7 @@ function App() {
 
   const getInRoom = (e) => {
     roomNumber = e.target.classList[0]
-    socket.emit('sendRoom', roomNumber)    
+    socket.emit('inRoom', roomNumber)    
     console.log(e.target.classList[0])
     const rooms = document.querySelector('.conversation').children
     for (let i = 0; i < rooms.length; i++) {
@@ -126,6 +196,9 @@ function App() {
     <BrowserRouter>
       <Route exact path="/">
         <Sign  signInF={signInF} />
+      </Route>
+      <Route exact path="/login">
+        <Login  LogInF={LogInF} />
       </Route>
       <Route exact path="/main">
         <Main saveSendNum={saveSendNum} saveSendName={saveSendName} add={add}  sendMessage={sendMessage} />
