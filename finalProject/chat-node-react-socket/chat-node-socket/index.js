@@ -68,7 +68,7 @@ io.on('connection', socket => {
       console.log(data)
       if (data.length > 0) {
         if (data[0].phone_number == socket.userNumber && data[0].password == socket.userPassword) {
-          db.select('username', 'room_id').from('users')
+          db.select('*').from('users')
           .where({phone_number_1: socket.userNumber})
           .whereNot({phone_number: socket.userNumber})
           .orWhere({phone_number_2: socket.userNumber})

@@ -66,10 +66,10 @@ function App() {
             let text = document.createElement('div')
             text.textContent = data[i].message_text
             div.appendChild(text)
-            for (let i = 0; i < conversation.children.length; i++) {
-              if (conversation.children[i].className == data[i].room_id) {
-                conversation.children[i].children[1].appendChild(div)
-                conversation.children[i].children[1].scrollTop = conversation.children[i].children[1].scrollHeight
+            for (let d = 0; d < conversation.children.length; d++) {
+              if (conversation.children[d].className == data[i].room_id) {
+                conversation.children[d].children[1].appendChild(div)
+                conversation.children[d].children[1].scrollTop = conversation.children[d].children[1].scrollHeight
               } 
             }  
           }
@@ -78,13 +78,17 @@ function App() {
         socket.on('chat', chat => {
           console.log(chat.userNumber)
           const conversation = document.querySelector('.conversation')
+          let unReadMessage = document.querySelector(`.unReadMessages${chat.userNumber}`)
           console.log(conversation)
           console.log('From server: ', chat)
           let div = document.createElement('div')
           div.classList.add('message')
           if (userInputNumber == chat.userNumber) {
             div.classList.add('userMessage')  
-          } else { 
+          } else {
+            unReadMessage.textContent++
+            console.log(unReadMessage)
+            unReadMessage.style.display = 'unset'
             div.classList.add('otherMessage')  
           }
           let text = document.createElement('div')
@@ -139,9 +143,16 @@ function App() {
       let person = document.createElement('p')
       person.textContent = data[i].username
       person.addEventListener('click', getInRoom)
-      contactList.appendChild(person)
       person.setAttribute('class', data[i].room_id)
+      contactList.appendChild(person)
+      let unReadMessages = document.createElement('span')
+      unReadMessages.textContent = 0
+      unReadMessages.style.display = 'none'
+      console.log(data[i])
+      unReadMessages.classList.add(`unReadMessages${data[i].phone_number}`)
+      person.appendChild(unReadMessages)
       let personRoom = document.createElement('div')
+      personRoom.setAttribute('id', data[i].room_id)
       personRoom.setAttribute('class', data[i].room_id)
       let personRoomName = document.createElement('div')
       personRoomName.textContent = data[i].username
@@ -159,6 +170,10 @@ function App() {
     console.log('userInputNumber:', userInputNumber)
     const contactList = document.querySelector('.contactList')
     let person = document.createElement('p')
+    let unReadMessages = document.createElement('span')
+    unReadMessages.textContent = 0
+    unReadMessages.style.display = 'none'
+    unReadMessages.classList.add(`unReadMessages${sendNum}`)
     person.textContent = sendName
     socket.emit('sendNumber', sendNum)    
     person.addEventListener('click', getInRoom)
@@ -174,6 +189,7 @@ function App() {
     person.setAttribute('class', roomNumber)
     socket.emit('joinRoom', roomNumber)    
     personRoom.setAttribute('class', roomNumber)
+    personRoom.setAttribute('id', roomNumber)
     let personRoomName = document.createElement('div')
     personRoomName.textContent = sendName
     personRoom.appendChild(personRoomName)
@@ -188,9 +204,17 @@ function App() {
   }
 
   const getInRoom = (e) => {
-    roomNumber = e.target.classList[0]
-    socket.emit('inRoom', roomNumber)    
+    console.log(e.target.children)
+    e.target.children[0].textContent = 0
+    e.target.children[0].style.display = 'none'
     console.log(e.target.classList[0])
+    roomNumber = e.target.classList[0]
+    console.log(document.getElementById(`${roomNumber}`).children[1])
+    console.log(document.getElementById(`${roomNumber}`).children[1].children.length)
+    if (document.getElementById(`${roomNumber}`).children[1].children.length === 0) {
+      console.log('hi')
+      socket.emit('inRoom', roomNumber)    
+    }
     const rooms = document.querySelector('.conversation').children
     console.log(rooms)
     for (let i = 0; i < rooms.length; i++) {

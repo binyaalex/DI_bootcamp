@@ -212,6 +212,20 @@ input::-webkit-inner-spin-button {
     margin: 0;
     padding: 15px 20px;
     border-bottom: 1px solid #DBDBDB;
+    position: relative;
+}
+
+.contactList > * > * {
+  position: absolute;
+  right: 15px;
+  font-weight: bold;
+  background-color: #0BCF05;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: white;
 }
 
 .conversationDiv {
