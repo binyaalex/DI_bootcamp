@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import {BrowserRouter, Route} from 'react-router-dom';
+import { render } from "react-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate
+} from "react-router-dom";
 import Sign from './components/Sign';
 import Main from './components/Main';
 import Login from './components/Login';
 import io from 'socket.io-client';
-import { useHistory } from "react-router-dom";
 
 let socket = io("http://localhost:5000", {
   withCredentials: true,
@@ -16,8 +21,8 @@ let socket = io("http://localhost:5000", {
 
 function App() {
 
+  // const navigate = useNavigate();
   const ENDPOINT = 'http://localhost:5000/';
-  const history = useHistory();
 
   useEffect(() => {
         socket = io(ENDPOINT);
@@ -123,6 +128,7 @@ function App() {
     let userInputPassword = document.getElementById('userInputPassword').value
     socket.emit('loginUserPassword', userInputPassword)
     socket.emit('loginUserNumber', userInputNumber)
+
   }
 
   let sendNum
@@ -239,17 +245,11 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Route exact path="/">
-        <Sign  signInF={signInF} />
-      </Route>
-      <Route exact path="/login">
-        <Login  LogInF={LogInF} />
-      </Route>
-      <Route exact path="/main">
-        <Main saveSendNum={saveSendNum} saveSendName={saveSendName} add={add}  sendMessage={sendMessage} />
-      </Route>
-    </BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Sign  signInF={signInF} />} />          
+        <Route exact path="/login" element={<Login  LogInF={LogInF} />} />
+        <Route exact path="/main" element={<Main saveSendNum={saveSendNum} saveSendName={saveSendName} add={add}  sendMessage={sendMessage} />} />
+      </Routes>
   );
 }
 
