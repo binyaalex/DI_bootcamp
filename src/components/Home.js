@@ -5,10 +5,7 @@ const Home = () => {
 		<div className='home'>
 			<div className='about'>
 				<h2 className='homeHeader'>Benjamin Alexander, A Full Stack Web Devoleper</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-				</p>
+				<p>Knowledg with Javascript, React, Node.js, Redux, Html, Css, Bootstrap and Github</p>
 				<Link to="/projects" className='projectsBtn'>My Projects</Link>
 			</div>
 			<div className='imgDiv'>
