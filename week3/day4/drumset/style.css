@@ -1,0 +1,82 @@
+
+
+body {
+	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfBIzUcFzE7kdCXDtc1dlSZL2FN52pClaNGQ&usqp=CAU);
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
+	width: 100vw;
+}
+
+section {
+	display: flex;
+	/*justify-content: space-around;*/
+	align-items: center;
+	text-align: center;
+	margin-right: 5%;
+	margin-left: 5%;
+	height: 100%;
+	width: 100%;
+}
+
+section > div {
+	color: white;
+	width: 70px;
+	height: 70px;
+	/*border: 3px solid white;*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px;
+	  /*border-width: 5px 3px 3px 5px;*/
+  /*border-radius:95% 4% 97% 5%/4% 94% 3% */
+}
+
+div:nth-child(1) {
+	font-size: 40px;
+}
+
+div:nth-child(2) {
+	font-size: 15px;
+}
+
+section > div:nth-child(1) {
+	background: linear-gradient(to right, red, #872D62);
+}
+
+div > div:nth-child(1), div:nth-child(2) {
+	background: black;
+	margin: 0 3px;
+}
+
+section > div:nth-child(2) {
+	background: linear-gradient(to right, #872D62, #4B2D73);
+}
+
+section > div:nth-child(3) {
+	background: linear-gradient(to right, #4B2D73, #191F92);
+}
+
+section > div:nth-child(4) {
+	background: linear-gradient(to right, #191F92, #258B95);
+}
+
+section > div:nth-child(5) {
+	background: linear-gradient(to right, #258B95, #04C94D);
+}
+
+section > div:nth-child(6) {
+	background: linear-gradient(to right, #04C94D, #83E84D);
+}
+
+section > div:nth-child(7) {
+	background: linear-gradient(to right, #83E84D, #213549);
+}
+
+section > div:nth-child(8) {
+	background: linear-gradient(to right, #213549, #FF3D00);
+}
+
+section > div:nth-child(9) {
+	background: linear-gradient(to right, #FF3D00, red);
+}
