@@ -5,6 +5,17 @@ const Projects = () => {
 	return (
 		<div className='projects'>
 			<div className='cards'>
+				<a href='https://github.com/binyaalex/DI_bootcamp/tree/main/react-portfolio' target='-blank'>
+					<Card className='card'>
+					  <Card.Img className='projectImg' variant="top" src="chat-app.jpg" />
+					  <Card.Body>
+					    <Card.Title className='title'>Chat App</Card.Title>
+					    <Card.Text className='cardText'>
+					      Very easy using chat you can talk with you friends.
+					    </Card.Text>
+					  </Card.Body>
+					</Card>
+				</a>
 				<a href='https://github.com/binyaalex/DI_bootcamp/tree/main/hackathon' target='-blank'>
 					<Card className='card'>
 					  <Card.Img className='projectImg' variant="top" src="liars-dice.jpg" />

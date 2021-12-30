@@ -130,9 +130,13 @@ a:visited {
 .cards {
   display: flex;
   justify-content: space-around;
-  /*flex-wrap: wrap;*/
-  /*overflow-y: scroll;*/
-  /*height: 88%;*/
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 97%;
+}
+
+.cards::-webkit-scrollbar {
+    width: 0;
 }
 
 .card {
