@@ -1,0 +1,31 @@
+
+
+.flex {
+	display: flex;
+}
+
+div {
+	width: 35px;
+	height: 35px;
+}
+
+
+.orange {
+	background-color: orange;
+}
+
+.yellow {
+	background-color: bisque;
+}
+
+.brown {
+	background-color: brown;
+}
+
+section {
+	display: grid;
+	grid-template-columns: repeat(31, 1fr);
+	grid-template-rows: repeat(10, 1fr);
+	grid-gap: 5px;
+}
+

@@ -1,0 +1,37 @@
+body {
+	margin: 0;
+}
+
+.flex {
+	display: flex;
+}
+
+div {
+	width: 34px;
+	height: 34px;
+}
+
+
+.gray2 {
+	background-color: darkgray;
+}
+
+.gray1 {
+	background-color: lightgray;
+}
+
+.gray3 {
+	background-color: gray;
+}
+
+.black {
+	background-color: black;
+}
+
+section {
+	display: grid;
+	grid-template-columns: repeat(32, 1fr);
+	grid-template-rows: repeat(10, 1fr);
+	grid-gap: 5px;
+}
+

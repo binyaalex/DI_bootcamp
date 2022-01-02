@@ -1,0 +1,37 @@
+* {
+	margin: 0;
+}
+
+.flex {
+	display: flex;
+}
+
+div {
+	width: 35px;
+	height: 35px;
+}
+
+
+.link {
+	background-color: lightpink;
+}
+
+.white {
+	background-color: white;
+}
+
+.pink {
+	background-color: lightcoral;
+}
+
+.black {
+	background-color: black;
+}
+
+section {
+	display: grid;
+	grid-template-columns: repeat(32, 1fr);
+	grid-template-rows: repeat(10, 1fr);
+	/*grid-gap: 5px;*/
+}
+
