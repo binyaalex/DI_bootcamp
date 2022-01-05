@@ -308,7 +308,9 @@ class App extends React.Component {
       this.state.num.push(randomNumber)
       this.setState({num:[...this.state.num]})
     }
-
+  componentDidMount() {
+      this.random()
+  }
   render() {
     document.body.querySelector('div').style.backgroundColor = `white`
     console.log('num ', this.state.num)
