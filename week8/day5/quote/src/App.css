@@ -39,11 +39,20 @@
 
 #root {
   margin: 10%;
+  border-radius: 10px;
+  background-color: white;
+  color: rgb(81, 109, 108);
+  border: 1px solid;
+  padding: 0 40px;
 }
 
 
 .quate {
   height: 270px;
-  width: 80%;
+  width: 100%;
   background-color: white;
+}
+
+p {
+  text-align: right;
 }

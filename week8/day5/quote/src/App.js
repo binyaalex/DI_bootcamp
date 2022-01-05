@@ -298,7 +298,6 @@ class App extends React.Component {
   }
   random = () => {
       let randomColor = Math.floor(Math.random()*16777215).toString(16);
-      randomColor = 0
       document.body.style.backgroundColor = '#' + randomColor;
       document.body.querySelector('div').style.color = '#' + randomColor;
       document.body.querySelector('button').style.backgroundColor = '#' + randomColor;
@@ -306,7 +305,6 @@ class App extends React.Component {
       while (this.state.num.includes(randomNumber)) {
         randomNumber = Math.floor(Math.random() * 94) 
       }
-      randomNumber = 0
       this.state.num.push(randomNumber)
       this.setState({num:[...this.state.num]})
     }
