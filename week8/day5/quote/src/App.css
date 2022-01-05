@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+#root {
+  margin: 10%;
+}
+
+
+.quate {
+  height: 270px;
+  width: 80%;
+  background-color: white;
+}

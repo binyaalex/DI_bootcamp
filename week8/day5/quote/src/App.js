@@ -298,6 +298,7 @@ class App extends React.Component {
   }
   random = () => {
       let randomColor = Math.floor(Math.random()*16777215).toString(16);
+      randomColor = 0
       document.body.style.backgroundColor = '#' + randomColor;
       document.body.querySelector('div').style.color = '#' + randomColor;
       document.body.querySelector('button').style.backgroundColor = '#' + randomColor;
@@ -305,6 +306,7 @@ class App extends React.Component {
       while (this.state.num.includes(randomNumber)) {
         randomNumber = Math.floor(Math.random() * 94) 
       }
+      randomNumber = 0
       this.state.num.push(randomNumber)
       this.setState({num:[...this.state.num]})
     }
@@ -315,13 +317,13 @@ class App extends React.Component {
     document.body.querySelector('div').style.backgroundColor = `white`
     console.log('num ', this.state.num)
     return (
-      <>
-        <div>
+      <div className='bg'>
+        <div className='quate'>
           <h1>{quotes[this.state.num[this.state.num.length-1]].quote}</h1>
           <p>{quotes[this.state.num[this.state.num.length-1]].author}</p>
           <button onClick={this.random}>New quote</button>
         </div>
-      </>
+      </div>
     );
   }
 }
