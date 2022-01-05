@@ -53,6 +53,20 @@
   background-color: white;
 }
 
-p {
+h5 {
   text-align: right;
+  font-style: italic;
+}
+
+button {
+  color: white;
+  position: absolute;
+  right: 125px;
+  bottom: 220px;
+  border: 0px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
 }

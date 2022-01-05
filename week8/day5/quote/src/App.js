@@ -294,6 +294,7 @@ class App extends React.Component {
     super();
     this.state = {
       num:[firstNumber],
+      author: ""
     }
   }
   random = () => {
@@ -307,9 +308,19 @@ class App extends React.Component {
       }
       this.state.num.push(randomNumber)
       this.setState({num:[...this.state.num]})
+      this.author()
     }
+  author = () => {
+      let authorName = quotes[this.state.num[this.state.num.length-1]].author
+      if (authorName === "") {
+         authorName = 'Unknown'
+      }
+      console.log(authorName)
+      this.setState({author:authorName})
+  }
   componentDidMount() {
       this.random()
+      this.author()
   }
   render() {
     document.body.querySelector('div').style.backgroundColor = `white`
@@ -318,7 +329,7 @@ class App extends React.Component {
       <div className='bg'>
         <div className='quate'>
           <h1>{quotes[this.state.num[this.state.num.length-1]].quote}</h1>
-          <p>{quotes[this.state.num[this.state.num.length-1]].author}</p>
+          <h5>-{this.state.author}-</h5>
           <button onClick={this.random}>New quote</button>
         </div>
       </div>
