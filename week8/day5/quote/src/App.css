@@ -46,11 +46,19 @@
   padding: 0 40px;
 }
 
+.bg {
+  position: relative;
+}
 
 .quate {
   height: 270px;
   width: 100%;
   background-color: white;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
 }
 
 h5 {
@@ -61,8 +69,8 @@ h5 {
 button {
   color: white;
   position: absolute;
-  right: 125px;
-  bottom: 220px;
+  right: -15px;
+  bottom: 25px;
   border: 0px;
   padding: 10px 20px;
   border-radius: 5px;
