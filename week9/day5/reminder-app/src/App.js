@@ -1,16 +1,16 @@
 import './App.css';
 import React from 'react';
 import {connect} from 'react-redux';
-import {addAction} from './redux/actions';
+import {addAction, textAction} from './redux/actions';
 
 
 const App = (props) => {
-  const {add} = props
+  const {add, text} = props
     return (
       <div className='App'>
         <h1 className='title'>Reminder App</h1>
         <div className='inputs'>
-          <input type='text' placeholder='I have to...' />
+          <input onChange={text} type='text' placeholder='I have to...' />
           <button onClick={add}>Add Reminder</button>
         </div>
       </div>
@@ -19,7 +19,8 @@ const App = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    add: () => dispatch(addAction())
+    add: () => dispatch(addAction()),
+    text: (e) => dispatch(textAction(e.target.value))
   }
 }
 
