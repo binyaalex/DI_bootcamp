@@ -1,11 +1,11 @@
 import './App.css';
 import React from 'react';
 import {connect} from 'react-redux';
-import {addAction, textAction} from './redux/actions';
+import {addAction, textAction, dltAction} from './redux/actions';
 
 
 const App = (props) => {
-  const {add, text, remindersArr} = props
+  const {add, text, remindersArr, dlt} = props
     return (
       <div className='App'>
         <h1 className='title'>Reminder App</h1>
@@ -16,7 +16,10 @@ const App = (props) => {
         <div className='reminders'>
           {
             remindersArr.map((item, i) => {
-              return <div key={i}>{item}</div>
+              return  <div key={i}>
+                        <p>{item}</p>
+                        <div onClick={dlt} id={i}>X</div>
+                      </div>
             })
           }
         </div>
@@ -27,7 +30,8 @@ const App = (props) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     add: () => dispatch(addAction()),
-    text: (e) => dispatch(textAction(e.target.value))
+    text: (e) => dispatch(textAction(e.target.value)),
+    dlt: (e) => dispatch(dltAction(e.target.id)),
   }
 }
 

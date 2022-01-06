@@ -10,6 +10,11 @@ export const reducer = (state=initState, action={}) => {
 		  return {...state, text:action.payload}
 		case 'ADD':
 		  return {...state, reminders:[...state.reminders, state.text]}
+		case 'DLT':
+		console.log(state)
+			let newArray = state.reminders.slice();
+			newArray.splice(action.payload, 1);
+			return {...state, reminders: newArray}
 		default:
 		  return {...state}	
 	}

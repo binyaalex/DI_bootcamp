@@ -9,6 +9,13 @@ export const addAction = () => {
 	document.getElementById('text').value = ''
 	return {
 		type: 'ADD',
-		payload: 'its work'
+	}
+}
+
+export const dltAction = (value) => {
+	console.log(value)
+	return {
+		type: 'DLT',
+		payload: value
 	}
 }
