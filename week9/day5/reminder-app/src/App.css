@@ -49,6 +49,10 @@
   font-size: 26px;
 }
 
+.inputs {
+  display: flex;
+}
+
 input {
   margin: 5px;
 }
