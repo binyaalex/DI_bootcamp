@@ -6,6 +6,7 @@ export const textAction = (value) => {
 }
 
 export const addAction = () => {
+	document.getElementById('text').value = ''
 	return {
 		type: 'ADD',
 		payload: 'its work'

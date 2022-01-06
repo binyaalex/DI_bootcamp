@@ -5,13 +5,20 @@ import {addAction, textAction} from './redux/actions';
 
 
 const App = (props) => {
-  const {add, text} = props
+  const {add, text, remindersArr} = props
     return (
       <div className='App'>
         <h1 className='title'>Reminder App</h1>
         <div className='inputs'>
-          <input onChange={text} type='text' placeholder='I have to...' />
+          <input id='text' onChange={text} type='text' placeholder='I have to...' />
           <button onClick={add}>Add Reminder</button>
+        </div>
+        <div className='reminders'>
+          {
+            remindersArr.map((item, i) => {
+              return <div key={i}>{item}</div>
+            })
+          }
         </div>
       </div>
     );  
@@ -24,5 +31,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App) 
-// export default App
+const mapStateToProps = (state) => {
+  return {
+    remindersArr: state.reminders  
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App) 
