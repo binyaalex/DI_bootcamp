@@ -1,5 +1,6 @@
 const initState = {
-	text: ''
+	text: '',
+	reminders: []
 }
 
 export const reducer = (state=initState, action={}) => {
@@ -8,8 +9,7 @@ export const reducer = (state=initState, action={}) => {
 		console.log(state)
 		  return {...state, text:action.payload}
 		case 'ADD':
-		console.log(action.payload)
-		  return {...state, text:action.payload}
+		  return {...state, reminders:[...state.reminders, state.text]}
 		default:
 		  return {...state}	
 	}
