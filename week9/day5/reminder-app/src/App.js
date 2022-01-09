@@ -20,6 +20,7 @@ const App = (props) => {
               console.log(remindersArr)
               return  <div key={i}>
                         <p>{item.text}</p>
+                        <p>{item.date}</p>
                         <div onClick={dlt} id={i}>X</div>
                       </div>
             })
