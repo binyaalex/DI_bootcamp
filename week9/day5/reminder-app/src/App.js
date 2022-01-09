@@ -1,11 +1,11 @@
 import './App.css';
 import React from 'react';
 import {connect} from 'react-redux';
-import {addAction, textAction, dltAction} from './redux/actions';
+import {addAction, textAction, dltAction, clearAction} from './redux/actions';
 
 
 const App = (props) => {
-  const {add, text, remindersArr, dlt} = props
+  const {add, text, remindersArr, dlt, clear} = props
     return (
       <div className='App'>
         <h1 className='title'>Reminder App</h1>
@@ -23,7 +23,7 @@ const App = (props) => {
             })
           }
         </div>
-        <button>Clear Reminders</button>
+        <button onClick={clear}>Clear Reminders</button>
       </div>
     );  
 }
@@ -33,6 +33,7 @@ const mapDispatchToProps = (dispatch) => {
     add: () => dispatch(addAction()),
     text: (e) => dispatch(textAction(e.target.value)),
     dlt: (e) => dispatch(dltAction(e.target.id)),
+    clear: () => dispatch(clearAction()),
   }
 }
 

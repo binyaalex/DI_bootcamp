@@ -19,3 +19,11 @@ export const dltAction = (value) => {
 		payload: value
 	}
 }
+
+export const clearAction = () => {
+	console.log('clear')
+	return {
+		type: 'CLEAR',
+		payload: 'value'
+	}
+}
