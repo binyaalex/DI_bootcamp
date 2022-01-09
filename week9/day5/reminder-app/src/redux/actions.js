@@ -5,6 +5,13 @@ export const textAction = (value) => {
 	}
 }
 
+export const dateAction = (value) => {
+	return {
+		type: 'DATE',
+		payload: value
+	}
+}
+
 export const addAction = () => {
 	document.getElementById('text').value = ''
 	return {
