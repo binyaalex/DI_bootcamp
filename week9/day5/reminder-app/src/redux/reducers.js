@@ -15,6 +15,9 @@ export const reducer = (state=initState, action={}) => {
 			let newArray = state.reminders.slice();
 			newArray.splice(action.payload, 1);
 			return {...state, reminders: newArray}
+		case 'CLEAR':
+		console.log(state)
+		  return {...state, reminders: []}
 		default:
 		  return {...state}	
 	}
