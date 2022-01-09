@@ -23,6 +23,7 @@ const App = (props) => {
             })
           }
         </div>
+        <button>Clear Reminders</button>
       </div>
     );  
 }
