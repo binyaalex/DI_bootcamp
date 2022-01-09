@@ -17,8 +17,9 @@ const App = (props) => {
         <div className='reminders'>
           {
             remindersArr.map((item, i) => {
+              console.log(remindersArr)
               return  <div key={i}>
-                        <p>{item}</p>
+                        <p>{item.text}</p>
                         <div onClick={dlt} id={i}>X</div>
                       </div>
             })

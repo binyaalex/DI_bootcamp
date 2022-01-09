@@ -12,7 +12,8 @@ export const reducer = (state=initState, action={}) => {
 		console.log(state)
 		  return {...state, date:action.payload}
 		case 'ADD':
-		  return {...state, reminders:[...state.reminders, state.text]}
+		console.log(state)
+		  return {...state, reminders:[...state.reminders, {'text': state.text, 'date': state.date}]}
 		case 'DLT':
 			let newArray = state.reminders.slice();
 			newArray.splice(action.payload, 1);
