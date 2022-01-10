@@ -1,7 +1,15 @@
-export const deletePost = (id) => {
-	console.log(id)
+export const changeAction = (word) => {
+	console.log(word)
 	return {
-		type:'DELETE',
-		payload: id
+		type:'CHANGE',
+		payload: word
+	}
+}
+
+export const enterAction = () => {
+	console.log('enter')
+	return {
+		type:'ENTER',
+		payload: 'word'
 	}
 }
