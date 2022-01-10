@@ -26,7 +26,7 @@ const App = (props) => {
             })
           }
         </div>
-        <button onClick={clear}>Clear Reminders</button>
+        <button class='clear' onClick={clear}>Clear Reminders</button>
       </div>
     );  
 }

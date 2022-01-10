@@ -91,3 +91,10 @@ input {
 button {
   color: white;
 }
+
+.clear {
+  background-color: #C82333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
