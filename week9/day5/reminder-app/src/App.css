@@ -83,3 +83,11 @@ input {
   border-radius: 5px;
   border: 1px solid lightgray;
 }
+
+.add {
+  background-color: #28A745;
+}
+
+button {
+  color: white;
+}
