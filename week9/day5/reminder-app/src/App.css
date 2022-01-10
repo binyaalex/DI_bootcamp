@@ -51,6 +51,7 @@
 
 .inputs {
   display: flex;
+  align-items: center;
 }
 
 input {
@@ -74,4 +75,11 @@ input {
 
 .btn-danger{
   margin-top: 10px !important;
+}
+
+.inputs > * {
+  padding: 5px 10px;
+  margin: 20px 5px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
 }

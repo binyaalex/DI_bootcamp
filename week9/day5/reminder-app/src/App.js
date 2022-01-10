@@ -12,7 +12,7 @@ const App = (props) => {
         <div className='inputs'>
           <input id='text' onChange={text} type='text' placeholder='I have to...' />
           <input id='date' onChange={date} type='date' />
-          <button onClick={add}>Add Reminder</button>
+          <button class='add' onClick={add}>Add Reminder</button>
         </div>
         <div className='reminders'>
           {
