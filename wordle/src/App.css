@@ -43,6 +43,10 @@
   border: 1px solid;
   border-radius: 2px;
   margin: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
 
 .try {
