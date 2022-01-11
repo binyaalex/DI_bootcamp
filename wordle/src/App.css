@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.letterBox {
+  width: 45px;
+  height: 45px;
+  border: 1px solid;
+  border-radius: 2px;
+}

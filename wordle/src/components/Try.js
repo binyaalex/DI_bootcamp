@@ -7,19 +7,19 @@ const Try = (props) => {
 	return (
 		<>
         <div className='try'>
-          <div>
+          <div className='letterBox'>
             {userWord[i][0]}
           </div>
-          <div>
+          <div className='letterBox'>
             {userWord[i][1]}
           </div>
-          <div>
+          <div className='letterBox'>
             {userWord[i][2]}
           </div>
-          <div>
+          <div className='letterBox'>
             {userWord[i][3]}
           </div>
-          <div>
+          <div className='letterBox'>
             {userWord[i][4]}
           </div>
         </div>
