@@ -32,6 +32,10 @@ const App = (props) => {
       <div className='tryes'>
         <Try i={0} />
         <Try i={1} />
+        <Try i={2} />
+        <Try i={3} />
+        <Try i={4} />
+        <Try i={5} />
       </div>
     </>
   );

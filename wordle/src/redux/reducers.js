@@ -16,18 +16,20 @@ export const reducer = (state=initState, action={}) => {
 		  console.log(state)
 		  return {...state, userWord: try1}
 		case 'CHANGE1':
-		  console.log(try1)
-		  console.log(state)
 		  try1[1] = action.payload
 		  return {...state, userWord: try1}
 		case 'CHANGE2':
-		  return {...state, userWord: action.payload}
+	   	  try1[2] = action.payload
+		  return {...state, userWord: try1}
 		case 'CHANGE3':
-		  return {...state, userWord: action.payload}
+		  try1[3] = action.payload
+		  return {...state, userWord: try1}
 		case 'CHANGE4':
-		  return {...state, userWord: action.payload}
+		  try1[4] = action.payload
+		  return {...state, userWord: try1}
 		case 'CHANGE5':
-		  return {...state, userWord: action.payload}
+		  try1[5] = action.payload
+		  return {...state, userWord: try1}
 		case 'ENTER':
 		console.log(state)
 		  let arr = []
