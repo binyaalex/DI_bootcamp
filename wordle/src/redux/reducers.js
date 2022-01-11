@@ -38,10 +38,10 @@ export const reducer = (state=initState, action={}) => {
 		  		console.log(state.userWord[state.turn][i])
 		  		if (state.userWord[state.turn][i] === state.dailyWord[d] && d === i) {
 		  		    console.log(state.userWord[state.turn][i],': green')
-		  		    arr[i] = 'green'
+		  		    arr[i] = '#6AAA64'
 		  	    } else if (state.userWord[state.turn][i] === state.dailyWord[d]) {
 		  	    	console.log(state.userWord[state.turn][i],': yellow')
-		  		    arr[i] = 'yellow'
+		  		    arr[i] = '#C9B458'
 		  	    } else if (i === 0) {
 		  	    	arr[d] = 'gray'
 		  	    }
