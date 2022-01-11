@@ -31,14 +31,14 @@ export const reducer = (state=initState, action={}) => {
 		case 'ENTER':
 		console.log(state)
 		  let arr = []
-		  for (let i = 0; i < state.userWord[0].length; i++) {
+		  for (let i = 0; i < state.userWord[state.turn].length; i++) {
 		  	for (let d = 0; d < state.dailyWord.length; d++) {
-		  		console.log(state.userWord[0][i])
-		  		if (state.userWord[0][i] === state.dailyWord[d] && d === i) {
-		  		    console.log(state.userWord[0][i],': green')
+		  		console.log(state.userWord[state.turn][i])
+		  		if (state.userWord[state.turn][i] === state.dailyWord[d] && d === i) {
+		  		    console.log(state.userWord[state.turn][i],': green')
 		  		    arr[i] = 'green'
-		  	    } else if (state.userWord[0][i] === state.dailyWord[d]) {
-		  	    	console.log(state.userWord[0][i],': yellow')
+		  	    } else if (state.userWord[state.turn][i] === state.dailyWord[d]) {
+		  	    	console.log(state.userWord[state.turn][i],': yellow')
 		  		    arr[i] = 'yellow'
 		  	    } else if (i === 0) {
 		  	    	arr[d] = 'gray'
