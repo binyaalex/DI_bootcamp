@@ -24,7 +24,7 @@ const App = (props) => {
   });
 
   return (
-    <>
+    <div className='all'>
       <div>      
         <input onChange={change} type='text' />
         <button onClick={enter}>Enter</button>
@@ -37,7 +37,7 @@ const App = (props) => {
         <Try i={4} />
         <Try i={5} />
       </div>
-    </>
+    </div>
   );
 }
 
