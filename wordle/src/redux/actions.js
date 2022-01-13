@@ -1,4 +1,3 @@
-import {initState} from './reducers'
 
 const blackBox = () => {
     const squares = document.querySelectorAll('.letterBox')
@@ -12,22 +11,20 @@ const blackBox = () => {
     }
 }
 
-let turn = 0
-console.log(initState)
 export const changeAction = (word) => {
+	console.log(1)
 
     setTimeout(blackBox, 1)
 
 	console.log(word)
 	return {
-		type:'CHANGE' + turn.toString(),
-		payload: word
+		type:'CHANGE',
+		payload: word.toUpperCase()
 	}
 }
 
 export const enterAction = () => {
 	console.log('enter')
-	turn++
 	return {
 		type:'ENTER',
 	}

@@ -3,12 +3,15 @@ import Try from './components/Try'
 import Keyboard from './components/Keyboard'
 import {connect} from 'react-redux';
 import React, { useEffect } from 'react';
+import {changeAction} from './redux/actions';
+
 
 
 const App = (props) => {
-  const {result, turn} = props
+  const {result, turn, dailyWord, change2, change1} = props
   
   useEffect(() => {
+    document.body.addEventListener('keypress', change1)
     const squares = document.querySelectorAll('.letterBox')
     console.log('hi')
     for (let i = 0; i < squares.length; i++) {
@@ -51,7 +54,7 @@ const App = (props) => {
       if (win && firstTurn) {
         alert('Well done you found the word')
       } else if (turn === 6) {
-        alert('You finished your tryes, maybe next time')
+        alert(`You finished your tryes, the word is ${dailyWord} maybe next time`)
       } 
     }
     setTimeout(myGreeting, 300)
@@ -78,9 +81,17 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return {
     result: state.result,
-    turn: state.turn 
+    turn: state.turn,
+    dailyWord: state.dailyWord
   }
 }
 
-export default connect(mapStateToProps)(App) 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    change1: (e) => dispatch(changeAction(e.key)),
+    change2: (e) => dispatch(changeAction(e.target.textContent)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App) 
 
