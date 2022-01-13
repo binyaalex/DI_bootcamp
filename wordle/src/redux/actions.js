@@ -5,16 +5,14 @@ console.log(initState)
 export const changeAction = (word) => {
 	const blackBox = () => {
         const squares = document.querySelectorAll('.letterBox')
-	    console.log('hi')
 	    for (let i = 0; i < squares.length; i++) {
 	      if (squares[i].textContent !== '') {
 	        squares[i].style.borderColor = 'black'
-	        console.log(1)
 	      }
 	    }
     }
     setTimeout(blackBox, 1)
-	
+    
 	console.log(word)
 	return {
 		type:'CHANGE' + turn.toString(),
