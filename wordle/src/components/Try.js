@@ -4,10 +4,13 @@ const Try = (props) => {
 	const {userWord, i} = props
 	console.log(i)
 	console.log(userWord)
+  const blackBox = () => {
+    console.log('blackBox')
+  }
 	return (
 		<>
         <div className='try'>
-          <div className='letterBox'>
+          <div className='letterBox' onInput={blackBox}>
             {userWord[i][0]}
           </div>
           <div className='letterBox'>

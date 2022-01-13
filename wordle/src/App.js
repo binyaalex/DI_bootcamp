@@ -9,6 +9,14 @@ const App = (props) => {
   const {result, turn} = props
   
   useEffect(() => {
+    const squares = document.querySelectorAll('.letterBox')
+    console.log('hi')
+    for (let i = 0; i < squares.length; i++) {
+      if (squares[i].textContent !== '') {
+        squares[i].style.border = '1px solid black'
+        console.log(1)
+      }
+    }
     console.log(turn)
     let firstTurn
     if (turn !== 0) {
