@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
-import {changeAction, enterAction} from '../redux/actions';
+import {changeAction, enterAction, delAction} from '../redux/actions';
 
 const Keyboard = (props) => {
-  const {change1, change2, enter} = props
+  const {change1, change2, enter, del} = props
 	return (
 	  <div>      
 {/*        <input onChange={change1} type='text' />
@@ -40,7 +40,7 @@ const Keyboard = (props) => {
             <div onClick={change2} className='boardLetter'>B</div>
             <div onClick={change2} className='boardLetter'>N</div>
             <div onClick={change2} className='boardLetter'>M</div>
-            <div onClick={change2} className='notL'>DEL</div>
+            <div onClick={del} className='notL'>DEL</div>
           </div>
         </div>
       </div>
@@ -52,6 +52,7 @@ const mapDispatchToProps = (dispatch) => {
     change1: (e) => dispatch(changeAction(e.target.value)),
     change2: (e) => dispatch(changeAction(e.target.textContent)),
     enter: () => dispatch(enterAction()),
+    del: () => dispatch(delAction()),
   }
 }
 

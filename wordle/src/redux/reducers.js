@@ -13,7 +13,7 @@ export const reducer = (state=initState, action={}) => {
 		case 'CHANGE0':
 		  console.log(state)
 		  try1[0] += action.payload
-		  console.log(state)
+		  console.log(try1)
 		  return {...state, userWord: try1}
 		case 'CHANGE1':
 		  try1[1] += action.payload
@@ -29,6 +29,10 @@ export const reducer = (state=initState, action={}) => {
 		  return {...state, userWord: try1}
 		case 'CHANGE5':
 		  try1[5] += action.payload
+		  return {...state, userWord: try1}
+		case 'DEL':
+		  try1[0] = try1[0].slice(0, -1);
+		  console.log(try1)
 		  return {...state, userWord: try1}
 		case 'ENTER':
 		console.log(state)
