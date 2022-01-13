@@ -3,7 +3,7 @@ import {initState} from './reducers'
 let turn = 0
 console.log(initState)
 export const changeAction = (word) => {
-	const myGreeting = () => {
+	const blackBox = () => {
         const squares = document.querySelectorAll('.letterBox')
 	    console.log('hi')
 	    for (let i = 0; i < squares.length; i++) {
@@ -13,7 +13,7 @@ export const changeAction = (word) => {
 	      }
 	    }
     }
-    setTimeout(myGreeting, 1)
+    setTimeout(blackBox, 1)
 	
 	console.log(word)
 	return {
