@@ -2,9 +2,12 @@ import {initState} from './reducers'
 
 const blackBox = () => {
     const squares = document.querySelectorAll('.letterBox')
+    console.log('hi')
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].textContent !== '') {
         squares[i].style.borderColor = 'black'
+      } else {
+        squares[i].style.borderColor = 'lightgray'
       }
     }
 }
@@ -23,9 +26,6 @@ export const changeAction = (word) => {
 }
 
 export const enterAction = () => {
-
-    setTimeout(blackBox, 1)
-	
 	console.log('enter')
 	turn++
 	return {
@@ -34,6 +34,9 @@ export const enterAction = () => {
 }
 
 export const delAction = () => {
+
+    setTimeout(blackBox, 1)
+
 	console.log('del')
 	return {
 		type:'DEL',
