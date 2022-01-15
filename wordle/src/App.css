@@ -65,6 +65,14 @@ h4 {
   top: 0;
 }
 
+.white {
+  color: white;
+}
+
+.green {
+  background-color: #6AAA64;
+}
+
 .tryes {
   margin: 5px 0
 }

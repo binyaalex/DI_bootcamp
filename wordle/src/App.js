@@ -17,7 +17,7 @@ const App = (props) => {
     console.log('hi')
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].textContent !== '') {
-        squares[i].style.border = '1px solid black'
+        squares[i].style.border = '2px solid black'
         console.log(1)
       }
     }

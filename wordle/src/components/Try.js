@@ -2,15 +2,10 @@ import {connect} from 'react-redux';
 
 const Try = (props) => {
 	const {userWord, i} = props
-	console.log(i)
-	console.log(userWord)
-  const blackBox = () => {
-    console.log('blackBox')
-  }
 	return (
 		<>
         <div className='try'>
-          <div className='letterBox' onInput={blackBox}>
+          <div className='letterBox'>
             {userWord[i][0]}
           </div>
           <div className='letterBox'>
