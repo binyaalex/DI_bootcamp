@@ -30,6 +30,43 @@ const Help = (props) => {
 			            Y
 			          </div>
 			        </div>
+			        <p>The letter <strong>W</strong> is in the word and in the correct spot</p>
+			        <div className='try'>
+			          <div className='letterBox'>
+			            P
+			          </div>
+			          <div className='letterBox yellow white'>
+			            I
+			          </div>
+			          <div className='letterBox'>
+			            L
+			          </div>
+			          <div className='letterBox'>
+			            L
+			          </div>
+			          <div className='letterBox'>
+			            S
+			          </div>
+			        </div>
+			        <p>The letter <strong>I</strong> is in the word but in the wrong spot.</p>
+    			    <div className='try'>
+			          <div className='letterBox'>
+			            V
+			          </div>
+			          <div className='letterBox'>
+			            A
+			          </div>
+			          <div className='letterBox'>
+			            G
+			          </div>
+			          <div className='letterBox gray white'>
+			            U
+			          </div>
+			          <div className='letterBox'>
+			            E
+			          </div>
+			        </div>
+			        <p>The letter <strong>U</strong> is not in the word in any spot</p>
 				</section>
 			</main>
 		</>

@@ -73,6 +73,14 @@ h4 {
   background-color: #6AAA64;
 }
 
+.yellow {
+  background-color: #C9B458;
+}
+
+.gray {
+  background-color: gray;
+}
+
 .tryes {
   margin: 5px 0
 }
