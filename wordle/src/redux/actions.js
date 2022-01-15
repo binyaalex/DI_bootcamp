@@ -11,15 +11,30 @@ const blackBox = () => {
     }
 }
 
-export const changeAction = (word) => {
-	console.log(1)
-
+export const changeAction = (e) => {
+	console.log(e)
+	let letter
+	if (typeof(e) === 'string') {
+		letter = e
+	} else {
+		letter = e.key.toUpperCase()
+	}
     setTimeout(blackBox, 1)
 
-	console.log(word)
-	return {
-		type:'CHANGE',
-		payload: word.toUpperCase()
+	console.log(typeof(letter))
+	if (e.keyCode !== 13 && letter.match(".*[A-Z].*")) {
+		return {
+			type:'CHANGE',
+			payload: letter
+		}
+	} else if (e.key === 'Enter') {
+		return {
+			type:'ENTER'
+		}
+	} else {
+		return {
+			type:'EMPTY'
+		}
 	}
 }
 

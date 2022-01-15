@@ -88,7 +88,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    change1: (e) => dispatch(changeAction(e.key)),
+    change1: (e) => dispatch(changeAction(e)),
     change2: (e) => dispatch(changeAction(e.target.textContent)),
   }
 }

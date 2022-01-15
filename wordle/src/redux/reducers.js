@@ -56,6 +56,8 @@ export const reducer = (state=initState, action={}) => {
 		  
 		  console.log(arr)
 		  return {...state, result: arr, turn: ++state.turn}
+		case 'EMPTY':
+	  	  return {...state}
 	  	default:
 	  	  return {...state}
 	}
