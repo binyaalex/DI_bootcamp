@@ -21,8 +21,8 @@ export const changeAction = (e) => {
 	}
     setTimeout(blackBox, 1)
 
-	console.log(typeof(letter))
-	if (e.keyCode !== 13 && letter.match(".*[A-Z].*")) {
+	console.log(letter)
+	if (e.keyCode > 64 && e.keyCode < 91) {
 		return {
 			type:'CHANGE',
 			payload: letter
@@ -30,6 +30,10 @@ export const changeAction = (e) => {
 	} else if (e.key === 'Enter') {
 		return {
 			type:'ENTER'
+		}
+	} else if (e.keyCode === 8) {
+		return {
+			type:'DEL'
 		}
 	} else {
 		return {

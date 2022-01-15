@@ -11,7 +11,7 @@ const App = (props) => {
   const {result, turn, dailyWord, change2, change1} = props
   
   useEffect(() => {
-    document.body.addEventListener('keypress', change1)
+    document.body.addEventListener('keydown', change1)
     const squares = document.querySelectorAll('.letterBox')
     console.log('hi')
     for (let i = 0; i < squares.length; i++) {
