@@ -41,19 +41,42 @@
   box-sizing: border-box;
 }
 
+.allDad {
+  display: flex;
+  justify-content: center;
+}
+
+.all {
+  width: 500px;
+}
+
+.mainHeader {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+  position: relative;
+}
+
+.helpBtn {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  color: gray;
+  border: 2px solid;
+  border-radius: 100px;
+  padding: 0 7px;
+  font-weight: bold;
+  display: flex;
+}
+
 h4 {
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.2rem;
-  border-bottom: 1px solid lightgray;
   padding: 0 0 8px 0;
-  width: 500px;
   text-align: center;
   margin: 0;
-}
-
-.helpBtn {
-  position: relative;
 }
 
 .help {
@@ -63,6 +86,36 @@ h4 {
   height: 100vh;
   background-color: white;
   top: 0;
+  font-size: 14px
+}
+
+.helpHeader {
+  display: flex;
+  justify-content: center;
+  position: relative; 
+  font-size: 16px;
+}
+
+h5 {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin: 10px 0;
+}
+
+.x {
+  color: gray;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+section {
+  border-bottom: 1px solid lightgray;
+}
+
+.examples {
+  font-weight: bold;
 }
 
 .white {
@@ -109,14 +162,13 @@ h4 {
 }
 
 .keyboard {
-  width: 500px;
+  width: 100%;
   height: 200px;
 }
 
 .qToP, .enterToBackspace {
   display: flex;
   justify-content: center;
-  /*justify-content: space-between;*/
   margin: 0 auto 8px;
 }
 
@@ -124,7 +176,6 @@ h4 {
   display: flex;
   margin: 0 auto 8px;
   justify-content: center;
-  /*justify-content: space-around;*/
 }
 
 .qToP > *, .enterToBackspace > *, .aToL > * {
@@ -141,4 +192,9 @@ h4 {
 
 .notL {
   flex: 1.5;
+}
+
+
+.firstLetter {
+  margin-left: 0; 
 }

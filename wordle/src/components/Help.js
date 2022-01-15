@@ -1,9 +1,9 @@
 const Help = (props) => {
 	return (
 		<>
-			<header>
-				<h6>HOW TO PLAY</h6>
-				<div onClick={props.displayHelpTuggle}>X</div>
+			<header className='helpHeader'>
+				<h5>HOW TO PLAY</h5>
+				<div onClick={props.displayHelpTuggle} className='x'>X</div>
 			</header>
 			<main>
 				<section className='instructions'>
@@ -12,9 +12,9 @@ const Help = (props) => {
 					<p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
 				</section>
 				<section>
-					<div className='examples'>Examples</div>
+					<p className='examples'>Examples</p>
 					<div className='try'>
-			          <div className='letterBox green white'>
+			          <div className='letterBox firstLetter green white'>
 			            W
 			          </div>
 			          <div className='letterBox'>
@@ -32,7 +32,7 @@ const Help = (props) => {
 			        </div>
 			        <p>The letter <strong>W</strong> is in the word and in the correct spot</p>
 			        <div className='try'>
-			          <div className='letterBox'>
+			          <div className='letterBox firstLetter'>
 			            P
 			          </div>
 			          <div className='letterBox yellow white'>
@@ -50,7 +50,7 @@ const Help = (props) => {
 			        </div>
 			        <p>The letter <strong>I</strong> is in the word but in the wrong spot.</p>
     			    <div className='try'>
-			          <div className='letterBox'>
+			          <div className='letterBox firstLetter'>
 			            V
 			          </div>
 			          <div className='letterBox'>
@@ -68,6 +68,7 @@ const Help = (props) => {
 			        </div>
 			        <p>The letter <strong>U</strong> is not in the word in any spot</p>
 				</section>
+				<p><strong>A new WORDLE will be available each refresh!</strong></p>
 			</main>
 		</>
 	)

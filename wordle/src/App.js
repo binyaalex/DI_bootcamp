@@ -62,17 +62,19 @@ const App = (props) => {
     });
 
   return (
-    <div className='all'>
-      <Header />
-      <div className='tryes'>
-        <Try i={0} />
-        <Try i={1} />
-        <Try i={2} />
-        <Try i={3} />
-        <Try i={4} />
-        <Try i={5} />
+    <div className='allDad'>
+      <div className='all'>
+        <Header />
+        <div className='tryes'>
+          <Try i={0} />
+          <Try i={1} />
+          <Try i={2} />
+          <Try i={3} />
+          <Try i={4} />
+          <Try i={5} />
+        </div>
+        <Keyboard />
       </div>
-      <Keyboard />
     </div>
   );
 }

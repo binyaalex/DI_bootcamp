@@ -12,10 +12,8 @@ const Header = () => {
 	}
 
 	return (
-		<header>
-			<div onClick={displayHelpTuggle} className='helpBtn'>?
-				
-			</div>
+		<header className='mainHeader'>
+			<div onClick={displayHelpTuggle} className='helpBtn'>?</div>
 			<div className='help'>
 				<Help displayHelpTuggle={displayHelpTuggle} />
 			</div>
