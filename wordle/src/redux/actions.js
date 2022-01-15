@@ -22,7 +22,7 @@ export const changeAction = (e) => {
     setTimeout(blackBox, 1)
 
 	console.log(letter)
-	if (e.keyCode > 64 && e.keyCode < 91) {
+	if ((e.keyCode > 64 && e.keyCode < 91) || letter.match(".*[A-Z].*")) {
 		return {
 			type:'CHANGE',
 			payload: letter
