@@ -1,4 +1,5 @@
 import './App.css';
+import Header from './components/Header'
 import Try from './components/Try'
 import Keyboard from './components/Keyboard'
 import {connect} from 'react-redux';
@@ -62,7 +63,7 @@ const App = (props) => {
 
   return (
     <div className='all'>
-      <h4>WORDLE</h4>
+      <Header />
       <div className='tryes'>
         <Try i={0} />
         <Try i={1} />

@@ -52,6 +52,19 @@ h4 {
   margin: 0;
 }
 
+.helpBtn {
+  position: relative;
+}
+
+.help {
+  display: none;
+  position: absolute;
+  width: 500px;
+  height: 100vh;
+  background-color: white;
+  top: 0;
+}
+
 .tryes {
   margin: 5px 0
 }
