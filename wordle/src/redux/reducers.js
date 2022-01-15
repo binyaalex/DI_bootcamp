@@ -8,7 +8,7 @@ export const initState = {
 		result: [],
 		turn: 0
 	}
-
+console.log(initState.dailyWord)
 export const reducer = (state=initState, action={}) => {
 	console.log(state.userWord)
 	let try1 = {...state.userWord}
