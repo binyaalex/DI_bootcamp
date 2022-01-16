@@ -40,3 +40,124 @@
 h1 {
   text-align: center;
 }
+
+.all {
+  margin: 0 10px;
+}
+
+#services {
+  background-color: white;
+  color: gray;
+  border: 0;
+}
+
+#services: hover {
+  color: black;
+}
+
+.allWithoutNav {
+  background-image: url('../public/bg.jpg');
+  background-size: cover;
+  height: 87vh;
+  width: 98vw;
+}
+
+main, .about {
+  position: relative;
+  text-align: center;
+}
+
+.mainText {
+    position: absolute;
+    right: 27vw;
+    left: 27vw;
+    top: 20vh;
+}
+
+.mainHeader {
+  font-size: 60px;
+  margin-bottom: 35px;
+  letter-spacing: 1.1vw;
+}
+
+.mainP {
+  font-size: 22px;
+}
+
+
+.aboutText {
+  position: absolute;
+  right: 27vw;
+  left: 27vw;
+  top: 13vh;
+}
+
+section {
+  margin-bottom: 35px; 
+}
+
+.aboutHeader {
+  margin: auto;
+}
+
+.positions {
+  height: 100%;
+}
+
+.positionsBox {
+  height: 100%;
+  display: flex;
+  align-content: space-evenly;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.positionCard {
+  height: 150px;
+  width: 33vw;
+  background-color: white;
+  opacity: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.positionP {
+  text-align: left;
+  padding: 0 25px;
+}
+
+.contacts {
+  height: 100%;
+}
+
+.contactList {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactDiv {
+  display: flex;
+  align-items: center;
+  width: 50vw;
+  margin: 25px 0;
+  font-size: 30px;
+}
+
+.contactP {
+  margin: 0 0 0 35px;
+}
+
+.serviceHeader {
+  letter-spacing: 0;
+  font-size: 50px;
+}
+
+.serviceP {
+  font-size: 25px;
+}
