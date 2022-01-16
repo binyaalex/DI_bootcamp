@@ -1,5 +1,6 @@
 import WORDS from '../components/wordList'
-const randomNum = Math.floor(Math.random() * 2315);
+const randomNum = Math.floor(Math.random() * WORDS.length);
+console.log(WORDS.length)
 
 export const initState = {
 		wordList: WORDS,
@@ -50,7 +51,11 @@ export const reducer = (state=initState, action={}) => {
 			  	}
 		  	}
 		  } else {
-		  	alert('there is not such a word')
+		  	document.querySelector('.shake').style.display = 'block'
+		  	const undisplay = () => {
+		  		document.querySelector('.shake').style.display = 'none'
+		  	}
+		  	setTimeout(undisplay, 800)
 		  	return {...state}
 		  }
 		  

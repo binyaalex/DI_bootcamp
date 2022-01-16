@@ -2,6 +2,8 @@ import './App.css';
 import Header from './components/Header'
 import Try from './components/Try'
 import Keyboard from './components/Keyboard'
+import Messages from './components/Messages'
+import Noword from './components/Noword'
 import {connect} from 'react-redux';
 import React, { useEffect } from 'react';
 import {changeAction} from './redux/actions';
@@ -9,7 +11,7 @@ import {changeAction} from './redux/actions';
 
 
 const App = (props) => {
-  const {result, turn, dailyWord, change2, change1} = props
+  const {result, turn, change2, change1} = props
   
   useEffect(() => {
     document.body.addEventListener('keydown', change1)
@@ -53,9 +55,11 @@ const App = (props) => {
     console.log(win)
     const myGreeting = () => {
       if (win && firstTurn) {
-        alert('Well done you found the word')
+        document.querySelector('.messages').style.display = 'block'
+        document.querySelector('.well').style.display = 'block'
       } else if (turn === 6) {
-        alert(`You finished your tryes, the word is ${dailyWord} maybe next time`)
+        document.querySelector('.messages').style.display = 'block'
+        document.querySelector('.loser').style.display = 'block'
       } 
     }
     setTimeout(myGreeting, 300)
@@ -75,6 +79,8 @@ const App = (props) => {
         </div>
         <Keyboard />
       </div>
+      <Messages />
+      <Noword />
     </div>
   );
 }
