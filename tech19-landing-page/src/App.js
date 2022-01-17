@@ -1,3 +1,8 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import Navigation from './components/Navigation'
 import Main from './components/Main'
 import About from './components/About'
@@ -11,18 +16,22 @@ import './App.css';
 
 function App(props) {
   return (
+    <BrowserRouter>
     <div className='all'>
-      <Navigation />
-      <div className='allWithoutNav'>
-        {/*<Main />*/}
-        {/*<About />*/}
-        {/*<Positions />*/}
-        {/*<Contacts />*/}
-        {/*<Sw />*/}
-        {<IT />}
-        {/*<Mechanics />*/}
+        <Navigation />
+        <div className='allWithoutNav'>
+          <Routes>
+            <Route path='/' element=<Main /> />
+            <Route path='/about' element=<About /> />
+            <Route path='/positions' element=<Positions /> />
+            <Route path='/contacts' element=<Contacts /> />
+            <Route path='/sw' element=<Sw /> />
+            <Route path='/it' element=<IT /> />
+            <Route path='/mechanics' element=<Mechanics /> />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
