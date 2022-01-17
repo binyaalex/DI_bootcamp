@@ -3,6 +3,7 @@ import {Nav,  Navbar, NavDropdown, DropdownButton, Dropdown } from 'react-bootst
 
 
 const Navigation = () => {
+  // all this here before the render to make nav black according to where you are
   const [dropdownClicked, setdropdownClicked] = useState(false);
   const dropdown = () => {
     setdropdownClicked(true)
@@ -14,12 +15,17 @@ const Navigation = () => {
 
     if (location === 'about' || location === 'positions' || location === 'contacts') {
       document.querySelector(`.${location}Link`).style.color = 'black'
-    } else if (dropdownClicked) {
-      const dropdown = document.querySelector('.dropdown-menu').classList
-      if (dropdown.length > 1) {
-        document.querySelector(`.${location}Link`).style.color = 'black'
+    } else {
+      if (location !== '') {
+        document.getElementById('services').style.color = 'black'
+        if (dropdownClicked) {
+          const dropdown = document.querySelector('.dropdown-menu').classList
+          if (dropdown.length > 1) {
+            document.querySelector(`.${location}Link`).style.color = 'black'
+          }
+        }      
       }
-    }
+    } 
   });
 
   return (
@@ -32,7 +38,7 @@ const Navigation = () => {
                   <Nav.Link href="/about" className='aboutLink'>About</Nav.Link>
                   <Nav.Link href="/positions" className='positionsLink'>Open Positions</Nav.Link>
                   <Nav.Link href="/contacts" className='contactsLink'>Contact us</Nav.Link>
-                  <DropdownButton onClick={dropdown} expanded='true' variant="outline-secondary" title="Our Services" id='services'>
+                  <DropdownButton onClick={dropdown} variant="outline-secondary" title="Our Services" id='services'>
                     <Dropdown.Item href="/sw" className='swLink'>Tech19 SW</Dropdown.Item>
                     <Dropdown.Item href="/it" className='itLink'>Tech19 IT</Dropdown.Item>
                     <Dropdown.Item href="/mechanics" className='mechanicsLink'>Tech19 Mechanics</Dropdown.Item>
