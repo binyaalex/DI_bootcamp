@@ -24,13 +24,19 @@ const Header = (props) => {
 
 	return (
 		<header className='mainHeader'>
-			<div onClick={displayHelpTuggle} className='helpBtn'>?</div>
+	    	<div>
+				<div onClick={displayHelpTuggle} className='helpBtn'>?</div>
+			</div>
 			<div className='help'>
 				<Help displayHelpTuggle={displayHelpTuggle} />
 			</div>
-	    	<h4>WORDLE</h4>
-	    	<img onClick={getResult} src='stats.jpg' />
-	    	<div onClick={changeLanguage}>עב</div> 
+	    	<div>
+	    		<h4>WORDLE</h4>
+			</div>
+	    	<div className='leftHeader'>
+	    		<img onClick={getResult} src='stats.jpg' />
+	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div> 
+	    	</div>
 		</header>
 	)
 }
