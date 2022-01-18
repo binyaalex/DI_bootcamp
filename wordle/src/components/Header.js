@@ -30,7 +30,7 @@ const Header = (props) => {
 			</div>
 	    	<h4>WORDLE</h4>
 	    	<img onClick={getResult} src='stats.jpg' />
-	    	<div onClick={changeLanguage}>ע</div> 
+	    	<div onClick={changeLanguage}>עב</div> 
 		</header>
 	)
 }

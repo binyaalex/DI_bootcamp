@@ -63,10 +63,10 @@ export const delAction = () => {
 export const changeLanguageAction = (languageBtn) => {
 	console.log(languageBtn)
 	let language = languageBtn.textContent
-	if (languageBtn.textContent === 'ע') {
-		languageBtn.textContent = 'E'
+	if (languageBtn.textContent === 'עב') {
+		languageBtn.textContent = 'EN'
 	} else {
-		languageBtn.textContent = 'ע'
+		languageBtn.textContent = 'עב'
 	}
 	return {
 		type: language,

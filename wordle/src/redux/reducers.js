@@ -22,7 +22,7 @@ const finalToRegular = (letter) => {
 }
 
 export const initState = {
-		language: 'E',
+		language: 'EN',
 		direction: [0,1,2,3,4],
 		wordList: WORDS,
 		dailyWord: WORDS[randomNum],
@@ -93,12 +93,12 @@ export const reducer = (state=initState, action={}) => {
 		  
 		  console.log(arr)
 		  return {...state, result: arr, turn: ++state.turn}
-		case 'ע':
+		case 'עב':
 		  console.log(HebrewWords)
 		  console.log(randomNum)
-		  return {...state, language: 'ע', direction: [4,3,2,1,0], wordList: HebrewWords, dailyWord: HebrewWords[hebrewRandomNum]}
-		case 'E':
-		  return {...state, language: 'E', direction: [0,1,2,3,4], wordList: WORDS, dailyWord: WORDS[randomNum]}
+		  return {...state, language: 'עב', direction: [4,3,2,1,0], wordList: HebrewWords, dailyWord: HebrewWords[hebrewRandomNum]}
+		case 'EN':
+		  return {...state, language: 'EN', direction: [0,1,2,3,4], wordList: WORDS, dailyWord: WORDS[randomNum]}
 		case 'EMPTY':
 	  	  return {...state}
 	  	default:
