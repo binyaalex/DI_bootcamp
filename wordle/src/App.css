@@ -74,7 +74,6 @@ h4 {
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.2rem;
-  padding: 0 0 8px 0;
   text-align: center;
   margin: 0;
 }
@@ -132,6 +131,13 @@ section {
 
 .gray {
   background-color: gray;
+}
+
+img {
+  height: 50px;
+  position: absolute;
+  right: -15px;
+  top: -5px;
 }
 
 .tryes {

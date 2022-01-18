@@ -11,6 +11,7 @@ const blackBox = () => {
     }
 }
 
+
 export const changeAction = (e) => {
 	console.log(e)
 	let letter
@@ -22,7 +23,7 @@ export const changeAction = (e) => {
     setTimeout(blackBox, 1)
 
 	console.log(letter)
-	if ((e.keyCode > 64 && e.keyCode < 91) || (letter.match(".*[A-Z].*") && letter.length < 2)) {
+	if ((e.keyCode > 64 && e.keyCode < 91) || (letter.match(".*[A-Z].*") && letter.length < 2) || letter.match(".*[א-ת].*")) {
 		return {
 			type:'CHANGE',
 			payload: letter
@@ -56,5 +57,12 @@ export const delAction = () => {
 	console.log('del')
 	return {
 		type:'DEL',
+	}
+}
+
+export const changeLanguageAction = (value) => {
+	console.log(value)
+	return {
+		type: value,
 	}
 }

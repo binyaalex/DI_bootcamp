@@ -1,6 +1,9 @@
+import {connect} from 'react-redux';
+import {changeLanguageAction} from '../redux/actions';
 import Help from './Help'
 
-const Header = () => {
+const Header = (props) => {
+	const {changeLanguage} = props
 	
 	const displayHelpTuggle = (e) => {
 		const helpDisplay = document.body.querySelector('.help').style.display
@@ -8,6 +11,14 @@ const Header = () => {
 			document.body.querySelector('.help').style.display = 'none'
 		} else {			
 			document.body.querySelector('.help').style.display = 'block'
+		}
+	}
+	const getResult = () => {
+		const tryes = document.querySelector('.tryes').children
+		for (let i = 0; i < tryes.length; i++) {
+			for (let d = 0; d < tryes[i].children.length; d++) {
+				console.log(tryes[i].children[d].style.backgroundColor)	
+			}
 		}
 	}
 
@@ -18,7 +29,16 @@ const Header = () => {
 				<Help displayHelpTuggle={displayHelpTuggle} />
 			</div>
 	    	<h4>WORDLE</h4>
+	    	<img onClick={getResult} src='stats.jpg' />
+	    	<div onClick={changeLanguage}>ע</div> 
 		</header>
 	)
 }
-export default Header
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeLanguage: (e) => dispatch(changeLanguageAction(e.target.textContent)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Header) 
