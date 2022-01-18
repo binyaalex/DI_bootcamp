@@ -50,9 +50,6 @@ export const reducer = (state=initState, action={}) => {
 		  try1[state.turn] = try1[state.turn].slice(0, -1);
 		  console.log(try1)
 		  return {...state, userWord: try1}
-		case 'DELOWN':
-		  try1[state.turn] = try1[state.turn].slice(1, 2);
-		  return {...state, userWord: try1}
 		case 'ENTER':
 		// make last letter good for hebrew in user word and daily word
 		let userWord = state.userWord[state.turn]
