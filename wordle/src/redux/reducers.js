@@ -97,6 +97,8 @@ export const reducer = (state=initState, action={}) => {
 		  console.log(HebrewWords)
 		  console.log(randomNum)
 		  return {...state, language: 'ע', direction: [4,3,2,1,0], wordList: HebrewWords, dailyWord: HebrewWords[hebrewRandomNum]}
+		case 'E':
+		  return {...state, language: 'E', direction: [0,1,2,3,4], wordList: WORDS, dailyWord: WORDS[randomNum]}
 		case 'EMPTY':
 	  	  return {...state}
 	  	default:

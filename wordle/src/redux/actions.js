@@ -60,9 +60,15 @@ export const delAction = () => {
 	}
 }
 
-export const changeLanguageAction = (value) => {
-	console.log(value)
+export const changeLanguageAction = (languageBtn) => {
+	console.log(languageBtn)
+	let language = languageBtn.textContent
+	if (languageBtn.textContent === 'ע') {
+		languageBtn.textContent = 'E'
+	} else {
+		languageBtn.textContent = 'ע'
+	}
 	return {
-		type: value,
+		type: language,
 	}
 }

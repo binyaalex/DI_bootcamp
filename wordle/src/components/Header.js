@@ -37,7 +37,7 @@ const Header = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeLanguage: (e) => dispatch(changeLanguageAction(e.target.textContent)),
+    changeLanguage: (e) => dispatch(changeLanguageAction(e.target)),
   }
 }
 
