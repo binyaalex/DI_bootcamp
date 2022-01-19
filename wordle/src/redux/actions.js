@@ -65,8 +65,12 @@ export const changeLanguageAction = (languageBtn) => {
 	let language = languageBtn.textContent
 	if (languageBtn.textContent === 'עב') {
 		languageBtn.textContent = 'EN'
+		document.querySelector('.keyboard').style.display = 'none'
+		document.querySelector('.hebrewKeyboard').style.display = 'block'
 	} else {
 		languageBtn.textContent = 'עב'
+		document.querySelector('.hebrewKeyboard').style.display = 'none'
+		document.querySelector('.keyboard').style.display = 'block'
 	}
 	return {
 		type: language,
