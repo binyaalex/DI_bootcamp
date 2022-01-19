@@ -1,16 +1,17 @@
 import {connect} from 'react-redux';
 import {changeLanguageAction} from '../redux/actions';
 import Help from './Help'
+import Result from './Result'
 
 const Header = (props) => {
 	const {changeLanguage} = props
 	
 	const displayHelpTuggle = (e) => {
-		const helpDisplay = document.body.querySelector('.help').style.display
+		const helpDisplay = document.body.querySelector('.helpPage').style.display
 		if (helpDisplay === 'block') {			
-			document.body.querySelector('.help').style.display = 'none'
+			document.body.querySelector('.helpPage').style.display = 'none'
 		} else {			
-			document.body.querySelector('.help').style.display = 'block'
+			document.body.querySelector('.helpPage').style.display = 'block'
 		}
 	}
 	const getResult = () => {
@@ -27,7 +28,7 @@ const Header = (props) => {
 	    	<div>
 				<div onClick={displayHelpTuggle} className='helpBtn'>?</div>
 			</div>
-			<div className='help'>
+			<div className='helpPage'>
 				<Help displayHelpTuggle={displayHelpTuggle} />
 			</div>
 	    	<div>
@@ -37,6 +38,9 @@ const Header = (props) => {
 	    		<img onClick={getResult} src='stats.jpg' />
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div> 
 	    	</div>
+	    	<div className='resultPage'>
+	    		<Result />
+			</div>
 		</header>
 	)
 }

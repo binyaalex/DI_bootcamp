@@ -44,6 +44,7 @@
 .allDad {
   display: flex;
   justify-content: center;
+  width: 100vw;
 }
 
 .all {
@@ -109,14 +110,18 @@ img {
   justify-content: center;
 }
 
-.help {
+.helpPage, .resultPage {
   display: none;
   position: absolute;
-  width: 500px;
   height: 100vh;
   background-color: white;
   top: 0;
+  right: -5px;
   font-size: 14px
+}
+
+.help, .result {
+  width: 500px;
 }
 
 .helpHeader {
@@ -162,6 +167,10 @@ section {
 
 .gray {
   background-color: gray;
+}
+
+.resultPage {
+  /*display: block;*/
 }
 
 .tryes {

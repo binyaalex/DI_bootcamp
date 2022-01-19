@@ -1,6 +1,6 @@
 const Help = (props) => {
 	return (
-		<>
+		<div className='help'>
 			<header className='helpHeader'>
 				<h5>HOW TO PLAY</h5>
 				<div onClick={props.displayHelpTuggle} className='x'>X</div>
@@ -70,7 +70,7 @@ const Help = (props) => {
 				</section>
 				<p><strong>A new WORDLE will be available each refresh!</strong></p>
 			</main>
-		</>
+		</div>
 	)
 }
 export default Help
