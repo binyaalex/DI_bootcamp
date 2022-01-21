@@ -11,6 +11,11 @@ const blackBox = () => {
     }
 }
 
+const isItGray = (letter, grayLettersArr) => {
+	let trueOrFalse = grayLettersArr.some(ele => ele === letter)
+	return trueOrFalse
+}
+console.log(isItGray('Y', ['O', 'J', 'Y']))
 
 export const changeAction = (e) => {
 	console.log(e)
@@ -21,9 +26,18 @@ export const changeAction = (e) => {
 		letter = e.key.toUpperCase()
 	}
     setTimeout(blackBox, 1)
+    const boardLetters = document.querySelectorAll('.boardLetter')
+    let greyLetters = []
+    for (let i = 0; i < boardLetters.length; i++) {
+    	if (boardLetters[i].style.backgroundColor === 'gray') {
+    		greyLetters.push(boardLetters[i].textContent)
+    	}
+    }
+	console.log(greyLetters)
+	console.log(isItGray(letter, ['D', 'I', 'S']))
 
 	console.log(letter)
-	if ((e.keyCode > 64 && e.keyCode < 91) || (letter.match(".*[A-Z].*") && letter.length < 2) || letter.match(".*[א-ת].*")) {
+	if (((letter.match(".*[A-Z].*") && letter.length < 2) || letter.match(".*[א-ת].*")) && !isItGray(letter, greyLetters)) {
 		return {
 			type:'CHANGE',
 			payload: letter
