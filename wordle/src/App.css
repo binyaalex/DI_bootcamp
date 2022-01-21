@@ -205,6 +205,10 @@ section {
   height: 200px;
 }
 
+button {
+  border: 0;
+}
+
 .qToP, .enterToBackspace {
   display: flex;
   justify-content: center;

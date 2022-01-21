@@ -8,38 +8,38 @@ const Keyboard = (props) => {
 	  <div>      
       <div className='keyboard'>
         <div className='qToP'>
-          <div onClick={change2} className='boardLetter'>Q</div>
-          <div onClick={change2} className='boardLetter'>W</div>
-          <div onClick={change2} className='boardLetter'>E</div>
-          <div onClick={change2} className='boardLetter'>R</div>
-          <div onClick={change2} className='boardLetter'>T</div>
-          <div onClick={change2} className='boardLetter'>Y</div>
-          <div onClick={change2} className='boardLetter'>U</div>
-          <div onClick={change2} className='boardLetter'>I</div>
-          <div onClick={change2} className='boardLetter'>O</div>
-          <div onClick={change2} className='boardLetter'>P</div>
+          <button onClick={change2} className='boardLetter'>Q</button>
+          <button onClick={change2} className='boardLetter'>W</button>
+          <button onClick={change2} className='boardLetter'>E</button>
+          <button onClick={change2} className='boardLetter'>R</button>
+          <button onClick={change2} className='boardLetter'>T</button>
+          <button onClick={change2} className='boardLetter'>Y</button>
+          <button onClick={change2} className='boardLetter'>U</button>
+          <button onClick={change2} className='boardLetter'>I</button>
+          <button onClick={change2} className='boardLetter'>O</button>
+          <button onClick={change2} className='boardLetter'>P</button>
         </div>
         <div className='aToL'>
-          <div onClick={change2} className='boardLetter'>A</div>
-          <div onClick={change2} className='boardLetter'>S</div>
-          <div onClick={change2} className='boardLetter'>D</div>
-          <div onClick={change2} className='boardLetter'>F</div>
-        	<div onClick={change2} className='boardLetter'>G</div>
-          <div onClick={change2} className='boardLetter'>H</div>
-          <div onClick={change2} className='boardLetter'>J</div>
-          <div onClick={change2} className='boardLetter'>K</div>
-          <div onClick={change2} className='boardLetter'>L</div>
+          <button onClick={change2} className='boardLetter'>A</button>
+          <button onClick={change2} className='boardLetter'>S</button>
+          <button onClick={change2} className='boardLetter'>D</button>
+          <button onClick={change2} className='boardLetter'>F</button>
+        	<button onClick={change2} className='boardLetter'>G</button>
+          <button onClick={change2} className='boardLetter'>H</button>
+          <button onClick={change2} className='boardLetter'>J</button>
+          <button onClick={change2} className='boardLetter'>K</button>
+          <button onClick={change2} className='boardLetter'>L</button>
         </div>
         <div className='enterToBackspace'>
-          <div onClick={enter} className='notL'>ENTER</div>
-          <div onClick={change2} className='boardLetter'>Z</div>
-          <div onClick={change2} className='boardLetter'>X</div>
-          <div onClick={change2} className='boardLetter'>C</div>
-          <div onClick={change2} className='boardLetter'>V</div>
-          <div onClick={change2} className='boardLetter'>B</div>
-          <div onClick={change2} className='boardLetter'>N</div>
-          <div onClick={change2} className='boardLetter'>M</div>
-          <div onClick={del} className='notL'>DEL</div>
+          <button onClick={enter} className='notL'>ENTER</button>
+          <button onClick={change2} className='boardLetter'>Z</button>
+          <button onClick={change2} className='boardLetter'>X</button>
+          <button onClick={change2} className='boardLetter'>C</button>
+          <button onClick={change2} className='boardLetter'>V</button>
+          <button onClick={change2} className='boardLetter'>B</button>
+          <button onClick={change2} className='boardLetter'>N</button>
+          <button onClick={change2} className='boardLetter'>M</button>
+          <button onClick={del} className='notL'>DEL</button>
         </div>
       </div>
 
