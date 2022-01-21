@@ -6,7 +6,7 @@ let randomNum = Math.floor(Math.random() * WORDS.length);
 const hebrewRandomNum = Math.floor(Math.random() * 2128);
 console.log(WORDS.length)
 
-const finalToRegular = (letter) => {
+export const finalToRegular = (letter) => {
 	if (letter === 'ם') {
 		letter = 'מ'
 	} else if (letter === 'ף') {

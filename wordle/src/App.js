@@ -7,6 +7,7 @@ import Noword from './components/Noword'
 import {connect} from 'react-redux';
 import React, { useEffect } from 'react';
 import {changeAction} from './redux/actions';
+import {finalToRegular} from './redux/reducers';
 
 
 
@@ -14,7 +15,9 @@ const App = (props) => {
   const {result, turn, change2, change1} = props
   
   useEffect(() => {
-    document.body.addEventListener('keydown', change1)
+    document.body.addEventListener('keydown', change1) // for real keyboard
+
+    // make squre black after write a letter inside
     const squares = document.querySelectorAll('.letterBox')
     console.log('hi')
     for (let i = 0; i < squares.length; i++) {
@@ -24,26 +27,30 @@ const App = (props) => {
       }
     }
     console.log(turn)
-    let firstTurn
+
+    // for not do it first load and then stack
+    let firstLoad
     if (turn !== 0) {
-      firstTurn = 1
+      firstLoad = true
     } else {
-      firstTurn = false
+      firstLoad = false
     }
-    console.log(firstTurn)
-    if (firstTurn) {
+    if (firstLoad) {
+      // color the letters of the last try according the result
       const letters = document.querySelector('.tryes').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
       for (let i = 0; i < letters.length; i++) {
         letters[i].style.backgroundColor = result[i]
         letters[i].style.color = 'white'
+      // color the letters of the screen keyboard according the result
         for (let d = 0; d < boardLetters.length; d++) {
+          let boardLetter = finalToRegular(boardLetters[d].textContent)
+          console.log(boardLetter)
           console.log('board', boardLetters[d].style.backgroundColor)
           console.log('user', letters[i].textContent)
-          if (boardLetters[d].textContent === letters[i].textContent &&
+          if (boardLetter === letters[i].textContent &&
               boardLetters[d].style.backgroundColor !== 'rgb(106, 170, 100)')
           {
-            console.log(1)
             boardLetters[d].style.backgroundColor = result[i]
             boardLetters[d].style.color = 'white'
           } 
@@ -54,7 +61,7 @@ const App = (props) => {
     const win = result.every(el => el === '#6AAA64')
     console.log(win)
     const myGreeting = () => {
-      if (win && firstTurn) {
+      if (win && firstLoad) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.well').style.display = 'block'
       } else if (turn === 6) {
