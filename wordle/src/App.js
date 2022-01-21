@@ -46,9 +46,6 @@ const App = (props) => {
         for (let d = 0; d < boardLetters.length; d++) {
           let boardLetter = finalToRegular(boardLetters[d].textContent)
           let letter = finalToRegular(letters[i].textContent)
-          console.log(boardLetter)
-          console.log('board', boardLetters[d].style.backgroundColor)
-          console.log('user', letters[i].textContent)
           if (boardLetter === letter &&
               boardLetters[d].style.backgroundColor !== 'rgb(106, 170, 100)')
           {
