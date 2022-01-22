@@ -30,7 +30,7 @@ export const changeAction = (e) => {
 	console.log(greyLetters)
 
 	console.log(letter)
-	if (((letter.match(".*[A-Z].*") && letter.length < 2) || letter.match(".*[א-ת].*")) && !letter.match(`.*[${greyLetters}].*`)) {
+	if (((letter.match(".*[A-Z].*") && letter.length < 2) || letter.match(".*[א-ת].*")) && (!letter.match(`.*[${greyLetters}].*`))) {
 		return {
 			type:'CHANGE',
 			payload: letter

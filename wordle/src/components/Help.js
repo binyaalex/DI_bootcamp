@@ -13,7 +13,7 @@ const Help = (props) => {
 				</section>
 				<section>
 					<p className='examples'>Examples</p>
-					<div className='try'>
+					<div className='example'>
 			          <div className='letterBox firstLetter green white'>
 			            W
 			          </div>
@@ -31,7 +31,7 @@ const Help = (props) => {
 			          </div>
 			        </div>
 			        <p>The letter <strong>W</strong> is in the word and in the correct spot</p>
-			        <div className='try'>
+			        <div className='example'>
 			          <div className='letterBox firstLetter'>
 			            P
 			          </div>
@@ -49,7 +49,7 @@ const Help = (props) => {
 			          </div>
 			        </div>
 			        <p>The letter <strong>I</strong> is in the word but in the wrong spot.</p>
-    			    <div className='try'>
+    			    <div className='example'>
 			          <div className='letterBox firstLetter'>
 			            V
 			          </div>

@@ -58,29 +58,71 @@ export const reducer = (state=initState, action={}) => {
 		let dailyWordLastLetter = finalToRegular(dailyWord[4])
 		userWord = userWord.slice(0,4) + userWordLastLetter
 		dailyWord = dailyWord.slice(0,4) + dailyWordLastLetter
+		
 		console.log(dailyWord)
 		console.log(state)
+		 const tryes = document.querySelectorAll('.try')
+		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
+		for (let c = 0; c < tryes.length; c++) {
+				for (let b = 0; b < tryes[c].children.length; b++) {
+					console.log(tryes[c].children[b].style.backgroundColor)
+					console.log(state.userWord[state.turn])
+					if (tryes[c].children[b].style.backgroundColor === 'rgb(201, 180, 88)') {
+						for (let a = 0; a < userWord.length; a++) {
+							console.log(tryes[c].children[b].textContent)
+							console.log(userWord[a])
+							if (userWord[a] === tryes[c].children[b].textContent) {
+								isYellowLetterInUserWordArr[c][b].push(true)
+							} else {
+								isYellowLetterInUserWordArr[c][b].push(false)
+							}
+						}
+					}
+				}
+			}
+		console.log(isYellowLetterInUserWordArr)
+		const isYellowLetterInUserWord = () => {
+			for (let i = 0; i < isYellowLetterInUserWordArr.length; i++) {
+				for (var d = 0; d < isYellowLetterInUserWordArr[i].length; d++) {
+					if (isYellowLetterInUserWordArr[i][d].length > 0) {
+						if (isYellowLetterInUserWordArr[i][d].some(ele => ele === true)) {
+							console.log(true)
+						} else {
+							console.log(false)
+							return false
+						}
+					}
+				}
+			}
+			return true
+		}
 		  let arr = []
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  if (isWordInWordList) {
-		  	for (let i = 0; i < userWord.length; i++) {
-		  		console.log(dailyWord)
-			  	for (let d = 0; d < dailyWord.length; d++) {
-			  		console.log(userWord[i])
-			  		console.log(dailyWord[d])
-			  		console.log(i)
-			  		if (userWord[i].toLowerCase() === dailyWord[d] && d === i) {
-			  		    console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: green`)
-			  		    arr[state.direction[i]] = '#6AAA64'
-			  	    } else if (userWord[i].toLowerCase() === dailyWord[d] && arr[state.direction[i]] !== '#6AAA64') {
-			  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: yellow`)
-			  		    arr[state.direction[i]] = '#C9B458'
-			  	    } else if (!arr[state.direction[i]]) {
-			  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: gray`)
-			  	    	arr[state.direction[i]] = 'gray'
-			  	    }
-			  	    console.log(arr)
+		  	console.log(isYellowLetterInUserWord())
+		  	if (isYellowLetterInUserWord()) {
+		  		for (let i = 0; i < userWord.length; i++) {
+			  		console.log(dailyWord)
+				  	for (let d = 0; d < dailyWord.length; d++) {
+				  		console.log(userWord[i])
+				  		console.log(dailyWord[d])
+				  		console.log(i)
+				  		if (userWord[i].toLowerCase() === dailyWord[d] && d === i) {
+				  		    console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: green`)
+				  		    arr[state.direction[i]] = '#6AAA64'
+				  	    } else if (userWord[i].toLowerCase() === dailyWord[d] && arr[state.direction[i]] !== '#6AAA64') {
+				  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: yellow`)
+				  		    arr[state.direction[i]] = '#C9B458'
+				  	    } else if (!arr[state.direction[i]]) {
+				  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: gray`)
+				  	    	arr[state.direction[i]] = 'gray'
+				  	    }
+				  	    console.log(arr)
+				  	}
 			  	}
+		  	} else {
+		  		console.log('letter that mark in yellow must be in your word')
+		  		return {...state}
 		  	}
 		  } else {
 		  	document.querySelector('.shake').style.display = 'block'

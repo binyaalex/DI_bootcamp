@@ -190,7 +190,7 @@ section {
   text-transform: capitalize;
 }
 
-.try {
+.try, .example {
   display: flex
 }
 
