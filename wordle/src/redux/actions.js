@@ -11,12 +11,6 @@ const blackBox = () => {
     }
 }
 
-const isItGray = (letter, grayLettersArr) => {
-	let trueOrFalse = grayLettersArr.some(ele => ele === letter)
-	return trueOrFalse
-}
-console.log(isItGray('Y', ['O', 'J', 'Y']))
-
 export const changeAction = (e) => {
 	console.log(e)
 	let letter
@@ -34,10 +28,9 @@ export const changeAction = (e) => {
     	}
     }
 	console.log(greyLetters)
-	console.log(isItGray(letter, ['D', 'I', 'S']))
 
 	console.log(letter)
-	if (((letter.match(".*[A-Z].*") && letter.length < 2) || letter.match(".*[א-ת].*")) && !isItGray(letter, greyLetters)) {
+	if (((letter.match(".*[A-Z].*") && letter.length < 2) || letter.match(".*[א-ת].*")) && !letter.match(`.*[${greyLetters}].*`)) {
 		return {
 			type:'CHANGE',
 			payload: letter
