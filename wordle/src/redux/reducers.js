@@ -123,7 +123,7 @@ export const reducer = (state=initState, action={}) => {
 				  	}
 			  	}
 		  	} else {
-		  		console.log('letter that mark in yellow must be in your word')
+		  		alert('letter that mark in yellow must be in your word')
 		  		return {...state}
 		  	}
 		  } else {
