@@ -71,7 +71,9 @@ export const reducer = (state=initState, action={}) => {
 						for (let a = 0; a < userWord.length; a++) {
 							console.log(tryes[c].children[b].textContent)
 							console.log(userWord[a])
-							if (userWord[a] === tryes[c].children[b].textContent) {
+							let letter
+							letter = finalToRegular(tryes[c].children[b].textContent)
+							if (userWord[a] === letter) {
 								isYellowLetterInUserWordArr[c][b].push(true)
 							} else {
 								isYellowLetterInUserWordArr[c][b].push(false)
