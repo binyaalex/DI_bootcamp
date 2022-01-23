@@ -127,9 +127,11 @@ export const reducer = (state=initState, action={}) => {
 		  		return {...state}
 		  	}
 		  } else {
-		  	document.querySelector('.shake').style.display = 'block'
+		  	document.querySelector('.noWord').style.display = 'block'
+		  	tryes[state.turn].classList.add('shake')
 		  	const undisplay = () => {
-		  		document.querySelector('.shake').style.display = 'none'
+		  		tryes[state.turn].classList.remove('shake')
+		  		document.querySelector('.noWord').style.display = 'none'
 		  	}
 		  	setTimeout(undisplay, 800)
 		  	return {...state}

@@ -1,6 +1,6 @@
 const noWord = () => {
 	return (
-		<div className='shake'>
+		<div className='noWord'>
 			<div>
 				there is no such a word!
 			</div>
