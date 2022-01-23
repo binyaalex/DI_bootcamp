@@ -8,7 +8,7 @@ const Messages = (props) => {
 				well done!
 			</div>
 			<div className='loser'>
-				You finished your tryes, the word is {dailyWord}, maybe next time
+				Game over, the word is {dailyWord}, maybe next time.
 			</div>
 			<div className='noWord'>
 				there is no such a word!
