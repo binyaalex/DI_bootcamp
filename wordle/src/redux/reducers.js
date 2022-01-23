@@ -31,7 +31,6 @@ export const initState = {
 		turn: 0
 	}
 
-randomNum = Math.floor(Math.random() * initState.wordList.length);
 console.log(initState.dailyWord)
 export const reducer = (state=initState, action={}) => {
 	console.log(state.dailyWord)
@@ -99,6 +98,7 @@ export const reducer = (state=initState, action={}) => {
 			return true
 		}
 		  let arr = []
+		  console.log(state.wordList.length)
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  if (isWordInWordList) {
 		  	console.log(isYellowLetterInUserWord())
@@ -155,7 +155,7 @@ export const reducer = (state=initState, action={}) => {
 		  return {...state, language: 'עב', direction: [4,3,2,1,0], wordList: HebrewWordsCheckList, dailyWord: HebrewWords[hebrewRandomNum]}
 		case 'EN':
 		  console.log(randomNum)
-		  return {...state, language: 'EN', direction: [0,1,2,3,4], wordList: WORDS, dailyWord: WORDS[randomNum]}
+		  return {...state, language: 'EN', direction: [0,1,2,3,4], wordList: WORDSCheckList, dailyWord: WORDS[randomNum]}
 		case 'EMPTY':
 	  	  return {...state}
 	  	default:
