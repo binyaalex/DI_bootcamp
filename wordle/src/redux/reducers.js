@@ -123,7 +123,15 @@ export const reducer = (state=initState, action={}) => {
 				  	}
 			  	}
 		  	} else {
-		  		alert('letter that mark in yellow must be in your word')
+		  		document.querySelector('.messages').style.display = 'block'
+			  	document.querySelector('.yellowAndGreen').style.display = 'block'
+			  	tryes[state.turn].classList.add('shake')
+			  	const undisplay = () => {
+			  		tryes[state.turn].classList.remove('shake')
+	        		document.querySelector('.messages').style.display = 'none'
+			  		document.querySelector('.yellowAndGreen').style.display = 'none'
+			  	}
+			  	setTimeout(undisplay, 800)
 		  		return {...state}
 		  	}
 		  } else {
