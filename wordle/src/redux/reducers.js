@@ -1,4 +1,4 @@
-import WORDS from '../components/wordList'
+import {WORDS, WORDSCheckList} from '../components/wordList'
 import {HebrewWords, HebrewWordsCheckList} from '../components/HebrewWordList'
 
 console.log(HebrewWords)
@@ -24,7 +24,7 @@ export const finalToRegular = (letter) => {
 export const initState = {
 		language: 'EN',
 		direction: [0,1,2,3,4],
-		wordList: WORDS,
+		wordList: WORDSCheckList,
 		dailyWord: WORDS[randomNum],
 		userWord: ['','','','','',''],
 		result: [],
