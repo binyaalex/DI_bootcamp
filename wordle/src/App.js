@@ -3,7 +3,6 @@ import Header from './components/Header'
 import Try from './components/Try'
 import Keyboard from './components/Keyboard'
 import Messages from './components/Messages'
-import Noword from './components/Noword'
 import {connect} from 'react-redux';
 import React, { useEffect } from 'react';
 import {changeAction} from './redux/actions';
@@ -90,7 +89,6 @@ const App = (props) => {
         <Keyboard />
       </div>
       <Messages />
-      <Noword />
     </div>
   );
 }

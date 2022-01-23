@@ -250,7 +250,7 @@ button {
   width: 80px;
 }
 
-.noWord {
+/*.noWord {
   display: none;
   position: absolute;
   top: 100px;
@@ -259,7 +259,7 @@ button {
   text-transform: uppercase;
   font-weight: bold;
   padding: 12px 15px;
-}
+}*/
 
 .shake {
   animation: shake 0.3s;
