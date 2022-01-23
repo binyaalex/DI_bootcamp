@@ -3,7 +3,7 @@ import {HebrewWords, HebrewWordsCheckList} from '../components/HebrewWordList'
 
 console.log(HebrewWords)
 let randomNum = Math.floor(Math.random() * WORDS.length);
-const hebrewRandomNum = Math.floor(Math.random() * 2128);
+const hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
 console.log(WORDS.length)
 
 export const finalToRegular = (letter) => {
@@ -34,7 +34,7 @@ export const initState = {
 randomNum = Math.floor(Math.random() * initState.wordList.length);
 console.log(initState.dailyWord)
 export const reducer = (state=initState, action={}) => {
-	console.log(state.userWord)
+	console.log(state.dailyWord)
 	let try1 = {...state.userWord}
 	console.log(try1)
 	switch (action.type) {
@@ -154,6 +154,7 @@ export const reducer = (state=initState, action={}) => {
 		  console.log(randomNum)
 		  return {...state, language: 'עב', direction: [4,3,2,1,0], wordList: HebrewWordsCheckList, dailyWord: HebrewWords[hebrewRandomNum]}
 		case 'EN':
+		  console.log(randomNum)
 		  return {...state, language: 'EN', direction: [0,1,2,3,4], wordList: WORDS, dailyWord: WORDS[randomNum]}
 		case 'EMPTY':
 	  	  return {...state}
