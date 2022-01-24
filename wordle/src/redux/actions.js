@@ -52,8 +52,26 @@ export const changeAction = (e) => {
 			payload: letter
 		}
 	} else if (e.key === 'Enter') {
-		return {
-			type:'ENTER'
+        const playAgain = document.querySelector('.playAgain')
+        console.log(playAgain.style.display)
+		if (playAgain.style.display === '' || playAgain.style.display === 'none') {
+			return {
+				type:'ENTER'
+			}
+		} else {
+			let language = document.querySelector('.languageBtn').textContent
+	        document.querySelector('.messages').style.display = 'none'
+	        document.querySelector('.well').style.display = 'none'
+	        document.querySelector('.loser').style.display = 'none'
+	        document.querySelector('.playAgain').style.display = 'none'
+			if (language === 'עב') {
+				language = 'EN'
+			} else {
+				language = 'עב'
+			}
+			return {
+				type: language,
+			}
 		}
 	} else if (e.keyCode === 8) {
 		return {
@@ -67,7 +85,6 @@ export const changeAction = (e) => {
 }
 
 export const enterAction = () => {
-	console.log('enter')
 	return {
 		type:'ENTER',
 	}
