@@ -54,10 +54,8 @@ const App = (props) => {
             boardLetters[d].style.backgroundColor = result[i]
             boardLetters[d].style.color = 'white'
           }
-          console.log(boardLetters[d].style.backgroundColor)
           if (boardLetters[d].style.backgroundColor === 'gray') {
             boardLetters[d].disabled = true
-            console.log(4)
           } 
         }
       }

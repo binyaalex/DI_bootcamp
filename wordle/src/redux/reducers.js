@@ -64,8 +64,6 @@ export const reducer = (state=initState, action={}) => {
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		for (let c = 0; c < tryes.length; c++) {
 				for (let b = 0; b < tryes[c].children.length; b++) {
-					console.log(tryes[c].children[b].style.backgroundColor)
-					console.log(state.userWord[state.turn])
 					if (tryes[c].children[b].style.backgroundColor === 'rgb(201, 180, 88)' || tryes[c].children[b].style.backgroundColor === 'rgb(106, 170, 100)') {
 						for (let a = 0; a < userWord.length; a++) {
 							console.log(tryes[c].children[b].textContent)
