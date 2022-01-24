@@ -94,3 +94,19 @@ export const delOwnAction = (letter) => {
 		payload: letter
 	}
 }
+
+export const playAgainAction = () => {
+	let language = document.querySelector('.languageBtn').textContent
+        document.querySelector('.messages').style.display = 'none'
+        document.querySelector('.well').style.display = 'none'
+        document.querySelector('.loser').style.display = 'none'
+        document.querySelector('.playAgain').style.display = 'none'
+	if (language === 'עב') {
+		language = 'EN'
+	} else {
+		language = 'עב'
+	}
+	return {
+		type: language,
+	}
+}

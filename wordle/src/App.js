@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Try from './components/Try'
 import Keyboard from './components/Keyboard'
 import Messages from './components/Messages'
+import PlayAgain from './components/PlayAgain'
 import {connect} from 'react-redux';
 import React, { useEffect } from 'react';
 import {changeAction} from './redux/actions';
@@ -80,9 +81,11 @@ const App = (props) => {
       if (win && firstLoad) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.well').style.display = 'block'
+        document.querySelector('.playAgain').style.display = 'block'
       } else if (turn === 6) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.loser').style.display = 'block'
+        document.querySelector('.playAgain').style.display = 'block'
       } 
     }
     setTimeout(myGreeting, 300)
@@ -103,6 +106,7 @@ const App = (props) => {
         <Keyboard />
       </div>
       <Messages />
+      <PlayAgain />
     </div>
   );
 }
