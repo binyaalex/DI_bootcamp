@@ -152,10 +152,26 @@ export const reducer = (state=initState, action={}) => {
 		case 'עב':
 		  console.log(HebrewWords)
 		  console.log(randomNum)
-		  return {...state, language: 'עב', direction: [4,3,2,1,0], wordList: HebrewWordsCheckList, dailyWord: HebrewWords[hebrewRandomNum]}
+		  return {...state,
+					language: 'עב',
+					direction: [4,3,2,1,0], 
+					wordList: HebrewWordsCheckList, 
+					dailyWord: HebrewWords[hebrewRandomNum],
+					userWord: ['','','','','',''],
+					result: [],
+					turn: 0
+				 }
 		case 'EN':
 		  console.log(randomNum)
-		  return {...state, language: 'EN', direction: [0,1,2,3,4], wordList: WORDSCheckList, dailyWord: WORDS[randomNum]}
+		  return {...state, 
+		  			language: 'EN', 
+		  			direction: [0,1,2,3,4], 
+		  			wordList: WORDSCheckList, 
+		  			dailyWord: WORDS[randomNum],
+		  			userWord: ['','','','','',''],
+					result: [],
+					turn: 0
+		  		 }
 		case 'EMPTY':
 	  	  return {...state}
 	  	default:

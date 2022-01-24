@@ -40,6 +40,7 @@ const App = (props) => {
       const letters = document.querySelector('.tryes').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
       for (let i = 0; i < letters.length; i++) {
+        console.log(1)
         letters[i].style.backgroundColor = result[i]
         letters[i].style.color = 'white'
       // color the letters of the screen keyboard according the result
@@ -58,6 +59,18 @@ const App = (props) => {
             console.log(4)
           } 
         }
+      }
+    } else {
+      const letters = document.querySelectorAll('.letterBox')
+      const boardLetters = document.querySelectorAll('.boardLetter')
+      console.log(boardLetters[0])
+      for (let i = 0; i < letters.length; i++) {
+        letters[i].style.backgroundColor = 'white'
+        letters[i].style.borderColor = 'lightgray'
+        letters[i].style.color = 'black'      }
+      for (let i = 0; i < boardLetters.length; i++) {
+        boardLetters[i].style.backgroundColor = 'lightgray'
+        boardLetters[i].style.color = 'black'
       }
     }
     console.log(result)
