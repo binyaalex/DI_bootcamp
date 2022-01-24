@@ -3,7 +3,7 @@ import {HebrewWords, HebrewWordsCheckList} from '../components/HebrewWordList'
 
 console.log(HebrewWords)
 let randomNum = Math.floor(Math.random() * WORDS.length);
-const hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
+let hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
 console.log(WORDS.length)
 
 export const finalToRegular = (letter) => {
@@ -152,6 +152,7 @@ export const reducer = (state=initState, action={}) => {
 		case 'עב':
 		  console.log(HebrewWords)
 		  console.log(randomNum)
+		  hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
 		  return {...state,
 					language: 'עב',
 					direction: [4,3,2,1,0], 
@@ -162,6 +163,7 @@ export const reducer = (state=initState, action={}) => {
 					turn: 0
 				 }
 		case 'EN':
+		  randomNum = Math.floor(Math.random() * WORDS.length);
 		  console.log(randomNum)
 		  return {...state, 
 		  			language: 'EN', 
