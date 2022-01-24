@@ -12,6 +12,22 @@ const blackBox = () => {
 }
 
 export const changeAction = (e) => {
+	if (e.key === '=') {
+		let languageBtn = document.querySelector('.languageBtn')
+		let language = languageBtn.textContent
+		if (languageBtn.textContent === 'עב') {
+			languageBtn.textContent = 'EN'
+			document.querySelector('.keyboard').style.display = 'none'
+			document.querySelector('.hebrewKeyboard').style.display = 'block'
+		} else {
+			languageBtn.textContent = 'עב'
+			document.querySelector('.hebrewKeyboard').style.display = 'none'
+			document.querySelector('.keyboard').style.display = 'block'
+		}
+		return {
+			type: language,
+		}
+	}
 	console.log(e)
 	let letter
 	if (typeof(e) === 'string') {

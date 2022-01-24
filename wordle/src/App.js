@@ -12,7 +12,7 @@ import {finalToRegular} from './redux/reducers';
 
 
 const App = (props) => {
-  const {result, turn, change2, change1, dailyWord} = props
+  const {result, turn, change1, dailyWord} = props
   
   useEffect(() => {
     console.log(dailyWord)
@@ -124,7 +124,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     change1: (e) => dispatch(changeAction(e)),
-    change2: (e) => dispatch(changeAction(e.target.textContent)),
   }
 }
 
