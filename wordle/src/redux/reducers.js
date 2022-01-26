@@ -65,28 +65,26 @@ export const reducer = (state=initState, action={}) => {
 		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		for (let c = 0; c < tryes.length; c++) {
 				for (let b = 0; b < tryes[c].children.length; b++) {
-					if (tryes[c].children[b].style.backgroundColor === 'rgb(106, 170, 100)') {
-						for (let a = 0; a < userWord.length; a++) {
-							console.log(tryes[c].children[b].textContent)
-							console.log(userWord[a])
-							let letter
-							letter = finalToRegular(tryes[c].children[b].textContent)
-							if (userWord[a] === letter) {
-								isGreenLetterInUserWordArr[c][b].push(true)
-							} else {
-								isGreenLetterInUserWordArr[c][b].push(false)
-							}
+					if (tryes[c].children[state.direction[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
+						let letter
+						letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
+							console.log(userWord[b])
+							console.log(letter)
+						if (userWord[b] === letter) {
+							isGreenLetterInUserWordArr[c][state.direction[b]].push(true)
+						} else {	
+							isGreenLetterInUserWordArr[c][state.direction[b]].push(false)
 						}
 					} else if (tryes[c].children[b].style.backgroundColor === 'rgb(201, 180, 88)') {
 						for (let a = 0; a < userWord.length; a++) {
-							console.log(tryes[c].children[b].textContent)
+							console.log(tryes[c].children[state.direction[b]].textContent)
 							console.log(userWord[a])
 							let letter
-							letter = finalToRegular(tryes[c].children[b].textContent)
+							letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
 							if (userWord[a] === letter) {
-								isYellowLetterInUserWordArr[c][b].push(true)
+								isYellowLetterInUserWordArr[c][state.direction[b]].push(true)
 							} else {
-								isYellowLetterInUserWordArr[c][b].push(false)
+								isYellowLetterInUserWordArr[c][state.direction[b]].push(false)
 							}
 						}
 					}
