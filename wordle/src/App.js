@@ -41,7 +41,6 @@ const App = (props) => {
       const letters = document.querySelector('.tryes').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
       for (let i = 0; i < letters.length; i++) {
-        console.log(1)
         letters[i].style.backgroundColor = result[i]
         letters[i].style.color = 'white'
       // color the letters of the screen keyboard according the result

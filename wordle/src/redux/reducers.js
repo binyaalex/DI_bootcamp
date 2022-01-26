@@ -62,9 +62,22 @@ export const reducer = (state=initState, action={}) => {
 		console.log(state)
 		 const tryes = document.querySelectorAll('.try')
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
+		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		for (let c = 0; c < tryes.length; c++) {
 				for (let b = 0; b < tryes[c].children.length; b++) {
-					if (tryes[c].children[b].style.backgroundColor === 'rgb(201, 180, 88)' || tryes[c].children[b].style.backgroundColor === 'rgb(106, 170, 100)') {
+					if (tryes[c].children[b].style.backgroundColor === 'rgb(106, 170, 100)') {
+						for (let a = 0; a < userWord.length; a++) {
+							console.log(tryes[c].children[b].textContent)
+							console.log(userWord[a])
+							let letter
+							letter = finalToRegular(tryes[c].children[b].textContent)
+							if (userWord[a] === letter) {
+								isGreenLetterInUserWordArr[c][b].push(true)
+							} else {
+								isGreenLetterInUserWordArr[c][b].push(false)
+							}
+						}
+					} else if (tryes[c].children[b].style.backgroundColor === 'rgb(201, 180, 88)') {
 						for (let a = 0; a < userWord.length; a++) {
 							console.log(tryes[c].children[b].textContent)
 							console.log(userWord[a])
@@ -80,6 +93,7 @@ export const reducer = (state=initState, action={}) => {
 				}
 			}
 		console.log(isYellowLetterInUserWordArr)
+		console.log(isGreenLetterInUserWordArr)
 		const isYellowLetterInUserWord = () => {
 			for (let i = 0; i < isYellowLetterInUserWordArr.length; i++) {
 				for (var d = 0; d < isYellowLetterInUserWordArr[i].length; d++) {
@@ -95,30 +109,57 @@ export const reducer = (state=initState, action={}) => {
 			}
 			return true
 		}
+		const isGreenLetterInUserWord = () => {
+			for (let i = 0; i < isGreenLetterInUserWordArr.length; i++) {
+				for (var d = 0; d < isGreenLetterInUserWordArr[i].length; d++) {
+					if (isGreenLetterInUserWordArr[i][d].length > 0) {
+						if (isGreenLetterInUserWordArr[i][d].some(ele => ele === true)) {
+							console.log(true)
+						} else {
+							console.log(false)
+							return false
+						}
+					}
+				}
+			}
+			return true
+		}
 		  let arr = []
 		  console.log(state.wordList.length)
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  if (isWordInWordList) {
-		  	console.log(isYellowLetterInUserWord())
-		  	if (isYellowLetterInUserWord()) {
-		  		for (let i = 0; i < userWord.length; i++) {
-			  		console.log(dailyWord)
-				  	for (let d = 0; d < dailyWord.length; d++) {
-				  		console.log(userWord[i])
-				  		console.log(dailyWord[d])
-				  		console.log(i)
-				  		if (userWord[i].toLowerCase() === dailyWord[d] && d === i) {
-				  		    console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: green`)
-				  		    arr[state.direction[i]] = '#6AAA64'
-				  	    } else if (userWord[i].toLowerCase() === dailyWord[d] && arr[state.direction[i]] !== '#6AAA64') {
-				  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: yellow`)
-				  		    arr[state.direction[i]] = '#C9B458'
-				  	    } else if (!arr[state.direction[i]]) {
-				  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: gray`)
-				  	    	arr[state.direction[i]] = 'gray'
-				  	    }
-				  	    console.log(arr)
+		  	if (isGreenLetterInUserWord()) {
+			  	if (isYellowLetterInUserWord()) {
+			  		for (let i = 0; i < userWord.length; i++) {
+				  		console.log(dailyWord)
+					  	for (let d = 0; d < dailyWord.length; d++) {
+					  		console.log(userWord[i])
+					  		console.log(dailyWord[d])
+					  		console.log(i)
+					  		if (userWord[i].toLowerCase() === dailyWord[d] && d === i) {
+					  		    console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: green`)
+					  		    arr[state.direction[i]] = '#6AAA64'
+					  	    } else if (userWord[i].toLowerCase() === dailyWord[d] && arr[state.direction[i]] !== '#6AAA64') {
+					  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: yellow`)
+					  		    arr[state.direction[i]] = '#C9B458'
+					  	    } else if (!arr[state.direction[i]]) {
+					  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: gray`)
+					  	    	arr[state.direction[i]] = 'gray'
+					  	    }
+					  	    console.log(arr)
+					  	}
 				  	}
+			  	} else {
+			  		document.querySelector('.messages').style.display = 'block'
+				  	document.querySelector('.yellowAndGreen').style.display = 'block'
+				  	tryes[state.turn].classList.add('shake')
+				  	const undisplay = () => {
+				  		tryes[state.turn].classList.remove('shake')
+		        		document.querySelector('.messages').style.display = 'none'
+				  		document.querySelector('.yellowAndGreen').style.display = 'none'
+				  	}
+				  	setTimeout(undisplay, 800)
+			  		return {...state}
 			  	}
 		  	} else {
 		  		document.querySelector('.messages').style.display = 'block'
