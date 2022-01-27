@@ -151,7 +151,6 @@ export const reducer = (state=initState, action={}) => {
 				  	}
 				  	for (let i = 0; i < userWord.length; i++) {
 						if ((isItTheSecondTimeOfThisLetter[userWord[i]] || arr[state.direction[userWord.lastIndexOf(userWord[i])]] === '#6AAA64') && arr[state.direction[i]] !== '#6AAA64') {
-							console.log(isItTheSecondTimeOfThisLetter)
 							console.log(arr[state.direction[i]])
 							if (dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
 								arr[state.direction[i]] = 'gray'
