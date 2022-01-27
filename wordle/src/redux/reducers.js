@@ -122,31 +122,48 @@ export const reducer = (state=initState, action={}) => {
 			}
 			return true
 		}
-		  let arr = []
+		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  console.log(state.wordList.length)
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  if (isWordInWordList) {
 		  	if (isGreenLetterInUserWord()) {
 			  	if (isYellowLetterInUserWord()) {
 			  		for (let i = 0; i < userWord.length; i++) {
-				  		console.log(dailyWord)
-					  	for (let d = 0; d < dailyWord.length; d++) {
-					  		console.log(userWord[i])
-					  		console.log(dailyWord[d])
-					  		console.log(i)
-					  		if (userWord[i].toLowerCase() === dailyWord[d] && d === i) {
-					  		    console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: green`)
-					  		    arr[state.direction[i]] = '#6AAA64'
-					  	    } else if (userWord[i].toLowerCase() === dailyWord[d] && arr[state.direction[i]] !== '#6AAA64') {
-					  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: yellow`)
-					  		    arr[state.direction[i]] = '#C9B458'
-					  	    } else if (!arr[state.direction[i]]) {
-					  	    	console.log(`${userWord[i]} ${dailyWord[d]} ${state.direction[i]}: gray`)
-					  	    	arr[state.direction[i]] = 'gray'
-					  	    }
-					  	    console.log(arr)
-					  	}
+			  			for (let d = 0; d < dailyWord.length; d++) {
+			  				if (userWord[i].toLowerCase() === dailyWord[d]) {
+			  					arr[state.direction[i]] = '#C9B458' // yellow
+			  				}
+			  			}
+			  			console.log(arr)
+			  			if (userWord[i].toLowerCase() === dailyWord[i]) {
+			  				arr[state.direction[i]] = '#6AAA64' // green
+			  			}				  					  	 					  	    
 				  	}
+			  		console.log(arr)
+				  	let isItTheSecondTimeOfThisLetter = {}
+				  	for (let i = 0; i < userWord.length; i++) {
+			  				// if (userWord.indexOf(userWord[i]) !== userWord.lastIndexOf(userWord[i])
+			  				// 	&& dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
+			  				// 		if (!) {}
+			  				// }
+			  			isItTheSecondTimeOfThisLetter[userWord[i]] = false
+			  				// if (userWord[i].toLowerCase() === dailyWord[i]) {
+			  				// 	arr[i] = '#C9B458'
+			  				// }
+				  	}
+				  	for (let i = 0; i < userWord.length; i++) {
+						if ((isItTheSecondTimeOfThisLetter[userWord[i]] || arr[state.direction[userWord.lastIndexOf(userWord[i])]] === '#6AAA64') && arr[state.direction[i]] !== '#6AAA64') {
+							console.log(userWord[i])
+							console.log(isItTheSecondTimeOfThisLetter)
+							console.log(arr[state.direction[i]])
+							if (dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
+								arr[state.direction[i]] = 'gray'
+							}
+						} else {
+			  				isItTheSecondTimeOfThisLetter[userWord[i]] = true
+						}
+					}
+					console.log(arr)
 			  	} else {
 			  		document.querySelector('.messages').style.display = 'block'
 				  	document.querySelector('.yellowAndGreen').style.display = 'block'
