@@ -158,7 +158,6 @@ export const reducer = (state=initState, action={}) => {
 			  				isItTheSecondTimeOfThisLetter[userWord[i]] = true
 						}
 					}
-					console.log(arr)
 			  	} else {
 			  		document.querySelector('.messages').style.display = 'block'
 				  	document.querySelector('.yellowAndGreen').style.display = 'block'
