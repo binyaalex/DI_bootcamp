@@ -134,12 +134,10 @@ export const reducer = (state=initState, action={}) => {
 			  					arr[state.direction[i]] = '#C9B458' // yellow
 			  				}
 			  			}
-			  			console.log(arr)
 			  			if (userWord[i].toLowerCase() === dailyWord[i]) {
 			  				arr[state.direction[i]] = '#6AAA64' // green
 			  			}				  					  	 					  	    
 				  	}
-			  		console.log(arr)
 				  	let isItTheSecondTimeOfThisLetter = {}
 				  	for (let i = 0; i < userWord.length; i++) {
 			  				// if (userWord.indexOf(userWord[i]) !== userWord.lastIndexOf(userWord[i])
