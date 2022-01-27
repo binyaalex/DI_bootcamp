@@ -75,7 +75,7 @@ export const reducer = (state=initState, action={}) => {
 						} else {	
 							isGreenLetterInUserWordArr[c][state.direction[b]].push(false)
 						}
-					} else if (tryes[c].children[b].style.backgroundColor === 'rgb(201, 180, 88)') {
+					} else if (tryes[c].children[state.direction[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
 						for (let a = 0; a < userWord.length; a++) {
 							console.log(tryes[c].children[state.direction[b]].textContent)
 							console.log(userWord[a])
