@@ -69,7 +69,6 @@ export const reducer = (state=initState, action={}) => {
 						let letter
 						letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
 							console.log(userWord[b])
-							console.log(letter)
 						if (userWord[b] === letter) {
 							isGreenLetterInUserWordArr[c][state.direction[b]].push(true)
 						} else {	
@@ -77,11 +76,13 @@ export const reducer = (state=initState, action={}) => {
 						}
 					} else if (tryes[c].children[state.direction[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
 						for (let a = 0; a < userWord.length; a++) {
-							console.log(tryes[c].children[state.direction[b]].textContent)
-							console.log(userWord[a])
 							let letter
 							letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
-							if (userWord[a] === letter) {
+							console.log(userWord[a])
+							console.log(letter)
+							console.log(a)
+							console.log(b)
+							if (userWord[a] === letter && a !== b) {
 								isYellowLetterInUserWordArr[c][state.direction[b]].push(true)
 							} else {
 								isYellowLetterInUserWordArr[c][state.direction[b]].push(false)

@@ -47,11 +47,20 @@ const App = (props) => {
         for (let d = 0; d < boardLetters.length; d++) {
           let boardLetter = finalToRegular(boardLetters[d].textContent)
           let letter = finalToRegular(letters[i].textContent)
+          console.log(boardLetter)
+          console.log(letter)
+          console.log(result[i])
+          console.log(boardLetters[d].style.backgroundColor)
           if (boardLetter === letter &&
               boardLetters[d].style.backgroundColor !== 'rgb(106, 170, 100)')
           {
-            boardLetters[d].style.backgroundColor = result[i]
-            boardLetters[d].style.color = 'white'
+            if (result[i] === 'gray' &&
+                boardLetters[d].style.backgroundColor === 'rgb(201, 180, 88)') {
+              console.log('not')
+            } else {
+              boardLetters[d].style.backgroundColor = result[i]
+              boardLetters[d].style.color = 'white'
+            }
           }
           if (boardLetters[d].style.backgroundColor === 'gray') {
             boardLetters[d].disabled = true
