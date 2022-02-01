@@ -8,7 +8,7 @@ const Messages = (props) => {
 				{messages.win}
 			</div>
 			<div className='loser'>
-				Game over, the word is {dailyWord}, maybe next time.
+				{messages.loser} {dailyWord}
 			</div>
 			<div className='noWord'>
 				{messages.noWord}
