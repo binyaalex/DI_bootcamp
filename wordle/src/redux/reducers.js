@@ -215,7 +215,13 @@ export const reducer = (state=initState, action={}) => {
 					dailyWord: HebrewWords[hebrewRandomNum],
 					userWord: ['','','','','',''],
 					result: [],
-					turn: 0
+					turn: 0,
+					messages: {
+						win: '!כל הכבוד',
+						noWord: '!אין מילה כזאת',
+						green: '!חייבים להשתמש באותיות  הירוקות במקום שלהן',
+						yellow: '!חייבים להשתמש באותיות  הצהובות  ולא באותו מקום'
+					}
 				 }
 		case 'EN':
 		  randomNum = Math.floor(Math.random() * WORDS.length);
