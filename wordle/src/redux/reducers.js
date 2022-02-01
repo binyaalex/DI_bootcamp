@@ -238,6 +238,7 @@ export const reducer = (state=initState, action={}) => {
 					turn: 0,
 					messages: {
 						win: 'well done!',
+						loser: 'Game over, the word is',
 						noWord: 'there is no such a word!',
 						green: 'You must use the green letters in there spot!',
 						yellow: 'You must use the yellow letters not in the same spot!'
