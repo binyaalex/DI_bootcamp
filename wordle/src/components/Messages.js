@@ -13,8 +13,11 @@ const Messages = (props) => {
 			<div className='noWord'>
 				there is no such a word!
 			</div>
-			<div className='yellowAndGreen'>
-				You must use the green and the yellow letters!
+			<div className='greenMsg'>
+				You must use the green letters in there spot!
+			</div>
+			<div className='yellowMsg'>
+				You must use the yellow letters not in the same spot!
 			</div>
 		</div>
 	)

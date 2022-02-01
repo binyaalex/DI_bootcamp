@@ -161,24 +161,24 @@ export const reducer = (state=initState, action={}) => {
 					}
 			  	} else {
 			  		document.querySelector('.messages').style.display = 'block'
-				  	document.querySelector('.yellowAndGreen').style.display = 'block'
+				  	document.querySelector('.yellowMsg').style.display = 'block'
 				  	tryes[state.turn].classList.add('shake')
 				  	const undisplay = () => {
 				  		tryes[state.turn].classList.remove('shake')
 		        		document.querySelector('.messages').style.display = 'none'
-				  		document.querySelector('.yellowAndGreen').style.display = 'none'
+				  		document.querySelector('.yellowMsg').style.display = 'none'
 				  	}
 				  	setTimeout(undisplay, 800)
 			  		return {...state}
 			  	}
 		  	} else {
 		  		document.querySelector('.messages').style.display = 'block'
-			  	document.querySelector('.yellowAndGreen').style.display = 'block'
+			  	document.querySelector('.greenMsg').style.display = 'block'
 			  	tryes[state.turn].classList.add('shake')
 			  	const undisplay = () => {
 			  		tryes[state.turn].classList.remove('shake')
 	        		document.querySelector('.messages').style.display = 'none'
-			  		document.querySelector('.yellowAndGreen').style.display = 'none'
+			  		document.querySelector('.greenMsg').style.display = 'none'
 			  	}
 			  	setTimeout(undisplay, 800)
 		  		return {...state}
