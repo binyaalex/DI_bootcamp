@@ -233,7 +233,13 @@ export const reducer = (state=initState, action={}) => {
 		  			dailyWord: WORDS[randomNum],
 		  			userWord: ['','','','','',''],
 					result: [],
-					turn: 0
+					turn: 0,
+					messages: {
+						win: 'well done!',
+						noWord: 'there is no such a word!',
+						green: 'You must use the green letters in there spot!',
+						yellow: 'You must use the yellow letters not in the same spot!'
+					}
 		  		 }
 		case 'EMPTY':
 	  	  return {...state}
