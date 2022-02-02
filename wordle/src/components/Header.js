@@ -15,6 +15,7 @@ const Header = (props) => {
 		}
 	}
 	const getResult = () => {
+		document.querySelector('.resultPage').style.display = 'block'
 		const tryes = document.querySelector('.tryes').children
 		for (let i = 0; i < tryes.length; i++) {
 			for (let d = 0; d < tryes[i].children.length; d++) {
