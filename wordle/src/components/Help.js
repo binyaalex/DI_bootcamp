@@ -14,55 +14,55 @@ const Help = (props) => {
 				<section>
 					<p className='examples'>Examples</p>
 					<div className='example'>
-			          <div className='letterBox firstLetter green white'>
+			          <div className='helpLetterBox firstLetter green white'>
 			            W
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            E
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            A
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            R
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            Y
 			          </div>
 			        </div>
 			        <p>The letter <strong>W</strong> is in the word and in the correct spot</p>
 			        <div className='example'>
-			          <div className='letterBox firstLetter'>
+			          <div className='helpLetterBox firstLetter'>
 			            P
 			          </div>
-			          <div className='letterBox yellow white'>
+			          <div className='helpLetterBox yellow white'>
 			            I
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            L
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            L
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            S
 			          </div>
 			        </div>
 			        <p>The letter <strong>I</strong> is in the word but in the wrong spot.</p>
     			    <div className='example'>
-			          <div className='letterBox firstLetter'>
+			          <div className='helpLetterBox firstLetter'>
 			            V
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            A
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            G
 			          </div>
-			          <div className='letterBox gray white'>
+			          <div className='helpLetterBox gray white'>
 			            U
 			          </div>
-			          <div className='letterBox'>
+			          <div className='helpLetterBox'>
 			            E
 			          </div>
 			        </div>

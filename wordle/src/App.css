@@ -177,7 +177,7 @@ section {
   margin: 5px 0
 }
 
-.letterBox {
+.letterBox, .helpLetterBox {
   width: 45px;
   height: 45px;
   border: 2px solid lightgray;
