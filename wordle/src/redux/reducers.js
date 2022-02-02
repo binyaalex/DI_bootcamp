@@ -95,6 +95,13 @@ export const reducer = (state=initState, action={}) => {
 								isYellowLetterInUserWordArr[c][state.direction[b]].push(false)
 							}
 						}
+						for (let a = 0; a < userWord.length; a++) {
+							let letter
+							letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
+							if (userWord[a] === letter && a === b) {
+								isYellowLetterInUserWordArr[c] = [[false], [false], [false], [false], [false]]
+							}
+						}
 					}
 				}
 			}
