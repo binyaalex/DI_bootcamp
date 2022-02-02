@@ -96,6 +96,7 @@ h4 {
 
 img {
   height: 20px;
+  display: none;
 }
 
 .languageBtn {
@@ -110,7 +111,7 @@ img {
   justify-content: center;
 }
 
-.helpPage, .resultPage {
+.helpPage {
   display: none;
   position: absolute;
   height: 100vh;
@@ -170,7 +171,13 @@ section {
 }
 
 .resultPage {
-  /*display: block;*/
+  display: none;
+  position: absolute;
+  text-align: center;
+  top: 70px;
+  background: white;
+  padding: 19px 40px;
+  border-radius: 15px;
 }
 
 .tryes {

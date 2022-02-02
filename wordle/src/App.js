@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Try from './components/Try'
 import Keyboard from './components/Keyboard'
 import Messages from './components/Messages'
+import Result from './components/Result'
 import PlayAgain from './components/PlayAgain'
 import {connect} from 'react-redux';
 import React, { useEffect } from 'react';
@@ -112,6 +113,7 @@ const App = (props) => {
         <Keyboard />
       </div>
       <Messages />
+          <Result />
       <PlayAgain />
     </div>
   );

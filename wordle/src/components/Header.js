@@ -39,9 +39,6 @@ const Header = (props) => {
 	    		<img onClick={getResult} src='stats.jpg' />
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div> 
 	    	</div>
-	    	<div className='resultPage'>
-	    		<Result />
-			</div>
 		</header>
 	)
 }
