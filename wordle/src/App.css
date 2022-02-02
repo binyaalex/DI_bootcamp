@@ -177,7 +177,7 @@ section {
   margin: 5px 0
 }
 
-.letterBox, .helpLetterBox {
+.letterBox, .helpLetterBox, .resultSquer {
   width: 45px;
   height: 45px;
   border: 2px solid lightgray;
@@ -190,7 +190,12 @@ section {
   text-transform: capitalize;
 }
 
-.try, .example {
+.resultSquer {
+  width: 20px;
+  height: 20px;
+}
+
+.try, .example, .resultLine {
   display: flex
 }
 
