@@ -10,7 +10,9 @@ for (var i = 0; i < Hebrew.length; i++) {
 	if (Hebrew[i][0] !== 'ו') {
 		if (i > 499 || i < 319 || i === 363 || i === 384 || i === 395 || i === 406 || i === 416 || i === 423 || i === 425 || i === 428 || i === 455 || i === 459 || i === 492 || i === 495 || i === 496) {
 			if ((i !== 504 && i !== 518) && (i < 520 || i > 600 || i === 544 || i === 558 || i === 559 || i === 563 || i === 584 || i === 586 || i === 594 || i > 597)) {
-				HebrewWithoutV.push(Hebrew[i])
+				if (i < 601 || i > 612) {					
+					HebrewWithoutV.push(Hebrew[i])
+				}
 			}
 		}
 	} else if (Hebrew[i] === 'ודאות' || Hebrew[i] === 'וודאי' || Hebrew[i] === 'וודקה' || Hebrew[i] === 'וידאו' || Hebrew[i] === 'ויכוח' || Hebrew[i] === 'וילון' || Hebrew[i] === 'וילות' || Hebrew[i] === 'וירוס' || Hebrew[i] === 'ויתור' || Hebrew[i] === 'ויתרה' || Hebrew[i] === 'ויתרו' || Hebrew[i] === 'וכולי' || Hebrew[i] === 'ועידה' || Hebrew[i] === 'ועידת' || Hebrew[i] === 'ורדים' || Hebrew[i] === 'ותיקה') {
