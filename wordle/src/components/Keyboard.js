@@ -3,7 +3,7 @@ import {changeAction, enterAction, delAction} from '../redux/actions';
 
 
 const Keyboard = (props) => {
-  const {change1, change2, enter, del} = props
+  const {change2, enter, del} = props
 	return (
 	  <div>      
       <div className='keyboard'>

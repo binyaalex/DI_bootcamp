@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {changeLanguageAction} from '../redux/actions';
 import Help from './Help'
-import Result from './Result'
+// import Result from './Result'
 
 const Header = (props) => {
 	const {changeLanguage} = props
@@ -14,15 +14,15 @@ const Header = (props) => {
 			document.body.querySelector('.helpPage').style.display = 'block'
 		}
 	}
-	const getResult = () => {
-		document.querySelector('.resultPage').style.display = 'block'
-		const tryes = document.querySelector('.tryes').children
-		for (let i = 0; i < tryes.length; i++) {
-			for (let d = 0; d < tryes[i].children.length; d++) {
-				console.log(tryes[i].children[d].style.backgroundColor)	
-			}
-		}
-	}
+	// const getResult = () => {
+	// 	document.querySelector('.resultPage').style.display = 'block'
+	// 	const tryes = document.querySelector('.tryes').children
+	// 	for (let i = 0; i < tryes.length; i++) {
+	// 		for (let d = 0; d < tryes[i].children.length; d++) {
+	// 			console.log(tryes[i].children[d].style.backgroundColor)	
+	// 		}
+	// 	}
+	// }
 
 	return (
 		<header className='mainHeader'>
@@ -36,7 +36,7 @@ const Header = (props) => {
 	    		<h4>WORDLE</h4>
 			</div>
 	    	<div className='leftHeader'>
-	    		<img onClick={getResult} src='stats.jpg' />
+	    		{/*<img onClick={getResult} src='stats.jpg' />*/}
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div> 
 	    	</div>
 		</header>

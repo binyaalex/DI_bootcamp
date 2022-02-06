@@ -4,7 +4,7 @@ import {HebrewWords, HebrewWordsCheckList} from '../components/HebrewWordList'
 console.log(HebrewWords)
 let randomNum = Math.floor(Math.random() * WORDS.length);
 let hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
-console.log(WORDS.length)
+console.log(HebrewWords[hebrewRandomNum])
 
 export const finalToRegular = (letter) => {
 	if (letter === 'ם') {
@@ -40,7 +40,7 @@ export const initState = {
 
 console.log(initState.dailyWord)
 export const reducer = (state=initState, action={}) => {
-	console.log(state.dailyWord)
+	// console.log(state.dailyWord)
 	let try1 = {...state.userWord}
 	console.log(try1)
 	switch (action.type) {
@@ -65,8 +65,8 @@ export const reducer = (state=initState, action={}) => {
 		userWord = userWord.slice(0,4) + userWordLastLetter
 		dailyWord = dailyWord.slice(0,4) + dailyWordLastLetter
 		
-		console.log(dailyWord)
-		console.log(state)
+		// console.log(dailyWord)
+		// console.log(state)
 		 const tryes = document.querySelectorAll('.try')
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]

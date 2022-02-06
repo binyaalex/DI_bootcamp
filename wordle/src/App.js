@@ -16,7 +16,7 @@ const App = (props) => {
   const {result, turn, change1, dailyWord} = props
   
   useEffect(() => {
-    console.log(dailyWord)
+    // console.log(dailyWord)
     document.body.addEventListener('keydown', change1) // for real keyboard
 
     // make squre black after write a letter inside

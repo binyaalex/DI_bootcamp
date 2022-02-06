@@ -50,3 +50,12 @@ const Result = (props) => {
 	)
 }
 export default Result
+
+let allsum = 0
+let notallsum = 0 
+for (let i = 0; i < arr.length; i++) {
+	allsum = allsum + i + 1
+	notallsum = notallsum + arr[i]
+}
+allsum = allsum + 10
+console.log(allsum - notallsum)

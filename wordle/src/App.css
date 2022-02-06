@@ -84,14 +84,14 @@ h4 {
   letter-spacing: 0.2rem;
   text-align: center;
   margin: 0;
-  width: 157px;
+  width: 163px;
 }
 
 .leftHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 30px;
+  width: 25px;
 }
 
 img {
