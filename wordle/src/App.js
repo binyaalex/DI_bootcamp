@@ -1,7 +1,6 @@
 import './App.css';
 import Header from './components/Header'
 import Tryes from './components/Tryes'
-import Try from './components/Try'
 import Keyboard from './components/Keyboard'
 import Messages from './components/Messages'
 import Result from './components/Result'
@@ -17,7 +16,7 @@ const App = (props) => {
   const {result, turn, change1, dailyWord} = props
   
   useEffect(() => {
-    // console.log(dailyWord)
+    console.log(dailyWord)
     document.body.addEventListener('keydown', change1) // for real keyboard
 
     // make squre black after write a letter inside
