@@ -21,14 +21,11 @@ const App = (props) => {
 
     // make squre black after write a letter inside
     const squares = document.querySelectorAll('.letterBox')
-    console.log('hi')
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].textContent !== '') {
         squares[i].style.border = '2px solid black'
-        console.log(1)
       }
     }
-    console.log(turn)
 
     // for not do it first load and then stack
     let firstLoad
@@ -66,7 +63,6 @@ const App = (props) => {
     } else {
       const letters = document.querySelectorAll('.letterBox')
       const boardLetters = document.querySelectorAll('.boardLetter')
-      console.log(boardLetters[0])
       for (let i = 0; i < letters.length; i++) {
         letters[i].style.backgroundColor = 'white'
         letters[i].style.borderColor = 'lightgray'
@@ -76,9 +72,7 @@ const App = (props) => {
         boardLetters[i].style.color = 'black'
       }
     }
-    console.log(result)
     const win = result.every(el => el === '#6AAA64')
-    console.log(win)
     const myGreeting = () => {
       if (win && firstLoad) {
         document.querySelector('.messages').style.display = 'block'

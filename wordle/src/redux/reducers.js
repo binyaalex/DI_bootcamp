@@ -1,7 +1,6 @@
 import {WORDS, WORDSCheckList} from '../components/wordList'
 import {HebrewWords, HebrewWordsCheckList} from '../components/HebrewWordList'
 
-console.log(HebrewWords)
 let randomNum = Math.floor(Math.random() * WORDS.length);
 let hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
 console.log(HebrewWords[hebrewRandomNum])
@@ -39,11 +38,8 @@ export const initState = {
 		}
 	}
 
-console.log(initState.dailyWord)
 export const reducer = (state=initState, action={}) => {
-	// console.log(state.dailyWord)
 	let try1 = {...state.userWord}
-	console.log(try1)
 	switch (action.type) {
 		case 'CHANGE':
 		  if (state.userWord[state.turn].length < 5) {
@@ -53,9 +49,7 @@ export const reducer = (state=initState, action={}) => {
 		  	return {...state}
 		  }
 		case 'DEL':
-		  console.log(state.turn)
 		  try1[state.turn] = try1[state.turn].slice(0, -1);
-		  console.log(try1)
 		  return {...state, userWord: try1}
 		case 'ENTER':
 		// make last letter good for hebrew in user word and daily word
@@ -74,7 +68,6 @@ export const reducer = (state=initState, action={}) => {
 					if (tryes[c].children[state.direction[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
 						let letter
 						letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
-							console.log(userWord[b])
 						if (userWord[b] === letter) {
 							isGreenLetterInUserWordArr[c][state.direction[b]].push(true)
 						} else {	
@@ -84,10 +77,6 @@ export const reducer = (state=initState, action={}) => {
 						for (let a = 0; a < userWord.length; a++) {
 							let letter
 							letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
-							console.log(userWord[a])
-							console.log(letter)
-							console.log(a)
-							console.log(b)
 							if (userWord[a] === letter && a !== b) {
 								isYellowLetterInUserWordArr[c][state.direction[b]].push(true)
 							} else {
@@ -104,16 +93,12 @@ export const reducer = (state=initState, action={}) => {
 					}
 				}
 			}
-		console.log(isYellowLetterInUserWordArr)
-		console.log(isGreenLetterInUserWordArr)
 		const isYellowLetterInUserWord = () => {
 			for (let i = 0; i < isYellowLetterInUserWordArr.length; i++) {
 				for (var d = 0; d < isYellowLetterInUserWordArr[i].length; d++) {
 					if (isYellowLetterInUserWordArr[i][d].length > 0) {
 						if (isYellowLetterInUserWordArr[i][d].some(ele => ele === true)) {
-							console.log(true)
 						} else {
-							console.log(false)
 							return false
 						}
 					}
@@ -126,9 +111,7 @@ export const reducer = (state=initState, action={}) => {
 				for (var d = 0; d < isGreenLetterInUserWordArr[i].length; d++) {
 					if (isGreenLetterInUserWordArr[i][d].length > 0) {
 						if (isGreenLetterInUserWordArr[i][d].some(ele => ele === true)) {
-							console.log(true)
 						} else {
-							console.log(false)
 							return false
 						}
 					}
@@ -137,7 +120,6 @@ export const reducer = (state=initState, action={}) => {
 			return true
 		}
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
-		  console.log(state.wordList.length)
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  if (isWordInWordList) {
 		  	if (isGreenLetterInUserWord()) {
@@ -202,11 +184,8 @@ export const reducer = (state=initState, action={}) => {
 		  	return {...state}
 		  }
 		  
-		  console.log(arr)
 		  return {...state, result: arr, turn: ++state.turn}
 		case 'עב':
-		  console.log(HebrewWords)
-		  console.log(randomNum)
 		  hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
 		  return {...state,
 					language: 'עב',

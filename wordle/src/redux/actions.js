@@ -1,7 +1,6 @@
 
 const blackBox = () => {
     const squares = document.querySelectorAll('.letterBox')
-    console.log('hi')
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].textContent !== '') {
         squares[i].style.borderColor = 'black'
@@ -28,7 +27,6 @@ export const changeAction = (e) => {
 			type: language,
 		}
 	}
-	console.log(e)
 	let letter
 	if (typeof(e) === 'string') {
 		letter = e
@@ -43,11 +41,8 @@ export const changeAction = (e) => {
     		greyLetters.push(boardLetters[i].textContent)
     	}
     }
-	console.log(greyLetters)
 
-	console.log(letter)
 	return (dispatch, getState) => {
-		console.log(getState().letters)
 		if (letter.match(getState().letters) && letter.length < 2 && !letter.match(`.*[${greyLetters}].*`)) {
 			dispatch ({
 				type:'CHANGE',
@@ -55,7 +50,6 @@ export const changeAction = (e) => {
 			})
 		} else if (e.key === 'Enter') {
 	        const playAgain = document.querySelector('.playAgain')
-	        console.log(playAgain.style.display)
 			if (playAgain.style.display === '' || playAgain.style.display === 'none') {
 				dispatch ({
 					type:'ENTER'
