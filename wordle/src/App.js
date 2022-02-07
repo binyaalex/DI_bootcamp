@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './components/Header'
+import Tryes from './components/Tryes'
 import Try from './components/Try'
 import Keyboard from './components/Keyboard'
 import Messages from './components/Messages'
@@ -97,14 +98,15 @@ const App = (props) => {
     <div className='allDad'>
       <div className='all'>
         <Header />
-        <div className='tryes'>
+        <Tryes />
+        {/*<div className='tryes'>
           <Try i={0} />
           <Try i={1} />
           <Try i={2} />
           <Try i={3} />
           <Try i={4} />
           <Try i={5} />
-        </div>
+        </div>*/}
         <Keyboard />
       </div>
       <Messages />
