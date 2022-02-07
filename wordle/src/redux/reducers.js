@@ -66,8 +66,6 @@ export const reducer = (state=initState, action={}) => {
 		userWord = userWord.slice(0,4) + userWordLastLetter
 		dailyWord = dailyWord.slice(0,4) + dailyWordLastLetter
 		
-		// console.log(dailyWord)
-		// console.log(state)
 		 const tryes = document.querySelectorAll('.try')
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
@@ -156,14 +154,7 @@ export const reducer = (state=initState, action={}) => {
 				  	}
 				  	let isItTheSecondTimeOfThisLetter = {}
 				  	for (let i = 0; i < userWord.length; i++) {
-			  				// if (userWord.indexOf(userWord[i]) !== userWord.lastIndexOf(userWord[i])
-			  				// 	&& dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
-			  				// 		if (!) {}
-			  				// }
 			  			isItTheSecondTimeOfThisLetter[userWord[i]] = false
-			  				// if (userWord[i].toLowerCase() === dailyWord[i]) {
-			  				// 	arr[i] = '#C9B458'
-			  				// }
 				  	}
 				  	for (let i = 0; i < userWord.length; i++) {
 						if ((isItTheSecondTimeOfThisLetter[userWord[i]] || arr[state.direction[userWord.lastIndexOf(userWord[i])]] === '#6AAA64') && arr[state.direction[i]] !== '#6AAA64') {
