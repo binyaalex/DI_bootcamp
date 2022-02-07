@@ -47,7 +47,8 @@ export const changeAction = (e) => {
 
 	console.log(letter)
 	return (dispatch, getState) => {
-		if (((letter.match(".*[A-Z].*") && letter.length < 2) || letter.match(".*[א-ת].*")) && (!letter.match(`.*[${greyLetters}].*`))) {
+		console.log(getState().letters)
+		if (letter.match(getState().letters) && letter.length < 2 && !letter.match(`.*[${greyLetters}].*`)) {
 			dispatch ({
 				type:'CHANGE',
 				payload: letter

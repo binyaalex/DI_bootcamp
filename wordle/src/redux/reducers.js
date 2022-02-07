@@ -23,6 +23,7 @@ export const finalToRegular = (letter) => {
 
 export const initState = {
 		language: 'EN',
+		letters: ".*[A-Z].*",
 		direction: [0,1,2,3,4],
 		wordList: WORDSCheckList,
 		dailyWord: WORDS[randomNum],
@@ -218,6 +219,7 @@ export const reducer = (state=initState, action={}) => {
 		  hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
 		  return {...state,
 					language: 'עב',
+					letters: ".*[א-ת].*",
 					direction: [4,3,2,1,0], 
 					wordList: HebrewWordsCheckList, 
 					dailyWord: HebrewWords[hebrewRandomNum],
@@ -237,6 +239,7 @@ export const reducer = (state=initState, action={}) => {
 		  console.log(randomNum)
 		  return {...state, 
 		  			language: 'EN', 
+					letters: ".*[A-Z].*",
 		  			direction: [0,1,2,3,4], 
 		  			wordList: WORDSCheckList, 
 		  			dailyWord: WORDS[randomNum],
