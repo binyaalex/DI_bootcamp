@@ -8,7 +8,7 @@ const Try = (props) => {
           <div className='letterBox'>
             {userWord[i][writingDirection[0]]}
           </div>
-          <div onClick={delOwn} className='letterBox'>
+          <div className='letterBox'>
             {userWord[i][writingDirection[1]]}
           </div>
           <div className='letterBox'>
