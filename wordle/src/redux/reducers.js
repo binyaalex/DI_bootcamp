@@ -42,6 +42,7 @@ export const reducer = (state=initState, action={}) => {
 	let try1 = {...state.userWord}
 	switch (action.type) {
 		case 'CHANGE':
+		// check the user not finish his tryes
 		  if (state.userWord[state.turn].length < 5) {
 		  	try1[state.turn] += action.payload
 		  	return {...state, userWord: try1}	
@@ -151,18 +152,26 @@ export const reducer = (state=initState, action={}) => {
 			  			isItTheSecondTimeOfThisLetter[userWord[i]] = false
 				  	}
 				  	for (let i = 0; i < userWord.length; i++) {
+				  		// check if its the second time of this letter in the user word
 						if ((isItTheSecondTimeOfThisLetter[userWord[i]]
+							 //check if the second time of the letter is green
 						     || arr[state.direction[userWord.lastIndexOf(userWord[i])]] === '#6AAA64')
+							 // check the first time of the letter is not green
 						     && arr[state.direction[i]] !== '#6AAA64')
 						{
+							// check if this double letter of the user
+							// are also double in the daily word
 							if (dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
 								arr[state.direction[i]] = 'gray'
 							}
 						} else {
+							// change the letter for true that if it will show again
+							// we will know its the second time of this letter 
 			  				isItTheSecondTimeOfThisLetter[userWord[i]] = true
 						}
 					}
 			  	} else {
+			  		// put message that the user need to use the yellow letters
 			  		document.querySelector('.messages').style.display = 'block'
 				  	document.querySelector('.yellowMsg').style.display = 'block'
 				  	tryes[state.turn].classList.add('shake')
@@ -175,6 +184,7 @@ export const reducer = (state=initState, action={}) => {
 			  		return {...state}
 			  	}
 		  	} else {
+			  	// put message that the user need to use the green letters
 		  		document.querySelector('.messages').style.display = 'block'
 			  	document.querySelector('.greenMsg').style.display = 'block'
 			  	tryes[state.turn].classList.add('shake')
@@ -187,6 +197,7 @@ export const reducer = (state=initState, action={}) => {
 		  		return {...state}
 		  	}
 		  } else {
+			// put message that there is no such a word
         	document.querySelector('.messages').style.display = 'block'
 		  	document.querySelector('.noWord').style.display = 'block'
 		  	tryes[state.turn].classList.add('shake')
