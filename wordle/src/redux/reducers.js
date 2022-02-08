@@ -86,8 +86,11 @@ export const reducer = (state=initState, action={}) => {
 								isYellowLetterInUserWordArr[c][state.direction[b]].push(false)
 							}
 						}
+						// if you put the same yellow letter twice and one of them on the same place
+						// the loop here will stop you
 						for (let a = 0; a < userWord.length; a++) {
 							if (userWord[a] === letter && a === b) {
+								console.log('here')
 								isYellowLetterInUserWordArr[c] = [[false], [false], [false], [false], [false]]
 							}
 						}
@@ -140,7 +143,10 @@ export const reducer = (state=initState, action={}) => {
 			  			isItTheSecondTimeOfThisLetter[userWord[i]] = false
 				  	}
 				  	for (let i = 0; i < userWord.length; i++) {
-						if ((isItTheSecondTimeOfThisLetter[userWord[i]] || arr[state.direction[userWord.lastIndexOf(userWord[i])]] === '#6AAA64') && arr[state.direction[i]] !== '#6AAA64') {
+						if ((isItTheSecondTimeOfThisLetter[userWord[i]]
+						     || arr[state.direction[userWord.lastIndexOf(userWord[i])]] === '#6AAA64')
+						     && arr[state.direction[i]] !== '#6AAA64')
+						{
 							if (dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
 								arr[state.direction[i]] = 'gray'
 							}
