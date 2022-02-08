@@ -1,8 +1,7 @@
 import {connect} from 'react-redux';
-import {delOwnAction} from '../redux/actions';
 
 const Try = (props) => {
-	const {userWord, i, writingDirection, delOwn} = props
+	const {userWord, i, writingDirection} = props
 	return (
 		<>
         <div className='try'>
@@ -33,11 +32,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    delOwn: (e) => dispatch(delOwnAction(e.target.textContent)),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Try) 
+export default connect(mapStateToProps)(Try) 
 

@@ -130,22 +130,10 @@ export const delAction = () => {
 
 // when the user press change language on the screen keyboard
 export const changeLanguageAction = (languageBtn) => {
-	console.log(languageBtn)
 	let language = languageBtn.textContent
 	changeLanguage()
 	return {
 		type: language,
-	}
-}
-
-export const delOwnAction = (letter) => {
-
-    setTimeout(blackBox, 1)
-
-	console.log('delown')
-	return {
-		type:'DELOWN',
-		payload: letter
 	}
 }
 
