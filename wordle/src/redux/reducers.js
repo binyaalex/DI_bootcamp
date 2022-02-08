@@ -60,11 +60,13 @@ export const reducer = (state=initState, action={}) => {
 		userWord = userWord.slice(0,4) + userWordLastLetter
 		dailyWord = dailyWord.slice(0,4) + dailyWordLastLetter
 		
-		 const tryes = document.querySelectorAll('.try')
+		// make two array to check the user use all the hints, green and yellow.
+		const tryes = document.querySelectorAll('.try')
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		for (let c = 0; c < tryes.length; c++) {
 				for (let b = 0; b < tryes[c].children.length; b++) {
+					// check the green letters
 					if (tryes[c].children[state.direction[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
 						let letter
 						letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
@@ -74,9 +76,10 @@ export const reducer = (state=initState, action={}) => {
 							isGreenLetterInUserWordArr[c][state.direction[b]].push(false)
 						}
 					} else if (tryes[c].children[state.direction[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
+						let letter
+						letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
+						// check the yellow letters
 						for (let a = 0; a < userWord.length; a++) {
-							let letter
-							letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
 							if (userWord[a] === letter && a !== b) {
 								isYellowLetterInUserWordArr[c][state.direction[b]].push(true)
 							} else {
@@ -84,8 +87,6 @@ export const reducer = (state=initState, action={}) => {
 							}
 						}
 						for (let a = 0; a < userWord.length; a++) {
-							let letter
-							letter = finalToRegular(tryes[c].children[state.direction[b]].textContent)
 							if (userWord[a] === letter && a === b) {
 								isYellowLetterInUserWordArr[c] = [[false], [false], [false], [false], [false]]
 							}
