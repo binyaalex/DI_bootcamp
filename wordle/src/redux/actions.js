@@ -132,15 +132,7 @@ export const delAction = () => {
 export const changeLanguageAction = (languageBtn) => {
 	console.log(languageBtn)
 	let language = languageBtn.textContent
-	if (languageBtn.textContent === 'עב') {
-		languageBtn.textContent = 'EN'
-		document.querySelector('.keyboard').style.display = 'none'
-		document.querySelector('.hebrewKeyboard').style.display = 'block'
-	} else {
-		languageBtn.textContent = 'עב'
-		document.querySelector('.hebrewKeyboard').style.display = 'none'
-		document.querySelector('.keyboard').style.display = 'block'
-	}
+	changeLanguage()
 	return {
 		type: language,
 	}
