@@ -2,24 +2,24 @@ import {connect} from 'react-redux';
 import {delOwnAction} from '../redux/actions';
 
 const Try = (props) => {
-	const {userWord, i, direction, delOwn} = props
+	const {userWord, i, writingDirection, delOwn} = props
 	return (
 		<>
         <div className='try'>
           <div className='letterBox'>
-            {userWord[i][direction[0]]}
+            {userWord[i][writingDirection[0]]}
           </div>
           <div onClick={delOwn} className='letterBox'>
-            {userWord[i][direction[1]]}
+            {userWord[i][writingDirection[1]]}
           </div>
           <div className='letterBox'>
-            {userWord[i][direction[2]]}
+            {userWord[i][writingDirection[2]]}
           </div>
           <div className='letterBox'>
-            {userWord[i][direction[3]]}
+            {userWord[i][writingDirection[3]]}
           </div>
           <div className='letterBox'>
-            {userWord[i][direction[4]]}
+            {userWord[i][writingDirection[4]]}
           </div>
         </div>
 		</>
@@ -29,7 +29,7 @@ const Try = (props) => {
 const mapStateToProps = (state) => {
   return {
     userWord: state.userWord,
-    direction: state.direction
+    writingDirection: state.writingDirection
   }
 }
 
