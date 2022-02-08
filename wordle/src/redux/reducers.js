@@ -125,18 +125,26 @@ export const reducer = (state=initState, action={}) => {
 		}
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
+		  // check there is such a word
 		  if (isWordInWordList) {
+		  	// check the user use all the green letters in there place
 		  	if (isGreenLetterInUserWord()) {
+		  		// check the user use all the yellow letters and not in the same place
 			  	if (isYellowLetterInUserWord()) {
 			  		for (let i = 0; i < userWord.length; i++) {
+			  			// check if the user letters are used in the daily word
+			  			// and if so color them in yellow
 			  			for (let d = 0; d < dailyWord.length; d++) {
 			  				if (userWord[i].toLowerCase() === dailyWord[d]) {
 			  					arr[state.direction[i]] = '#C9B458' // yellow
+			  					// check if the user letters are in the right place
+					  			// and if so color them in green
+					  			if (userWord[i].toLowerCase() === dailyWord[i]) {
+					  				arr[state.direction[i]] = '#6AAA64' // green
+					  			}
 			  				}
 			  			}
-			  			if (userWord[i].toLowerCase() === dailyWord[i]) {
-			  				arr[state.direction[i]] = '#6AAA64' // green
-			  			}				  					  	 					  	    
+			  							  					  	 					  	    
 				  	}
 				  	let isItTheSecondTimeOfThisLetter = {}
 				  	for (let i = 0; i < userWord.length; i++) {
