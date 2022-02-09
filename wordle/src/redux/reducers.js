@@ -30,6 +30,7 @@ export const initState = {
 		userWord: ['','','','','',''],
 		result: [],
 		turn: 0,
+		endOfGame: false,
 		messages: {
 			win: 'well done!',
 			loser: 'Game over, the word is',
@@ -233,6 +234,7 @@ export const reducer = (state=initState, action={}) => {
 					userWord: ['','','','','',''],
 					result: [],
 					turn: 0,
+					endOfGame: false,
 					messages: {
 						win: '!כל הכבוד',
 						loser: 'אוי, לא נורא אולי פעם הבאה, המילה היא',
@@ -255,6 +257,7 @@ export const reducer = (state=initState, action={}) => {
 		  			userWord: ['','','','','',''],
 					result: [],
 					turn: 0,
+					endOfGame: false,
 					messages: {
 						win: 'well done!',
 						loser: 'Game over, the word is',
@@ -263,6 +266,9 @@ export const reducer = (state=initState, action={}) => {
 						yellow: 'You must use the yellow letters not in the same spot!'
 					}
 		  		 }
+
+		case 'END':
+		  return {...state, endOfGame: true}
 
 		// when the user press keyboard button that doesn't do anything
 		case 'EMPTY':

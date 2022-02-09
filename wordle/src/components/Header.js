@@ -4,14 +4,21 @@ import Help from './Help'
 // import Result from './Result'
 
 const Header = (props) => {
-	const {changeLanguage} = props
+	const {changeLanguage, endOfGame} = props
 	
 	const displayHelpTuggle = (e) => {
 		const helpDisplay = document.body.querySelector('.helpPage').style.display
-		if (helpDisplay === 'block') {			
-			document.body.querySelector('.helpPage').style.display = 'none'
-		} else {			
+		if (helpDisplay !== 'block' && !endOfGame) {
 			document.body.querySelector('.helpPage').style.display = 'block'
+		} else if (helpDisplay !== 'block') {
+		    document.querySelector('.playAgain').style.display = 'none'	
+		    document.querySelector('.messages').style.display = 'none'	
+			document.body.querySelector('.helpPage').style.display = 'block'
+		} else if (endOfGame) {
+			document.body.querySelector('.helpPage').style.display = 'none'
+		    document.querySelector('.playAgain').style.display = 'block'	
+		} else {			
+			document.body.querySelector('.helpPage').style.display = 'none'
 		}
 	}
 	// const getResult = () => {
@@ -43,10 +50,16 @@ const Header = (props) => {
 	)
 }
 
+const mapStateToProps = (state) => {
+  return {
+    endOfGame: state.endOfGame,
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     changeLanguage: (e) => dispatch(changeLanguageAction(e.target)),
   }
 }
 
-export default connect(null, mapDispatchToProps)(Header) 
+export default connect(mapStateToProps, mapDispatchToProps)(Header) 

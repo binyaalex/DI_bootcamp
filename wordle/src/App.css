@@ -298,7 +298,7 @@ button {
 }
 
 .playAgain {
-  display: none;
+  display: contents;
   position: absolute;
   top: 195px;
   background: #007BFF;

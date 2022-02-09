@@ -157,3 +157,9 @@ export const playAgainAction = () => {
 		type: language,
 	}
 }
+
+export const endTheGameAction = () => {
+	return {
+		type:'END',
+	}
+}

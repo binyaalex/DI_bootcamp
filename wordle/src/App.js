@@ -7,13 +7,13 @@ import Result from './components/Result'
 import PlayAgain from './components/PlayAgain'
 import {connect} from 'react-redux';
 import React, { useEffect } from 'react';
-import {changeAction} from './redux/actions';
+import {changeAction, endTheGameAction} from './redux/actions';
 import {finalToRegular} from './redux/reducers';
 
 
 
 const App = (props) => {
-  const {result, turn, change1, dailyWord} = props
+  const {result, turn, change1, dailyWord, endTheGame} = props
   
   useEffect(() => {
     console.log(dailyWord)
@@ -79,10 +79,12 @@ const App = (props) => {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.well').style.display = 'block'
         document.querySelector('.playAgain').style.display = 'block'
+        endTheGame()
       } else if (turn === 6) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.loser').style.display = 'block'
         document.querySelector('.playAgain').style.display = 'block'
+        endTheGame()
       } 
     }
     setTimeout(myGreeting, 300)
@@ -115,6 +117,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     change1: (e) => dispatch(changeAction(e)),
+    endTheGame: () => dispatch(endTheGameAction())
   }
 }
 
