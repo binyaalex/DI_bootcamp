@@ -19,6 +19,15 @@ const App = (props) => {
     console.log(dailyWord)
     document.body.addEventListener('keydown', change1) // for real keyboard
 
+    // make squre black after write a letter inside
+    const squares = document.querySelectorAll('.letterBox')
+    for (let i = 0; i < squares.length; i++) {
+      if (squares[i].textContent !== '') {
+        console.log(squares[i])
+        squares[i].style.border = '2px solid black'
+      }
+    }
+
     // for not do it first load and then stack
     let firstLoad
     if (turn !== 0) {
