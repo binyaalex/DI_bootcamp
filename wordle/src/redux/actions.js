@@ -16,10 +16,13 @@ const changeLanguage = () => {
 const blackBox = () => {
     const squares = document.querySelectorAll('.letterBox')
     for (let i = 0; i < squares.length; i++) {
-      if (squares[i].textContent !== '') {
+      if (squares[i].style.backgroundColor !== 'white') {
+        squares[i].style.border = '0'
+      } else if (squares[i].textContent !== '') {
         console.log(squares[i])
         squares[i].style.borderColor = 'black'
       } else {
+      	console.log(squares[i].style.backgroundColor)
         squares[i].style.borderColor = 'lightgray'
       }
     }
