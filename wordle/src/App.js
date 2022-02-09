@@ -28,7 +28,7 @@ const App = (props) => {
       }
     }
 
-    // for not do it first load and then stack
+    // for not try to color the last try in first load and then stuck
     let firstLoad
     if (turn !== 0) {
       firstLoad = true
@@ -36,12 +36,14 @@ const App = (props) => {
       firstLoad = false
     }
     if (firstLoad) {
+
       // color the letters of the last try according the result
       const letters = document.querySelector('.tryes').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
       for (let i = 0; i < letters.length; i++) {
         letters[i].style.backgroundColor = result[i]
         letters[i].style.color = 'white'
+
       // color the letters of the screen keyboard according the result
         for (let d = 0; d < boardLetters.length; d++) {
           let boardLetter = finalToRegular(boardLetters[d].textContent)
@@ -61,6 +63,8 @@ const App = (props) => {
           } 
         }
       }
+
+    // for initialize the design (background color of letters in the tryes and keyboard)
     } else {
       const letters = document.querySelectorAll('.letterBox')
       const boardLetters = document.querySelectorAll('.boardLetter')
@@ -73,13 +77,18 @@ const App = (props) => {
         boardLetters[i].style.color = 'black'
       }
     }
+
+    // when the user win or lose by finish his tryes
     const win = result.every(el => el === '#6AAA64')
     const myGreeting = () => {
+      // user win
       if (win && firstLoad) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.well').style.display = 'block'
         document.querySelector('.playAgain').style.display = 'block'
         endTheGame()
+
+      // user lose
       } else if (turn === 6) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.loser').style.display = 'block'

@@ -7,6 +7,7 @@ const Header = (props) => {
 	const {changeLanguage, endOfGame} = props
 	
 	const displayHelpTuggle = (e) => {
+		// all the conditions are for know if to display help and play again button or not
 		const helpDisplay = document.body.querySelector('.helpPage').style.display
 		if (helpDisplay !== 'block' && !endOfGame) {
 			document.body.querySelector('.helpPage').style.display = 'block'
