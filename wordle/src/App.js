@@ -40,6 +40,41 @@ const App = (props) => {
       // color the letters of the last try according the result
       const letters = document.querySelector('.tryes').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
+      // let i = 0;                  //  set your counter to 1
+
+      // function myLoop() {         //  create a loop function
+      //   setTimeout(function() {   //  call a 3s setTimeout when the loop is called
+      //     console.log('hello');   //  your code here
+      //     letters[i].style.backgroundColor = result[i]
+      //     letters[i].style.color = 'white'
+
+      //     // color the letters of the screen keyboard according the result
+      //     for (let d = 0; d < boardLetters.length; d++) {
+      //       let boardLetter = finalToRegular(boardLetters[d].textContent)
+      //       let letter = finalToRegular(letters[i].textContent)
+      //       if (boardLetter === letter &&
+      //           boardLetters[d].style.backgroundColor !== 'rgb(106, 170, 100)')
+      //       {
+      //         if (result[i] === 'gray' &&
+      //             boardLetters[d].style.backgroundColor === 'rgb(201, 180, 88)') {
+      //         } else {
+      //           boardLetters[d].style.backgroundColor = result[i]
+      //           boardLetters[d].style.color = 'white'
+      //         }
+      //       }
+      //       if (boardLetters[d].style.backgroundColor === 'gray') {
+      //         boardLetters[d].disabled = true
+      //       } 
+      //     }
+      //     i++;                    //  increment the counter
+      //     if (i < letters.length) {           //  if the counter < 10, call the loop function
+      //       myLoop();             //  ..  again which will trigger another 
+      //     }                       //  ..  setTimeout()
+      //   }, 500)
+      // }
+
+      // myLoop();
+      
       for (let i = 0; i < letters.length; i++) {
         letters[i].style.backgroundColor = result[i]
         letters[i].style.color = 'white'
