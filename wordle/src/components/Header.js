@@ -4,9 +4,17 @@ import Help from './Help'
 // import Result from './Result'
 
 const Header = (props) => {
-	const {changeLanguage, endOfGame} = props
+	const {changeLanguage, language, endOfGame} = props
 	
 	const displayHelpTuggle = (e) => {
+		const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard').style.display
+		if (language === 'עב' && hebrewKeyboard === 'block') {
+			console.log(1)
+			document.body.querySelector('.hebrewKeyboard').style.display = 'none'
+		} else if (language === 'עב') {
+			document.body.querySelector('.hebrewKeyboard').style.display = 'block'
+		}
+
 		// all the conditions are for know if to display help and play again button or not
 		const helpDisplay = document.body.querySelector('.helpPage').style.display
 		if (helpDisplay !== 'block' && !endOfGame) {
@@ -22,6 +30,7 @@ const Header = (props) => {
 			document.body.querySelector('.helpPage').style.display = 'none'
 		}
 	}
+
 	// const getResult = () => {
 	// 	document.querySelector('.resultPage').style.display = 'block'
 	// 	const tryes = document.querySelector('.tryes').children
@@ -53,6 +62,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    language: state.language,
     endOfGame: state.endOfGame,
   }
 }

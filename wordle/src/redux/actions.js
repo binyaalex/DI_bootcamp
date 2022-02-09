@@ -3,12 +3,12 @@ const changeLanguage = () => {
 	let languageBtn = document.querySelector('.languageBtn')
 	if (languageBtn.textContent === 'עב') {
 		languageBtn.textContent = 'EN'
-		document.querySelector('.keyboard').style.display = 'none'
+		document.querySelector('.englishKeyboard').style.display = 'none'
 		document.querySelector('.hebrewKeyboard').style.display = 'block'
 	} else {
 		languageBtn.textContent = 'עב'
 		document.querySelector('.hebrewKeyboard').style.display = 'none'
-		document.querySelector('.keyboard').style.display = 'block'
+		document.querySelector('.englishKeyboard').style.display = 'block'
 	}
 }
 
