@@ -298,7 +298,7 @@ button {
 }
 
 .playAgain {
-  display: contents;
+  display: none;
   position: absolute;
   top: 195px;
   background: #007BFF;
@@ -308,4 +308,16 @@ button {
   padding: 12px 15px;
   border: 2px solid black;
   border-radius: 10px;
+}
+
+
+@media all and (max-width: 500px) {
+
+  .all {
+    width: 100%;
+  }
+
+  .qToP > *, .enterToBackspace > *, .aToL > * {
+    width: 8vw;
+  }
 }

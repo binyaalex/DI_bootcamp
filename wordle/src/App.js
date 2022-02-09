@@ -105,10 +105,10 @@ const App = (props) => {
         <Header />
         <Tryes />
         <Keyboard />
+        <Messages />
+        <Result />
+        <PlayAgain />
       </div>
-      <Messages />
-      <Result />
-      <PlayAgain />
     </div>
   );
 }

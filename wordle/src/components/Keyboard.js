@@ -5,8 +5,9 @@ import {changeAction, enterAction, delAction} from '../redux/actions';
 const Keyboard = (props) => {
   const {change2, enter, del} = props
 	return (
-	  <div>      
-      <div className='keyboard'>
+	  <div className='keyboards'>   
+
+      <div className='englishKeyboard'>
         <div className='qToP'>
           <button onClick={change2} className='boardLetter'>Q</button>
           <button onClick={change2} className='boardLetter'>W</button>
