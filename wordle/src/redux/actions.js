@@ -17,6 +17,7 @@ const blackBox = () => {
     const squares = document.querySelectorAll('.letterBox')
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].textContent !== '') {
+        console.log(squares[i])
         squares[i].style.borderColor = 'black'
       } else {
         squares[i].style.borderColor = 'lightgray'
@@ -137,6 +138,7 @@ export const changeLanguageAction = (languageBtn) => {
 	}
 }
 
+// when user press on the play again button
 export const playAgainAction = () => {
 	let language = document.querySelector('.languageBtn').textContent
         document.querySelector('.messages').style.display = 'none'
