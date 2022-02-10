@@ -136,7 +136,7 @@ export const reducer = (state=initState, action={}) => {
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  // check there is such a word
-		  if (isWordInWordList) {
+		  if (isWordInWordList || true) {
 		  	// check the user use all the green letters in there place
 		  	if (isGreenLetterInUserWord()) {
 		  		// check the user use all the yellow letters and not in the same place

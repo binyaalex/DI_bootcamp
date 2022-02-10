@@ -11,54 +11,61 @@ const changeLanguage = () => {
 		document.querySelector('.englishKeyboard').style.display = 'block'
 	}
 }
-
 // color the boxes with letter in black border
-const blackBox = () => {
-    const squares = document.querySelectorAll('.letterBox')
-    for (let i = 0; i < squares.length; i++) {
-      if (squares[i].style.backgroundColor !== 'white') {
-        squares[i].style.border = '0'
-      } else if (squares[i].textContent !== '') {
-        squares[i].style.borderColor = 'black'
-      } else {
-        squares[i].style.borderColor = 'lightgray'
-      }
-    }
-}
+
 
 // when the user write a letter or press the keyboard
 export const changeAction = (e) => {
-
-	// change language
-	if (e.key === '=') {
-		let language = document.querySelector('.languageBtn').textContent
-		changeLanguage()
-		return {
-			type: language,
-		}
-	}
-
-	let letter
-	// when the user use the screen keyboard
-	if (typeof(e) === 'string') {
-		letter = e
-	// when the user use the real keyboard
-	} else {
-		letter = e.key.toUpperCase()
-	}
-
-    setTimeout(blackBox, 1)
-
-    // push all the gray letters to array that the user wouldn't be able to use them
-    const boardLetters = document.querySelectorAll('.boardLetter')
-    let greyLetters = []
-    for (let i = 0; i < boardLetters.length; i++) {
-    	if (boardLetters[i].style.backgroundColor === 'gray') {
-    		greyLetters.push(boardLetters[i].textContent)
-    	}
-    }
-
 	return (dispatch, getState) => {
+		const blackBox = () => {
+			let turn = getState().turn
+			if (turn === 6) {
+				turn = 5
+			}
+			console.log(turn)
+		    // const squares = document.querySelectorAll('.letterBox')
+		    const squares = document.querySelectorAll('.try')[turn].children
+		    for (let i = 0; i < squares.length; i++) {
+				if (squares[i].style.backgroundColor !== 'white') {
+					console.log('action 0')
+				  	squares[i].style.border = '0'
+				} else if (squares[i].textContent !== '') {
+					squares[i].style.borderColor = 'black'
+					console.log('action')
+				} else {
+					squares[i].style.borderColor = 'lightgray'
+				}
+		    }
+		}
+		// change language
+		if (e.key === '=') {
+			let language = document.querySelector('.languageBtn').textContent
+			changeLanguage()
+			dispatch ({
+				type: language,
+			})
+		}
+
+		let letter
+		// when the user use the screen keyboard
+		if (typeof(e) === 'string') {
+			letter = e
+		// when the user use the real keyboard
+		} else {
+			letter = e.key.toUpperCase()
+		}
+
+	    setTimeout(blackBox, 1)
+
+	    // push all the gray letters to array that the user wouldn't be able to use them
+	    const boardLetters = document.querySelectorAll('.boardLetter')
+	    let greyLetters = []
+	    for (let i = 0; i < boardLetters.length; i++) {
+	    	if (boardLetters[i].style.backgroundColor === 'gray') {
+	    		greyLetters.push(boardLetters[i].textContent)
+	    	}
+	    }
+	
 		// check that it's a letter, in the right language and that it's only one letter
 		if (letter.match(getState().letters) && letter.length < 2
 			// check that the letter is not one of the gray letters
@@ -122,7 +129,7 @@ export const enterAction = () => {
 export const delAction = () => {
 
 	// for unblack the box of the deleted letter
-    setTimeout(blackBox, 1)
+    // setTimeout(blackBox, 1)
 
 	console.log('del')
 	return {

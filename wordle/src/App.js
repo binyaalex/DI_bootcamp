@@ -21,10 +21,17 @@ const App = (props) => {
 
     // make squre black after write a letter inside
     const squares = document.querySelectorAll('.letterBox')
+    // const squares = document.querySelectorAll('.try')[turn].children
+    console.log(turn)
     for (let i = 0; i < squares.length; i++) {
-      if (squares[i].textContent !== '') {
+      if (squares[i].backgroundColor !== 'white' && squares[i].backgroundColor !== undefined && turn !== 0) { 
+        squares[i].style.border = '0'
+        console.log(1)
+      } else if (squares[i].textContent === '' || turn === 0) {
         console.log(squares[i])
-        squares[i].style.border = '2px solid black'
+        squares[i].style.border = '2px solid lightgray'
+      } else {
+        console.log(2)
       }
     }
 
@@ -40,13 +47,15 @@ const App = (props) => {
       // color the letters of the last try according the result
       const letters = document.querySelector('.tryes').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
-      // let i = 0;                  //  set your counter to 1
+      let i = 0;                  //  set your counter to 1
 
       function myLoop() {         //  create a loop function
         setTimeout(function() {   //  call a 3s setTimeout when the loop is called
-          console.log('hello');   //  your code here
           letters[i].style.backgroundColor = result[i]
           letters[i].style.color = 'white'
+          const squares = document.querySelectorAll('.try')[turn-1].children
+          console.log(squares)
+          squares[i].style.border = '0'
 
           // color the letters of the screen keyboard according the result
           for (let d = 0; d < boardLetters.length; d++) {
@@ -60,6 +69,9 @@ const App = (props) => {
               } else {
                 boardLetters[d].style.backgroundColor = result[i]
                 boardLetters[d].style.color = 'white'
+                const squares = document.querySelectorAll('.try')[turn-1].children
+                console.log(squares)
+                squares[i].style.border = '0'
               }
             }
             if (boardLetters[d].style.backgroundColor === 'gray') {
@@ -68,7 +80,7 @@ const App = (props) => {
           }
           i++;                    //  increment the counter
           if (i < letters.length) {           //  if the counter < 10, call the loop function
-            myLoop();             //  ..  again which will trigger another 
+            myLoop();             //  ..  again which will trigger another             
           }                       //  ..  setTimeout()
         }, 500)
       }
