@@ -21,7 +21,6 @@ const blackBox = () => {
       } else if (squares[i].textContent !== '') {
         squares[i].style.borderColor = 'black'
       } else {
-      	console.log(squares[i].style.backgroundColor)
         squares[i].style.borderColor = 'lightgray'
       }
     }
