@@ -55,7 +55,6 @@ const App = (props) => {
           letters[writingDirection[i]].style.backgroundColor = result[writingDirection[i]]
           letters[writingDirection[i]].style.color = 'white'
           const squares = document.querySelectorAll('.try')[turn-1].children
-          console.log(squares)
           squares[writingDirection[i]].style.border = '0'
 
           // color the letters of the screen keyboard according the result
@@ -63,10 +62,7 @@ const App = (props) => {
             let boardLetter = finalToRegular(boardLetters[d].textContent)
             if (i === 0) {
               boardLetters[d].disabled = true
-              console.log(boardLetters[d])
             }
-            console.log(i)
-            console.log(boardLetters[d].disabled)
             let letter = finalToRegular(letters[i].textContent)
             if (boardLetter === letter &&
                 boardLetters[d].style.backgroundColor !== 'rgb(106, 170, 100)')
@@ -77,7 +73,6 @@ const App = (props) => {
                 boardLetters[d].style.backgroundColor = result[i]
                 boardLetters[d].style.color = 'white'
                 const squares = document.querySelectorAll('.try')[turn-1].children
-                console.log(squares)
                 squares[writingDirection[i]].style.border = '0'
               }
             }
@@ -85,13 +80,10 @@ const App = (props) => {
               boardLetters[d].disabled = true
             }
             if (i === 4) {
-              console.log(boardLetters[d].disabled)
               boardLetters[d].disabled = false  
-              console.log(boardLetters[d].disabled)
             }
           }
           i++;                    //  increment the counter
-          console.log('in')
           if (i < letters.length) {           //  if the counter < 10, call the loop function
             myLoop();             //  ..  again which will trigger another             
           }                       //  ..  setTimeout()
