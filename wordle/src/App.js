@@ -13,7 +13,7 @@ import {finalToRegular} from './redux/reducers';
 
 
 const App = (props) => {
-  const {result, turn, change1, dailyWord, endTheGame} = props
+  const {result, turn, change1, dailyWord, endTheGame, writingDirection} = props
   
   useEffect(() => {
     console.log(dailyWord)
@@ -51,11 +51,11 @@ const App = (props) => {
 
       function myLoop() {         //  create a loop function
         setTimeout(function() {   //  call a 3s setTimeout when the loop is called
-          letters[i].style.backgroundColor = result[i]
-          letters[i].style.color = 'white'
+          letters[writingDirection[i]].style.backgroundColor = result[writingDirection[i]]
+          letters[writingDirection[i]].style.color = 'white'
           const squares = document.querySelectorAll('.try')[turn-1].children
           console.log(squares)
-          squares[i].style.border = '0'
+          squares[writingDirection[i]].style.border = '0'
 
           // color the letters of the screen keyboard according the result
           for (let d = 0; d < boardLetters.length; d++) {
@@ -71,7 +71,7 @@ const App = (props) => {
                 boardLetters[d].style.color = 'white'
                 const squares = document.querySelectorAll('.try')[turn-1].children
                 console.log(squares)
-                squares[i].style.border = '0'
+                squares[writingDirection[i]].style.border = '0'
               }
             }
             if (boardLetters[d].style.backgroundColor === 'gray') {
@@ -166,7 +166,8 @@ const mapStateToProps = (state) => {
   return {
     result: state.result,
     turn: state.turn,
-    dailyWord: state.dailyWord
+    dailyWord: state.dailyWord,
+    writingDirection: state.writingDirection
   }
 }
 
