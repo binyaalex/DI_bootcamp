@@ -18,7 +18,6 @@ const App = (props) => {
   useEffect(() => {
     console.log(dailyWord)
     document.body.addEventListener('keydown', change1) // for real keyboard
-
     // make squre black after write a letter inside
     const squares = document.querySelectorAll('.letterBox')
     // const squares = document.querySelectorAll('.try')[turn].children
@@ -62,6 +61,7 @@ const App = (props) => {
             let boardLetter = finalToRegular(boardLetters[d].textContent)
             if (i === 0) {
               boardLetters[d].disabled = true
+              document.body.removeEventListener('keydown', change1) // for real keyboard
             }
             let letter = finalToRegular(letters[i].textContent)
             if (boardLetter === letter &&
@@ -81,6 +81,7 @@ const App = (props) => {
             }
             if (i === 4) {
               boardLetters[d].disabled = false  
+              document.body.addEventListener('keydown', change1) // for real keyboard
             }
           }
           i++;                    //  increment the counter
