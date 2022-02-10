@@ -143,7 +143,7 @@ const App = (props) => {
         endTheGame()
       } 
     }
-    setTimeout(myGreeting, 300)
+    setTimeout(myGreeting, 2800)
     });
 
   return (
