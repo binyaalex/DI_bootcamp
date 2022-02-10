@@ -46,39 +46,39 @@ const Keyboard = (props) => {
 
       <div className='hebrewKeyboard'>
         <div className='qToP'>
-          <div onClick={change2} className='boardLetter'>ק</div>
-          <div onClick={change2} className='boardLetter'>ר</div>
-          <div onClick={change2} className='boardLetter'>א</div>
-          <div onClick={change2} className='boardLetter'>ט</div>
-          <div onClick={change2} className='boardLetter'>ו</div>
-          <div onClick={change2} className='boardLetter'>ן</div>
-          <div onClick={change2} className='boardLetter'>ם</div>
-          <div onClick={change2} className='boardLetter'>פ</div>
+          <button onClick={change2} className='boardLetter'>ק</button>
+          <button onClick={change2} className='boardLetter'>ר</button>
+          <button onClick={change2} className='boardLetter'>א</button>
+          <button onClick={change2} className='boardLetter'>ט</button>
+          <button onClick={change2} className='boardLetter'>ו</button>
+          <button onClick={change2} className='boardLetter'>ן</button>
+          <button onClick={change2} className='boardLetter'>ם</button>
+          <button onClick={change2} className='boardLetter'>פ</button>
         </div>
         <div className='aToL'>
-          <div onClick={change2} className='boardLetter'>ש</div>
-          <div onClick={change2} className='boardLetter'>ד</div>
-          <div onClick={change2} className='boardLetter'>ג</div>
-          <div onClick={change2} className='boardLetter'>כ</div>
-          <div onClick={change2} className='boardLetter'>ע</div>
-          <div onClick={change2} className='boardLetter'>י</div>
-          <div onClick={change2} className='boardLetter'>ח</div>
-          <div onClick={change2} className='boardLetter'>ל</div>
-          <div onClick={change2} className='boardLetter'>ך</div>
-          <div onClick={change2} className='boardLetter'>ף</div>
+          <button onClick={change2} className='boardLetter'>ש</button>
+          <button onClick={change2} className='boardLetter'>ד</button>
+          <button onClick={change2} className='boardLetter'>ג</button>
+          <button onClick={change2} className='boardLetter'>כ</button>
+          <button onClick={change2} className='boardLetter'>ע</button>
+          <button onClick={change2} className='boardLetter'>י</button>
+          <button onClick={change2} className='boardLetter'>ח</button>
+          <button onClick={change2} className='boardLetter'>ל</button>
+          <button onClick={change2} className='boardLetter'>ך</button>
+          <button onClick={change2} className='boardLetter'>ף</button>
         </div>
         <div className='enterToBackspace'>
-          <div onClick={enter} className='hebrewEnter'>ENTER</div>
-          <div onClick={change2} className='boardLetter'>ז</div>
-          <div onClick={change2} className='boardLetter'>ס</div>
-          <div onClick={change2} className='boardLetter'>ב</div>
-          <div onClick={change2} className='boardLetter'>ה</div>
-          <div onClick={change2} className='boardLetter'>נ</div>
-          <div onClick={change2} className='boardLetter'>מ</div>
-          <div onClick={change2} className='boardLetter'>צ</div>
-          <div onClick={change2} className='boardLetter'>ת</div>
-          <div onClick={change2} className='boardLetter'>ץ</div>
-          <div onClick={del}>DEL</div>
+          <button onClick={enter} className='hebrewEnter'>ENTER</button>
+          <button onClick={change2} className='boardLetter'>ז</button>
+          <button onClick={change2} className='boardLetter'>ס</button>
+          <button onClick={change2} className='boardLetter'>ב</button>
+          <button onClick={change2} className='boardLetter'>ה</button>
+          <button onClick={change2} className='boardLetter'>נ</button>
+          <button onClick={change2} className='boardLetter'>מ</button>
+          <button onClick={change2} className='boardLetter'>צ</button>
+          <button onClick={change2} className='boardLetter'>ת</button>
+          <button onClick={change2} className='boardLetter'>ץ</button>
+          <button onClick={del}>DEL</button>
         </div>
       </div>
 

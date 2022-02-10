@@ -48,7 +48,8 @@ const App = (props) => {
       const letters = document.querySelector('.tryes').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
       let i = 0;                  //  set your counter to 1
-
+      document.querySelectorAll('.boardLetter')[30].disabled = true
+      boardLetters[0].disabled = true
       function myLoop() {         //  create a loop function
         setTimeout(function() {   //  call a 3s setTimeout when the loop is called
           letters[writingDirection[i]].style.backgroundColor = result[writingDirection[i]]
@@ -60,6 +61,12 @@ const App = (props) => {
           // color the letters of the screen keyboard according the result
           for (let d = 0; d < boardLetters.length; d++) {
             let boardLetter = finalToRegular(boardLetters[d].textContent)
+            if (i === 0) {
+              boardLetters[d].disabled = true
+              console.log(boardLetters[d])
+            }
+            console.log(i)
+            console.log(boardLetters[d].disabled)
             let letter = finalToRegular(letters[i].textContent)
             if (boardLetter === letter &&
                 boardLetters[d].style.backgroundColor !== 'rgb(106, 170, 100)')
@@ -76,9 +83,15 @@ const App = (props) => {
             }
             if (boardLetters[d].style.backgroundColor === 'gray') {
               boardLetters[d].disabled = true
-            } 
+            }
+            if (i === 4) {
+              console.log(boardLetters[d].disabled)
+              boardLetters[d].disabled = false  
+              console.log(boardLetters[d].disabled)
+            }
           }
           i++;                    //  increment the counter
+          console.log('in')
           if (i < letters.length) {           //  if the counter < 10, call the loop function
             myLoop();             //  ..  again which will trigger another             
           }                       //  ..  setTimeout()
@@ -86,7 +99,7 @@ const App = (props) => {
       }
 
       myLoop();
-      
+      console.log('out')
       // for (let i = 0; i < letters.length; i++) {
       //   letters[i].style.backgroundColor = result[i]
       //   letters[i].style.color = 'white'
