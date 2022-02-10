@@ -217,6 +217,10 @@ section {
   height: 200px;
 }
 
+.hebrewKeyboard > * > * {
+  font-size: 16px;
+}
+
 button {
   border: 0;
 }
