@@ -78,7 +78,7 @@ const Keyboard = (props) => {
           <button onClick={change2} className='boardLetter'>צ</button>
           <button onClick={change2} className='boardLetter'>ת</button>
           <button onClick={change2} className='boardLetter'>ץ</button>
-          <button onClick={del}>DEL</button>
+          <button onClick={del} className='hebrewDel'>DEL</button>
         </div>
       </div>
 

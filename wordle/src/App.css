@@ -275,6 +275,11 @@ button {
 
 .hebrewEnter {
   width: 80px;
+  font-size: smaller;
+}
+
+.hebrewDel {
+  font-size: smaller;
 }
 
 .shake {
