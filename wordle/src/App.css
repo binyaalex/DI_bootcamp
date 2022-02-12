@@ -184,6 +184,17 @@ section {
   margin: 5px 0
 }
 
+.letterBox {
+  transform: scaleY(-1);
+  transition: 1s;
+}
+
+.letterBox {
+  transform: scaleY(1);
+  transition: 1s;
+}
+
+
 .letterBox, .helpLetterBox, .resultSquer {
   width: 45px;
   height: 45px;
