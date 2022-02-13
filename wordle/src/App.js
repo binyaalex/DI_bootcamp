@@ -113,6 +113,7 @@ const App = (props) => {
       if (win && firstLoad) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.well').style.display = 'block'
+        document.querySelector('.tryes').children[turn-1].classList.add('winner')
         document.querySelector('.playAgain').style.display = 'block'
         endTheGame()
 
@@ -120,6 +121,7 @@ const App = (props) => {
       } else if (turn === 6) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.loser').style.display = 'block'
+        document.querySelector('.tryes').children[turn-1].classList.remove('winner')
         document.querySelector('.playAgain').style.display = 'block'
         endTheGame()
       } 

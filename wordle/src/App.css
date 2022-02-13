@@ -194,6 +194,20 @@ section {
   transition: 1s;
 }
 
+.winner > * {
+  animation: pop 1.2s infinite;
+}
+
+@keyframes pop {
+    0% { transform: translate(0%, -50%) ; }
+    50% { transform: translate(0%, -150%) ; }
+    55% { transform: translate(0%, -150%) rotate(15deg); }
+    60% { transform: translate(0%, -150%) rotate(-15deg); }
+    65% { transform: translate(0%, -150%) rotate(15deg); }
+    70% { transform: translate(0%, -150%) rotate(-15deg); }
+    100% { transform: translate(0%, -50%) ; }
+}
+
 /*.flip {
   transform: rotateX(180deg);
   transition: 1s;

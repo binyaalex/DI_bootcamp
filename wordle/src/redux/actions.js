@@ -120,6 +120,7 @@ export const changeAction = (e) => {
 		        document.querySelector('.well').style.display = 'none'
 		        document.querySelector('.loser').style.display = 'none'
 		        document.querySelector('.playAgain').style.display = 'none'
+     		    document.querySelector('.tryes').children[getState().turn-1].classList.remove('winner')
 				if (language === 'עב') {
 					language = 'EN'
 				} else {
@@ -176,6 +177,7 @@ export const playAgainAction = () => {
         document.querySelector('.messages').style.display = 'none'
         document.querySelector('.well').style.display = 'none'
         document.querySelector('.loser').style.display = 'none'
+     	document.querySelector('.try').classList.remove('winner')
         document.querySelector('.playAgain').style.display = 'none'
 	if (language === 'עב') {
 		language = 'EN'
