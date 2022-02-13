@@ -5,9 +5,11 @@ const Try = (props) => {
 	return (
 		<>
         <div className='try'>
-          <div className='letterBox'>
-            {userWord[i][writingDirection[0]]}
+            <div className='letterBox'>
+              {userWord[i][writingDirection[0]]}
+          <div className='letterBack'>
           </div>
+            </div>
           <div className='letterBox'>
             {userWord[i][writingDirection[1]]}
           </div>

@@ -1,4 +1,4 @@
-
+// change language function
 const changeLanguage = () => {
 	let languageBtn = document.querySelector('.languageBtn')
 	if (languageBtn.textContent === 'עב') {
@@ -11,7 +11,6 @@ const changeLanguage = () => {
 		document.querySelector('.englishKeyboard').style.display = 'block'
 	}
 }
-// color the boxes with letter in black border
 
 
 // when the user write a letter or press the keyboard
@@ -23,7 +22,6 @@ export const changeAction = (e) => {
 				turn = 5
 			}
 			console.log(turn)
-		    // const squares = document.querySelectorAll('.letterBox')
 		    const squares = document.querySelectorAll('.try')[turn].children
 		    for (let i = 0; i < squares.length; i++) {
 				if (squares[i].style.backgroundColor !== 'white') {
@@ -85,8 +83,8 @@ export const changeAction = (e) => {
 				})
 
 			// when it's the end of the game pressing enter will start new game
-			// by doing the same like wehn the user change the language
-			// but stay in th same language
+			// by doing the same like when the user change the language
+			// but stay in the same language
 			} else {
 				let language = document.querySelector('.languageBtn').textContent
 		        document.querySelector('.messages').style.display = 'none'
@@ -128,9 +126,6 @@ export const enterAction = () => {
 // when the user press Backspace on the screen keyboard
 export const delAction = () => {
 
-	// for unblack the box of the deleted letter
-    // setTimeout(blackBox, 1)
-
 	console.log('del')
 	return {
 		type:'DEL',
@@ -163,6 +158,7 @@ export const playAgainAction = () => {
 	}
 }
 
+// when the game and win or lose
 export const endTheGameAction = () => {
 	return {
 		type:'END',

@@ -194,6 +194,20 @@ section {
   transition: 1s;
 }
 
+/*.flip {
+  transform: rotateX(180deg);
+  transition: 1s;
+}*/
+
+/*.flip {
+    -webkit-animation:spin 1s linear;
+    -moz-animation:spin 1s linear;
+    animation:spin 0.6s linear;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotateX(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotateX(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotateX(360deg); transform:rotateX(180deg); } }
+*/
 
 .letterBox, .helpLetterBox, .resultSquer {
   width: 45px;
