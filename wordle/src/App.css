@@ -199,13 +199,13 @@ section {
 }
 
 @keyframes pop {
-    0% { transform: translate(0%, -50%) ; }
-    50% { transform: translate(0%, -150%) ; }
-    55% { transform: translate(0%, -150%) rotate(15deg); }
-    60% { transform: translate(0%, -150%) rotate(-15deg); }
-    65% { transform: translate(0%, -150%) rotate(15deg); }
-    70% { transform: translate(0%, -150%) rotate(-15deg); }
-    100% { transform: translate(0%, -50%) ; }
+    0% { transform: translate(0%, 0%) ; }
+    50% { transform: translate(0%, -100%) ; }
+    55% { transform: translate(0%, -100%) rotate(15deg); }
+    60% { transform: translate(0%, -100%) rotate(-15deg); }
+    65% { transform: translate(0%, -100%) rotate(15deg); }
+    70% { transform: translate(0%, -100%) rotate(-15deg); }
+    100% { transform: translate(0%, 0%) ; }
 }
 
 /*.flip {

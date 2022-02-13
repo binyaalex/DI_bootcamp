@@ -114,14 +114,15 @@ const App = (props) => {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.well').style.display = 'block'
         document.querySelector('.tryes').children[turn-1].classList.add('winner')
-        document.querySelector('.playAgain').style.display = 'block'
+        setTimeout(function() {   
+          document.querySelector('.playAgain').style.display = 'block'
+        }, 3000)
         endTheGame()
 
       // user lose
       } else if (turn === 6) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.loser').style.display = 'block'
-        document.querySelector('.tryes').children[turn-1].classList.remove('winner')
         document.querySelector('.playAgain').style.display = 'block'
         endTheGame()
       } 
