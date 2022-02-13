@@ -16,6 +16,25 @@ const changeLanguage = () => {
 // when the user write a letter or press the keyboard
 export const changeAction = (e) => {
 	return (dispatch, getState) => {
+		// change language
+		if (e.key === '=') {
+			let language = document.querySelector('.languageBtn').textContent
+			changeLanguage()
+			dispatch ({
+				type: language,
+			})
+		}
+
+		let letter
+		// when the user use the screen keyboard
+		if (typeof(e) === 'string') {
+			letter = e
+		// when the user use the real keyboard
+		} else {
+			letter = e.key.toUpperCase()
+		}
+
+		// for make the letterbox black border after writing a letter
 		const blackBox = () => {
 			let turn = getState().turn
 			if (turn === 6) {
@@ -35,24 +54,6 @@ export const changeAction = (e) => {
 				}
 		    }
 		}
-		// change language
-		if (e.key === '=') {
-			let language = document.querySelector('.languageBtn').textContent
-			changeLanguage()
-			dispatch ({
-				type: language,
-			})
-		}
-
-		let letter
-		// when the user use the screen keyboard
-		if (typeof(e) === 'string') {
-			letter = e
-		// when the user use the real keyboard
-		} else {
-			letter = e.key.toUpperCase()
-		}
-
 	    setTimeout(blackBox, 1)
 
 	    // push all the gray letters to array that the user wouldn't be able to use them
@@ -65,13 +66,39 @@ export const changeAction = (e) => {
 	    }
 	
 		// check that it's a letter, in the right language and that it's only one letter
-		if (letter.match(getState().letters) && letter.length < 2
+		if ((letter.match(".*[א-ת].*") || letter.match(".*[A-Z].*")) && letter.length < 2
 			// check that the letter is not one of the gray letters
 			&& !letter.match(`.*[${greyLetters}].*`)) {
-			dispatch ({
-				type:'CHANGE',
-				payload: letter
-			})
+			if (getState().language === 'EN' && letter.match(".*[א-ת].*")) {
+				// put message that there is no such a word
+	        	document.querySelector('.messages').style.display = 'block'
+			  	document.querySelector('.wrongLanguageMsg').style.display = 'block'
+			  	const undisplay = () => {
+	        		document.querySelector('.messages').style.display = 'none'
+			  		document.querySelector('.wrongLanguageMsg').style.display = 'none'
+			  	}
+			  	setTimeout(undisplay, 800)
+			  	dispatch ({
+					type:'EMPTY'
+				})
+			} else if (getState().language === 'עב' && letter.match(".*[A-Z].*")) {
+				// put message that there is no such a word
+	        	document.querySelector('.messages').style.display = 'block'
+			  	document.querySelector('.wrongLanguageMsg').style.display = 'block'
+			  	const undisplay = () => {
+	        		document.querySelector('.messages').style.display = 'none'
+			  		document.querySelector('.wrongLanguageMsg').style.display = 'none'
+			  	}
+			  	setTimeout(undisplay, 800)
+			  	dispatch ({
+					type:'EMPTY'
+				})
+			} else if (letter.match(getState().letters)) {
+				dispatch ({
+					type:'CHANGE',
+					payload: letter
+				})
+			}
 
 		} else if (e.key === 'Enter') {
 	        const playAgain = document.querySelector('.playAgain')

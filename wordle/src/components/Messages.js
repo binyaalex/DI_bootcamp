@@ -19,6 +19,9 @@ const Messages = (props) => {
 			<div className='yellowMsg'>
 				{messages.yellow}
 			</div>
+			<div className='wrongLanguageMsg'>
+				{messages.wrongLanguage}
+			</div>
 		</div>
 	)
 }
