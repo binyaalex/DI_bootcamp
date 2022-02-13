@@ -21,16 +21,12 @@ const App = (props) => {
     // make squre black after write a letter inside
     const squares = document.querySelectorAll('.letterBox')
     // const squares = document.querySelectorAll('.try')[turn].children
-    console.log(turn)
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].backgroundColor !== 'white' && squares[i].backgroundColor !== undefined && turn !== 0) { 
         squares[i].style.border = '0'
-        console.log(1)
       } else if (squares[i].textContent === '' || turn === 0) {
-        console.log(squares[i])
         squares[i].style.border = '2px solid lightgray'
       } else {
-        console.log(2)
       }
     }
 
@@ -46,11 +42,12 @@ const App = (props) => {
       // color the letters of the last try according the result
       const letters = document.querySelector('.tryes').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
-      let i = 0;                  //  set your counter to 1
+      let i = 0;                  
       document.querySelectorAll('.boardLetter')[30].disabled = true
       boardLetters[0].disabled = true
-      function myLoop() {         //  create a loop function
-        setTimeout(function() {   //  call a 3s setTimeout when the loop is called
+      // do it in a loop by timeout for showing letter by letter
+      function myLoop() {         
+        setTimeout(function() {   
           letters[writingDirection[i]].style.backgroundColor = result[writingDirection[i]]
           letters[writingDirection[i]].style.color = 'white'
           const squares = document.querySelectorAll('.try')[turn-1].children
@@ -59,9 +56,10 @@ const App = (props) => {
           // color the letters of the screen keyboard according the result
           for (let d = 0; d < boardLetters.length; d++) {
             let boardLetter = finalToRegular(boardLetters[d].textContent)
+            // prevent writing while showing result
             if (i === 0) {
               boardLetters[d].disabled = true
-              document.body.removeEventListener('keydown', change1) // for real keyboard
+              document.body.removeEventListener('keydown', change1)
             }
             let letter = finalToRegular(letters[i].textContent)
             if (boardLetter === letter &&
@@ -79,15 +77,16 @@ const App = (props) => {
             if (boardLetters[d].style.backgroundColor === 'gray') {
               boardLetters[d].disabled = true
             }
+            // stop prevent writing after finshed showing result
             if (i === 4) {
               boardLetters[d].disabled = false  
-              document.body.addEventListener('keydown', change1) // for real keyboard
+              document.body.addEventListener('keydown', change1) 
             }
           }
-          i++;                    //  increment the counter
-          if (i < letters.length) {           //  if the counter < 10, call the loop function
-            myLoop();             //  ..  again which will trigger another             
-          }                       //  ..  setTimeout()
+          i++;                    
+          if (i < letters.length) {           
+            myLoop();                
+          }                       
         }, 500)
       }
 

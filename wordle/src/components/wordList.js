@@ -1,3 +1,5 @@
+
+// words for answer
 export const WORDS = [
   "cigar",
   "rebut",
@@ -2316,6 +2318,7 @@ export const WORDS = [
   "shave",
 ]
 
+// words for check the user word try
 export const WORDSCheckList = [
   "cigar",
   "rebut",
