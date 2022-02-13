@@ -65,12 +65,11 @@ export const changeAction = (e) => {
 	    	}
 	    }
 	
-		// check that it's a letter, in the right language and that it's only one letter
-		if ((letter.match(".*[א-ת].*") || letter.match(".*[A-Z].*")) && letter.length < 2
-			// check that the letter is not one of the gray letters
-			&& !letter.match(`.*[${greyLetters}].*`)) {
+		// check that it's a one letter (not enter or backspace for example)
+		if (letter.length < 2) {
+
+			// check that the user write in the right language
 			if (getState().language === 'EN' && letter.match(".*[א-ת].*")) {
-				// put message that there is no such a word
 	        	document.querySelector('.messages').style.display = 'block'
 			  	document.querySelector('.wrongLanguageMsg').style.display = 'block'
 			  	const undisplay = () => {
@@ -82,7 +81,6 @@ export const changeAction = (e) => {
 					type:'EMPTY'
 				})
 			} else if (getState().language === 'עב' && letter.match(".*[A-Z].*")) {
-				// put message that there is no such a word
 	        	document.querySelector('.messages').style.display = 'block'
 			  	document.querySelector('.wrongLanguageMsg').style.display = 'block'
 			  	const undisplay = () => {
@@ -93,7 +91,11 @@ export const changeAction = (e) => {
 			  	dispatch ({
 					type:'EMPTY'
 				})
-			} else if (letter.match(getState().letters)) {
+
+			// check that is a letter and not numbers for example	
+			} else if (letter.match(getState().letters)
+				// check that the letter is not one of the gray letters
+				&& !letter.match(`.*[${greyLetters}].*`)) {
 				dispatch ({
 					type:'CHANGE',
 					payload: letter
