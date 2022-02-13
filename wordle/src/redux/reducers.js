@@ -241,7 +241,8 @@ export const reducer = (state=initState, action={}) => {
 						loser: 'אוי, לא נורא אולי פעם הבאה, המילה היא',
 						noWord: '!אין מילה כזאת',
 						green: '!חייבים להשתמש באותיות  הירוקות במקום שלהן',
-						yellow: '!חייבים להשתמש באותיות  הצהובות  ולא באותו מקום'
+						yellow: '!חייבים להשתמש באותיות  הצהובות  ולא באותו מקום',
+						wrongLanguage: 'אחותי את על אנגלית'
 					}
 				 }
 
@@ -264,7 +265,8 @@ export const reducer = (state=initState, action={}) => {
 						loser: 'Game over, the word is',
 						noWord: 'there is no such a word!',
 						green: 'You must use the green letters in there spot!',
-						yellow: 'You must use the yellow letters not in the same spot!'
+						yellow: 'You must use the yellow letters not in the same spot!',
+						wrongLanguage: 'Bro you on Hebrew'
 					}
 		  		 }
 
