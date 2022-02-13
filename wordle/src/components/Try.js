@@ -1,26 +1,26 @@
 import {connect} from 'react-redux';
 
 const Try = (props) => {
-	const {userWord, i, writingDirection} = props
+	const {userWord, turn, writingDirection} = props
 	return (
 		<>
         <div className='try'>
-            <div className='letterBox'>
-              {userWord[i][writingDirection[0]]}
-          <div className='letterBack'>
-          </div>
-            </div>
           <div className='letterBox'>
-            {userWord[i][writingDirection[1]]}
+        {/* taking the letter from the state,
+            using writingDirection for hebrew right to left */}
+            {userWord[turn][writingDirection[0]]}
           </div>
           <div className='letterBox'>
-            {userWord[i][writingDirection[2]]}
+            {userWord[turn][writingDirection[1]]}
           </div>
           <div className='letterBox'>
-            {userWord[i][writingDirection[3]]}
+            {userWord[turn][writingDirection[2]]}
           </div>
           <div className='letterBox'>
-            {userWord[i][writingDirection[4]]}
+            {userWord[turn][writingDirection[3]]}
+          </div>
+          <div className='letterBox'>
+            {userWord[turn][writingDirection[4]]}
           </div>
         </div>
 		</>

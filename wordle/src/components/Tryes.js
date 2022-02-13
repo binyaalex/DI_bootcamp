@@ -1,3 +1,4 @@
+// take one try by the length of the array
 import Try from './Try'
 
 const Tryes = () => {
@@ -5,9 +6,9 @@ const Tryes = () => {
 	return (
 		<div className='tryes'>
       {
-        arr.map((el, i) => {
+        arr.map((el, turn) => {
           return (
-            <Try i={i} key={i} />
+            <Try turn={turn} key={turn} />
           )
         })
       }
