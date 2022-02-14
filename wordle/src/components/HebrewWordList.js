@@ -2641,15 +2641,15 @@ const sortable = [
 ]
 console.log(sortable)
 
-// const last = ['פ', 'א', 'ח', 'צ', 'ק', 'ע', 'ז', 'ס', 'כ', 'ג', 'ד', 'ט',]
+// const last = ['י', 'ת', 'ו', 'מ', 'ה',]
 // const arr = []
 // const arr2 = []
 // const lastlast = ['צ', 'ג', 'ט',]
 
-// for (let i = 0; i < HebrewWordsCheckList.length; i++) {
+// for (let i = 0; i < hebWords.length; i++) {
 // 	arr.push([])
 // 	for (let d = 0; d < last.length; d++) {
-// 		if (HebrewWordsCheckList[i].includes(last[d])) {
+// 		if (!hebWords[i].includes(last[d])) {
 // 			arr[i].push(true)
 // 		}		
 // 	}
@@ -2658,7 +2658,7 @@ console.log(sortable)
 
 // for (let i = 0; i < arr.length; i++) {
 // 	if (arr[i].length > 4) {
-// 		console.log(HebrewWordsCheckList[i])
+// 		console.log(hebWords[i])
 // 	}
 // }
 
