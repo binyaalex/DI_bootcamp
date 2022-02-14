@@ -2,7 +2,6 @@ import {connect} from 'react-redux';
 
 const Try = (props) => {
 	const {userWord, turn, writingDirection} = props
-  console.log(turn)
 	return (
 		<>
         <div className='try'>

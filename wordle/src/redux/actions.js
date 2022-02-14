@@ -40,15 +40,12 @@ export const changeAction = (e) => {
 			if (turn === 6) {
 				turn = 5
 			}
-			console.log(turn)
 		    const squares = document.querySelectorAll('.try')[turn].children
 		    for (let i = 0; i < squares.length; i++) {
 				if (squares[i].style.backgroundColor !== 'white') {
-					console.log('action 0')
 				  	squares[i].style.border = '0'
 				} else if (squares[i].textContent !== '') {
 					squares[i].style.borderColor = 'black'
-					console.log('action')
 				} else {
 					squares[i].style.borderColor = 'lightgray'
 				}
@@ -156,7 +153,6 @@ export const enterAction = () => {
 // when the user press Backspace on the screen keyboard
 export const delAction = () => {
 
-	console.log('del')
 	return {
 		type:'DEL',
 	}
