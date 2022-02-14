@@ -98,7 +98,6 @@ export const reducer = (state=initState, action={}) => {
 						// this loop here will stop you
 						for (let a = 0; a < userWord.length; a++) {
 							if (userWord[a] === letter && a === b) {
-								console.log('here')
 								isYellowLetterInUserWordArr[c] = [[false], [false], [false], [false], [false]]
 							}
 						}
@@ -249,7 +248,6 @@ export const reducer = (state=initState, action={}) => {
 		// change language to english
 		case 'EN':
 		  randomNum = Math.floor(Math.random() * WORDS.length);
-		  console.log(randomNum)
 		  return {...state, 
 		  			language: 'EN', 
 					letters: ".*[A-Z].*",
