@@ -12,6 +12,22 @@ const changeLanguage = () => {
 	}
 }
 
+// function for make the letterbox black border after writing a letter
+const blackBox = (turn) => {
+	if (turn === 6) {
+		turn = 5
+	}
+    const squares = document.querySelectorAll('.try')[turn].children
+    for (let i = 0; i < squares.length; i++) {
+		if (squares[i].textContent !== '') {
+			console.log('black')
+			squares[i].style.borderColor = 'black'
+		} else {
+			console.log('gray')
+			squares[i].style.borderColor = 'lightgray'
+		}
+    }
+}
 
 // when the user write a letter or press the keyboard
 export const changeAction = (e) => {
@@ -34,24 +50,9 @@ export const changeAction = (e) => {
 			letter = e.key.toUpperCase()
 		}
 
-		// for make the letterbox black border after writing a letter
-		const blackBox = () => {
-			let turn = getState().turn
-			if (turn === 6) {
-				turn = 5
-			}
-		    const squares = document.querySelectorAll('.try')[turn].children
-		    for (let i = 0; i < squares.length; i++) {
-				if (squares[i].style.backgroundColor !== 'white') {
-				  	squares[i].style.border = '0'
-				} else if (squares[i].textContent !== '') {
-					squares[i].style.borderColor = 'black'
-				} else {
-					squares[i].style.borderColor = 'lightgray'
-				}
-		    }
-		}
-	    setTimeout(blackBox, 1)
+		setTimeout(function() {
+		    blackBox(getState().turn);
+		}, 1)
 
 	    // push all the gray letters to array that the user wouldn't be able to use them
 	    const boardLetters = document.querySelectorAll('.boardLetter')
@@ -152,9 +153,14 @@ export const enterAction = () => {
 
 // when the user press Backspace on the screen keyboard
 export const delAction = () => {
-
-	return {
-		type:'DEL',
+	return (dispatch, getState) => {
+		// for gray border after delet by screen border
+		setTimeout(function() {
+		    blackBox(getState().turn);
+		}, 1)
+		dispatch ({
+			type:'DEL',
+		})
 	}
 }
 
