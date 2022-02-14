@@ -116,9 +116,13 @@ export const changeAction = (e) => {
 				let language = document.querySelector('.languageBtn').textContent
 		        document.querySelector('.messages').style.display = 'none'
 		        document.querySelector('.well').style.display = 'none'
+		        let loser = document.querySelector('.loser').style.display
+		        if (loser !== 'block') {
+		     		document.querySelector('.winner').classList.remove('winner')
+		        }
 		        document.querySelector('.loser').style.display = 'none'
+		        console.log(document.querySelector('.loser').style.display)
 		        document.querySelector('.playAgain').style.display = 'none'
-		     	document.querySelector('.winner').classList.remove('winner')
 				if (language === 'עב') {
 					language = 'EN'
 				} else {
@@ -178,8 +182,11 @@ export const playAgainAction = () => {
 	let language = document.querySelector('.languageBtn').textContent
         document.querySelector('.messages').style.display = 'none'
         document.querySelector('.well').style.display = 'none'
-        document.querySelector('.loser').style.display = 'none'
-     	document.querySelector('.winner').classList.remove('winner')
+        let loser = document.querySelector('.loser').style.display
+        if (loser !== 'block') {
+     		document.querySelector('.winner').classList.remove('winner')
+        }
+        document.querySelector('.loser').style.display = 'none'		        
         document.querySelector('.playAgain').style.display = 'none'
 	if (language === 'עב') {
 		language = 'EN'
@@ -191,7 +198,7 @@ export const playAgainAction = () => {
 	}
 }
 
-// when the game and win or lose
+// when the game end win or lose
 export const endTheGameAction = () => {
 	return {
 		type:'END',
