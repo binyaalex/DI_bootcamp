@@ -32,7 +32,7 @@ export const initState = {
 		turn: 0,
 		endOfGame: false,
 		messages: {
-			win: 'well done!',
+			win: ['well done!1', 'well done!2', 'well done!3', 'well done!4', 'well done!5', 'well done!6'],
 			loser: 'Game over, the word is',
 			noWord: 'there is no such a word!',
 			green: 'You must use the green letters in there spot!',
@@ -136,7 +136,7 @@ export const reducer = (state=initState, action={}) => {
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  // check there is such a word
-		  if (isWordInWordList) {
+		  if (isWordInWordList || true) {
 		  	// check the user use all the green letters in there place
 		  	if (isGreenLetterInUserWord()) {
 		  		// check the user use all the yellow letters and not in the same place
@@ -259,7 +259,7 @@ export const reducer = (state=initState, action={}) => {
 					turn: 0,
 					endOfGame: false,
 					messages: {
-						win: 'well done!',
+					win: ['well done!1', 'well done!2', 'well done!3', 'well done!4', 'well done!5', 'well done!6'],
 						loser: 'Game over, the word is',
 						noWord: 'there is no such a word!',
 						green: 'You must use the green letters in there spot!',

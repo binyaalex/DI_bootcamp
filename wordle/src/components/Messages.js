@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
 
 const Messages = (props) => {
-	const {dailyWord, messages} = props
+	const {dailyWord, messages, turn} = props
 	return (
 		<div className='messages'>
 			<div className='well'>
-				{messages.win}
+				{messages.win[turn-1]}
 			</div>
 			<div className='loser'>
 				{messages.loser} {dailyWord}
@@ -29,7 +29,8 @@ const Messages = (props) => {
 const mapStateToProps = (state) => {
   return {
     dailyWord: state.dailyWord,
-    messages: state.messages
+    messages: state.messages,
+    turn: state.turn
   }
 }
 
