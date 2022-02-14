@@ -121,7 +121,6 @@ export const changeAction = (e) => {
 		     		document.querySelector('.winner').classList.remove('winner')
 		        }
 		        document.querySelector('.loser').style.display = 'none'
-		        console.log(document.querySelector('.loser').style.display)
 		        document.querySelector('.playAgain').style.display = 'none'
 				if (language === 'עב') {
 					language = 'EN'
