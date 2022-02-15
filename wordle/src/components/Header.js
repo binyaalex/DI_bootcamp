@@ -18,15 +18,19 @@ const Header = (props) => {
 		// all the conditions are for know if to display help and play again button or not
 		const helpDisplay = document.body.querySelector('.helpPage').style.display
 		if (helpDisplay !== 'block' && !endOfGame) {
+			document.body.querySelector('.tryes').style.display = 'none'
 			document.body.querySelector('.helpPage').style.display = 'block'
 		} else if (helpDisplay !== 'block') {
 		    document.querySelector('.playAgain').style.display = 'none'	
 		    document.querySelector('.messages').style.display = 'none'	
+			document.body.querySelector('.tryes').style.display = 'none'
 			document.body.querySelector('.helpPage').style.display = 'block'
 		} else if (endOfGame) {
 			document.body.querySelector('.helpPage').style.display = 'none'
+			document.body.querySelector('.tryes').style.display = 'block'
 		    document.querySelector('.playAgain').style.display = 'block'	
 		} else {			
+			document.body.querySelector('.tryes').style.display = 'block'
 			document.body.querySelector('.helpPage').style.display = 'none'
 		}
 	}

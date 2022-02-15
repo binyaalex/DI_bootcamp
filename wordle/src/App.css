@@ -361,6 +361,11 @@ button {
   border-radius: 10px;
 }
 
+.dark {
+  background-color: black;
+  color: white;
+}
+
 
 @media all and (max-width: 500px) {
 
