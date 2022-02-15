@@ -190,3 +190,10 @@ export const endTheGameAction = () => {
 		type:'END',
 	}
 }
+
+export const changeHardModeAction = () => {
+	console.log(1)
+	return {
+		type:'CHANGEHARDMODE',
+	}
+}

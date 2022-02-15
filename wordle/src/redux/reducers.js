@@ -30,6 +30,7 @@ export const initState = {
 		userWord: ['','','','','',''],
 		result: [],
 		turn: 0,
+		hardMode: false,
 		endOfGame: false,
 		messages: {
 			win: ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'],
@@ -160,11 +161,11 @@ export const reducer = (state=initState, action={}) => {
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  // check there is such a word
 		  if (isWordInWordList) {
-		  	if (isGrayLetterInUserWord()) {
+		  	if (isGrayLetterInUserWord() || !state.hardMode) {
 		  		// check the user use all the green letters in there place
-			  	if (isGreenLetterInUserWord()) {
+			  	if (isGreenLetterInUserWord() || !state.hardMode) {
 			  		// check the user use all the yellow letters and not in the same place
-				  	if (isYellowLetterInUserWord()) {
+				  	if (isYellowLetterInUserWord() || !state.hardMode) {
 				  		for (let i = 0; i < userWord.length; i++) {
 				  			// check if the user letters are used in the daily word
 				  			// and if so color them in yellow
@@ -289,6 +290,15 @@ export const reducer = (state=initState, action={}) => {
 		  randomNum = Math.floor(Math.random() * WORDS.length);
 		  console.log(initState)
 		  return {...initState, dailyWord: WORDS[randomNum]}
+		case 'CHANGEHARDMODE':
+		  console.log('CHANGEHARDMODE')
+		  let hardMode
+		  if (state.hardMode === false) {
+		  	hardMode = true
+		  } else {
+		  	hardMode = false
+		  }
+		  return {...state, hardMode: hardMode}
 		case 'END':
 		  return {...state, endOfGame: true}
 

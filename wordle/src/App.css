@@ -84,19 +84,18 @@ h4 {
   letter-spacing: 0.2rem;
   text-align: center;
   margin: 0;
-  width: 163px;
+  width: 135px;
 }
 
 .leftHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 25px;
+  width: 55px;
 }
 
 img {
   height: 20px;
-  display: none;
 }
 
 .languageBtn {
