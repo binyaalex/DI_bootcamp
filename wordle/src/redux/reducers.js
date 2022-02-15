@@ -287,26 +287,8 @@ export const reducer = (state=initState, action={}) => {
 		// change language to english
 		case 'EN':
 		  randomNum = Math.floor(Math.random() * WORDS.length);
-		  return {...state, 
-		  			language: 'EN', 
-					letters: ".*[A-Z].*",
-		  			writingDirection: [0,1,2,3,4], 
-		  			wordList: WORDSCheckList, 
-		  			dailyWord: WORDS[randomNum],
-		  			userWord: ['','','','','',''],
-					result: [],
-					turn: 0,
-					endOfGame: false,
-					messages: {
-					win: ['well done!1', 'well done!2', 'well done!3', 'well done!4', 'well done!5', 'well done!6'],
-						loser: 'Game over, the word is',
-						noWord: 'there is no such a word!',
-						green: 'You must use the green letters in there spot!',
-						yellow: 'You must use the yellow letters not in the same spot!',
-						wrongLanguage: 'Bro you on Hebrew'
-					}
-		  		 }
-
+		  console.log(initState)
+		  return {...initState, dailyWord: WORDS[randomNum]}
 		case 'END':
 		  return {...state, endOfGame: true}
 

@@ -20,10 +20,8 @@ const blackBox = (turn) => {
     const squares = document.querySelectorAll('.try')[turn].children
     for (let i = 0; i < squares.length; i++) {
 		if (squares[i].textContent !== '') {
-			console.log('black')
 			squares[i].style.borderColor = 'black'
 		} else {
-			console.log('gray')
 			squares[i].style.borderColor = 'lightgray'
 		}
     }
@@ -146,7 +144,7 @@ export const enterAction = () => {
 // when the user press Backspace on the screen keyboard
 export const delAction = () => {
 	return (dispatch, getState) => {
-		// for gray border after delet by screen border
+		// for gray border after delete by screen border
 		setTimeout(function() {
 		    blackBox(getState().turn);
 		}, 1)
