@@ -54,8 +54,8 @@ const Header = (props) => {
 			</div>
 	    	<div className='leftHeader'>
 	    		{/*<div onClick={changeHardMode} className='hardModeBtn'>Hard Mode</div>*/}
-	    		{/*<i class="fas fa-solid fa-heart"></i>*/}
-	    		{<img onClick={changeHardMode} src='thinking.jpg' />}
+	    		{/*<i class="fas fa-solid fa-brain"></i>*/}
+	    		{<img onClick={changeHardMode} src='brain.jpg' />}
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div> 
 	    	</div>
 		</header>
