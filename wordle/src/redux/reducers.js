@@ -32,7 +32,7 @@ export const initState = {
 		turn: 0,
 		endOfGame: false,
 		messages: {
-			win: ['well done!1', 'well done!2', 'well done!3', 'well done!4', 'well done!5', 'well done!6'],
+			win: ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'],
 			loser: 'Game over, the word is',
 			noWord: 'there is no such a word!',
 			gray: `You can't use the gray letters in there spot!`,
