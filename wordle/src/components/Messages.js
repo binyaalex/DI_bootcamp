@@ -13,6 +13,9 @@ const Messages = (props) => {
 			<div className='noWord'>
 				{messages.noWord}
 			</div>
+			<div className='grayMsg'>
+				{messages.gray}
+			</div>
 			<div className='greenMsg'>
 				{messages.green}
 			</div>

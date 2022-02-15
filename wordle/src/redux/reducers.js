@@ -35,6 +35,7 @@ export const initState = {
 			win: ['well done!1', 'well done!2', 'well done!3', 'well done!4', 'well done!5', 'well done!6'],
 			loser: 'Game over, the word is',
 			noWord: 'there is no such a word!',
+			gray: `You can't use the gray letters in there spot!`,
 			green: 'You must use the green letters in there spot!',
 			yellow: 'You must use the yellow letters not in the same spot!',
 			wrongLanguage: 'Bro you on Hebrew'
@@ -70,6 +71,28 @@ export const reducer = (state=initState, action={}) => {
 		dailyWord = dailyWord.slice(0,4) + dailyWordLastLetter
 		
 		// make two array to check the user use all the hints, green and yellow.
+
+		// push all the gray letters to array that the user wouldn't be able to use them
+	    const boardLetters = document.querySelectorAll('.boardLetter')
+	    let grayLetters = []
+	    for (let i = 0; i < boardLetters.length; i++) {
+	    	if (boardLetters[i].style.backgroundColor === 'gray') {
+	    		grayLetters.push(boardLetters[i].textContent)
+	    	}
+	    }
+
+		const isGrayLetterInUserWord = () => {
+		    for (let i = 0; i < userWord.length; i++) {
+		    	for (let d = 0; d < grayLetters.length; d++) {
+		    		if (userWord[i] === grayLetters[d]) {
+		    			return false
+		    		}	
+		    	}
+		    }
+		    return true
+		}
+		console.log(isGrayLetterInUserWord())
+
 		const tryes = document.querySelectorAll('.try')
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
@@ -136,76 +159,91 @@ export const reducer = (state=initState, action={}) => {
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  // check there is such a word
-		  if (isWordInWordList || true) {
-		  	// check the user use all the green letters in there place
-		  	if (isGreenLetterInUserWord()) {
-		  		// check the user use all the yellow letters and not in the same place
-			  	if (isYellowLetterInUserWord()) {
-			  		for (let i = 0; i < userWord.length; i++) {
-			  			// check if the user letters are used in the daily word
-			  			// and if so color them in yellow
-			  			for (let d = 0; d < dailyWord.length; d++) {
-			  				if (userWord[i].toLowerCase() === dailyWord[d]) {
-			  					arr[state.writingDirection[i]] = '#C9B458' // yellow
+		  if (isWordInWordList) {
+		  	if (isGrayLetterInUserWord()) {
+		  		// check the user use all the green letters in there place
+			  	if (isGreenLetterInUserWord()) {
+			  		// check the user use all the yellow letters and not in the same place
+				  	if (isYellowLetterInUserWord()) {
+				  		for (let i = 0; i < userWord.length; i++) {
+				  			// check if the user letters are used in the daily word
+				  			// and if so color them in yellow
+				  			for (let d = 0; d < dailyWord.length; d++) {
+				  				if (userWord[i].toLowerCase() === dailyWord[d]) {
+				  					arr[state.writingDirection[i]] = '#C9B458' // yellow
 
-			  					// check if the user letters are in the right place
-					  			// and if so color them in green
-					  			if (userWord[i].toLowerCase() === dailyWord[i]) {
-					  				arr[state.writingDirection[i]] = '#6AAA64' // green
-					  			}
-			  				}
-			  			}
-			  							  					  	 					  	    
-				  	}
-				  	let isItTheSecondTimeOfThisLetter = {}
-				  	for (let i = 0; i < userWord.length; i++) {
-			  			isItTheSecondTimeOfThisLetter[userWord[i]] = false
-				  	}
-				  	for (let i = 0; i < userWord.length; i++) {
-				  		// check if its the second time of this letter in the user word
-						if ((isItTheSecondTimeOfThisLetter[userWord[i]]
-							 //check if the second time of the letter is green
-						     || arr[state.writingDirection[userWord.lastIndexOf(userWord[i])]] === '#6AAA64')
-							 // check the first time of the letter is not green
-						     && arr[state.writingDirection[i]] !== '#6AAA64')
-						{
-							// check if this double letter of the user
-							// are also double in the daily word
-							if (dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
-								arr[state.writingDirection[i]] = 'gray'
+				  					// check if the user letters are in the right place
+						  			// and if so color them in green
+						  			if (userWord[i].toLowerCase() === dailyWord[i]) {
+						  				arr[state.writingDirection[i]] = '#6AAA64' // green
+						  			}
+				  				}
+				  			}
+				  							  					  	 					  	    
+					  	}
+					  	let isItTheSecondTimeOfThisLetter = {}
+					  	for (let i = 0; i < userWord.length; i++) {
+				  			isItTheSecondTimeOfThisLetter[userWord[i]] = false
+					  	}
+					  	for (let i = 0; i < userWord.length; i++) {
+					  		// check if its the second time of this letter in the user word
+							if ((isItTheSecondTimeOfThisLetter[userWord[i]]
+								 //check if the second time of the letter is green
+							     || arr[state.writingDirection[userWord.lastIndexOf(userWord[i])]] === '#6AAA64')
+								 // check the first time of the letter is not green
+							     && arr[state.writingDirection[i]] !== '#6AAA64')
+							{
+								// check if this double letter of the user
+								// are also double in the daily word
+								if (dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
+									arr[state.writingDirection[i]] = 'gray'
+								}
+							} else {
+								// change the letter for true that if it will show again
+								// we will know its the second time of this letter 
+				  				isItTheSecondTimeOfThisLetter[userWord[i]] = true
 							}
-						} else {
-							// change the letter for true that if it will show again
-							// we will know its the second time of this letter 
-			  				isItTheSecondTimeOfThisLetter[userWord[i]] = true
 						}
-					}
+				  	} else {
+				  		// put message that the user need to use the yellow letters
+				  		document.querySelector('.messages').style.display = 'block'
+					  	document.querySelector('.yellowMsg').style.display = 'block'
+					  	tryes[state.turn].classList.add('shake')
+					  	const undisplay = () => {
+					  		tryes[state.turn].classList.remove('shake')
+			        		document.querySelector('.messages').style.display = 'none'
+					  		document.querySelector('.yellowMsg').style.display = 'none'
+					  	}
+					  	setTimeout(undisplay, 800)
+				  		return {...state}
+				  	}
 			  	} else {
-			  		// put message that the user need to use the yellow letters
+				  	// put message that the user need to use the green letters
 			  		document.querySelector('.messages').style.display = 'block'
-				  	document.querySelector('.yellowMsg').style.display = 'block'
+				  	document.querySelector('.greenMsg').style.display = 'block'
 				  	tryes[state.turn].classList.add('shake')
 				  	const undisplay = () => {
 				  		tryes[state.turn].classList.remove('shake')
 		        		document.querySelector('.messages').style.display = 'none'
-				  		document.querySelector('.yellowMsg').style.display = 'none'
+				  		document.querySelector('.greenMsg').style.display = 'none'
 				  	}
 				  	setTimeout(undisplay, 800)
 			  		return {...state}
 			  	}
 		  	} else {
-			  	// put message that the user need to use the green letters
+		  		// put message that the user need to use the gray letters
 		  		document.querySelector('.messages').style.display = 'block'
-			  	document.querySelector('.greenMsg').style.display = 'block'
+			  	document.querySelector('.grayMsg').style.display = 'block'
 			  	tryes[state.turn].classList.add('shake')
 			  	const undisplay = () => {
 			  		tryes[state.turn].classList.remove('shake')
 	        		document.querySelector('.messages').style.display = 'none'
-			  		document.querySelector('.greenMsg').style.display = 'none'
+			  		document.querySelector('.grayMsg').style.display = 'none'
 			  	}
 			  	setTimeout(undisplay, 800)
 		  		return {...state}
 		  	}
+		  	
 		  } else {
 			// put message that there is no such a word
         	document.querySelector('.messages').style.display = 'block'
@@ -239,6 +277,7 @@ export const reducer = (state=initState, action={}) => {
 						win: ['די נו תגלה לנו איך רימית', 'פשששששש על השני סחתיין', 'ניחוש שלישי יא תותח!', 'מעולה!', '!כל הכבוד', 'פיו זה היה קרוב'],
 						loser: 'אוי, לא נורא אולי פעם הבאה, המילה היא',
 						noWord: '!אין מילה כזאת',
+						gray: '!אתה לא יכול להשתמש באותיות  האפורות',
 						green: '!חייבים להשתמש באותיות  הירוקות במקום שלהן',
 						yellow: '!חייבים להשתמש באותיות  הצהובות  ולא באותו מקום',
 						wrongLanguage: 'אחותי את על אנגלית'

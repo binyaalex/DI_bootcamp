@@ -53,15 +53,6 @@ export const changeAction = (e) => {
 		setTimeout(function() {
 		    blackBox(getState().turn);
 		}, 1)
-
-	    // push all the gray letters to array that the user wouldn't be able to use them
-	    const boardLetters = document.querySelectorAll('.boardLetter')
-	    let greyLetters = []
-	    for (let i = 0; i < boardLetters.length; i++) {
-	    	if (boardLetters[i].style.backgroundColor === 'gray') {
-	    		greyLetters.push(boardLetters[i].textContent)
-	    	}
-	    }
 	
 		// check that it's a one letter (not enter or backspace for example)
 		if (letter.length < 2) {
@@ -91,9 +82,7 @@ export const changeAction = (e) => {
 				})
 
 			// check that is a letter and not numbers for example	
-			} else if (letter.match(getState().letters)
-				// check that the letter is not one of the gray letters
-				&& !letter.match(`.*[${greyLetters}].*`)) {
+			} else if (letter.match(getState().letters)) {
 				dispatch ({
 					type:'CHANGE',
 					payload: letter

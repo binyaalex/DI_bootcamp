@@ -43,8 +43,6 @@ const App = (props) => {
       const letters = document.querySelector('.tryes').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
       let i = 0;                  
-      document.querySelectorAll('.boardLetter')[30].disabled = true
-      boardLetters[0].disabled = true
       // do it in a loop by timeout for showing letter by letter
       function myLoop() {         
         setTimeout(function() {   
@@ -73,9 +71,6 @@ const App = (props) => {
                 const squares = document.querySelectorAll('.try')[turn-1].children
                 squares[writingDirection[i]].style.border = '0'
               }
-            }
-            if (boardLetters[d].style.backgroundColor === 'gray') {
-              boardLetters[d].disabled = true
             }
             // stop prevent writing after finshed showing result
             if (i === 4) {
