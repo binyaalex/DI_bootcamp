@@ -84,25 +84,21 @@ h4 {
   letter-spacing: 0.2rem;
   text-align: center;
   margin: 0;
-  width: 135px;
+  width: 130px;
 }
 
 .leftHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 55px;
-}
-
-.hardModeBtn {
-  font-size: 10px;
+  width: 62px;
 }
 
 img {
-  height: 20px;
+  height: 32px;
 }
 
-.languageBtn {
+.languageBtn, .hardModeBtn {
   color: gray;
   font-weight: bold;
   font-size: 12px;
@@ -112,6 +108,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hardModeBtn {
+  font-size: 10px;
 }
 
 .helpPage {

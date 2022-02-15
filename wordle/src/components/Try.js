@@ -4,7 +4,7 @@ const Try = (props) => {
 	const {userWord, turn, writingDirection} = props
 	return (
 		<>
-        <div className='try'>
+        <div className={`try try${turn}`}>
           <div className='letterBox'>
         {/* taking the letter from the state,
             using writingDirection for hebrew right to left */}

@@ -127,7 +127,7 @@ const App = (props) => {
 
   return (
     <div className='allDad'>
-      <div className='all'>
+      <div className={`all ${dailyWord}`}>
         <Header />
         <Tryes />
         <Keyboard />
