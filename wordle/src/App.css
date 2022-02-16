@@ -47,6 +47,11 @@
   width: 100vw;
 }
 
+/*.allDadDark {
+  background-color: black;
+  color: white;
+}*/
+
 .all {
   width: 500px;
 }
@@ -196,6 +201,12 @@ section {
   transform: scaleY(1);
   transition: 1s;
 }
+
+/*.letterBoxWT {
+  background-color: transparent;
+  border-color: lightgray;
+  color: black;
+}*/
 
 .winner > * {
   animation: pop 1.2s infinite;
@@ -359,11 +370,6 @@ button {
   padding: 12px 15px;
   border: 2px solid black;
   border-radius: 10px;
-}
-
-.dark {
-  background-color: black;
-  color: white;
 }
 
 

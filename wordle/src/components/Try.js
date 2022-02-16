@@ -5,21 +5,21 @@ const Try = (props) => {
 	return (
 		<>
         <div className={`try try${turn}`}>
-          <div className='letterBox'>
+          <div className='letterBox letterBoxWT'>
         {/* taking the letter from the state,
             using writingDirection for hebrew right to left */}
             {userWord[turn][writingDirection[0]]}
           </div>
-          <div className='letterBox'>
+          <div className='letterBox letterBoxWT'>
             {userWord[turn][writingDirection[1]]}
           </div>
-          <div className='letterBox'>
+          <div className='letterBox letterBoxWT'>
             {userWord[turn][writingDirection[2]]}
           </div>
-          <div className='letterBox'>
+          <div className='letterBox letterBoxWT'>
             {userWord[turn][writingDirection[3]]}
           </div>
-          <div className='letterBox'>
+          <div className='letterBox letterBoxWT'>
             {userWord[turn][writingDirection[4]]}
           </div>
         </div>

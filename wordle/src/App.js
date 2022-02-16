@@ -22,14 +22,10 @@ const App = (props) => {
     const squares = document.querySelectorAll('.letterBox')
     // const squares = document.querySelectorAll('.try')[turn].children
     for (let i = 0; i < squares.length; i++) {
-      if (squares[i].backgroundColor !== 'white' && squares[i].backgroundColor !== undefined && turn !== 0) { 
-        squares[i].style.border = '0'
-      } else if (squares[i].textContent === '' || turn === 0) {
+      if (squares[i].textContent === '' || turn === 0) {
         squares[i].style.border = '2px solid lightgray'
-      } else {
       }
     }
-
     // for not try to color the last try in first load and then stuck
     let firstLoad
     if (turn !== 0) {
@@ -127,7 +123,7 @@ const App = (props) => {
 
   return (
     <div className='allDad'>
-      <div className={`all ${dailyWord}`}>
+      <div className='all'>
         <Header />
         <Tryes />
         <Keyboard />
