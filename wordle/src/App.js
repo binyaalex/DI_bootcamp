@@ -13,17 +13,25 @@ import {finalToRegular} from './redux/reducers';
 
 
 const App = (props) => {
-  const {result, turn, change1, dailyWord, endTheGame, writingDirection} = props
+  const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode} = props
   
   useEffect(() => {
     console.log(dailyWord)
     document.body.addEventListener('keydown', change1) // for real keyboard
-    // make squre black after write a letter inside
+
+    // get screenMode
+    console.log(turn)
+    document.querySelector('.allDad').style.backgroundColor = screenMode.BGC
+    document.querySelector('.allDad').style.color = screenMode.color
+    document.querySelector('.mainHeader').style.borderBottom = screenMode.headerBorderBottom
+    document.querySelector('.boardLetter').style.backgroundColor = screenMode.keyboardRegularBG
+    document.querySelector('.boardLetter').style.color = screenMode.color
+
+    // make squre gray border after play again
     const squares = document.querySelectorAll('.letterBox')
-    // const squares = document.querySelectorAll('.try')[turn].children
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].textContent === '' || turn === 0) {
-        squares[i].style.border = '2px solid lightgray'
+        squares[i].style.border = `2px solid ${screenMode.letterBorderC}`
       }
     }
     // for not try to color the last try in first load and then stuck
@@ -88,12 +96,14 @@ const App = (props) => {
       const letters = document.querySelectorAll('.letterBox')
       const boardLetters = document.querySelectorAll('.boardLetter')
       for (let i = 0; i < letters.length; i++) {
-        letters[i].style.backgroundColor = 'white'
-        letters[i].style.borderColor = 'lightgray'
-        letters[i].style.color = 'black'      }
+        console.log('hi')
+        letters[i].style.backgroundColor = `${screenMode.BGC}`
+        letters[i].style.borderColor = `${screenMode.letterBorderC}`
+        letters[i].style.color = `${screenMode.color}`      
+      }
       for (let i = 0; i < boardLetters.length; i++) {
-        boardLetters[i].style.backgroundColor = 'lightgray'
-        boardLetters[i].style.color = 'black'
+        boardLetters[i].style.backgroundColor = `${screenMode.keyboardRegularBG}`
+        boardLetters[i].style.color = `${screenMode.color}`
       }
     }
 
@@ -142,7 +152,8 @@ const mapStateToProps = (state) => {
     result: state.result,
     turn: state.turn,
     dailyWord: state.dailyWord,
-    writingDirection: state.writingDirection
+    writingDirection: state.writingDirection,
+    screenMode: state.screenMode
   }
 }
 

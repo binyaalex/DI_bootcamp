@@ -32,7 +32,7 @@ const Keyboard = (props) => {
           <button onClick={change2} className='boardLetter'>L</button>
         </div>
         <div className='enterToBackspace'>
-          <button onClick={enter} className='notL'>ENTER</button>
+          <button onClick={enter} className='notL boardLetter'>ENTER</button>
           <button onClick={change2} className='boardLetter'>Z</button>
           <button onClick={change2} className='boardLetter'>X</button>
           <button onClick={change2} className='boardLetter'>C</button>
@@ -40,7 +40,7 @@ const Keyboard = (props) => {
           <button onClick={change2} className='boardLetter'>B</button>
           <button onClick={change2} className='boardLetter'>N</button>
           <button onClick={change2} className='boardLetter'>M</button>
-          <button onClick={del} className='notL'>DEL</button>
+          <button onClick={del} className='notL boardLetter'>DEL</button>
         </div>
       </div>
 
@@ -68,7 +68,7 @@ const Keyboard = (props) => {
           <button onClick={change2} className='boardLetter'>ף</button>
         </div>
         <div className='enterToBackspace'>
-          <button onClick={enter} className='hebrewEnter'>ENTER</button>
+          <button onClick={enter} className='boardLetter hebrewEnter'>ENTER</button>
           <button onClick={change2} className='boardLetter'>ז</button>
           <button onClick={change2} className='boardLetter'>ס</button>
           <button onClick={change2} className='boardLetter'>ב</button>
@@ -78,7 +78,7 @@ const Keyboard = (props) => {
           <button onClick={change2} className='boardLetter'>צ</button>
           <button onClick={change2} className='boardLetter'>ת</button>
           <button onClick={change2} className='boardLetter'>ץ</button>
-          <button onClick={del} className='hebrewDel'>DEL</button>
+          <button onClick={del} className='boardLetter hebrewDel'>DEL</button>
         </div>
       </div>
 

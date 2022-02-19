@@ -1,15 +1,14 @@
 import {connect} from 'react-redux';
-import {changeLanguageAction, changeHardModeAction} from '../redux/actions';
+import {changeLanguageAction, changeHardModeAction, changeScreenModeAction} from '../redux/actions';
 import Help from './Help'
 // import Result from './Result'
 
 const Header = (props) => {
-	const {changeLanguage, changeHardMode, language, endOfGame} = props
+	const {changeLanguage, changeHardMode, changeScreenMode, language, endOfGame} = props
 	
 	const displayHelpTuggle = (e) => {
 		const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard').style.display
 		if (language === 'עב' && hebrewKeyboard === 'block') {
-			console.log(1)
 			document.body.querySelector('.hebrewKeyboard').style.display = 'none'
 		} else if (language === 'עב') {
 			document.body.querySelector('.hebrewKeyboard').style.display = 'block'
@@ -57,7 +56,7 @@ const Header = (props) => {
 	    		<h4>WORDLE</h4>
 			</div>
 	    	<div className='leftHeader'>
-	    		{/*{<div onClick={changeHardMode} className='hardModeBtn'>Hard Mode</div>}*/}
+	    		<div onClick={changeScreenMode} className='hardModeBtn'>dark Mode</div>
 	    		{/*<i class="fas fa-solid fa-brain"></i>*/}
 	    		{<img onClick={changeHardMode} src='brain.jpg' />}
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div> 
@@ -77,6 +76,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     changeLanguage: (e) => dispatch(changeLanguageAction(e.target)),
     changeHardMode: (e) => dispatch(changeHardModeAction(e.target)),
+    changeScreenMode: (e) => dispatch(changeScreenModeAction(e.target)),
   }
 }
 

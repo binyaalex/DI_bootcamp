@@ -202,11 +202,11 @@ section {
   transition: 1s;
 }
 
-/*.letterBoxWT {
+.letterBox {
   background-color: transparent;
   border-color: lightgray;
   color: black;
-}*/
+}
 
 .winner > * {
   animation: pop 1.2s infinite;

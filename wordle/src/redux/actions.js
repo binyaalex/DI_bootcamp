@@ -13,16 +13,17 @@ const changeLanguage = () => {
 }
 
 // function for make the letterbox black border after writing a letter
-const blackBox = (turn) => {
+const blackBox = (turn, fullBorder, emptyBorder) => {
 	if (turn === 6) {
 		turn = 5
 	}
     const squares = document.querySelectorAll('.try')[turn].children
     for (let i = 0; i < squares.length; i++) {
 		if (squares[i].textContent !== '') {
-			squares[i].style.borderColor = 'black'
+			console.log('blackaction')
+			squares[i].style.borderColor = fullBorder
 		} else {
-			squares[i].style.borderColor = 'lightgray'
+			squares[i].style.borderColor = emptyBorder
 		}
     }
 }
@@ -49,7 +50,7 @@ export const changeAction = (e) => {
 		}
 
 		setTimeout(function() {
-		    blackBox(getState().turn);
+		    blackBox(getState().turn, getState().screenMode.fullLetterBorderC, getState().screenMode.letterBorderC);
 		}, 1)
 	
 		// check that it's a one letter (not enter or backspace for example)
@@ -146,7 +147,7 @@ export const delAction = () => {
 	return (dispatch, getState) => {
 		// for gray border after delete by screen border
 		setTimeout(function() {
-		    blackBox(getState().turn);
+		    blackBox(getState().turn, getState().screenMode.fullLetterBorderC, getState().screenMode.letterBorderC);
 		}, 1)
 		dispatch ({
 			type:'DEL',
@@ -194,6 +195,13 @@ export const endTheGameAction = () => {
 export const changeHardModeAction = () => {
 	console.log(1)
 	return {
-		type:'CHANGEHARDMODE',
+		type:'CHANGE_HARD_MODE',
+	}
+}
+
+export const changeScreenModeAction = () => {
+	console.log(1)
+	return {
+		type:'CHANGE_SCREEN_MODE',
 	}
 }

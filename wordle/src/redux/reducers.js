@@ -31,6 +31,16 @@ export const initState = {
 		result: [],
 		turn: 0,
 		hardMode: false,
+		screenMode: {
+			BGC: 'white',
+			color: 'black',
+			letterBG: '#3A3A3C',
+			letterBorderC: 'lightgray',
+			fullLetterBorderC: 'black',
+			keyboardRegularBG: 'lightgray',
+			headerBorderBottom: '1px solid lightgray',
+			// keyboardColor: 'white'
+		},
 		endOfGame: false,
 		messages: {
 			win: ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'],
@@ -290,8 +300,8 @@ export const reducer = (state=initState, action={}) => {
 		  randomNum = Math.floor(Math.random() * WORDS.length);
 		  console.log(initState)
 		  return {...initState, dailyWord: WORDS[randomNum]}
-		case 'CHANGEHARDMODE':
-		  console.log('CHANGEHARDMODE')
+		case 'CHANGE_HARD_MODE':
+		  console.log('CHANGE_HARD_MODE')
 		  let hardMode
 		  if (state.hardMode === false) {
 		  	hardMode = true
@@ -299,6 +309,23 @@ export const reducer = (state=initState, action={}) => {
 		  	hardMode = false
 		  }
 		  return {...state, hardMode: hardMode}
+		case 'CHANGE_SCREEN_MODE':
+		  console.log('CHANGE_SCREEN_MODE')
+		  let screenMode
+		  if (state.screenMode.BGC === 'white') {
+		  	screenMode = {
+				BGC: 'black',
+				color: 'white',
+				letterBG: '#3A3A3C',
+				letterBorderC: '#3A3A3C',
+				fullLetterBorderC: '#818384',
+				keyboardRegularBG: '#818384',
+				headerBorderBottom: '1px solid #3A3A3C',
+		  	}
+		  } else {
+		  	screenMode = initState.screenMode
+		  }
+		  return {...state, screenMode: screenMode}
 		case 'END':
 		  return {...state, endOfGame: true}
 
