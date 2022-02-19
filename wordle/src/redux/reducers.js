@@ -311,9 +311,10 @@ export const reducer = (state=initState, action={}) => {
 		  return {...state, hardMode: hardMode}
 		case 'CHANGE_SCREEN_MODE':
 		  console.log('CHANGE_SCREEN_MODE')
-		  let screenMode
-		  if (state.screenMode.BGC === 'white') {
-		  	screenMode = {
+		  if (state.turn === 0) {
+		 	let screenMode
+			if (state.screenMode.BGC === 'white') {
+				screenMode = {
 				BGC: 'black',
 				color: 'white',
 				letterBG: '#3A3A3C',
@@ -321,11 +322,14 @@ export const reducer = (state=initState, action={}) => {
 				fullLetterBorderC: '#818384',
 				keyboardRegularBG: '#3A3A3C',
 				headerBorderBottom: '1px solid #3A3A3C',
-		  	}
+				}
+			} else {
+				screenMode = initState.screenMode
+			}
+			return {...state, screenMode: screenMode}	
 		  } else {
-		  	screenMode = initState.screenMode
-		  }
-		  return {...state, screenMode: screenMode}
+			return {...state}	
+		  }	  
 		case 'END':
 		  return {...state, endOfGame: true}
 
