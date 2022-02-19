@@ -63,14 +63,18 @@ const App = (props) => {
               boardLetters[d].disabled = true
               document.body.removeEventListener('keydown', change1)
             }
-            let letter = finalToRegular(letters[i].textContent)
+            let letter = finalToRegular(letters[writingDirection[i]].textContent)
             if (boardLetter === letter &&
                 boardLetters[d].style.backgroundColor !== 'rgb(106, 170, 100)')
             {
-              if (result[i] === 'gray' &&
+              if (result[writingDirection[i]] === 'gray' &&
                   boardLetters[d].style.backgroundColor === 'rgb(201, 180, 88)') {
               } else {
-                boardLetters[d].style.backgroundColor = result[i]
+                console.log(result)
+                console.log(i)
+                console.log(boardLetters[d])
+                console.log(boardLetter)
+                boardLetters[d].style.backgroundColor = result[writingDirection[i]]
                 boardLetters[d].style.color = 'white'
                 const squares = document.querySelectorAll('.try')[turn-1].children
                 squares[writingDirection[i]].style.border = '0'
