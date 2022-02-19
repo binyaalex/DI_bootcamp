@@ -25,6 +25,9 @@ const Messages = (props) => {
 			<div className='wrongLanguageMsg'>
 				{messages.wrongLanguage}
 			</div>
+			<div className='darkModeDisable'>
+				{messages.darkModeDisable}
+			</div>
 		</div>
 	)
 }

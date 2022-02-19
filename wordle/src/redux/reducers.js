@@ -49,7 +49,8 @@ export const initState = {
 			gray: `You can't use the gray letters in there spot!`,
 			green: 'You must use the green letters in there spot!',
 			yellow: 'You must use the yellow letters not in the same spot!',
-			wrongLanguage: 'Bro you on Hebrew'
+			wrongLanguage: 'Bro you on Hebrew',
+			darkModeDisable: 'Dark mode can only be enabled at the start of a round'
 		}
 	}
 
@@ -291,7 +292,8 @@ export const reducer = (state=initState, action={}) => {
 						gray: '!אתה לא יכול להשתמש באותיות  האפורות',
 						green: '!חייבים להשתמש באותיות  הירוקות במקום שלהן',
 						yellow: '!חייבים להשתמש באותיות  הצהובות  ולא באותו מקום',
-						wrongLanguage: 'אחותי את על אנגלית'
+						wrongLanguage: 'אחותי את על אנגלית',
+						darkModeDisable: 'מצב לילה אפשר להפעיל רק בתחילת סיבוב'
 					}
 				 }
 
@@ -328,6 +330,14 @@ export const reducer = (state=initState, action={}) => {
 			}
 			return {...state, screenMode: screenMode}	
 		  } else {
+		  	// put message that the user need to use the green letters
+	  		document.querySelector('.messages').style.display = 'block'
+		  	document.querySelector('.darkModeDisable').style.display = 'block'
+		  	const undisplay = () => {
+        		document.querySelector('.messages').style.display = 'none'
+		  		document.querySelector('.darkModeDisable').style.display = 'none'
+		  	}
+		  	setTimeout(undisplay, 800)
 			return {...state}	
 		  }	  
 		case 'END':
