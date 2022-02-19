@@ -319,7 +319,7 @@ export const reducer = (state=initState, action={}) => {
 				letterBG: '#3A3A3C',
 				letterBorderC: '#3A3A3C',
 				fullLetterBorderC: '#818384',
-				keyboardRegularBG: '#818384',
+				keyboardRegularBG: '#3A3A3C',
 				headerBorderBottom: '1px solid #3A3A3C',
 		  	}
 		  } else {
