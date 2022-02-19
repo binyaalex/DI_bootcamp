@@ -1,0 +1,56 @@
+section {
+	background-image: url(https://raw.githubusercontent.com/devtlv/studentsGitHub/master/JS/Week%205/Day%205/Mini%20Projects/Mini-Project%202%20-%20Pokedex%20API/pokedex.png);
+	height: 630px;
+	width: 900px;
+	display: flex;
+	align-items: flex-end;
+}
+
+button {
+    background-color: transparent;
+	border: 0;
+}
+
+.pn {
+	margin-bottom: 137px;
+	width: 40px;
+	height: 28px;
+}
+
+#previous {
+	margin-left: 147px;
+}
+
+#next {
+	margin-left: 27px;
+}
+
+div {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin-bottom: 60px; 
+	margin-left: 38px;
+}
+
+img {
+    height: 218px;
+    width: 301px;
+    margin-bottom: 227px;
+}
+
+h1 {
+    width: 298px;
+}
+
+p {
+	margin: 5px
+}
+
+#random {
+	margin-left: 148px;
+	margin-bottom: 115px;
+    height: 67px;
+    width: 72px;
+    border-radius: 35px;
+}
