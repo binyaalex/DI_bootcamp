@@ -1,0 +1,101 @@
+-- Database: dvdrental
+
+-- DROP DATABASE dvdrental;
+
+-- CREATE DATABASE dvdrental
+--     WITH 
+--     OWNER = postgres
+--     ENCODING = 'UTF8'
+--     LC_COLLATE = 'Hebrew_Israel.1255'
+--     LC_CTYPE = 'Hebrew_Israel.1255'
+--     TABLESPACE = pg_default
+--     CONNECTION LIMIT = -1;
+
+-- select * from film f
+-- inner join inventory i
+-- on f.film_id = i.film_id
+-- inner join rental r
+-- on i.inventory_id = r.inventory_id
+-- where NOT (return_date IS NOT NULL)
+
+-- select c.customer_id, first_name, last_name from film f
+-- inner join inventory i
+-- on f.film_id = i.film_id
+-- inner join rental r
+-- on i.inventory_id = r.inventory_id
+-- inner join customer c
+-- on r.customer_id = c.customer_id
+-- where NOT (return_date IS NOT NULL)
+-- group by c.customer_id
+
+-- create view action_swank as
+-- select title from film f
+-- inner join film_actor fa
+-- on f.film_id = fa.film_id
+-- inner join actor a
+-- on a.actor_id = fa.actor_id
+-- inner join film_category fc
+-- on f.film_id = fc.film_id
+-- inner join category c
+-- on fc.category_id = c.category_id
+-- where name = 'Action' and a.last_name = 'Swank'
+-- select title from action_swank
+
+-- select store_id, city, country from store s
+-- inner join address a
+-- on s.address_id = a.address_id
+-- inner join city ci
+-- on a.city_id = ci.city_id
+-- inner join country co 
+-- on ci.country_id = co.country_id
+
+-- select sum(length) minutes, sum(length)/60 hours, sum(length)/60/24 days from film f
+-- inner join inventory i
+-- on f.film_id = i.film_id 
+-- inner join rental r
+-- on i.inventory_id = r.inventory_id
+-- where return_date IS NOT NULL
+
+-- select cu.first_name, cu.last_name from store s
+-- full join customer cu
+-- on s.store_id = cu.store_id
+-- full join address a
+-- on s.address_id = a.address_id
+-- full join city ci
+-- on a.city_id = ci.city_id
+-- where city = 'Lethbridge' or city = 'Woodridge'
+
+-- select cu.first_name, cu.last_name from store s
+-- full join customer cu
+-- on s.store_id = cu.store_id
+-- full join address a
+-- on s.address_id = a.address_id
+-- full join city ci
+-- on a.city_id = ci.city_id
+-- full join country co 
+-- on ci.country_id = co.country_id
+-- where co.country = 'Canada' or co.country = 'Australia'
+
+-- select sum(length) minutes, sum(length)/60 hours, sum(length)/60/24 days from film f
+-- inner join inventory i
+-- on f.film_id = i.film_id 
+-- inner join rental r
+-- on i.inventory_id = r.inventory_id
+-- inner join film_category fc
+-- on f.film_id = fc.film_id
+-- inner join category c
+-- on fc.category_id = c.category_id
+-- where return_date IS NOT NULL
+-- and c.name != 'Horror'
+-- and title not ilike '%beast%' 
+-- and title not ilike '%ghost%'
+-- and title not ilike '%monster%'
+-- and title not ilike '%dead%'
+-- and title not ilike '%zombie%'
+-- and title not ilike '%undead%'
+-- and description not ilike '%beast%' 
+-- and description not ilike '%ghost%'
+-- and description not ilike '%monster%'
+-- and description not ilike '%dead%'
+-- and description not ilike '%zombie%'
+-- and description not ilike '%undead%'
