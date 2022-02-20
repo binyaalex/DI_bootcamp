@@ -19,9 +19,13 @@ const Definitions = (props) => {
 				<section className='hardMode'>
 					<div className='hardModeTitle'>
 						<h6>Hard Mode</h6>
-						<div>Any revealed hints must be used in subsequent guesses</div>
+						<div className='btnExplanation'>Any revealed hints must be used in subsequent guesses</div>
 					</div>
-		    			<button onClick={changeHardMode}>Hard Mode</button>
+						<label className="switch">
+		    				{/*{<button onClick={changeHardMode}></button>}*/}
+							<input onClick={changeHardMode} type="checkbox" />
+							<span className="slider round"></span>
+						</label>
 				</section>
 				<section className='darkMode'>
 					<h6>Dark Mode</h6>
