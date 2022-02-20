@@ -89,7 +89,7 @@ const Header = (props) => {
 			</div>
 	    	<div className='leftHeader'>
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
-	    		<i onClick={displayDefinitions} class="fas fa-solid fa-life-ring definitionsBtn"></i>
+	    		<i onClick={displayDefinitions} class="fas fa-solid fa-circle definitionsBtn"></i>
 	    	</div>
 		</header>
 	)
