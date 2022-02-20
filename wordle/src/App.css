@@ -103,7 +103,7 @@ img {
   height: 32px;
 }
 
-/*.languageBtn, .hardModeBtn {
+.languageBtn {
   color: gray;
   font-weight: bold;
   font-size: 12px;
@@ -113,7 +113,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-}*/
+}
 
 .hardModeBtn {
 

@@ -1,10 +1,11 @@
 import {connect} from 'react-redux';
+import {changeLanguageAction} from '../redux/actions';
 import Help from './Help'
 import Definitions from './Definitions'
 // import Result from './Result'
 
 const Header = (props) => {
-	const {language, endOfGame} = props
+	const {language, endOfGame, changeLanguage} = props
 	
 	const displayHelpTuggle = (e) => {
 		const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard').style.display
@@ -87,6 +88,7 @@ const Header = (props) => {
 	    		<h4>WORDLE</h4>
 			</div>
 	    	<div className='leftHeader'>
+	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
 	    		<i onClick={displayDefinitions} class="fas fa-solid fa-life-ring"></i>
 	    	</div>
 		</header>
@@ -100,4 +102,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Header) 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeLanguage: (e) => dispatch(changeLanguageAction(e.target)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header) 

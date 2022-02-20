@@ -13,8 +13,12 @@ const Definitions = (props) => {
 			</header>
 			<main>
 				<section className='languageMode'>
-					<h6>dont know</h6>
-		    		<button onClick={changeLanguage}  className='languageBtn'>עב</button>
+					<h6>Hebrew</h6>
+					<label className="switch">
+		    			{/*<button onClick={changeLanguage}  className='languageBtn'>עב</button>*/}
+						<input type="checkbox" />
+						<span className="slider round"></span>
+					</label>
 				</section>
 				<section className='hardMode'>
 					<div className='hardModeTitle'>
