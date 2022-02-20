@@ -116,7 +116,8 @@ img {
 }
 
 .definitionsBtn{
-  font-size: 24px
+  font-size: 24px;
+  color: gray;
 }
 
 .hardModeBtn {
