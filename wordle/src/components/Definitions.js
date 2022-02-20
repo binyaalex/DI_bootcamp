@@ -4,12 +4,30 @@ import {changeLanguageAction, changeHardModeAction, changeScreenModeAction} from
 
 const Definitions = (props) => {
 	const {changeLanguage, changeHardMode, changeScreenMode, language, endOfGame} = props
-	
+
 	return (
 		<div className='Definitions'>
-				<div onClick={changeScreenMode} className='hardModeBtn'>dark Mode</div>
-	    		{<img onClick={changeHardMode} src='brain.jpg' />}
-	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
+			<header className='definitionsHeader'>
+				<h5>SETTING</h5>
+				<div onClick={props.displayDefinitions} className='x'>X</div>
+			</header>
+			<main>
+				<section className='languageMode'>
+					<h6>dont know</h6>
+		    		<button onClick={changeLanguage}  className='languageBtn'>עב</button>
+				</section>
+				<section className='hardMode'>
+					<div className='hardModeTitle'>
+						<h6>Hard Mode</h6>
+						<div>Any revealed hints must be used in subsequent guesses</div>
+					</div>
+		    			<button onClick={changeHardMode}>Hard Mode</button>
+				</section>
+				<section className='darkMode'>
+					<h6>Dark Mode</h6>
+					<button onClick={changeScreenMode} className='hardModeBtn'>Dark Mode</button>
+				</section>
+			</main>
 		</div>
 	)
 }

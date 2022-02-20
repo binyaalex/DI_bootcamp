@@ -103,7 +103,7 @@ img {
   height: 32px;
 }
 
-.languageBtn, .hardModeBtn {
+/*.languageBtn, .hardModeBtn {
   color: gray;
   font-weight: bold;
   font-size: 12px;
@@ -113,10 +113,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+}*/
 
 .hardModeBtn {
-  font-size: 10px;
+
 }
 
 .helpPage, .definitionsPage {
@@ -133,11 +133,24 @@ img {
   width: 500px;
 }
 
-.helpHeader {
+.helpHeader, .definitionsHeader {
   display: flex;
   justify-content: center;
   position: relative; 
   font-size: 16px;
+}
+
+.languageMode, .hardMode, .darkMode {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  align-items: center;
+}
+
+h6 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 400;
 }
 
 h5 {
