@@ -119,7 +119,7 @@ img {
   font-size: 10px;
 }
 
-.helpPage {
+.helpPage, .definitionsPage {
   display: none;
   position: absolute;
   height: 100vh;
@@ -129,7 +129,7 @@ img {
   font-size: 14px
 }
 
-.help, .result {
+.help, .Definitions {
   width: 500px;
 }
 

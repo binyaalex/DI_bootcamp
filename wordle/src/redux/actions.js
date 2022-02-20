@@ -200,7 +200,6 @@ export const changeHardModeAction = () => {
 }
 
 export const changeScreenModeAction = () => {
-	console.log(1)
 	return {
 		type:'CHANGE_SCREEN_MODE',
 	}

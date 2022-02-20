@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
-import {changeLanguageAction, changeHardModeAction, changeScreenModeAction} from '../redux/actions';
 import Help from './Help'
+import Definitions from './Definitions'
 // import Result from './Result'
 
 const Header = (props) => {
-	const {changeLanguage, changeHardMode, changeScreenMode, language, endOfGame} = props
+	const {language, endOfGame} = props
 	
 	const displayHelpTuggle = (e) => {
 		const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard').style.display
@@ -34,6 +34,34 @@ const Header = (props) => {
 		}
 	}
 
+	const displayDefinitions = (e) => {
+		const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard').style.display
+		if (language === 'עב' && hebrewKeyboard === 'block') {
+			document.body.querySelector('.hebrewKeyboard').style.display = 'none'
+		} else if (language === 'עב') {
+			document.body.querySelector('.hebrewKeyboard').style.display = 'block'
+		}
+
+		// all the conditions are for know if to display help and play again button or not
+		const helpDisplay = document.body.querySelector('.definitionsPage').style.display
+		if (helpDisplay !== 'block' && !endOfGame) {
+			document.body.querySelector('.tryes').style.display = 'none'
+			document.body.querySelector('.definitionsPage').style.display = 'block'
+		} else if (helpDisplay !== 'block') {
+		    document.querySelector('.playAgain').style.display = 'none'	
+		    document.querySelector('.messages').style.display = 'none'	
+			document.body.querySelector('.tryes').style.display = 'none'
+			document.body.querySelector('.definitionsPage').style.display = 'block'
+		} else if (endOfGame) {
+			document.body.querySelector('.definitionsPage').style.display = 'none'
+			document.body.querySelector('.tryes').style.display = 'block'
+		    document.querySelector('.playAgain').style.display = 'block'	
+		} else {			
+			document.body.querySelector('.tryes').style.display = 'block'
+			document.body.querySelector('.definitionsPage').style.display = 'none'
+		}
+	}
+
 	// const getResult = () => {
 	// 	document.querySelector('.resultPage').style.display = 'block'
 	// 	const tryes = document.querySelector('.tryes').children
@@ -52,14 +80,14 @@ const Header = (props) => {
 			<div className='helpPage'>
 				<Help displayHelpTuggle={displayHelpTuggle} />
 			</div>
+			<div className='definitionsPage'>
+				<Definitions displayDefinitions={displayDefinitions} />
+			</div>
 	    	<div>
 	    		<h4>WORDLE</h4>
 			</div>
 	    	<div className='leftHeader'>
-	    		<div onClick={changeScreenMode} className='hardModeBtn'>dark Mode</div>
-	    		{/*<i class="fas fa-solid fa-brain"></i>*/}
-	    		{<img onClick={changeHardMode} src='brain.jpg' />}
-	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div> 
+	    		<i onClick={displayDefinitions} class="fas fa-solid fa-life-ring"></i>
 	    	</div>
 		</header>
 	)
@@ -72,12 +100,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    changeLanguage: (e) => dispatch(changeLanguageAction(e.target)),
-    changeHardMode: (e) => dispatch(changeHardModeAction(e.target)),
-    changeScreenMode: (e) => dispatch(changeScreenModeAction(e.target)),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header) 
+export default connect(mapStateToProps)(Header) 
