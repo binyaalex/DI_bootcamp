@@ -29,7 +29,11 @@ const Definitions = (props) => {
 				</section>
 				<section className='darkMode'>
 					<h6>Dark Mode</h6>
-					<button onClick={changeScreenMode} className='hardModeBtn'>Dark Mode</button>
+					<label className="switch">
+						{/*<button onClick={changeScreenMode} className='hardModeBtn'>Dark Mode</button>*/}
+						<input onClick={changeScreenMode} type="checkbox" />
+						<span className="slider round"></span>
+					</label>
 				</section>
 			</main>
 		</div>
