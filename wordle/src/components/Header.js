@@ -18,19 +18,19 @@ const Header = (props) => {
 		// all the conditions are for know if to display help and play again button or not
 		const helpDisplay = document.body.querySelector('.helpPage').style.display
 		if (helpDisplay !== 'block' && !endOfGame) {
-			document.body.querySelector('.tryes').style.display = 'none'
+			document.body.querySelector('.tries').style.display = 'none'
 			document.body.querySelector('.helpPage').style.display = 'block'
 		} else if (helpDisplay !== 'block') {
 		    document.querySelector('.playAgain').style.display = 'none'	
 		    document.querySelector('.messages').style.display = 'none'	
-			document.body.querySelector('.tryes').style.display = 'none'
+			document.body.querySelector('.tries').style.display = 'none'
 			document.body.querySelector('.helpPage').style.display = 'block'
 		} else if (endOfGame) {
 			document.body.querySelector('.helpPage').style.display = 'none'
-			document.body.querySelector('.tryes').style.display = 'block'
+			document.body.querySelector('.tries').style.display = 'block'
 		    document.querySelector('.playAgain').style.display = 'block'	
 		} else {			
-			document.body.querySelector('.tryes').style.display = 'block'
+			document.body.querySelector('.tries').style.display = 'block'
 			document.body.querySelector('.helpPage').style.display = 'none'
 		}
 	}
@@ -46,29 +46,29 @@ const Header = (props) => {
 		// all the conditions are for know if to display help and play again button or not
 		const helpDisplay = document.body.querySelector('.definitionsPage').style.display
 		if (helpDisplay !== 'block' && !endOfGame) {
-			document.body.querySelector('.tryes').style.display = 'none'
+			document.body.querySelector('.tries').style.display = 'none'
 			document.body.querySelector('.definitionsPage').style.display = 'block'
 		} else if (helpDisplay !== 'block') {
 		    document.querySelector('.playAgain').style.display = 'none'	
 		    document.querySelector('.messages').style.display = 'none'	
-			document.body.querySelector('.tryes').style.display = 'none'
+			document.body.querySelector('.tries').style.display = 'none'
 			document.body.querySelector('.definitionsPage').style.display = 'block'
 		} else if (endOfGame) {
 			document.body.querySelector('.definitionsPage').style.display = 'none'
-			document.body.querySelector('.tryes').style.display = 'block'
+			document.body.querySelector('.tries').style.display = 'block'
 		    document.querySelector('.playAgain').style.display = 'block'	
 		} else {			
-			document.body.querySelector('.tryes').style.display = 'block'
+			document.body.querySelector('.tries').style.display = 'block'
 			document.body.querySelector('.definitionsPage').style.display = 'none'
 		}
 	}
 
 	// const getResult = () => {
 	// 	document.querySelector('.resultPage').style.display = 'block'
-	// 	const tryes = document.querySelector('.tryes').children
-	// 	for (let i = 0; i < tryes.length; i++) {
-	// 		for (let d = 0; d < tryes[i].children.length; d++) {
-	// 			console.log(tryes[i].children[d].style.backgroundColor)	
+	// 	const tries = document.querySelector('.tries').children
+	// 	for (let i = 0; i < tries.length; i++) {
+	// 		for (let d = 0; d < tries[i].children.length; d++) {
+	// 			console.log(tries[i].children[d].style.backgroundColor)	
 	// 		}
 	// 	}
 	// }
@@ -89,7 +89,7 @@ const Header = (props) => {
 			</div>
 	    	<div className='leftHeader'>
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
-	    		<i onClick={displayDefinitions} class="fas fa-solid fa-circle definitionsBtn"></i>
+	    		<i onClick={displayDefinitions} className="fas fa-solid fa-circle definitionsBtn"></i>
 	    	</div>
 		</header>
 	)

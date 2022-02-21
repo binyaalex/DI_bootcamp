@@ -80,6 +80,8 @@
   padding: 0 7px;
   font-weight: bold;
   display: flex;
+  position: relative;
+  z-index: 1;
 }
 
 .gameName {
@@ -101,6 +103,8 @@ h4 {
   align-items: center;
   justify-content: space-between;
   width: 62px;
+  position: relative;
+  z-index: 1;
 }
 
 img {
@@ -131,11 +135,11 @@ img {
 .helpPage, .definitionsPage {
   display: none;
   position: absolute;
-  /*background-color: transparent;*/
   height: 100vh;
   top: 0;
   right: -5px;
-  font-size: 14px
+  font-size: 14px;
+  z-index: 2;
 }
 
 .help, .Definitions {
