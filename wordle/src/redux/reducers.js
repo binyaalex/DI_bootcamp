@@ -278,7 +278,7 @@ export const reducer = (state=initState, action={}) => {
 		  hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
 		  return {...state,
 					language: 'עב',
-					gameName: 'מילה',
+					gameName: 'פיצוח',
 					letters: ".*[א-ת].*",
 					writingDirection: [4,3,2,1,0], 
 					wordList: HebrewWordsCheckList, 
