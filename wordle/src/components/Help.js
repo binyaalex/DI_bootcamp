@@ -14,7 +14,7 @@ const Help = (props) => {
 				<section>
 					<p className='examples'>Examples</p>
 					<div className='example'>
-			          <div className='helpLetterBox firstLetter green white'>
+			          <div className='helpLetterBox firstLetter green helpColorLetter'>
 			            W
 			          </div>
 			          <div className='helpLetterBox'>
@@ -35,7 +35,7 @@ const Help = (props) => {
 			          <div className='helpLetterBox firstLetter'>
 			            P
 			          </div>
-			          <div className='helpLetterBox yellow white'>
+			          <div className='helpLetterBox yellow helpColorLetter'>
 			            I
 			          </div>
 			          <div className='helpLetterBox'>
@@ -59,7 +59,7 @@ const Help = (props) => {
 			          <div className='helpLetterBox'>
 			            G
 			          </div>
-			          <div className='helpLetterBox gray white'>
+			          <div className='helpLetterBox gray helpColorLetter'>
 			            U
 			          </div>
 			          <div className='helpLetterBox'>

@@ -21,7 +21,9 @@ const App = (props) => {
 
     // get screenMode
     console.log(turn)
-    document.querySelector('.allDad').style.backgroundColor = screenMode.BGC
+    document.body.style.backgroundColor = screenMode.BGC
+    document.querySelector('.definitionsPage').style.backgroundColor = screenMode.BGC
+    document.querySelector('.helpPage').style.backgroundColor = screenMode.BGC
     document.querySelector('.allDad').style.color = screenMode.color
     document.querySelector('.mainHeader').style.borderBottom = screenMode.headerBorderBottom
     document.querySelector('.boardLetter').style.backgroundColor = screenMode.keyboardRegularBG
