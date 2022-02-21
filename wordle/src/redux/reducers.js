@@ -40,7 +40,6 @@ export const initState = {
 			fullLetterBorderC: 'black',
 			keyboardRegularBG: 'lightgray',
 			headerBorderBottom: '1px solid lightgray',
-			// keyboardColor: 'white'
 		},
 		endOfGame: false,
 		messages: {
@@ -302,8 +301,9 @@ export const reducer = (state=initState, action={}) => {
 		// change language to english
 		case 'EN':
 		  randomNum = Math.floor(Math.random() * WORDS.length);
-		  console.log(initState)
-		  return {...initState, dailyWord: WORDS[randomNum]}
+		  console.log(initState.screenMode)
+		  const screenMode = state.screenMode
+		  return {...initState, dailyWord: WORDS[randomNum], screenMode: screenMode}
 		case 'CHANGE_HARD_MODE':
 		  console.log('CHANGE_HARD_MODE')
 		  let hardMode
