@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header'
-import Tryes from './components/Tryes'
+import Tries from './components/Tries'
 import Keyboard from './components/Keyboard'
 import Messages from './components/Messages'
 import Result from './components/Result'
@@ -46,7 +46,7 @@ const App = (props) => {
     if (firstLoad) {
 
       // color the letters of the last try according the result
-      const letters = document.querySelector('.tryes').children[turn-1].children
+      const letters = document.querySelector('.tries').children[turn-1].children
       const boardLetters = document.querySelectorAll('.boardLetter')
       let i = 0;                  
       // do it in a loop by timeout for showing letter by letter
@@ -97,7 +97,7 @@ const App = (props) => {
 
       myLoop();
 
-    // for initialize the design (background color of letters in the tryes and keyboard)
+    // for initialize the design (background color of letters in the tries and keyboard)
     } else {
       const letters = document.querySelectorAll('.letterBox')
       const boardLetters = document.querySelectorAll('.boardLetter')
@@ -113,14 +113,14 @@ const App = (props) => {
       }
     }
 
-    // when the user win or lose by finish his tryes
+    // when the user win or lose by finish his tries
     const win = result.every(el => el === '#6AAA64')
     const myGreeting = () => {
       // user win
       if (win && firstLoad) {
         document.querySelector('.messages').style.display = 'block'
         document.querySelector('.well').style.display = 'block'
-        document.querySelector('.tryes').children[turn-1].classList.add('winner')
+        document.querySelector('.tries').children[turn-1].classList.add('winner')
         setTimeout(function() {   
           document.querySelector('.playAgain').style.display = 'block'
         }, 3000)
@@ -141,7 +141,7 @@ const App = (props) => {
     <div className='allDad'>
       <div className='all'>
         <Header />
-        <Tryes />
+        <Tries />
         <Keyboard />
         <Messages />
         <Result />

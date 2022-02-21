@@ -60,7 +60,7 @@ export const reducer = (state=initState, action={}) => {
 	switch (action.type) {
 		// take the letters the user write
 		case 'CHANGE':
-		// check the user not finish his tryes
+		// check the user not finish his tries
 		  if (state.userWord[state.turn].length < 5) {
 		  	// put the letters in the right try
 		  	userTry[state.turn] += action.payload
@@ -106,22 +106,22 @@ export const reducer = (state=initState, action={}) => {
 		}
 		console.log(isGrayLetterInUserWord())
 
-		const tryes = document.querySelectorAll('.try')
+		const tries = document.querySelectorAll('.try')
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
-		for (let c = 0; c < tryes.length; c++) {
-				for (let b = 0; b < tryes[c].children.length; b++) {
+		for (let c = 0; c < tries.length; c++) {
+				for (let b = 0; b < tries[c].children.length; b++) {
 					let letter
-					letter = finalToRegular(tryes[c].children[state.writingDirection[b]].textContent)
+					letter = finalToRegular(tries[c].children[state.writingDirection[b]].textContent)
 					// check the green letters
-					if (tryes[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
+					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
 						
 						if (userWord[b] === letter) {
 							isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(true)
 						} else {	
 							isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(false)
 						}
-					} else if (tryes[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
+					} else if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
 						// check the yellow letters
 						for (let a = 0; a < userWord.length; a++) {
 							if (userWord[a] === letter && a !== b) {
@@ -221,9 +221,9 @@ export const reducer = (state=initState, action={}) => {
 				  		// put message that the user need to use the yellow letters
 				  		document.querySelector('.messages').style.display = 'block'
 					  	document.querySelector('.yellowMsg').style.display = 'block'
-					  	tryes[state.turn].classList.add('shake')
+					  	tries[state.turn].classList.add('shake')
 					  	const undisplay = () => {
-					  		tryes[state.turn].classList.remove('shake')
+					  		tries[state.turn].classList.remove('shake')
 			        		document.querySelector('.messages').style.display = 'none'
 					  		document.querySelector('.yellowMsg').style.display = 'none'
 					  	}
@@ -234,9 +234,9 @@ export const reducer = (state=initState, action={}) => {
 				  	// put message that the user need to use the green letters
 			  		document.querySelector('.messages').style.display = 'block'
 				  	document.querySelector('.greenMsg').style.display = 'block'
-				  	tryes[state.turn].classList.add('shake')
+				  	tries[state.turn].classList.add('shake')
 				  	const undisplay = () => {
-				  		tryes[state.turn].classList.remove('shake')
+				  		tries[state.turn].classList.remove('shake')
 		        		document.querySelector('.messages').style.display = 'none'
 				  		document.querySelector('.greenMsg').style.display = 'none'
 				  	}
@@ -247,9 +247,9 @@ export const reducer = (state=initState, action={}) => {
 		  		// put message that the user need to use the gray letters
 		  		document.querySelector('.messages').style.display = 'block'
 			  	document.querySelector('.grayMsg').style.display = 'block'
-			  	tryes[state.turn].classList.add('shake')
+			  	tries[state.turn].classList.add('shake')
 			  	const undisplay = () => {
-			  		tryes[state.turn].classList.remove('shake')
+			  		tries[state.turn].classList.remove('shake')
 	        		document.querySelector('.messages').style.display = 'none'
 			  		document.querySelector('.grayMsg').style.display = 'none'
 			  	}
@@ -261,9 +261,9 @@ export const reducer = (state=initState, action={}) => {
 			// put message that there is no such a word
         	document.querySelector('.messages').style.display = 'block'
 		  	document.querySelector('.noWord').style.display = 'block'
-		  	tryes[state.turn].classList.add('shake')
+		  	tries[state.turn].classList.add('shake')
 		  	const undisplay = () => {
-		  		tryes[state.turn].classList.remove('shake')
+		  		tries[state.turn].classList.remove('shake')
         		document.querySelector('.messages').style.display = 'none'
 		  		document.querySelector('.noWord').style.display = 'none'
 		  	}

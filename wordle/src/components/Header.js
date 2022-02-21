@@ -84,7 +84,7 @@ const Header = (props) => {
 			<div className='definitionsPage'>
 				<Definitions displayDefinitions={displayDefinitions} />
 			</div>
-	    	<div>
+	    	<div className='gameName'>
 	    		<h4>{gameName}</h4>
 			</div>
 	    	<div className='leftHeader'>
