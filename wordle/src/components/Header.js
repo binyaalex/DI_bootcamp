@@ -89,7 +89,6 @@ const Header = (props) => {
 			</div>
 	    	<div className='leftHeader'>
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
-	    		{/*{<i onClick={displayDefinitions} className="fas fa-solid fa-circle definitionsBtn"></i>}*/}
 	    		<img onClick={displayDefinitions} className='definitionsBtn' src='gear_gray.svg' />
 	    	</div>
 		</header>
