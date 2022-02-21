@@ -23,6 +23,7 @@ export const finalToRegular = (letter) => {
 
 export const initState = {
 		language: 'EN',
+		gameName: 'WORDLE',
 		letters: ".*[A-Z].*",
 		writingDirection: [0,1,2,3,4],
 		wordList: WORDSCheckList,
@@ -277,6 +278,7 @@ export const reducer = (state=initState, action={}) => {
 		  hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
 		  return {...state,
 					language: 'עב',
+					gameName: 'מילה',
 					letters: ".*[א-ת].*",
 					writingDirection: [4,3,2,1,0], 
 					wordList: HebrewWordsCheckList, 
@@ -286,7 +288,7 @@ export const reducer = (state=initState, action={}) => {
 					turn: 0,
 					endOfGame: false,
 					messages: {
-						win: ['די נו תגלה לנו איך רימית', 'פשששששש על השני סחתיין', 'ניחוש שלישי יא תותח!', 'מעולה!', '!כל הכבוד', 'פיו זה היה קרוב'],
+						win: ['די נו תגלה לנו איך רימית', 'פשששששש על השני סחתיין', 'ניחוש שלישי יא תותח!', '!מעולה', '!כל הכבוד', 'פיו זה היה קרוב'],
 						loser: 'אוי, לא נורא אולי פעם הבאה, המילה היא',
 						noWord: '!אין מילה כזאת',
 						gray: '!אתה לא יכול להשתמש באותיות  האפורות',

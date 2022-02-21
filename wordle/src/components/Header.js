@@ -5,7 +5,7 @@ import Definitions from './Definitions'
 // import Result from './Result'
 
 const Header = (props) => {
-	const {language, endOfGame, changeLanguage} = props
+	const {language, endOfGame, gameName, changeLanguage} = props
 	
 	const displayHelpTuggle = (e) => {
 		const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard').style.display
@@ -85,7 +85,7 @@ const Header = (props) => {
 				<Definitions displayDefinitions={displayDefinitions} />
 			</div>
 	    	<div>
-	    		<h4>WORDLE</h4>
+	    		<h4>{gameName}</h4>
 			</div>
 	    	<div className='leftHeader'>
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
@@ -99,6 +99,7 @@ const mapStateToProps = (state) => {
   return {
     language: state.language,
     endOfGame: state.endOfGame,
+    gameName: state.gameName,
   }
 }
 
