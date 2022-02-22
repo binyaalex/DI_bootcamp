@@ -32,10 +32,10 @@ const blackBox = (turn, fullBorder, emptyBorder) => {
 
 // when the user write a letter or press the keyboard
 export const changeAction = (e) => {
+	let language = document.querySelector('.languageBtn').textContent
 	return (dispatch, getState) => {
 		// change language
 		if (e.key === '=') {
-			let language = document.querySelector('.languageBtn').textContent
 			changeLanguage()
 			dispatch ({
 				type: language,
@@ -103,7 +103,6 @@ export const changeAction = (e) => {
 			// by doing the same like when the user change the language
 			// but stay in the same language
 			} else {
-				let language = document.querySelector('.languageBtn').textContent
 		        document.querySelector('.messages').style.display = 'none'
 		        document.querySelector('.well').style.display = 'none'
 		        let loser = document.querySelector('.loser').style.display
