@@ -171,14 +171,14 @@ export const changeLanguageAction = (languageBtn) => {
 // when user press on the play again button
 export const playAgainAction = () => {
 	let language = document.querySelector('.languageBtn').textContent
-        document.querySelector('.messages').style.display = 'none'
-        document.querySelector('.well').style.display = 'none'
-        let loser = document.querySelector('.loser').style.display
-        if (loser !== 'block') {
-     		document.querySelector('.winner').classList.remove('winner')
-        }
-        document.querySelector('.loser').style.display = 'none'		        
-        document.querySelector('.playAgain').style.display = 'none'
+    document.querySelector('.messages').style.display = 'none'
+    document.querySelector('.well').style.display = 'none'
+    let loser = document.querySelector('.loser').style.display
+    if (loser !== 'block') {
+ 		document.querySelector('.winner').classList.remove('winner')
+    }
+    loser = 'none'		        
+    document.querySelector('.playAgain').style.display = 'none'
 	if (language === 'עב') {
 		language = 'EN'
 	} else {
