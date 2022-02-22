@@ -34,7 +34,9 @@ const blackBox = (turn, fullBorder, emptyBorder) => {
 export const changeAction = (e) => {
 	let language = document.querySelector('.languageBtn').textContent
     const messages = document.querySelector('.messages')
-    
+    const wrongLanguageMsg = document.querySelector('.wrongLanguageMsg')
+	const playAgain = document.querySelector('.playAgain')
+
 	return (dispatch, getState) => {
 		// change language
 		if (e.key === '=') {
@@ -63,10 +65,10 @@ export const changeAction = (e) => {
 			// check that the user write in the right language
 			if (getState().language === 'EN' && letter.match(".*[א-ת].*")) {
 	        	messages.style.display = 'block'
-			  	document.querySelector('.wrongLanguageMsg').style.display = 'block'
+			  	wrongLanguageMsg.style.display = 'block'
 			  	const undisplay = () => {
 	        		messages.style.display = 'none'
-			  		document.querySelector('.wrongLanguageMsg').style.display = 'none'
+			  		wrongLanguageMsg.style.display = 'none'
 			  	}
 			  	setTimeout(undisplay, 800)
 			  	dispatch ({
@@ -74,10 +76,10 @@ export const changeAction = (e) => {
 				})
 			} else if (getState().language === 'עב' && letter.match(".*[A-Z].*")) {
 	        	messages.style.display = 'block'
-			  	document.querySelector('.wrongLanguageMsg').style.display = 'block'
+			  	wrongLanguageMsg.style.display = 'block'
 			  	const undisplay = () => {
 	        		messages.style.display = 'none'
-			  		document.querySelector('.wrongLanguageMsg').style.display = 'none'
+			  		wrongLanguageMsg.style.display = 'none'
 			  	}
 			  	setTimeout(undisplay, 800)
 			  	dispatch ({
@@ -93,7 +95,6 @@ export const changeAction = (e) => {
 			}
 
 		} else if (e.key === 'Enter') {
-	        const playAgain = document.querySelector('.playAgain')
 	        // check if it's the end of the game
 			if (playAgain.style.display === '' || playAgain.style.display === 'none') {
 				// when the user want to make his try
@@ -112,7 +113,7 @@ export const changeAction = (e) => {
 		     		document.querySelector('.winner').classList.remove('winner')
 		        }
 		        document.querySelector('.loser').style.display = 'none'
-		        document.querySelector('.playAgain').style.display = 'none'
+		        playAgain.style.display = 'none'
 				if (language === 'עב') {
 					language = 'EN'
 				} else {
