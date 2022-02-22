@@ -33,6 +33,8 @@ const blackBox = (turn, fullBorder, emptyBorder) => {
 // when the user write a letter or press the keyboard
 export const changeAction = (e) => {
 	let language = document.querySelector('.languageBtn').textContent
+    const messages = document.querySelector('.messages')
+    
 	return (dispatch, getState) => {
 		// change language
 		if (e.key === '=') {
@@ -60,10 +62,10 @@ export const changeAction = (e) => {
 
 			// check that the user write in the right language
 			if (getState().language === 'EN' && letter.match(".*[א-ת].*")) {
-	        	document.querySelector('.messages').style.display = 'block'
+	        	messages.style.display = 'block'
 			  	document.querySelector('.wrongLanguageMsg').style.display = 'block'
 			  	const undisplay = () => {
-	        		document.querySelector('.messages').style.display = 'none'
+	        		messages.style.display = 'none'
 			  		document.querySelector('.wrongLanguageMsg').style.display = 'none'
 			  	}
 			  	setTimeout(undisplay, 800)
@@ -71,10 +73,10 @@ export const changeAction = (e) => {
 					type:'EMPTY'
 				})
 			} else if (getState().language === 'עב' && letter.match(".*[A-Z].*")) {
-	        	document.querySelector('.messages').style.display = 'block'
+	        	messages.style.display = 'block'
 			  	document.querySelector('.wrongLanguageMsg').style.display = 'block'
 			  	const undisplay = () => {
-	        		document.querySelector('.messages').style.display = 'none'
+	        		messages.style.display = 'none'
 			  		document.querySelector('.wrongLanguageMsg').style.display = 'none'
 			  	}
 			  	setTimeout(undisplay, 800)
@@ -103,7 +105,7 @@ export const changeAction = (e) => {
 			// by doing the same like when the user change the language
 			// but stay in the same language
 			} else {
-		        document.querySelector('.messages').style.display = 'none'
+		        messages.style.display = 'none'
 		        document.querySelector('.well').style.display = 'none'
 		        let loser = document.querySelector('.loser').style.display
 		        if (loser !== 'block') {
