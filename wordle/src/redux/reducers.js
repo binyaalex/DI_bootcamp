@@ -170,7 +170,7 @@ export const reducer = (state=initState, action={}) => {
 
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
-		  // check there is such a word
+		  // check if there is such a word
 		  if (isWordInWordList) {
 		  	if (isGrayLetterInUserWord() || !state.hardMode) {
 		  		// check the user use all the green letters in there place
@@ -287,7 +287,7 @@ export const reducer = (state=initState, action={}) => {
 					turn: 0,
 					endOfGame: false,
 					messages: {
-						win: ['די נו תגלה לנו איך רימית', 'פשששששש על השני סחתיין', 'ניחוש שלישי יא תותח!', '!מעולה', '!כל הכבוד', 'פיו זה היה קרוב'],
+						win: ['די נו תגלה לנו איך רימית', 'פשששששש על השני סחתיין', '!ניחוש שלישי יא תותח', '!מעולה', '!כל הכבוד', 'פיו זה היה קרוב'],
 						loser: 'אוי, לא נורא אולי פעם הבאה, המילה היא',
 						noWord: '!אין מילה כזאת',
 						gray: '!אתה לא יכול להשתמש באותיות  האפורות',
