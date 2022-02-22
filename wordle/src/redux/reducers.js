@@ -53,27 +53,27 @@ export const initState = {
 	}
 
 export const reducer = (state=initState, action={}) => {
-	let userTry = {...state.userWord}
+	let userWord = {...state.userWord}
 	switch (action.type) {
 		// take the letters the user write
 		case 'CHANGE':
 		// check the user not finish his tries
 		  if (state.userWord[state.turn].length < 5) {
 		  	// put the letters in the right try
-		  	userTry[state.turn] += action.payload
-		  	return {...state, userWord: userTry}	
+		  	userWord[state.turn] += action.payload
+		  	return {...state, userWord: userWord}	
 		  } else {
 		  	return {...state}
 		  }
 
 		// delete the last letter from the last user try
 		case 'DEL':
-		  userTry[state.turn] = userTry[state.turn].slice(0, -1);
-		  return {...state, userWord: userTry}
+		  userWord[state.turn] = userWord[state.turn].slice(0, -1);
+		  return {...state, userWord: userWord}
 
 		case 'ENTER':
 		// make last letter good for hebrew in user word and daily word
-		let userWord = state.userWord[state.turn]
+		userWord = userWord[state.turn]
 		let dailyWord = state.dailyWord
 		let userWordLastLetter = finalToRegular(userWord[4])
 		let dailyWordLastLetter = finalToRegular(dailyWord[4])
