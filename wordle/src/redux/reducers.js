@@ -2,8 +2,6 @@ import {WORDS, WORDSCheckList} from '../components/wordList'
 import {HebrewWords, HebrewWordsCheckList} from '../components/HebrewWordList'
 
 let randomNum = Math.floor(Math.random() * WORDS.length);
-let hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
-console.log(HebrewWords[hebrewRandomNum])
 
 // function that change final letters to regular
 export const finalToRegular = (letter) => {
@@ -274,14 +272,14 @@ export const reducer = (state=initState, action={}) => {
 
 		// change language to hebrew
 		case 'עב':
-		  hebrewRandomNum = Math.floor(Math.random() * HebrewWords.length);
+		  randomNum = Math.floor(Math.random() * HebrewWords.length);
 		  return {...state,
 					language: 'עב',
 					gameName: 'פיצוח',
 					letters: ".*[א-ת].*",
 					writingDirection: [4,3,2,1,0], 
 					wordList: HebrewWordsCheckList, 
-					dailyWord: HebrewWords[hebrewRandomNum],
+					dailyWord: HebrewWords[randomNum],
 					userWord: ['','','','','',''],
 					result: [],
 					turn: 0,

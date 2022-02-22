@@ -17,7 +17,9 @@ const App = (props) => {
   
   useEffect(() => {
     const triesBoxes = document.querySelectorAll('.letterBox')
-
+    const boardLetters = document.querySelectorAll('.boardLetter')
+    const messages = document.querySelector('.messages')
+    const playAgainBtn = document.querySelector('.playAgain')
 
     console.log(dailyWord)
     document.body.addEventListener('keydown', change1) // for real keyboard
@@ -29,8 +31,6 @@ const App = (props) => {
     document.querySelector('.helpPage').style.backgroundColor = screenMode.BGC
     document.querySelector('.allDad').style.color = screenMode.color
     document.querySelector('.mainHeader').style.borderBottom = screenMode.headerBorderBottom
-    document.querySelector('.boardLetter').style.backgroundColor = screenMode.keyboardRegularBG
-    document.querySelector('.boardLetter').style.color = screenMode.color
 
     // for not try to color the last try in first load and then stuck
     let firstLoad
@@ -43,7 +43,6 @@ const App = (props) => {
       const lastTry = document.querySelector('.tries').children[turn-1].children 
  
       // color the letters of the last try according the result
-      const boardLetters = document.querySelectorAll('.boardLetter')
       let i = 0;                  
       // do it in a loop by timeout for showing letter by letter
       function myLoop() {         
@@ -74,8 +73,7 @@ const App = (props) => {
                 console.log(boardLetter)
                 boardLetters[d].style.backgroundColor = result[writingDirection[i]]
                 boardLetters[d].style.color = 'white'
-                const squares = document.querySelectorAll('.try')[turn-1].children
-                squares[writingDirection[i]].style.border = '0'
+                lastTry[writingDirection[i]].style.border = '0'
               }
             }
             // stop prevent writing after finshed showing result
@@ -93,26 +91,25 @@ const App = (props) => {
 
       myLoop();
 
-      
+
     // when the user win or lose by finish his tries
     const win = result.every(el => el === '#6AAA64')
     const myGreeting = () => {
       // user win
       if (win && firstLoad) {
-        document.querySelector('.messages').style.display = 'block'
+        messages.style.display = 'block'
         document.querySelector('.well').style.display = 'block'
         lastTry[0].parentElement.classList.add('winner')
-        // document.querySelector('.tries').children[turn-1].classList.add('winner')
         setTimeout(function() {   
-          document.querySelector('.playAgain').style.display = 'block'
+          playAgainBtn.style.display = 'block'
         }, 3000)
         endTheGame()
 
       // user lose
       } else if (turn === 6) {
-        document.querySelector('.messages').style.display = 'block'
+        messages.style.display = 'block'
         document.querySelector('.loser').style.display = 'block'
-        document.querySelector('.playAgain').style.display = 'block'
+        playAgainBtn.style.display = 'block'
         endTheGame()
       } 
     }
@@ -120,7 +117,7 @@ const App = (props) => {
 
     // for initialize the design (background and border color of letters in the tries and keyboard)
     } else {
-      const boardLetters = document.querySelectorAll('.boardLetter')
+      // const boardLetters = document.querySelectorAll('.boardLetter')
       for (let i = 0; i < triesBoxes.length; i++) {
         triesBoxes[i].style.backgroundColor = `${screenMode.BGC}`
         triesBoxes[i].style.borderColor = `${screenMode.letterBorderC}`
