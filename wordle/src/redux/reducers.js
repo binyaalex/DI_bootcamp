@@ -296,17 +296,18 @@ export const reducer = (state=initState, action={}) => {
 		case 'EN':
 		  randomNum = Math.floor(Math.random() * WORDS.length);
 		  console.log(initState.screenMode)
-		  const screenMode = state.screenMode
-		  return {...initState, dailyWord: WORDS[randomNum], screenMode: screenMode}
+		  const oldScreenMode = state.screenMode
+		  const oldHardMode = state.hardMode
+		  return {...initState, dailyWord: WORDS[randomNum], screenMode: oldScreenMode, hardMode: oldHardMode}
 		case 'CHANGE_HARD_MODE':
 		  console.log('CHANGE_HARD_MODE')
-		  let hardMode
+		  let newHardMode
 		  if (state.hardMode === false) {
-		  	hardMode = true
+		  	newHardMode = true
 		  } else {
-		  	hardMode = false
+		  	newHardMode = false
 		  }
-		  return {...state, hardMode: hardMode}
+		  return {...state, hardMode: newHardMode}
 		case 'CHANGE_SCREEN_MODE':
 		  console.log('CHANGE_SCREEN_MODE')
 		  if (state.turn === 0) {
