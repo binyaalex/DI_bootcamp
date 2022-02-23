@@ -75,12 +75,9 @@ export const reducer = (state=initState, action={}) => {
 		// make last letter good for hebrew in user word and daily word
 		userWord = userWord[state.turn]
 		let dailyWord = state.dailyWord
-		// let userWordLastLetter = finalToRegular(userWord[4])
-		// let dailyWordLastLetter = finalToRegular(dailyWord[4])
 		userWord = userWord.slice(0,4) + finalToRegular(userWord[4])
 		dailyWord = dailyWord.slice(0,4) + finalToRegular(dailyWord[4])
 		
-		// make two array to check the user use all the hints, green and yellow.
 
 		// push all the gray letters to array that the user wouldn't be able to use them
 	    const boardLetters = document.querySelectorAll('.boardLetter')
@@ -93,16 +90,15 @@ export const reducer = (state=initState, action={}) => {
 
 		const isGrayLetterInUserWord = () => {
 		    for (let i = 0; i < userWord.length; i++) {
-		    	for (let d = 0; d < grayLetters.length; d++) {
-		    		if (userWord[i] === grayLetters[d]) {
-		    			return false
-		    		}	
-		    	}
+	    		if (grayLetters.includes(userWord[i])) {
+	    			return false
+	    		}	
 		    }
 		    return true
 		}
 		console.log(isGrayLetterInUserWord())
 
+		// make two array to check the user use all the hints, green and yellow.
 		const tries = document.querySelectorAll('.try')
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
