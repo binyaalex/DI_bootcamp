@@ -75,10 +75,10 @@ export const reducer = (state=initState, action={}) => {
 		// make last letter good for hebrew in user word and daily word
 		userWord = userWord[state.turn]
 		let dailyWord = state.dailyWord
-		let userWordLastLetter = finalToRegular(userWord[4])
-		let dailyWordLastLetter = finalToRegular(dailyWord[4])
-		userWord = userWord.slice(0,4) + userWordLastLetter
-		dailyWord = dailyWord.slice(0,4) + dailyWordLastLetter
+		// let userWordLastLetter = finalToRegular(userWord[4])
+		// let dailyWordLastLetter = finalToRegular(dailyWord[4])
+		userWord = userWord.slice(0,4) + finalToRegular(userWord[4])
+		dailyWord = dailyWord.slice(0,4) + finalToRegular(dailyWord[4])
 		
 		// make two array to check the user use all the hints, green and yellow.
 
