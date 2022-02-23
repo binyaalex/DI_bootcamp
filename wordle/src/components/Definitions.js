@@ -27,7 +27,7 @@ const Definitions = (props) => {
 					</div>
 						<label className="switch">
 		    				{/*{<button onClick={changeHardMode}></button>}*/}
-							<input onClick={changeHardMode} type="checkbox" />
+							<input onClick={changeHardMode} type="checkbox" checked />
 							<span className="slider round"></span>
 						</label>
 				</section>

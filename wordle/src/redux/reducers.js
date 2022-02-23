@@ -29,7 +29,7 @@ export const initState = {
 		userWord: ['','','','','',''],
 		result: [],
 		turn: 0,
-		hardMode: false,
+		hardMode: true,
 		screenMode: {
 			BGC: 'white',
 			color: 'black',
@@ -101,49 +101,61 @@ export const reducer = (state=initState, action={}) => {
 		// make two array to check the user use all the hints, green and yellow.
 		const tries = document.querySelectorAll('.try')
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
-		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
+		// let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let newIsGreenLetterInUserWord = true
-		for (let c = 0; c < tries.length; c++) {
-			for (let b = 0; b < tries[c].children.length; b++) {
-				let letter
-				letter = finalToRegular(tries[c].children[state.writingDirection[b]].textContent)
+		let newIsYellowLetterInUserWord = false
+		let noYellowLettersInUserTries = true
+		const checkTheYellowLetters = () => {
+			for (let c = 0; c < state.turn; c++) {
+				for (let b = 0; b < tries[c].children.length; b++) {
+					let letter
+					letter = finalToRegular(tries[c].children[state.writingDirection[b]].textContent)
 
-				// new
-				if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
-					console.log(letter)
-					console.log(userWord[b])
-					if (letter !== userWord[b]) {
-						newIsGreenLetterInUserWord = false
-					}
-				}
-
-				// check the green letters
-				// if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
-					
-				// 	if (userWord[b] === letter) {
-				// 		isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(true)
-				// 	} else {	
-				// 		isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(false)
-				// 	}
-				if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
-					// check the yellow letters
-					for (let a = 0; a < userWord.length; a++) {
-						if (userWord[a] === letter && a !== b) {
-							isYellowLetterInUserWordArr[c][state.writingDirection[b]].push(true)
-						} else {
-							isYellowLetterInUserWordArr[c][state.writingDirection[b]].push(false)
+					// new check the green letters
+					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
+						console.log(letter)
+						console.log(userWord[b])
+						if (letter !== userWord[b]) {
+							newIsGreenLetterInUserWord = false
 						}
 					}
-					// if you put the same yellow letter twice and one of them on the same place
-					// this loop here will stop you
-					for (let a = 0; a < userWord.length; a++) {
-						if (userWord[a] === letter && a === b) {
-							isYellowLetterInUserWordArr[c] = [[false], [false], [false], [false], [false]]
+
+					// check the green letters
+					// if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
+						
+					// 	if (userWord[b] === letter) {
+					// 		isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(true)
+					// 	} else {	
+					// 		isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(false)
+					// 	}
+					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
+						noYellowLettersInUserTries = false
+						// check the yellow letters
+						for (let a = 0; a < userWord.length; a++) {
+							console.log(userWord[a])
+							if (userWord[a] === letter && a !== b) {
+								newIsYellowLetterInUserWord = true
+							} else if (userWord[a] === letter && a === b) {
+								newIsYellowLetterInUserWord = false
+								return false
+							}
 						}
+						// if you put the same yellow letter twice and one of them on the same place
+						// this loop here will stop you
+						// for (let a = 0; a < userWord.length; a++) {
+						// 	if (userWord[a] === letter && a === b) {
+						// 		console.log(1)
+						// 		isYellowLetterInUserWordArr[c] = [[false], [false], [false], [false], [false]]
+						// 	}
+						// }
 					}
 				}
 			}
 		}
+		if (noYellowLettersInUserTries) {
+			newIsYellowLetterInUserWord = true
+		}
+		checkTheYellowLetters()
 
 		const isYellowLetterInUserWord = () => {
 			for (let i = 0; i < isYellowLetterInUserWordArr.length; i++) {
@@ -181,7 +193,7 @@ export const reducer = (state=initState, action={}) => {
 		  		// check the user use all the green letters in there place
 			  	if (newIsGreenLetterInUserWord || !state.hardMode) {
 			  		// check the user use all the yellow letters and not in the same place
-				  	if (isYellowLetterInUserWord() || !state.hardMode) {
+				  	if (newIsYellowLetterInUserWord || !state.hardMode) {
 				  		for (let i = 0; i < userWord.length; i++) {
 				  			// check if the user letters are used in the daily word
 				  			// and if so color them in yellow
@@ -325,13 +337,13 @@ export const reducer = (state=initState, action={}) => {
 		 	let screenMode
 			if (state.screenMode.BGC === 'white') {
 				screenMode = {
-				BGC: 'black',
-				color: 'white',
-				letterBG: '#3A3A3C',
-				letterBorderC: '#3A3A3C',
-				fullLetterBorderC: '#818384',
-				keyboardRegularBG: '#3A3A3C',
-				headerBorderBottom: '1px solid #3A3A3C',
+					BGC: 'black',
+					color: 'white',
+					letterBG: '#3A3A3C',
+					letterBorderC: '#3A3A3C',
+					fullLetterBorderC: '#818384',
+					keyboardRegularBG: '#3A3A3C',
+					headerBorderBottom: '1px solid #3A3A3C',
 				}
 			} else {
 				screenMode = initState.screenMode
