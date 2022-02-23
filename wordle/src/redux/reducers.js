@@ -102,37 +102,48 @@ export const reducer = (state=initState, action={}) => {
 		const tries = document.querySelectorAll('.try')
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
+		let newIsGreenLetterInUserWord = true
 		for (let c = 0; c < tries.length; c++) {
-				for (let b = 0; b < tries[c].children.length; b++) {
-					let letter
-					letter = finalToRegular(tries[c].children[state.writingDirection[b]].textContent)
-					// check the green letters
-					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
-						
-						if (userWord[b] === letter) {
-							isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(true)
-						} else {	
-							isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(false)
+			for (let b = 0; b < tries[c].children.length; b++) {
+				let letter
+				letter = finalToRegular(tries[c].children[state.writingDirection[b]].textContent)
+
+				// new
+				if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
+					console.log(letter)
+					console.log(userWord[b])
+					if (letter !== userWord[b]) {
+						newIsGreenLetterInUserWord = false
+					}
+				}
+
+				// check the green letters
+				// if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
+					
+				// 	if (userWord[b] === letter) {
+				// 		isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(true)
+				// 	} else {	
+				// 		isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(false)
+				// 	}
+				if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
+					// check the yellow letters
+					for (let a = 0; a < userWord.length; a++) {
+						if (userWord[a] === letter && a !== b) {
+							isYellowLetterInUserWordArr[c][state.writingDirection[b]].push(true)
+						} else {
+							isYellowLetterInUserWordArr[c][state.writingDirection[b]].push(false)
 						}
-					} else if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
-						// check the yellow letters
-						for (let a = 0; a < userWord.length; a++) {
-							if (userWord[a] === letter && a !== b) {
-								isYellowLetterInUserWordArr[c][state.writingDirection[b]].push(true)
-							} else {
-								isYellowLetterInUserWordArr[c][state.writingDirection[b]].push(false)
-							}
-						}
-						// if you put the same yellow letter twice and one of them on the same place
-						// this loop here will stop you
-						for (let a = 0; a < userWord.length; a++) {
-							if (userWord[a] === letter && a === b) {
-								isYellowLetterInUserWordArr[c] = [[false], [false], [false], [false], [false]]
-							}
+					}
+					// if you put the same yellow letter twice and one of them on the same place
+					// this loop here will stop you
+					for (let a = 0; a < userWord.length; a++) {
+						if (userWord[a] === letter && a === b) {
+							isYellowLetterInUserWordArr[c] = [[false], [false], [false], [false], [false]]
 						}
 					}
 				}
 			}
+		}
 
 		const isYellowLetterInUserWord = () => {
 			for (let i = 0; i < isYellowLetterInUserWordArr.length; i++) {
@@ -148,19 +159,19 @@ export const reducer = (state=initState, action={}) => {
 			return true
 		}
 
-		const isGreenLetterInUserWord = () => {
-			for (let i = 0; i < isGreenLetterInUserWordArr.length; i++) {
-				for (var d = 0; d < isGreenLetterInUserWordArr[i].length; d++) {
-					if (isGreenLetterInUserWordArr[i][d].length > 0) {
-						if (isGreenLetterInUserWordArr[i][d].some(ele => ele === true)) {
-						} else {
-							return false
-						}
-					}
-				}
-			}
-			return true
-		}
+		// const isGreenLetterInUserWord = () => {
+		// 	for (let i = 0; i < isGreenLetterInUserWordArr.length; i++) {
+		// 		for (var d = 0; d < isGreenLetterInUserWordArr[i].length; d++) {
+		// 			if (isGreenLetterInUserWordArr[i][d].length > 0) {
+		// 				if (isGreenLetterInUserWordArr[i][d].some(ele => ele === true)) {
+		// 				} else {
+		// 					return false
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// 	return true
+		// }
 
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
@@ -168,7 +179,7 @@ export const reducer = (state=initState, action={}) => {
 		  if (isWordInWordList) {
 		  	if (isGrayLetterInUserWord() || !state.hardMode) {
 		  		// check the user use all the green letters in there place
-			  	if (isGreenLetterInUserWord() || !state.hardMode) {
+			  	if (newIsGreenLetterInUserWord || !state.hardMode) {
 			  		// check the user use all the yellow letters and not in the same place
 				  	if (isYellowLetterInUserWord() || !state.hardMode) {
 				  		for (let i = 0; i < userWord.length; i++) {
