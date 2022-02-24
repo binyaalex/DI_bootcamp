@@ -1,11 +1,14 @@
 import {WORDS, WORDSCheckList} from '../components/wordList'
 import {HebrewWords, HebrewWordsCheckList} from '../components/HebrewWordList'
 
+// for check how many of certain letter there is in the word
 function count(str, find) {
     return (str.split(find)).length - 1;
 }
 
 let randomNum = Math.floor(Math.random() * WORDS.length);
+				  		
+const messages = document.querySelector('.messages')
 
 // function that change final letters to regular
 export const finalToRegular = (letter) => {
@@ -109,7 +112,8 @@ export const reducer = (state=initState, action={}) => {
 		// let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let newIsGreenLetterInUserWord = true
 		let newIsYellowLetterInUserWord = false
-		let noYellowLettersInUserTries = true
+						console.log(newIsYellowLetterInUserWord)
+		let noYellowLettersInUserTries
 		const checkTheYellowLetters = () => {
 			for (let c = 0; c < state.turn; c++) {
 				for (let b = 0; b < tries[c].children.length; b++) {
@@ -134,13 +138,20 @@ export const reducer = (state=initState, action={}) => {
 					// 		isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(false)
 					// 	}
 					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
+							console.log(letter)
 						noYellowLettersInUserTries = false
+						console.log(newIsYellowLetterInUserWord)
 						// check the yellow letters
 						for (let a = 0; a < userWord.length; a++) {
 							console.log(userWord[a])
 							if (userWord[a] === letter && a !== b) {
+							console.log(userWord[a])
+								newIsYellowLetterInUserWord = true
+							} else if (userWord.includes(letter)) {
+							console.log(userWord[a])
 								newIsYellowLetterInUserWord = true
 							} else if (userWord[a] === letter && a === b) {
+							console.log(userWord[a])
 								newIsYellowLetterInUserWord = false
 								return false
 							}
@@ -157,10 +168,15 @@ export const reducer = (state=initState, action={}) => {
 				}
 			}
 		}
+
+		if (state.turn < 1) {
+			noYellowLettersInUserTries = true
+		}
 		if (noYellowLettersInUserTries) {
 			newIsYellowLetterInUserWord = true
 		}
 		checkTheYellowLetters()
+		console.log(newIsYellowLetterInUserWord)
 
 		// const isYellowLetterInUserWord = () => {
 		// 	for (let i = 0; i < isYellowLetterInUserWordArr.length; i++) {
@@ -193,7 +209,7 @@ export const reducer = (state=initState, action={}) => {
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  // check if there is such a word
-		  if (isWordInWordList) {
+		  if (isWordInWordList || true) {
 		  	if (isGrayLetterInUserWord() || !state.hardMode) {
 		  		// check the user use all the green letters in there place
 			  	if (newIsGreenLetterInUserWord || !state.hardMode) {
