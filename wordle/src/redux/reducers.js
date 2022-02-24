@@ -1,6 +1,10 @@
 import {WORDS, WORDSCheckList} from '../components/wordList'
 import {HebrewWords, HebrewWordsCheckList} from '../components/HebrewWordList'
 
+function count(str, find) {
+    return (str.split(find)).length - 1;
+}
+
 let randomNum = Math.floor(Math.random() * WORDS.length);
 
 // function that change final letters to regular
@@ -54,13 +58,14 @@ export const initState = {
 
 export const reducer = (state=initState, action={}) => {
 	let userWord = {...state.userWord}
+	console.log(userWord)
 	switch (action.type) {
 		// take the letters the user write
 		case 'CHANGE':
 		// check the user not finish his tries
 		  if (state.userWord[state.turn].length < 5) {
 		  	// put the letters in the right try
-		  	userWord[state.turn] += action.payload
+		  	userWord[state.turn] += action.payload.toLowerCase()
 		  	return {...state, userWord: userWord}	
 		  } else {
 		  	return {...state}
@@ -188,62 +193,103 @@ export const reducer = (state=initState, action={}) => {
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  // check if there is such a word
-		  if (isWordInWordList) {
+		  if (isWordInWordList || true) {
 		  	if (isGrayLetterInUserWord() || !state.hardMode) {
 		  		// check the user use all the green letters in there place
 			  	if (newIsGreenLetterInUserWord || !state.hardMode) {
 			  		// check the user use all the yellow letters and not in the same place
 				  	if (newIsYellowLetterInUserWord || !state.hardMode) {
+				  		let forDoubleLetters = {}
 				  		for (let i = 0; i < userWord.length; i++) {
-
-				  			//new
-				  			if (dailyWord.includes(userWord[i].toLowerCase())) {
+				  			forDoubleLetters[userWord[i]] = []
+				  			forDoubleLetters[userWord[i]].push(0)
+				  			// for check letar if its green in double letters
+				  			forDoubleLetters[userWord[i]].push(false)
+				  			// for check letar if its gray in double letters
+				  			forDoubleLetters[userWord[i]].push(false)
+				  			// check if the user letters are used in the daily word
+				  			// and if so color them in yellow
+				  			if (dailyWord.includes(userWord[i])) {
 				  				arr[state.writingDirection[i]] = '#C9B458' // yellow
 				  				
-				  				if (userWord[i].toLowerCase() === dailyWord[i]) {
+				  				// check if the user letters are in the right place
+				  				if (userWord[i] === dailyWord[i]) {
 						  			arr[state.writingDirection[i]] = '#6AAA64' // green
 				  				}
 				  			}
 
 
-				  			// // check if the user letters are used in the daily word
-				  			// // and if so color them in yellow
 				  			// for (let d = 0; d < dailyWord.length; d++) {
 				  			// 	if (userWord[i].toLowerCase() === dailyWord[d]) {
 				  			// 		arr[state.writingDirection[i]] = '#C9B458' // yellow
 
-				  			// 		// check if the user letters are in the right place
+				  			// 		check if the user letters are in the right place
 						  	// 		// and if so color them in green
 						  	// 		if (userWord[i].toLowerCase() === dailyWord[i]) {
 						  	// 			arr[state.writingDirection[i]] = '#6AAA64' // green
 						  	// 		}
 				  			// 	}
-				  			// }
-				  							  					  	 					  	    
+				  			// }				  					  	 					  	    
 					  	}
-					  	let isItTheSecondTimeOfThisLetter = {}
-					  	for (let i = 0; i < userWord.length; i++) {
-				  			isItTheSecondTimeOfThisLetter[userWord[i]] = false
+
+
+					  	//new
+				  		for (let i = userWord.length-1; i >= 0; i--) {
+				  			console.log(userWord[i])
+				  			forDoubleLetters[userWord[i]][0]++
+				  			if (count(userWord, userWord[i]) > 1) {
+				  				console.log('more than one in the user word')
+				  				if (count(dailyWord, userWord[i]) === count(userWord, userWord[i])) {
+				  					console.log('dont need to color')
+				  				} else if (count(dailyWord, userWord[i]) === 1) {
+				  					console.log('the letter is once in the daily word')
+				  					// let checkIfThereIsGreen = false
+				  					console.log(forDoubleLetters[userWord[i]])
+				  					console.log(count(userWord, userWord[i]))
+				  					if (arr[state.writingDirection[i]] !== '#6AAA64') {
+				  						if (forDoubleLetters[userWord[i]][0] < count(userWord, userWord[i]) || forDoubleLetters[userWord[i]][1]) {
+				  							console.log(userWord[state.writingDirection[i]])
+				  							console.log(state.writingDirection[i])
+				  							console.log('gray')
+				  							arr[state.writingDirection[i]] = 'gray'					  							
+				  						}
+				  					} else if (arr[state.writingDirection[i]] !== 'gray') {
+				  						forDoubleLetters[userWord[i]][1] = true
+				  					}
+				  				} else if (count(dailyWord, userWord[i]) === 2) {
+				  					if (arr[state.writingDirection[i]] !== '#6AAA64') {
+				  						if (!forDoubleLetters[userWord[i]][2]) {
+					  						arr[state.writingDirection[i]] = 'gray'				  							
+					  						forDoubleLetters[userWord[i]][2] = true			  							
+				  						}
+				  					}
+				  				}
+				  			}
 					  	}
-					  	for (let i = 0; i < userWord.length; i++) {
-					  		// check if its the second time of this letter in the user word
-							if ((isItTheSecondTimeOfThisLetter[userWord[i]]
-								 //check if the second time of the letter is green
-							     || arr[state.writingDirection[userWord.lastIndexOf(userWord[i])]] === '#6AAA64')
-								 // check the first time of the letter is not green
-							     && arr[state.writingDirection[i]] !== '#6AAA64')
-							{
-								// check if this double letter of the user
-								// are also double in the daily word
-								if (dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
-									arr[state.writingDirection[i]] = 'gray'
-								}
-							} else {
-								// change the letter for true that if it will show again
-								// we will know its the second time of this letter 
-				  				isItTheSecondTimeOfThisLetter[userWord[i]] = true
-							}
-						}
+
+					 //  	let isItTheSecondTimeOfThisLetter = {}
+					 //  	for (let i = 0; i < userWord.length; i++) {
+				  // 			isItTheSecondTimeOfThisLetter[userWord[i]] = false
+					 //  	}
+					 //  	for (let i = 0; i < userWord.length; i++) {
+					 //  		// check if its the second time of this letter in the user word
+						// 	if ((isItTheSecondTimeOfThisLetter[userWord[i]]
+						// 		 //check if the second time of the letter is green
+						// 	     || arr[state.writingDirection[userWord.lastIndexOf(userWord[i])]] === '#6AAA64')
+						// 		 // check the first time of the letter is not green
+						// 	     && arr[state.writingDirection[i]] !== '#6AAA64')
+						// 	{
+						// 		// check if this double letter of the user
+						// 		// are also double in the daily word
+						// 		if (dailyWord.indexOf(userWord[i]) === dailyWord.lastIndexOf(userWord[i])) {
+						// 			arr[state.writingDirection[i]] = 'gray'
+						// 		}
+						// 	} else {
+						// 		// change the letter for true that if it will show again
+						// 		// we will know its the second time of this letter 
+				  // 				isItTheSecondTimeOfThisLetter[userWord[i]] = true
+						// 	}
+						// }
 				  	} else {
 				  		// put message that the user need to use the yellow letters
 				  		document.querySelector('.messages').style.display = 'block'
