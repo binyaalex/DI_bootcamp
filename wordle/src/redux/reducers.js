@@ -193,7 +193,7 @@ export const reducer = (state=initState, action={}) => {
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  // check if there is such a word
-		  if (isWordInWordList || true) {
+		  if (isWordInWordList) {
 		  	if (isGrayLetterInUserWord() || !state.hardMode) {
 		  		// check the user use all the green letters in there place
 			  	if (newIsGreenLetterInUserWord || !state.hardMode) {
@@ -233,7 +233,7 @@ export const reducer = (state=initState, action={}) => {
 					  	}
 
 
-					  	//new
+					  	// new check for double letters
 				  		for (let i = userWord.length-1; i >= 0; i--) {
 				  			console.log(userWord[i])
 				  			forDoubleLetters[userWord[i]][0]++
@@ -243,7 +243,6 @@ export const reducer = (state=initState, action={}) => {
 				  					console.log('dont need to color')
 				  				} else if (count(dailyWord, userWord[i]) === 1) {
 				  					console.log('the letter is once in the daily word')
-				  					// let checkIfThereIsGreen = false
 				  					console.log(forDoubleLetters[userWord[i]])
 				  					console.log(count(userWord, userWord[i]))
 				  					if (arr[state.writingDirection[i]] !== '#6AAA64') {

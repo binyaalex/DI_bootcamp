@@ -13,13 +13,14 @@ import {finalToRegular} from './redux/reducers';
 
 
 const App = (props) => {
-  const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode} = props
+  const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode, hardMode} = props
   
   useEffect(() => {
     const triesBoxes = document.querySelectorAll('.letterBox')
     const boardLetters = document.querySelectorAll('.boardLetter')
     const messages = document.querySelector('.messages')
     const playAgainBtn = document.querySelector('.playAgain')
+    const hardModeInput = document.querySelector('.hardModeInput')
 
     console.log(dailyWord)
     document.body.addEventListener('keydown', change1) // for real keyboard
@@ -40,6 +41,8 @@ const App = (props) => {
       firstLoad = false
     }
     if (firstLoad) {
+      hardModeInput.checked = hardMode
+
       const lastTry = document.querySelector('.tries').children[turn-1].children 
  
       // color the letters of the last try according the result
@@ -156,7 +159,8 @@ const mapStateToProps = (state) => {
     turn: state.turn,
     dailyWord: state.dailyWord,
     writingDirection: state.writingDirection,
-    screenMode: state.screenMode
+    screenMode: state.screenMode,
+    hardMode: state.hardMode,
   }
 }
 
