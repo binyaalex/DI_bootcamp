@@ -157,19 +157,19 @@ export const reducer = (state=initState, action={}) => {
 		}
 		checkTheYellowLetters()
 
-		const isYellowLetterInUserWord = () => {
-			for (let i = 0; i < isYellowLetterInUserWordArr.length; i++) {
-				for (var d = 0; d < isYellowLetterInUserWordArr[i].length; d++) {
-					if (isYellowLetterInUserWordArr[i][d].length > 0) {
-						if (isYellowLetterInUserWordArr[i][d].some(ele => ele === true)) {
-						} else {
-							return false
-						}
-					}
-				}
-			}
-			return true
-		}
+		// const isYellowLetterInUserWord = () => {
+		// 	for (let i = 0; i < isYellowLetterInUserWordArr.length; i++) {
+		// 		for (var d = 0; d < isYellowLetterInUserWordArr[i].length; d++) {
+		// 			if (isYellowLetterInUserWordArr[i][d].length > 0) {
+		// 				if (isYellowLetterInUserWordArr[i][d].some(ele => ele === true)) {
+		// 				} else {
+		// 					return false
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// 	return true
+		// }
 
 		// const isGreenLetterInUserWord = () => {
 		// 	for (let i = 0; i < isGreenLetterInUserWordArr.length; i++) {
@@ -195,19 +195,30 @@ export const reducer = (state=initState, action={}) => {
 			  		// check the user use all the yellow letters and not in the same place
 				  	if (newIsYellowLetterInUserWord || !state.hardMode) {
 				  		for (let i = 0; i < userWord.length; i++) {
-				  			// check if the user letters are used in the daily word
-				  			// and if so color them in yellow
-				  			for (let d = 0; d < dailyWord.length; d++) {
-				  				if (userWord[i].toLowerCase() === dailyWord[d]) {
-				  					arr[state.writingDirection[i]] = '#C9B458' // yellow
 
-				  					// check if the user letters are in the right place
-						  			// and if so color them in green
-						  			if (userWord[i].toLowerCase() === dailyWord[i]) {
-						  				arr[state.writingDirection[i]] = '#6AAA64' // green
-						  			}
+				  			//new
+				  			if (dailyWord.includes(userWord[i].toLowerCase())) {
+				  				arr[state.writingDirection[i]] = '#C9B458' // yellow
+				  				
+				  				if (userWord[i].toLowerCase() === dailyWord[i]) {
+						  			arr[state.writingDirection[i]] = '#6AAA64' // green
 				  				}
 				  			}
+
+
+				  			// // check if the user letters are used in the daily word
+				  			// // and if so color them in yellow
+				  			// for (let d = 0; d < dailyWord.length; d++) {
+				  			// 	if (userWord[i].toLowerCase() === dailyWord[d]) {
+				  			// 		arr[state.writingDirection[i]] = '#C9B458' // yellow
+
+				  			// 		// check if the user letters are in the right place
+						  	// 		// and if so color them in green
+						  	// 		if (userWord[i].toLowerCase() === dailyWord[i]) {
+						  	// 			arr[state.writingDirection[i]] = '#6AAA64' // green
+						  	// 		}
+				  			// 	}
+				  			// }
 				  							  					  	 					  	    
 					  	}
 					  	let isItTheSecondTimeOfThisLetter = {}
