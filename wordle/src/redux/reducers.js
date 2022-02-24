@@ -112,7 +112,6 @@ export const reducer = (state=initState, action={}) => {
 		// let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let newIsGreenLetterInUserWord = true
 		let newIsYellowLetterInUserWord = false
-						console.log(newIsYellowLetterInUserWord)
 		let noYellowLettersInUserTries
 		const checkTheYellowLetters = () => {
 			for (let c = 0; c < state.turn; c++) {
@@ -122,8 +121,6 @@ export const reducer = (state=initState, action={}) => {
 
 					// new check the green letters
 					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
-						console.log(letter)
-						console.log(userWord[b])
 						if (letter !== userWord[b]) {
 							newIsGreenLetterInUserWord = false
 						}
@@ -138,20 +135,12 @@ export const reducer = (state=initState, action={}) => {
 					// 		isGreenLetterInUserWordArr[c][state.writingDirection[b]].push(false)
 					// 	}
 					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
-							console.log(letter)
 						noYellowLettersInUserTries = false
-						console.log(newIsYellowLetterInUserWord)
 						// check the yellow letters
 						for (let a = 0; a < userWord.length; a++) {
-							console.log(userWord[a])
 							if (userWord[a] === letter && a !== b) {
-							console.log(userWord[a])
-								newIsYellowLetterInUserWord = true
-							} else if (userWord.includes(letter)) {
-							console.log(userWord[a])
 								newIsYellowLetterInUserWord = true
 							} else if (userWord[a] === letter && a === b) {
-							console.log(userWord[a])
 								newIsYellowLetterInUserWord = false
 								return false
 							}
@@ -169,6 +158,7 @@ export const reducer = (state=initState, action={}) => {
 			}
 		}
 
+		// for not stop in the first try but will stop if you dont use the yellow letters at all
 		if (state.turn < 1) {
 			noYellowLettersInUserTries = true
 		}
@@ -209,7 +199,7 @@ export const reducer = (state=initState, action={}) => {
 		  let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
 		  let isWordInWordList = state.wordList.some(ele => ele.toUpperCase() === state.userWord[state.turn])
 		  // check if there is such a word
-		  if (isWordInWordList || true) {
+		  if (isWordInWordList) {
 		  	if (isGrayLetterInUserWord() || !state.hardMode) {
 		  		// check the user use all the green letters in there place
 			  	if (newIsGreenLetterInUserWord || !state.hardMode) {
