@@ -446,6 +446,7 @@ button {
   font-weight: bold;
   padding: 12px 15px;
   border-radius: 5px;
+  z-index: 3;
 }
 
 .messages > * {
