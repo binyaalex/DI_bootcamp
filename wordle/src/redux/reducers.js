@@ -398,35 +398,21 @@ export const reducer = (state=initState, action={}) => {
 		  return {...state, hardMode: newHardMode}
 		case 'CHANGE_SCREEN_MODE':
 		  console.log('CHANGE_SCREEN_MODE')
-		  if (state.turn === 0) {
-		 	let screenMode
-			if (state.screenMode.BGC === 'white') {
-				screenMode = {
-					BGC: 'black',
-					color: 'white',
-					letterBG: '#3A3A3C',
-					letterBorderC: '#3A3A3C',
-					fullLetterBorderC: '#818384',
-					keyboardRegularBG: '#3A3A3C',
-					headerBorderBottom: '1px solid #3A3A3C',
-				}
-			} else {
-				screenMode = initState.screenMode
+	 	  let screenMode
+		  if (state.screenMode.BGC === 'white') {
+			screenMode = {
+				BGC: 'black',
+				color: 'white',
+				letterBG: '#3A3A3C',
+				letterBorderC: '#3A3A3C',
+				fullLetterBorderC: '#818384',
+				keyboardRegularBG: '#3A3A3C',
+				headerBorderBottom: '1px solid #3A3A3C',
 			}
-			return {...state, screenMode: screenMode}	
 		  } else {
-			console.log(messages)
-		  	// put message that the user can't change to dark mode during the game
-			const darkModeDisable = document.querySelector('.darkModeDisable')	
-	  		messages.style.display = 'block'
-		  	darkModeDisable.style.display = 'block'
-		  	const undisplay = () => {
-        		messages.style.display = 'none'
-		  		darkModeDisable.style.display = 'none'
-		  	}
-		  	setTimeout(undisplay, 800)
-			return {...state}	
-		  }	  
+			screenMode = initState.screenMode
+		  }
+		  return {...state, screenMode: screenMode}	
 		case 'END':
 		  return {...state, endOfGame: true}
 

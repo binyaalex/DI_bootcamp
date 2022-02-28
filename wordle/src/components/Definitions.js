@@ -3,22 +3,22 @@ import {changeLanguageAction, changeHardModeAction, changeScreenModeAction} from
 
 
 const Definitions = (props) => {
-	const {changeLanguage, changeHardMode, changeScreenMode, language, endOfGame} = props
+	const {changeLanguage, changeHardMode, changeScreenMode, turn} = props
 
-	// const showDarkModeDisableMsg = () => {
-	// 	const messages = document.querySelector('.messages')
-	// 	if (true) {
-	// 		// put message that the user can't change dark mode during the game
-	// 		const darkModeDisable = document.querySelector('.darkModeDisable')	
-	//   		messages.style.display = 'block'
-	// 	  	darkModeDisable.style.display = 'block'
-	// 	  	const undisplay = () => {
- //        		messages.style.display = 'none'
-	// 	  		darkModeDisable.style.display = 'none'
-	// 	  	}
-	// 	  	setTimeout(undisplay, 800)
-	// 	}
-	// }
+	const showDarkModeDisableMsg = () => {
+		const messages = document.querySelector('.messages')
+		if (turn) {
+			// put message that the user can't change dark mode during the game
+			const darkModeDisable = document.querySelector('.darkModeDisable')	
+	  		messages.style.display = 'block'
+		  	darkModeDisable.style.display = 'block'
+		  	const undisplay = () => {
+        		messages.style.display = 'none'
+		  		darkModeDisable.style.display = 'none'
+		  	}
+		  	setTimeout(undisplay, 800)
+		}
+	}
 
 	return (
 		<div className='Definitions'>
@@ -48,7 +48,7 @@ const Definitions = (props) => {
 				</section>
 				<section className='darkMode'>
 					<h6>Dark Mode</h6>
-					<label  className="switch">
+					<label onClick={showDarkModeDisableMsg} className="switch">
 						{/*<button onClick={changeScreenMode} className='hardModeBtn'>Dark Mode</button>*/}
 						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
 						<span className="slider round"></span>
@@ -59,6 +59,12 @@ const Definitions = (props) => {
 	)
 }
 
+const mapStateToProps = (state) => {
+  return {
+    turn: state.turn,
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     changeLanguage: (e) => dispatch(changeLanguageAction(e.target)),
@@ -67,4 +73,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Definitions) 
+export default connect(mapStateToProps, mapDispatchToProps)(Definitions) 
