@@ -8,8 +8,6 @@ function count(str, find) {
 
 let randomNum = Math.floor(Math.random() * WORDS.length);
 				  		
-const messages = document.querySelector('.messages')
-
 // function that change final letters to regular
 export const finalToRegular = (letter) => {
 	if (letter === 'ם') {
@@ -60,6 +58,7 @@ export const initState = {
 	}
 
 export const reducer = (state=initState, action={}) => {
+	const messages = document.querySelector('.messages')
 	let userWord = {...state.userWord}
 	console.log(userWord)
 	switch (action.type) {
@@ -296,12 +295,12 @@ export const reducer = (state=initState, action={}) => {
 						// }
 				  	} else {
 				  		// put message that the user need to use the yellow letters
-				  		document.querySelector('.messages').style.display = 'block'
+				  		messages.style.display = 'block'
 					  	document.querySelector('.yellowMsg').style.display = 'block'
 					  	tries[state.turn].classList.add('shake')
 					  	const undisplay = () => {
 					  		tries[state.turn].classList.remove('shake')
-			        		document.querySelector('.messages').style.display = 'none'
+			        		messages.style.display = 'none'
 					  		document.querySelector('.yellowMsg').style.display = 'none'
 					  	}
 					  	setTimeout(undisplay, 800)
@@ -309,25 +308,25 @@ export const reducer = (state=initState, action={}) => {
 				  	}
 			  	} else {
 				  	// put message that the user need to use the green letters
-			  		document.querySelector('.messages').style.display = 'block'
+			  		messages.style.display = 'block'
 				  	document.querySelector('.greenMsg').style.display = 'block'
 				  	tries[state.turn].classList.add('shake')
 				  	const undisplay = () => {
 				  		tries[state.turn].classList.remove('shake')
-		        		document.querySelector('.messages').style.display = 'none'
+		        		messages.style.display = 'none'
 				  		document.querySelector('.greenMsg').style.display = 'none'
 				  	}
 				  	setTimeout(undisplay, 800)
 			  		return {...state}
 			  	}
 		  	} else {
-		  		// put message that the user need to use the gray letters
-		  		document.querySelector('.messages').style.display = 'block'
+		  		// put message that the user can't use the gray letters
+		  		messages.style.display = 'block'
 			  	document.querySelector('.grayMsg').style.display = 'block'
 			  	tries[state.turn].classList.add('shake')
 			  	const undisplay = () => {
 			  		tries[state.turn].classList.remove('shake')
-	        		document.querySelector('.messages').style.display = 'none'
+	        		messages.style.display = 'none'
 			  		document.querySelector('.grayMsg').style.display = 'none'
 			  	}
 			  	setTimeout(undisplay, 800)
@@ -336,12 +335,12 @@ export const reducer = (state=initState, action={}) => {
 		  	
 		  } else {
 			// put message that there is no such a word
-        	document.querySelector('.messages').style.display = 'block'
+        	messages.style.display = 'block'
 		  	document.querySelector('.noWord').style.display = 'block'
 		  	tries[state.turn].classList.add('shake')
 		  	const undisplay = () => {
 		  		tries[state.turn].classList.remove('shake')
-        		document.querySelector('.messages').style.display = 'none'
+        		messages.style.display = 'none'
 		  		document.querySelector('.noWord').style.display = 'none'
 		  	}
 		  	setTimeout(undisplay, 800)
@@ -411,11 +410,12 @@ export const reducer = (state=initState, action={}) => {
 			}
 			return {...state, screenMode: screenMode}	
 		  } else {
-		  	// put message that the user need to use the green letters
-	  		document.querySelector('.messages').style.display = 'block'
+			console.log(messages)
+		  	// put message that the user can't change to dark mode during the game
+	  		messages.style.display = 'block'
 		  	document.querySelector('.darkModeDisable').style.display = 'block'
 		  	const undisplay = () => {
-        		document.querySelector('.messages').style.display = 'none'
+        		messages.style.display = 'none'
 		  		document.querySelector('.darkModeDisable').style.display = 'none'
 		  	}
 		  	setTimeout(undisplay, 800)
