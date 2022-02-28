@@ -51,7 +51,7 @@ export const initState = {
 			win: ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'],
 			loser: 'Game over, the word is',
 			noWord: 'there is no such a word!',
-			gray: `You can't use the gray!`,
+			gray: `You can't use the gray letters!`,
 			green: 'You must use the green letters in there spot!',
 			yellow: 'You must use the yellow letters not in the same spot!',
 			wrongLanguage: 'Bro you on Hebrew',
