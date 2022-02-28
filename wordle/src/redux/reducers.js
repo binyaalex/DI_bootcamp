@@ -112,7 +112,7 @@ export const reducer = (state=initState, action={}) => {
 		// let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let newIsGreenLetterInUserWord = true
 		let newIsYellowLetterInUserWord = false
-		let noYellowLettersInUserTries
+		let noYellowLettersInUserTries = 1
 		const checkTheYellowLetters = () => {
 			for (let c = 0; c < state.turn; c++) {
 				for (let b = 0; b < tries[c].children.length; b++) {
@@ -136,6 +136,7 @@ export const reducer = (state=initState, action={}) => {
 					// 	}
 					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
 						noYellowLettersInUserTries = false
+						console.log(noYellowLettersInUserTries)
 						// check the yellow letters
 						for (let a = 0; a < userWord.length; a++) {
 							if (userWord[a] === letter && a !== b) {
@@ -158,14 +159,12 @@ export const reducer = (state=initState, action={}) => {
 			}
 		}
 
-		// for not stop in the first try but will stop if you dont use the yellow letters at all
-		if (state.turn < 1) {
-			noYellowLettersInUserTries = true
-		}
+		// for not stop in the first try and if there is no yellow letters yet
+		checkTheYellowLetters()
 		if (noYellowLettersInUserTries) {
+			console.log(0)
 			newIsYellowLetterInUserWord = true
 		}
-		checkTheYellowLetters()
 		console.log(newIsYellowLetterInUserWord)
 
 		// const isYellowLetterInUserWord = () => {
