@@ -63,7 +63,8 @@ const App = (props) => {
               boardLetters[d].disabled = true
               document.body.removeEventListener('keydown', change1)
             }
-            let letter = finalToRegular(lastTry[writingDirection[i]].textContent)
+            let letter = finalToRegular(lastTry[writingDirection[i]].textContent).toUpperCase()
+            console.log(letter)
             if (boardLetter === letter &&
                 boardLetters[d].style.backgroundColor !== 'rgb(106, 170, 100)')
             {
