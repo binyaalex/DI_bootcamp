@@ -5,6 +5,21 @@ import {changeLanguageAction, changeHardModeAction, changeScreenModeAction} from
 const Definitions = (props) => {
 	const {changeLanguage, changeHardMode, changeScreenMode, language, endOfGame} = props
 
+	// const showDarkModeDisableMsg = () => {
+	// 	const messages = document.querySelector('.messages')
+	// 	if (true) {
+	// 		// put message that the user can't change dark mode during the game
+	// 		const darkModeDisable = document.querySelector('.darkModeDisable')	
+	//   		messages.style.display = 'block'
+	// 	  	darkModeDisable.style.display = 'block'
+	// 	  	const undisplay = () => {
+ //        		messages.style.display = 'none'
+	// 	  		darkModeDisable.style.display = 'none'
+	// 	  	}
+	// 	  	setTimeout(undisplay, 800)
+	// 	}
+	// }
+
 	return (
 		<div className='Definitions'>
 			<header className='definitionsHeader'>
@@ -27,15 +42,15 @@ const Definitions = (props) => {
 					</div>
 						<label className="switch">
 		    				{/*{<button onClick={changeHardMode}></button>}*/}
-							<input className='hardModeInput' onClick={changeHardMode} type="checkbox" />
+							<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
 							<span className="slider round"></span>
 						</label>
 				</section>
 				<section className='darkMode'>
 					<h6>Dark Mode</h6>
-					<label className="switch">
+					<label  className="switch">
 						{/*<button onClick={changeScreenMode} className='hardModeBtn'>Dark Mode</button>*/}
-						<input onClick={changeScreenMode} type="checkbox" />
+						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
 						<span className="slider round"></span>
 					</label>
 				</section>

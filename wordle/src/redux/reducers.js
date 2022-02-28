@@ -59,6 +59,7 @@ export const initState = {
 
 export const reducer = (state=initState, action={}) => {
 	const messages = document.querySelector('.messages')
+
 	let userWord = {...state.userWord}
 	console.log(userWord)
 	switch (action.type) {
@@ -295,26 +296,28 @@ export const reducer = (state=initState, action={}) => {
 						// }
 				  	} else {
 				  		// put message that the user need to use the yellow letters
+						const yellowMsg = document.querySelector('.yellowMsg')	
 				  		messages.style.display = 'block'
-					  	document.querySelector('.yellowMsg').style.display = 'block'
+					  	yellowMsg.style.display = 'block'
 					  	tries[state.turn].classList.add('shake')
 					  	const undisplay = () => {
 					  		tries[state.turn].classList.remove('shake')
 			        		messages.style.display = 'none'
-					  		document.querySelector('.yellowMsg').style.display = 'none'
+					  		yellowMsg.style.display = 'none'
 					  	}
 					  	setTimeout(undisplay, 800)
 				  		return {...state}
 				  	}
 			  	} else {
 				  	// put message that the user need to use the green letters
+					const greenMsg = document.querySelector('.greenMsg')	
 			  		messages.style.display = 'block'
-				  	document.querySelector('.greenMsg').style.display = 'block'
+				  	greenMsg.style.display = 'block'
 				  	tries[state.turn].classList.add('shake')
 				  	const undisplay = () => {
 				  		tries[state.turn].classList.remove('shake')
 		        		messages.style.display = 'none'
-				  		document.querySelector('.greenMsg').style.display = 'none'
+				  		greenMsg.style.display = 'none'
 				  	}
 				  	setTimeout(undisplay, 800)
 			  		return {...state}
@@ -322,12 +325,13 @@ export const reducer = (state=initState, action={}) => {
 		  	} else {
 		  		// put message that the user can't use the gray letters
 		  		messages.style.display = 'block'
-			  	document.querySelector('.grayMsg').style.display = 'block'
+				const grayMsg = document.querySelector('.grayMsg')	
+			  	grayMsg.style.display = 'block'
 			  	tries[state.turn].classList.add('shake')
 			  	const undisplay = () => {
 			  		tries[state.turn].classList.remove('shake')
 	        		messages.style.display = 'none'
-			  		document.querySelector('.grayMsg').style.display = 'none'
+			  		grayMsg.style.display = 'none'
 			  	}
 			  	setTimeout(undisplay, 800)
 		  		return {...state}
@@ -335,13 +339,14 @@ export const reducer = (state=initState, action={}) => {
 		  	
 		  } else {
 			// put message that there is no such a word
+			const noWord = document.querySelector('.noWord')	
         	messages.style.display = 'block'
-		  	document.querySelector('.noWord').style.display = 'block'
+		  	noWord.style.display = 'block'
 		  	tries[state.turn].classList.add('shake')
 		  	const undisplay = () => {
 		  		tries[state.turn].classList.remove('shake')
         		messages.style.display = 'none'
-		  		document.querySelector('.noWord').style.display = 'none'
+		  		noWord.style.display = 'none'
 		  	}
 		  	setTimeout(undisplay, 800)
 		  	return {...state}
@@ -412,11 +417,12 @@ export const reducer = (state=initState, action={}) => {
 		  } else {
 			console.log(messages)
 		  	// put message that the user can't change to dark mode during the game
+			const darkModeDisable = document.querySelector('.darkModeDisable')	
 	  		messages.style.display = 'block'
-		  	document.querySelector('.darkModeDisable').style.display = 'block'
+		  	darkModeDisable.style.display = 'block'
 		  	const undisplay = () => {
         		messages.style.display = 'none'
-		  		document.querySelector('.darkModeDisable').style.display = 'none'
+		  		darkModeDisable.style.display = 'none'
 		  	}
 		  	setTimeout(undisplay, 800)
 			return {...state}	
