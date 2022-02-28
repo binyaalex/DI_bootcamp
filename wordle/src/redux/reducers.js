@@ -51,7 +51,7 @@ export const initState = {
 			win: ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'],
 			loser: 'Game over, the word is',
 			noWord: 'there is no such a word!',
-			gray: `You can't use the gray letters in there spot!`,
+			gray: `You can't use the gray!`,
 			green: 'You must use the green letters in there spot!',
 			yellow: 'You must use the yellow letters not in the same spot!',
 			wrongLanguage: 'Bro you on Hebrew',
@@ -98,7 +98,7 @@ export const reducer = (state=initState, action={}) => {
 
 		const isGrayLetterInUserWord = () => {
 		    for (let i = 0; i < userWord.length; i++) {
-	    		if (grayLetters.includes(userWord[i])) {
+	    		if (grayLetters.includes(userWord[i].toUpperCase())) {
 	    			return false
 	    		}	
 		    }
