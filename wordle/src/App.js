@@ -33,6 +33,10 @@ const App = (props) => {
     document.querySelector('.allDad').style.color = screenMode.color
     document.querySelector('.mainHeader').style.borderBottom = screenMode.headerBorderBottom
 
+    if (turn > 0) {
+        document.querySelector('.darkModeInput').disabled = true
+    }
+
     // for not try to color the last try in first load and then stuck
     let firstLoad
     if (turn !== 0) {
@@ -135,7 +139,7 @@ const App = (props) => {
       }
     }
 
-    });
+  });
 
   return (
     <div className='allDad'>
