@@ -108,6 +108,7 @@ export const reducer = (state=initState, action={}) => {
 
 		// make two array to check the user use all the hints, green and yellow.
 		const tries = document.querySelectorAll('.try')
+		const lastTry = tries[state.turn]
 		let isYellowLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		// let isGreenLetterInUserWordArr = [[[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], [[], [], [], [], []], ]
 		let newIsGreenLetterInUserWord = true
@@ -299,9 +300,9 @@ export const reducer = (state=initState, action={}) => {
 						const yellowMsg = document.querySelector('.yellowMsg')	
 				  		messages.style.display = 'block'
 					  	yellowMsg.style.display = 'block'
-					  	tries[state.turn].classList.add('shake')
+					  	lastTry.classList.add('shake')
 					  	const undisplay = () => {
-					  		tries[state.turn].classList.remove('shake')
+					  		lastTry.classList.remove('shake')
 			        		messages.style.display = 'none'
 					  		yellowMsg.style.display = 'none'
 					  	}
@@ -313,9 +314,9 @@ export const reducer = (state=initState, action={}) => {
 					const greenMsg = document.querySelector('.greenMsg')	
 			  		messages.style.display = 'block'
 				  	greenMsg.style.display = 'block'
-				  	tries[state.turn].classList.add('shake')
+				  	lastTry.classList.add('shake')
 				  	const undisplay = () => {
-				  		tries[state.turn].classList.remove('shake')
+				  		lastTry.classList.remove('shake')
 		        		messages.style.display = 'none'
 				  		greenMsg.style.display = 'none'
 				  	}
@@ -327,9 +328,9 @@ export const reducer = (state=initState, action={}) => {
 		  		messages.style.display = 'block'
 				const grayMsg = document.querySelector('.grayMsg')	
 			  	grayMsg.style.display = 'block'
-			  	tries[state.turn].classList.add('shake')
+			  	lastTry.classList.add('shake')
 			  	const undisplay = () => {
-			  		tries[state.turn].classList.remove('shake')
+			  		lastTry.classList.remove('shake')
 	        		messages.style.display = 'none'
 			  		grayMsg.style.display = 'none'
 			  	}
@@ -342,9 +343,9 @@ export const reducer = (state=initState, action={}) => {
 			const noWord = document.querySelector('.noWord')	
         	messages.style.display = 'block'
 		  	noWord.style.display = 'block'
-		  	tries[state.turn].classList.add('shake')
+		  	lastTry.classList.add('shake')
 		  	const undisplay = () => {
-		  		tries[state.turn].classList.remove('shake')
+		  		lastTry.classList.remove('shake')
         		messages.style.display = 'none'
 		  		noWord.style.display = 'none'
 		  	}
@@ -383,17 +384,16 @@ export const reducer = (state=initState, action={}) => {
 		// change language to english
 		case 'EN':
 		  randomNum = Math.floor(Math.random() * WORDS.length);
-		  console.log(initState.screenMode)
 		  const oldScreenMode = state.screenMode
 		  const oldHardMode = state.hardMode
 		  return {...initState, dailyWord: WORDS[randomNum], screenMode: oldScreenMode, hardMode: oldHardMode}
 		case 'CHANGE_HARD_MODE':
 		  console.log('CHANGE_HARD_MODE')
 		  let newHardMode
-		  if (state.hardMode === false) {
-		  	newHardMode = true
-		  } else {
+		  if (state.hardMode) {
 		  	newHardMode = false
+		  } else {
+		  	newHardMode = true
 		  }
 		  return {...state, hardMode: newHardMode}
 		case 'CHANGE_SCREEN_MODE':
