@@ -72,10 +72,6 @@ const App = (props) => {
               if (result[writingDirection[i]] === 'gray' &&
                   boardLetters[d].style.backgroundColor === 'rgb(201, 180, 88)') {
               } else {
-                console.log(result)
-                console.log(i)
-                console.log(boardLetters[d])
-                console.log(boardLetter)
                 boardLetters[d].style.backgroundColor = result[writingDirection[i]]
                 boardLetters[d].style.color = 'white'
                 lastTry[writingDirection[i]].style.border = '0'

@@ -27,21 +27,12 @@ const Definitions = (props) => {
 				<div onClick={props.displayDefinitions} className='x'>X</div>
 			</header>
 			<main>
-				<section className='languageMode'>
-					<h6>Hebrew</h6>
-					<label className="switch">
-		    			{/*<button onClick={changeLanguage}  className='languageBtn'>עב</button>*/}
-						<input type="checkbox" />
-						<span className="slider round"></span>
-					</label>
-				</section>
 				<section className='hardMode'>
 					<div className='hardModeTitle'>
 						<h6>Hard Mode</h6>
 						<div className='btnExplanation'>Any revealed hints must be used in subsequent guesses</div>
 					</div>
 						<label className="switch">
-		    				{/*{<button onClick={changeHardMode}></button>}*/}
 							<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
 							<span className="slider round"></span>
 						</label>
@@ -49,7 +40,6 @@ const Definitions = (props) => {
 				<section className='darkMode'>
 					<h6>Dark Mode</h6>
 					<label onClick={showDarkModeDisableMsg} className="switch">
-						{/*<button onClick={changeScreenMode} className='hardModeBtn'>Dark Mode</button>*/}
 						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
 						<span className="slider round"></span>
 					</label>
@@ -68,8 +58,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     changeLanguage: (e) => dispatch(changeLanguageAction(e.target)),
-    changeHardMode: (e) => dispatch(changeHardModeAction(e.target)),
-    changeScreenMode: (e) => dispatch(changeScreenModeAction(e.target)),
+    changeHardMode: () => dispatch(changeHardModeAction()),
+    changeScreenMode: () => dispatch(changeScreenModeAction()),
   }
 }
 

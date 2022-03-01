@@ -2,7 +2,6 @@ import {connect} from 'react-redux';
 import {changeLanguageAction} from '../../redux/actions';
 import Help from './Help'
 import Definitions from './Definitions'
-// import Result from './Result'
 
 const Header = (props) => {
 	const {language, endOfGame, gameName, changeLanguage} = props
@@ -62,16 +61,6 @@ const Header = (props) => {
 			document.body.querySelector('.definitionsPage').style.display = 'none'
 		}
 	}
-
-	// const getResult = () => {
-	// 	document.querySelector('.resultPage').style.display = 'block'
-	// 	const tries = document.querySelector('.tries').children
-	// 	for (let i = 0; i < tries.length; i++) {
-	// 		for (let d = 0; d < tries[i].children.length; d++) {
-	// 			console.log(tries[i].children[d].style.backgroundColor)	
-	// 		}
-	// 	}
-	// }
 
 	return (
 		<header className='mainHeader'>
