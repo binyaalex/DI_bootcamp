@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {changeLanguageAction, changeHardModeAction, changeScreenModeAction} from '../redux/actions';
+import {changeLanguageAction, changeHardModeAction, changeScreenModeAction} from '../../redux/actions';
 
 
 const Definitions = (props) => {

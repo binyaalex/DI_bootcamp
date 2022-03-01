@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {playAgainAction} from '../redux/actions';
+import {playAgainAction} from '../../redux/actions';
 
 const PlayAgain = (props) => {
 	const {playAgain} = props

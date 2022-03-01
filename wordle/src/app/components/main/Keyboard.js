@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {changeAction, enterAction, delAction} from '../redux/actions';
+import {changeAction, enterAction, delAction} from '../../redux/actions';
 
 
 const Keyboard = (props) => {

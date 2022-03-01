@@ -1,10 +1,9 @@
 import './App.css';
-import Header from './components/Header'
-import Tries from './components/Tries'
-import Keyboard from './components/Keyboard'
-import Messages from './components/Messages'
-import Result from './components/Result'
-import PlayAgain from './components/PlayAgain'
+import Header from './components/header/Header'
+import Tries from './components/main/Tries'
+import Keyboard from './components/main/Keyboard'
+import Messages from './components/temporary-components/Messages'
+import PlayAgain from './components/temporary-components/PlayAgain'
 import {connect} from 'react-redux';
 import React, { useEffect } from 'react';
 import {changeAction, endTheGameAction} from './redux/actions';
@@ -148,7 +147,6 @@ const App = (props) => {
         <Tries />
         <Keyboard />
         <Messages />
-        <Result />
         <PlayAgain />
       </div>
     </div>

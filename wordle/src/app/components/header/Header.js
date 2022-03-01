@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {changeLanguageAction} from '../redux/actions';
+import {changeLanguageAction} from '../../redux/actions';
 import Help from './Help'
 import Definitions from './Definitions'
 // import Result from './Result'

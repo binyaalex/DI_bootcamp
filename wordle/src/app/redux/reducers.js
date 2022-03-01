@@ -1,5 +1,5 @@
-import {WORDS, WORDSCheckList} from '../components/wordList'
-import {HebrewWords, HebrewWordsCheckList} from '../components/HebrewWordList'
+import {WORDS, WORDSCheckList} from '../words-arrays/WordList'
+import {HebrewWords, HebrewWordsCheckList} from '../words-arrays/HebrewWordList'
 
 // for check how many of certain letter there is in the word
 function count(str, find) {
