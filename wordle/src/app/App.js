@@ -12,14 +12,13 @@ import {finalToRegular} from './redux/reducers';
 
 
 const App = (props) => {
-  const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode, hardMode} = props
+  const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode} = props
   
   useEffect(() => {
     const triesBoxes = document.querySelectorAll('.letterBox')
     const boardLetters = document.querySelectorAll('.boardLetter')
     const messages = document.querySelector('.messages')
     const playAgainBtn = document.querySelector('.playAgain')
-    const hardModeInput = document.querySelector('.hardModeInput')
 
     console.log(dailyWord)
     document.body.addEventListener('keydown', change1) // for real keyboard
@@ -157,7 +156,6 @@ const mapStateToProps = (state) => {
     dailyWord: state.dailyWord,
     writingDirection: state.writingDirection,
     screenMode: state.screenMode,
-    hardMode: state.hardMode,
   }
 }
 

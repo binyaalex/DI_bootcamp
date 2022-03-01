@@ -78,7 +78,7 @@ const Header = (props) => {
 			</div>
 	    	<div className='leftHeader'>
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
-	    		<img onClick={displayDefinitionsTuggle} className='definitionsBtn' src='gear_gray.svg' />
+	    		<img onClick={displayDefinitionsTuggle} className='definitionsBtn' src='gear_gray.svg' alt='DfnBtn' />
 	    	</div>
 		</header>
 	)

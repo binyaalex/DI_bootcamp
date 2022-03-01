@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
-import {changeLanguageAction, changeHardModeAction, changeScreenModeAction} from '../../redux/actions';
+import {changeHardModeAction, changeScreenModeAction} from '../../redux/actions';
 
 
 const Definitions = (props) => {
-	const {changeLanguage, changeHardMode, changeScreenMode, turn} = props
+	const {changeHardMode, changeScreenMode, turn} = props
 
 	const showDarkModeDisableMsg = () => {
 		const messages = document.querySelector('.messages')
@@ -57,7 +57,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeLanguage: (e) => dispatch(changeLanguageAction(e.target)),
     changeHardMode: () => dispatch(changeHardModeAction()),
     changeScreenMode: () => dispatch(changeScreenModeAction()),
   }

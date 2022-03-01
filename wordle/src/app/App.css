@@ -1,42 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -53,19 +14,12 @@
 
 .mainHeader {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  border-bottom: 1px solid lightgray;
-  position: relative;
-}
-
-.mainHeader {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 8px;
   position: relative;
   height: 8.5vh;
+  width: 100%;
 }
 
 .helpBtn {
@@ -100,10 +54,6 @@ h4 {
   width: 62px;
   position: relative;
   z-index: 1;
-}
-
-img {
-  height: 32px;
 }
 
 .languageBtn {
@@ -275,19 +225,8 @@ section {
 }
 
 .letterBox {
-  transform: scaleY(-1);
-  transition: 1s;
-}
-
-.letterBox {
   transform: scaleY(1);
   transition: 1s;
-}
-
-.letterBox {
-  background-color: transparent;
-  border-color: lightgray;
-  color: black;
 }
 
 .winner > * {
@@ -307,7 +246,6 @@ section {
 .letterBox, .helpLetterBox, .resultSquer {
   width: 45px;
   height: 45px;
-  border: 2px solid gray;
   border-radius: 2px;
   margin: 4px;
   display: flex;
