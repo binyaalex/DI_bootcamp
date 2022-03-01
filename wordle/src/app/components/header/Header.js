@@ -34,7 +34,7 @@ const Header = (props) => {
 		}
 	}
 
-	const displayDefinitions = (e) => {
+	const displayDefinitionsTuggle = (e) => {
 		const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard').style.display
 		if (language === 'עב' && hebrewKeyboard === 'block') {
 			document.body.querySelector('.hebrewKeyboard').style.display = 'none'
@@ -42,7 +42,7 @@ const Header = (props) => {
 			document.body.querySelector('.hebrewKeyboard').style.display = 'block'
 		}
 
-		// all the conditions are for know if to display help and play again button or not
+		// all the conditions are for know if to display definitions and play again button or not
 		const helpDisplay = document.body.querySelector('.definitionsPage').style.display
 		if (helpDisplay !== 'block' && !endOfGame) {
 			document.body.querySelector('.tries').style.display = 'none'
@@ -71,14 +71,14 @@ const Header = (props) => {
 				<Help displayHelpTuggle={displayHelpTuggle} />
 			</div>
 			<div className='definitionsPage'>
-				<Definitions displayDefinitions={displayDefinitions} />
+				<Definitions displayDefinitionsTuggle={displayDefinitionsTuggle} />
 			</div>
 	    	<div className='gameName'>
 	    		<h4>{gameName}</h4>
 			</div>
 	    	<div className='leftHeader'>
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
-	    		<img onClick={displayDefinitions} className='definitionsBtn' src='gear_gray.svg' />
+	    		<img onClick={displayDefinitionsTuggle} className='definitionsBtn' src='gear_gray.svg' />
 	    	</div>
 		</header>
 	)

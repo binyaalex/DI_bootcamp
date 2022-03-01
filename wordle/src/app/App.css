@@ -47,11 +47,6 @@
   width: 100vw;
 }
 
-/*.allDadDark {
-  background-color: black;
-  color: white;
-}*/
-
 .all {
   width: 500px;
 }
@@ -308,21 +303,6 @@ section {
     70% { transform: translate(0%, -100%) rotate(-15deg); }
     100% { transform: translate(0%, 0%) ; }
 }
-
-/*.flip {
-  transform: rotateX(180deg);
-  transition: 1s;
-}*/
-
-/*.flip {
-    -webkit-animation:spin 1s linear;
-    -moz-animation:spin 1s linear;
-    animation:spin 0.6s linear;
-}
-@-moz-keyframes spin { 100% { -moz-transform: rotateX(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotateX(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotateX(360deg); transform:rotateX(180deg); } }
-*/
 
 .letterBox, .helpLetterBox, .resultSquer {
   width: 45px;

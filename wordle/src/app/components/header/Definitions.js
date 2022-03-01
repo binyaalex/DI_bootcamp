@@ -24,7 +24,7 @@ const Definitions = (props) => {
 		<div className='Definitions'>
 			<header className='definitionsHeader'>
 				<h5>SETTING</h5>
-				<div onClick={props.displayDefinitions} className='x'>X</div>
+				<div onClick={props.displayDefinitionsTuggle} className='x'>X</div>
 			</header>
 			<main>
 				<section className='hardMode'>
