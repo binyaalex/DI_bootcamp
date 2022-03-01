@@ -24,7 +24,6 @@ const App = (props) => {
     document.body.addEventListener('keydown', change1) // for real keyboard
 
     // get screenMode
-    console.log(turn)
     document.body.style.backgroundColor = screenMode.BGC
     document.querySelector('.definitionsPage').style.backgroundColor = screenMode.BGC
     document.querySelector('.helpPage').style.backgroundColor = screenMode.BGC

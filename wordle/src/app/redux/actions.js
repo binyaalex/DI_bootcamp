@@ -22,7 +22,6 @@ const blackBox = (turn, fullBorder, emptyBorder) => {
     const squares = document.querySelectorAll('.try')[turn].children
     for (let i = 0; i < squares.length; i++) {
 		if (squares[i].textContent !== '') {
-			console.log('blackaction')
 			squares[i].style.borderColor = fullBorder
 		} else {
 			squares[i].style.borderColor = emptyBorder
@@ -197,7 +196,6 @@ export const endTheGameAction = () => {
 }
 
 export const changeHardModeAction = () => {
-	console.log(1)
 	return {
 		type:'CHANGE_HARD_MODE',
 	}

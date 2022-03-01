@@ -61,7 +61,6 @@ export const reducer = (state=initState, action={}) => {
 	const messages = document.querySelector('.messages')
 
 	let userWord = {...state.userWord}
-	console.log(userWord)
 	switch (action.type) {
 		// take the letters the user write
 		case 'CHANGE':
@@ -143,7 +142,6 @@ export const reducer = (state=initState, action={}) => {
 		// for not stop when there is no yellow letters yet
 		checkGreenAndYellowLetters()
 		if (noYellowLettersInUserTries) {
-			console.log(0)
 			IsYellowLetterInUserWord = true
 		}
 
@@ -181,21 +179,12 @@ export const reducer = (state=initState, action={}) => {
 
 					  	// new check for double letters
 				  		for (let i = userWord.length-1; i >= 0; i--) {
-				  			console.log(userWord[i])
 				  			forDoubleLetters[userWord[i]][0]++
 				  			if (count(userWord, userWord[i]) > 1) {
-				  				console.log('more than one in the user word')
 				  				if (count(dailyWord, userWord[i]) === count(userWord, userWord[i])) {
-				  					console.log('dont need to color')
 				  				} else if (count(dailyWord, userWord[i]) === 1) {
-				  					console.log('the letter is once in the daily word')
-				  					console.log(forDoubleLetters[userWord[i]])
-				  					console.log(count(userWord, userWord[i]))
 				  					if (arr[state.writingDirection[i]] !== '#6AAA64') {
 				  						if (forDoubleLetters[userWord[i]][0] < count(userWord, userWord[i]) || forDoubleLetters[userWord[i]][1]) {
-				  							console.log(userWord[state.writingDirection[i]])
-				  							console.log(state.writingDirection[i])
-				  							console.log('gray')
 				  							arr[state.writingDirection[i]] = 'gray'					  							
 				  						}
 				  					} else if (arr[state.writingDirection[i]] !== 'gray') {
@@ -304,7 +293,6 @@ export const reducer = (state=initState, action={}) => {
 		  const oldHardMode = state.hardMode
 		  return {...initState, dailyWord: WORDS[randomNum], screenMode: oldScreenMode, hardMode: oldHardMode}
 		case 'CHANGE_HARD_MODE':
-		  console.log('CHANGE_HARD_MODE')
 		  let newHardMode
 		  if (state.hardMode) {
 		  	newHardMode = false
@@ -313,7 +301,6 @@ export const reducer = (state=initState, action={}) => {
 		  }
 		  return {...state, hardMode: newHardMode}
 		case 'CHANGE_SCREEN_MODE':
-		  console.log('CHANGE_SCREEN_MODE')
 	 	  let screenMode
 		  if (state.screenMode.BGC === 'white') {
 			screenMode = {
