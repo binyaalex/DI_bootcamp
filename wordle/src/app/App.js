@@ -33,7 +33,9 @@ const App = (props) => {
 
     // make dark mode btn disabled during the game
     if (turn > 0) {
-        document.querySelector('.darkModeInput').disabled = true
+      document.querySelector('.darkModeInput').disabled = true
+    } else {
+      document.querySelector('.darkModeInput').disabled = false
     }
 
     // for not try to color the last try in first load and then stuck
