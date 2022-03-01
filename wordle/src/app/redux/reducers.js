@@ -34,7 +34,7 @@ export const initState = {
 		userWord: ['','','','','',''],
 		result: [],
 		turn: 0,
-		hardMode: true,
+		hardMode: false,
 		screenMode: {
 			BGC: 'white',
 			color: 'black',

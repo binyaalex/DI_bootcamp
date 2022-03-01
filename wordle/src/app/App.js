@@ -32,6 +32,7 @@ const App = (props) => {
     document.querySelector('.allDad').style.color = screenMode.color
     document.querySelector('.mainHeader').style.borderBottom = screenMode.headerBorderBottom
 
+    // make dark mode btn disabled during the game
     if (turn > 0) {
         document.querySelector('.darkModeInput').disabled = true
     }
@@ -44,8 +45,6 @@ const App = (props) => {
       firstLoad = false
     }
     if (firstLoad) {
-      hardModeInput.checked = hardMode
-
       const lastTry = document.querySelector('.tries').children[turn-1].children 
  
       // color the letters of the last try according the result
