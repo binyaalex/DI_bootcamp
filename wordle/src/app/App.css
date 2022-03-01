@@ -246,6 +246,7 @@ section {
 .letterBox, .helpLetterBox, .resultSquer {
   width: 45px;
   height: 45px;
+  border: 2px solid lightgray;
   border-radius: 2px;
   margin: 4px;
   display: flex;
@@ -301,7 +302,6 @@ button {
 }
 
 .qToP > *, .enterToBackspace > *, .aToL > * {
-  background-color: lightgray;
   height: 58px;
   width: 43px;
   border-radius: 2px;
@@ -364,6 +364,7 @@ button {
   font-weight: bold;
   padding: 12px 15px;
   border-radius: 5px;
+  border: 2px solid white;
   z-index: 3;
 }
 
@@ -380,7 +381,7 @@ button {
   text-transform: uppercase;
   font-weight: bold;
   padding: 12px 15px;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 5px;
 }
 
