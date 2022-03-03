@@ -97,7 +97,7 @@ h4 {
   font-size: 16px;
 }
 
-.languageMode, .hardMode, .darkMode {
+.highContracstMode, .hardMode, .darkMode {
   display: flex;
   justify-content: space-between;
   padding: 16px 0;

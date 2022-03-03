@@ -28,7 +28,7 @@ const Definitions = (props) => {
 			</header>
 			<main>
 				<section className='hardMode'>
-					<div className='hardModeTitle'>
+					<div className='modeTitle'>
 						<h6>Hard Mode</h6>
 						<div className='btnExplanation'>Any revealed hints must be used in subsequent guesses</div>
 					</div>
@@ -44,6 +44,16 @@ const Definitions = (props) => {
 						<span className="slider round"></span>
 					</label>
 				</section>
+				<section className='highContracstMode'>
+					<div className='modeTitle'>
+						<h6>High Contrast Mode</h6>
+						<div className='btnExplanation'>For improved color vision</div>
+					</div>
+					<label className="switch">
+						<input className='highContracstModeInput' type="checkbox" />
+						<span className="slider round"></span>
+					</label>
+				</section>				
 			</main>
 		</div>
 	)
