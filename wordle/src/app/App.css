@@ -76,6 +76,10 @@ h4 {
 
 }
 
+.englishHelp {
+  display: none;
+}
+
 .helpPage, .definitionsPage {
   display: none;
   position: absolute;
@@ -95,6 +99,17 @@ h4 {
   justify-content: center;
   position: relative; 
   font-size: 16px;
+}
+
+.hebrewHelpHead {
+  font-size: 18px;
+  margin: 9px 0;
+}
+
+.hebrewHelpMain, .hebrewSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .highContracstMode, .hardMode, .darkMode {
@@ -210,7 +225,7 @@ section {
   background-color: gray;
 }
 
-.resultPage {
+/*.resultPage {
   display: none;
   position: absolute;
   text-align: center;
@@ -218,7 +233,7 @@ section {
   background: white;
   padding: 19px 40px;
   border-radius: 15px;
-}
+}*/
 
 .tries {
   margin: 5px 0
@@ -319,6 +334,10 @@ button {
 
 .firstLetter {
   margin-left: 0; 
+}
+
+.hebrewFirstLetter {
+  margin-right: 0
 }
 
 .hebrewKeyboard {
