@@ -33,7 +33,7 @@ export const initState = {
 		dailyWord: WORDS[randomNum],
 		userWord: ['','','','','',''],
 		colors: {
-			gray: 'gray',
+			gray: 'rgb(120,124,126)',
 			yellow: 'rgb(201, 180, 88)',
 			green: 'rgb(106, 170, 100)'
 		},
@@ -95,7 +95,7 @@ export const reducer = (state=initState, action={}) => {
 	    const boardLetters = document.querySelectorAll('.boardLetter')
 	    let grayLetters = []
 	    for (let i = 0; i < boardLetters.length; i++) {
-	    	if (boardLetters[i].style.backgroundColor === 'gray') {
+	    	if (boardLetters[i].style.backgroundColor === state.colors.gray) {
 	    		grayLetters.push(boardLetters[i].textContent)
 	    	}
 	    }
@@ -150,7 +150,7 @@ export const reducer = (state=initState, action={}) => {
 			IsYellowLetterInUserWord = true
 		}
 
-		let arr = ['gray', 'gray', 'gray', 'gray', 'gray']
+		let arr = [state.colors.gray, state.colors.gray, state.colors.gray, state.colors.gray, state.colors.gray]
 		let isWordInWordList = state.wordList.some(ele => ele === state.userWord[state.turn])
 		
 		  // start check all the restrictions - word list, gray, green and yellow
@@ -189,15 +189,15 @@ export const reducer = (state=initState, action={}) => {
 				  				} else if (count(dailyWord, userWord[i]) === 1) {
 				  					if (arr[state.writingDirection[i]] !== state.colors.green) {
 				  						if (forDoubleLetters[userWord[i]][0] < count(userWord, userWord[i]) || forDoubleLetters[userWord[i]][1]) {
-				  							arr[state.writingDirection[i]] = 'gray'					  							
+				  							arr[state.writingDirection[i]] = state.colors.gray					  							
 				  						}
-				  					} else if (arr[state.writingDirection[i]] !== 'gray') {
+				  					} else if (arr[state.writingDirection[i]] !== state.colors.gray) {
 				  						forDoubleLetters[userWord[i]][1] = true
 				  					}
 				  				} else if (count(dailyWord, userWord[i]) === 2) {
 				  					if (arr[state.writingDirection[i]] !== state.colors.green) {
 				  						if (!forDoubleLetters[userWord[i]][2]) {
-					  						arr[state.writingDirection[i]] = 'gray'				  							
+					  						arr[state.writingDirection[i]] = state.colors.gray				  							
 					  						forDoubleLetters[userWord[i]][2] = true			  							
 				  						}
 				  					}
@@ -307,6 +307,7 @@ export const reducer = (state=initState, action={}) => {
 		  return {...state, hardMode: newHardMode}
 		case 'CHANGE_SCREEN_MODE':
 	 	  let screenMode
+	 	  let changeScreenModeColors
 		  if (state.screenMode.BGC === 'white') {
 			screenMode = {
 				BGC: 'black',
@@ -314,23 +315,48 @@ export const reducer = (state=initState, action={}) => {
 				letterBG: '#3A3A3C',
 				letterBorderC: '#3A3A3C',
 				fullLetterBorderC: '#818384',
-				keyboardRegularBG: '#3A3A3C',
+				keyboardRegularBG: '#818384',
 				headerBorderBottom: '1px solid #3A3A3C',
+			}
+			console.log(state.colors.green)
+			changeScreenModeColors = {
+				gray: 'rgb(58,58,60)',
+				yellow: state.colors.yellow,
+				green: state.colors.green,
 			}
 		  } else {
 			screenMode = initState.screenMode
+			changeScreenModeColors = {
+				gray: 'rgb(58,58,60)',
+				yellow: state.colors.yellow,
+				green: state.colors.green,
+			}
 		  }
-		  return {...state, screenMode: screenMode}	
+	 	//   let changeScreenModeColors
+		 //  if (state.colors.green === 'rgb(133,192,249)') {
+			// changeScreenModeColors = {
+			// 	gray: 'rgb(58,58,60)',
+			// 	yellow: 'rgb(230,113,54)',
+			// 	green: 'rgb(133,192,249)',
+			// }
+		 //  } else {
+			// changeScreenModeColors = {
+			// 	gray: 'rgb(58,58,60)',
+			// 	yellow: 'rgb(201, 180, 88)',
+			// 	green: 'rgb(106, 170, 100)',
+			// }
+		 //  }
+		  return {...state, screenMode: screenMode, colors: changeScreenModeColors}	
 		case 'CHANGE_HIGE_CONTRAST_MODE':
 	 	  let colors
 		  if (state.colors.green === 'rgb(106, 170, 100)') {
 			colors = {
-				gray: 'gray',
+				gray: state.colors.gray,
 				yellow: 'rgb(230,113,54)',
 				green: 'rgb(133,192,249)',
 			}
 		  } else {
-			screenMode = initState.colors
+			colors = initState.colors
 		  }
 		  return {...state, colors: colors}	
 		case 'END':

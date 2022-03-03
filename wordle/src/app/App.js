@@ -69,7 +69,7 @@ const App = (props) => {
             if (boardLetter === letter &&
                 boardLetters[d].style.backgroundColor !== colors.green)
             {
-              if (result[writingDirection[i]] === 'gray' &&
+              if (result[writingDirection[i]] === colors.gray &&
                   boardLetters[d].style.backgroundColor === colors.yellow) {
               } else {
                 boardLetters[d].style.backgroundColor = result[writingDirection[i]]
