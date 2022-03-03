@@ -12,7 +12,7 @@ import {finalToRegular} from './redux/reducers';
 
 
 const App = (props) => {
-  const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode} = props
+  const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode, colors} = props
   
   useEffect(() => {
     const triesBoxes = document.querySelectorAll('.letterBox')
@@ -67,10 +67,10 @@ const App = (props) => {
             }
             let letter = finalToRegular(lastTry[writingDirection[i]].textContent).toUpperCase()
             if (boardLetter === letter &&
-                boardLetters[d].style.backgroundColor !== 'rgb(106, 170, 100)')
+                boardLetters[d].style.backgroundColor !== colors.green)
             {
               if (result[writingDirection[i]] === 'gray' &&
-                  boardLetters[d].style.backgroundColor === 'rgb(201, 180, 88)') {
+                  boardLetters[d].style.backgroundColor === colors.yellow) {
               } else {
                 boardLetters[d].style.backgroundColor = result[writingDirection[i]]
                 boardLetters[d].style.color = 'white'
@@ -94,7 +94,7 @@ const App = (props) => {
 
 
     // when the user win or lose by finish his tries
-    const win = result.every(el => el === '#6AAA64')
+    const win = result.every(el => el === colors.green)
     const myGreeting = () => {
       // user win
       if (win && firstLoad) {
@@ -157,6 +157,7 @@ const mapStateToProps = (state) => {
     dailyWord: state.dailyWord,
     writingDirection: state.writingDirection,
     screenMode: state.screenMode,
+    colors: state.colors,
   }
 }
 

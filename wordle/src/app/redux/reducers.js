@@ -32,6 +32,11 @@ export const initState = {
 		wordList: WORDSCheckList,
 		dailyWord: WORDS[randomNum],
 		userWord: ['','','','','',''],
+		colors: {
+			gray: 'gray',
+			yellow: 'rgb(201, 180, 88)',
+			green: 'rgb(106, 170, 100)'
+		},
 		result: [],
 		turn: 0,
 		hardMode: false,
@@ -117,14 +122,14 @@ export const reducer = (state=initState, action={}) => {
 					letter = finalToRegular(tries[c].children[state.writingDirection[b]].textContent)
 
 					// check the green letters
-					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(106, 170, 100)') {
+					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === state.colors.green) {
 						if (letter !== userWord[b]) {
 							IsGreenLetterInUserWord = false
 						}
 					}
 
 					// check the yellow letters
-					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === 'rgb(201, 180, 88)') {
+					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === state.colors.yellow) {
 						noYellowLettersInUserTries = false
 						for (let a = 0; a < userWord.length; a++) {
 							if (userWord[a] === letter && a !== b) {
@@ -167,15 +172,14 @@ export const reducer = (state=initState, action={}) => {
 				  			// check if the user letters are used in the daily word
 				  			// and if so color them in yellow
 				  			if (dailyWord.includes(userWord[i])) {
-				  				arr[state.writingDirection[i]] = '#C9B458' // yellow
+				  				arr[state.writingDirection[i]] = state.colors.yellow
 				  				
 				  				// check if the user letters are in the right place
 				  				if (userWord[i] === dailyWord[i]) {
-						  			arr[state.writingDirection[i]] = '#6AAA64' // green
+						  			arr[state.writingDirection[i]] = state.colors.green
 				  				}
 				  			}				  					  	 					  	    
 					  	}
-
 
 					  	// new check for double letters
 				  		for (let i = userWord.length-1; i >= 0; i--) {
@@ -183,7 +187,7 @@ export const reducer = (state=initState, action={}) => {
 				  			if (count(userWord, userWord[i]) > 1) {
 				  				if (count(dailyWord, userWord[i]) === count(userWord, userWord[i])) {
 				  				} else if (count(dailyWord, userWord[i]) === 1) {
-				  					if (arr[state.writingDirection[i]] !== '#6AAA64') {
+				  					if (arr[state.writingDirection[i]] !== state.colors.green) {
 				  						if (forDoubleLetters[userWord[i]][0] < count(userWord, userWord[i]) || forDoubleLetters[userWord[i]][1]) {
 				  							arr[state.writingDirection[i]] = 'gray'					  							
 				  						}
@@ -191,7 +195,7 @@ export const reducer = (state=initState, action={}) => {
 				  						forDoubleLetters[userWord[i]][1] = true
 				  					}
 				  				} else if (count(dailyWord, userWord[i]) === 2) {
-				  					if (arr[state.writingDirection[i]] !== '#6AAA64') {
+				  					if (arr[state.writingDirection[i]] !== state.colors.green) {
 				  						if (!forDoubleLetters[userWord[i]][2]) {
 					  						arr[state.writingDirection[i]] = 'gray'				  							
 					  						forDoubleLetters[userWord[i]][2] = true			  							
