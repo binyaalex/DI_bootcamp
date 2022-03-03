@@ -320,6 +320,18 @@ export const reducer = (state=initState, action={}) => {
 			screenMode = initState.screenMode
 		  }
 		  return {...state, screenMode: screenMode}	
+		case 'CHANGE_HIGE_CONTRAST_MODE':
+	 	  let colors
+		  if (state.colors.green === 'rgb(106, 170, 100)') {
+			colors = {
+				gray: 'gray',
+				yellow: 'orange',
+				green: 'lightblue',
+			}
+		  } else {
+			screenMode = initState.colors
+		  }
+		  return {...state, colors: colors}	
 		case 'END':
 		  return {...state, endOfGame: true}
 
