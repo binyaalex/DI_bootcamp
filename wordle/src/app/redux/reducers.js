@@ -295,7 +295,8 @@ export const reducer = (state=initState, action={}) => {
 		  randomNum = Math.floor(Math.random() * WORDS.length);
 		  const oldScreenMode = state.screenMode
 		  const oldHardMode = state.hardMode
-		  return {...initState, dailyWord: WORDS[randomNum], screenMode: oldScreenMode, hardMode: oldHardMode}
+		  const oldColors = state.colors
+		  return {...initState, dailyWord: WORDS[randomNum], screenMode: oldScreenMode, hardMode: oldHardMode, colors: oldColors}
 		case 'CHANGE_HARD_MODE':
 		  let newHardMode
 		  if (state.hardMode) {
@@ -325,8 +326,8 @@ export const reducer = (state=initState, action={}) => {
 		  if (state.colors.green === 'rgb(106, 170, 100)') {
 			colors = {
 				gray: 'gray',
-				yellow: 'orange',
-				green: 'lightblue',
+				yellow: 'rgb(230,113,54)',
+				green: 'rgb(133,192,249)',
 			}
 		  } else {
 			screenMode = initState.colors
