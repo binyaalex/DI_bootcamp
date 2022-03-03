@@ -2,12 +2,18 @@ import {connect} from 'react-redux';
 import {playAgainAction} from '../../redux/actions';
 
 const PlayAgain = (props) => {
-	const {playAgain} = props
+	const {playAgain, playAgainName} = props
 	return (
 		<button onClick={playAgain} className='playAgain'>
-			Play Again
+			{playAgainName}
 		</button>
 	)
+}
+
+const mapStateToProps = (state) => {
+  return {
+    playAgainName: state.playAgain,
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -16,4 +22,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(PlayAgain) 
+export default connect(mapStateToProps, mapDispatchToProps)(PlayAgain) 

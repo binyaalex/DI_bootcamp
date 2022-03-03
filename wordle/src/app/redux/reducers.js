@@ -27,6 +27,7 @@ export const finalToRegular = (letter) => {
 export const initState = {
 		language: 'EN',
 		gameName: 'WORDLE',
+		playAgain: 'Play Again',
 		letters: ".*[A-Z].*",
 		writingDirection: [0,1,2,3,4],
 		wordList: WORDSCheckList,
@@ -52,7 +53,7 @@ export const initState = {
 		endOfGame: false,
 		messages: {
 			win: ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'],
-			loser: 'Game over, the word is',
+			loser: 'Game over, The word is',
 			noWord: 'there is no such a word!',
 			gray: `You can't use the gray letters!`,
 			green: 'You must use the green letters in there spot!',
@@ -270,6 +271,7 @@ export const reducer = (state=initState, action={}) => {
 		  return {...state,
 					language: 'עב',
 					gameName: 'פיצוח',
+					playAgain: 'עוד פעם',
 					letters: ".*[א-ת].*",
 					writingDirection: [4,3,2,1,0], 
 					wordList: HebrewWordsCheckList, 
