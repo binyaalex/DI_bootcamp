@@ -206,3 +206,10 @@ export const changeScreenModeAction = () => {
 		type:'CHANGE_SCREEN_MODE',
 	}
 }
+
+export const changeHighContrastModeAction = () => {
+	console.log('CHANGE_HIGE_CONTRAST_MODE')
+	return {
+		type:'CHANGE_HIGE_CONTRAST_MODE',
+	}
+}

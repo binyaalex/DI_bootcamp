@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
-import {changeHardModeAction, changeScreenModeAction} from '../../redux/actions';
+import {changeHardModeAction, changeScreenModeAction, changeHighContrastModeAction} from '../../redux/actions';
 
 
 const Definitions = (props) => {
-	const {changeHardMode, changeScreenMode, turn} = props
+	const {changeHardMode, changeScreenMode, changeHighContrastMode, turn} = props
 
 	const showDarkModeDisableMsg = () => {
 		const messages = document.querySelector('.messages')
@@ -50,7 +50,7 @@ const Definitions = (props) => {
 						<div className='btnExplanation'>For improved color vision</div>
 					</div>
 					<label className="switch">
-						<input className='highContracstModeInput' type="checkbox" />
+						<input onClick={changeHighContrastMode} className='highContracstModeInput' type="checkbox" />
 						<span className="slider round"></span>
 					</label>
 				</section>				
@@ -69,6 +69,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     changeHardMode: () => dispatch(changeHardModeAction()),
     changeScreenMode: () => dispatch(changeScreenModeAction()),
+    changeHighContrastMode: () => dispatch(changeHighContrastModeAction()),
   }
 }
 
