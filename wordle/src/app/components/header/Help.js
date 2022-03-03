@@ -1,9 +1,10 @@
 const Help = (props) => {
+	const {displayTuggle} = props
 	return (
 		<div className='help'>
 			<header className='helpHeader'>
 				<h5>HOW TO PLAY</h5>
-				<div onClick={props.displayHelpTuggle} className='x'>X</div>
+				<div onClick={() => displayTuggle('.helpPage')} className='x'>X</div>
 			</header>
 			<main>
 				<section className='instructions'>

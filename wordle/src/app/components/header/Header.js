@@ -4,81 +4,55 @@ import Help from './Help'
 import Definitions from './Definitions'
 
 const Header = (props) => {
-	const {language, endOfGame, gameName, changeLanguage} = props
-	
-	const displayHelpTuggle = (e) => {
-		const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard').style.display
-		if (language === 'עב' && hebrewKeyboard === 'block') {
-			document.body.querySelector('.hebrewKeyboard').style.display = 'none'
+	const {language, endOfGame, gameName, HelpComponent, changeLanguage} = props
+	const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard')
+	const playAgain = document.querySelector('.playAgain')	
+	const messages = document.querySelector('.messages')	
+	const displayTuggle = (pageClass) => {
+		if (language === 'עב' && hebrewKeyboard.style.display === 'block') {
+			hebrewKeyboard.style.display = 'none'
 		} else if (language === 'עב') {
-			document.body.querySelector('.hebrewKeyboard').style.display = 'block'
+			hebrewKeyboard.style.display = 'block'
 		}
 
 		// all the conditions are for know if to display help and play again button or not
-		const helpDisplay = document.body.querySelector('.helpPage').style.display
-		if (helpDisplay !== 'block' && !endOfGame) {
-			document.body.querySelector('.tries').style.display = 'none'
-			document.body.querySelector('.helpPage').style.display = 'block'
-		} else if (helpDisplay !== 'block') {
-		    document.querySelector('.playAgain').style.display = 'none'	
-		    document.querySelector('.messages').style.display = 'none'	
-			document.body.querySelector('.tries').style.display = 'none'
-			document.body.querySelector('.helpPage').style.display = 'block'
+		const helpPage = document.querySelector(pageClass)
+		const tries = document.querySelector('.tries')
+		if (helpPage.style.display !== 'block' && !endOfGame) {
+			tries.style.display = 'none'
+			helpPage.style.display = 'block'
+		} else if (helpPage.style.display !== 'block') {
+		    playAgain.style.display = 'none'	
+		    messages.style.display = 'none'	
+			tries.style.display = 'none'
+			helpPage.style.display = 'block'
 		} else if (endOfGame) {
-			document.body.querySelector('.helpPage').style.display = 'none'
-			document.body.querySelector('.tries').style.display = 'block'
-		    document.querySelector('.playAgain').style.display = 'block'	
+			helpPage.style.display = 'none'
+			tries.style.display = 'block'
+		    playAgain.style.display = 'block'	
 		} else {			
-			document.body.querySelector('.tries').style.display = 'block'
-			document.body.querySelector('.helpPage').style.display = 'none'
-		}
-	}
-
-	const displayDefinitionsTuggle = (e) => {
-		const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard').style.display
-		if (language === 'עב' && hebrewKeyboard === 'block') {
-			document.body.querySelector('.hebrewKeyboard').style.display = 'none'
-		} else if (language === 'עב') {
-			document.body.querySelector('.hebrewKeyboard').style.display = 'block'
-		}
-
-		// all the conditions are for know if to display definitions and play again button or not
-		const helpDisplay = document.body.querySelector('.definitionsPage').style.display
-		if (helpDisplay !== 'block' && !endOfGame) {
-			document.body.querySelector('.tries').style.display = 'none'
-			document.body.querySelector('.definitionsPage').style.display = 'block'
-		} else if (helpDisplay !== 'block') {
-		    document.querySelector('.playAgain').style.display = 'none'	
-		    document.querySelector('.messages').style.display = 'none'	
-			document.body.querySelector('.tries').style.display = 'none'
-			document.body.querySelector('.definitionsPage').style.display = 'block'
-		} else if (endOfGame) {
-			document.body.querySelector('.definitionsPage').style.display = 'none'
-			document.body.querySelector('.tries').style.display = 'block'
-		    document.querySelector('.playAgain').style.display = 'block'	
-		} else {			
-			document.body.querySelector('.tries').style.display = 'block'
-			document.body.querySelector('.definitionsPage').style.display = 'none'
+			tries.style.display = 'block'
+			helpPage.style.display = 'none'
 		}
 	}
 
 	return (
 		<header className='mainHeader'>
 	    	<div>
-				<div onClick={displayHelpTuggle} className='helpBtn'>?</div>
+				<div onClick={() => displayTuggle('.helpPage')} className='helpBtn'>?</div>
 			</div>
 			<div className='helpPage'>
-				<Help displayHelpTuggle={displayHelpTuggle} />
+				<Help displayTuggle={displayTuggle} />
 			</div>
 			<div className='definitionsPage'>
-				<Definitions displayDefinitionsTuggle={displayDefinitionsTuggle} />
+				<Definitions displayTuggle={displayTuggle} />
 			</div>
 	    	<div className='gameName'>
 	    		<h4>{gameName}</h4>
 			</div>
 	    	<div className='leftHeader'>
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
-	    		<img onClick={displayDefinitionsTuggle} className='definitionsBtn' src='gear_gray.svg' alt='DfnBtn' />
+	    		<img onClick={() => displayTuggle('.definitionsPage')} className='definitionsBtn' src='gear_gray.svg' alt='DfnBtn' />
 	    	</div>
 		</header>
 	)
@@ -89,6 +63,7 @@ const mapStateToProps = (state) => {
     language: state.language,
     endOfGame: state.endOfGame,
     gameName: state.gameName,
+    HelpComponent: 'Help',
   }
 }
 

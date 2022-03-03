@@ -3,9 +3,9 @@ import {changeHardModeAction, changeScreenModeAction, changeHighContrastModeActi
 
 
 const Definitions = (props) => {
-	const {changeHardMode, changeScreenMode, changeHighContrastMode, turn} = props
+	const {changeHardMode, changeScreenMode, changeHighContrastMode, displayTuggle, turn} = props
 
-	const showDarkModeDisableMsg = (messageClass) => {
+	const showModeDisableMsg = (messageClass) => {
 		const messages = document.querySelector('.messages')
 		if (turn) {
 			// put message that the user can't change dark mode during the game
@@ -24,7 +24,7 @@ const Definitions = (props) => {
 		<div className='Definitions'>
 			<header className='definitionsHeader'>
 				<h5>SETTING</h5>
-				<div onClick={props.displayDefinitionsTuggle} className='x'>X</div>
+				<div onClick={() => displayTuggle('.definitionsPage')} className='x'>X</div>
 			</header>
 			<main>
 				<section className='hardMode'>
@@ -39,7 +39,7 @@ const Definitions = (props) => {
 				</section>
 				<section className='darkMode'>
 					<h6>Dark Mode</h6>
-					<label onClick={() => showDarkModeDisableMsg('.darkModeDisable')} className="switch">
+					<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
 						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
 						<span className="slider round"></span>
 					</label>
@@ -49,7 +49,7 @@ const Definitions = (props) => {
 						<h6>High Contrast Mode</h6>
 						<div className='btnExplanation'>For improved color vision</div>
 					</div>
-					<label onClick={() => showDarkModeDisableMsg('.highContrastModeDisable')} className="switch">
+					<label onClick={() => showModeDisableMsg('.highContrastModeDisable')} className="switch">
 						<input onClick={changeHighContrastMode} className='highContrastModeInput' type="checkbox" />
 						<span className="slider round"></span>
 					</label>

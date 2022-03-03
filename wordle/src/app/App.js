@@ -32,7 +32,7 @@ const App = (props) => {
     document.querySelector('.allDad').style.color = screenMode.color
     document.querySelector('.mainHeader').style.borderBottom = screenMode.headerBorderBottom
 
-    // make dark mode btn disabled during the game
+    // make dark mode and high contrast btns disabled during the game
     if (turn > 0) {
       darkModeInput.disabled = true
       highContrastModeInput.disabled = true
