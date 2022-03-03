@@ -59,7 +59,8 @@ export const initState = {
 			green: 'You must use the green letters in there spot!',
 			yellow: 'You must use the yellow letters not in the same spot!',
 			wrongLanguage: 'Bro you on Hebrew',
-			darkModeDisable: 'Dark mode can only be enabled at the start of a round'
+			darkModeDisable: 'Dark mode can only be enabled at the start of a round',
+			highContrastModeDisable: 'High contrast mode can only be enabled at the start of a round'
 		}
 	}
 
@@ -288,7 +289,8 @@ export const reducer = (state=initState, action={}) => {
 						green: '!חייבים להשתמש באותיות  הירוקות במקום שלהן',
 						yellow: '!חייבים להשתמש באותיות  הצהובות  ולא באותו מקום',
 						wrongLanguage: 'אחותי את על אנגלית',
-						darkModeDisable: 'מצב לילה אפשר להפעיל רק בתחילת סיבוב'
+						darkModeDisable: 'מצב לילה אפשר להפעיל רק בתחילת סיבוב',
+						highContrastModeDisable: 'מצב  ניגודיות גבוהה אפשר להפעיל רק בתחילת סיבוב',
 					}
 				 }
 
@@ -334,20 +336,6 @@ export const reducer = (state=initState, action={}) => {
 				green: state.colors.green,
 			}
 		  }
-	 	//   let changeScreenModeColors
-		 //  if (state.colors.green === 'rgb(133,192,249)') {
-			// changeScreenModeColors = {
-			// 	gray: 'rgb(58,58,60)',
-			// 	yellow: 'rgb(230,113,54)',
-			// 	green: 'rgb(133,192,249)',
-			// }
-		 //  } else {
-			// changeScreenModeColors = {
-			// 	gray: 'rgb(58,58,60)',
-			// 	yellow: 'rgb(201, 180, 88)',
-			// 	green: 'rgb(106, 170, 100)',
-			// }
-		 //  }
 		  return {...state, screenMode: screenMode, colors: changeScreenModeColors}	
 		case 'CHANGE_HIGE_CONTRAST_MODE':
 	 	  let colors

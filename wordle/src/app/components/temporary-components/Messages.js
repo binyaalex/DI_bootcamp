@@ -28,6 +28,9 @@ const Messages = (props) => {
 			<div className='darkModeDisable'>
 				{messages.darkModeDisable}
 			</div>
+			<div className='highContrastModeDisable'>
+				{messages.highContrastModeDisable}
+			</div>
 		</div>
 	)
 }

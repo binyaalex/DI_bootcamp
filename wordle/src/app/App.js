@@ -19,6 +19,8 @@ const App = (props) => {
     const boardLetters = document.querySelectorAll('.boardLetter')
     const messages = document.querySelector('.messages')
     const playAgainBtn = document.querySelector('.playAgain')
+    const darkModeInput = document.querySelector('.darkModeInput')
+    const highContrastModeInput = document.querySelector('.highContrastModeInput')
 
     console.log(dailyWord)
     document.body.addEventListener('keydown', change1) // for real keyboard
@@ -32,9 +34,11 @@ const App = (props) => {
 
     // make dark mode btn disabled during the game
     if (turn > 0) {
-      document.querySelector('.darkModeInput').disabled = true
+      darkModeInput.disabled = true
+      highContrastModeInput.disabled = true
     } else {
-      document.querySelector('.darkModeInput').disabled = false
+      darkModeInput.disabled = false
+      highContrastModeInput.disabled = false
     }
 
     // for not try to color the last try in first load and then stuck
