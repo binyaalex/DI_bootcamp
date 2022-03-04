@@ -9,14 +9,19 @@ const Header = (props) => {
 	const playAgain = document.querySelector('.playAgain')	
 	const messages = document.querySelector('.messages')	
 	const displayTuggle = (pageClass) => {
+		let pageLanguage
 		if (language === 'עב' && hebrewKeyboard.style.display === 'block') {
 			hebrewKeyboard.style.display = 'none'
+			pageLanguage = '.hebrew' + pageClass
 		} else if (language === 'עב') {
 			hebrewKeyboard.style.display = 'block'
+			pageLanguage = '.hebrew' + pageClass
+		} else {
+			pageLanguage = '.english' + pageClass
 		}
-
+		console.log(pageLanguage)
 		// all the conditions are for know if to display help and play again button or not
-		const helpPage = document.querySelector(pageClass)
+		const helpPage = document.querySelector(pageLanguage)
 		const tries = document.querySelector('.tries')
 		if (helpPage.style.display !== 'block' && !endOfGame) {
 			tries.style.display = 'none'
@@ -39,11 +44,9 @@ const Header = (props) => {
 	return (
 		<header className='mainHeader'>
 	    	<div>
-				<div onClick={() => displayTuggle('.helpPage')} className='helpBtn'>?</div>
+				<div onClick={() => displayTuggle('HelpPage')} className='helpBtn'>?</div>
 			</div>
-			<div className='helpPage'>
-				<Help displayTuggle={displayTuggle} />
-			</div>
+			<Help displayTuggle={displayTuggle} />
 			<div className='definitionsPage'>
 				<Definitions displayTuggle={displayTuggle} />
 			</div>

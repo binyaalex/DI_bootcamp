@@ -1,12 +1,12 @@
 const Help = (props) => {
 	const {displayTuggle} = props
 	return (
-		<>
-			<div className='englishHelp'>
+		<div className='helpPage'>
+			<div className='englishHelpPage'>
 				<div className='help'>
 					<header className='helpHeader'>
 						<h5>HOW TO PLAY</h5>
-						<div onClick={() => displayTuggle('.helpPage')} className='x'>X</div>
+						<div onClick={() => displayTuggle('HelpPage')} className='x'>X</div>
 					</header>
 					<main>
 						<section className='instructions'>
@@ -76,11 +76,11 @@ const Help = (props) => {
 				</div>
 			</div>
 
-			<div className='hebrewHelp'>
+			<div className='hebrewHelpPage'>
 				<div className='help'>
 					<header className='helpHeader'>
 						<h5 className='hebrewHelpHead'>הוראות</h5>
-						<div onClick={() => displayTuggle('.helpPage')} className='x'>X</div>
+						<div onClick={() => displayTuggle('HelpPage')} className='x'>X</div>
 					</header>
 					<main className='hebrewHelpMain'>
 						<section className='hebrewSection'>
@@ -149,7 +149,7 @@ const Help = (props) => {
 					</main>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 export default Help
