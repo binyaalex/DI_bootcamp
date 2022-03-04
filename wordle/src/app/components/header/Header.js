@@ -47,15 +47,13 @@ const Header = (props) => {
 				<div onClick={() => displayTuggle('HelpPage')} className='helpBtn'>?</div>
 			</div>
 			<Help displayTuggle={displayTuggle} />
-			<div className='definitionsPage'>
-				<Definitions displayTuggle={displayTuggle} />
-			</div>
+			<Definitions displayTuggle={displayTuggle} />
 	    	<div className='gameName'>
 	    		<h4>{gameName}</h4>
 			</div>
 	    	<div className='leftHeader'>
 	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
-	    		<img onClick={() => displayTuggle('.definitionsPage')} className='definitionsBtn' src='gear_gray.svg' alt='DfnBtn' />
+	    		<img onClick={() => displayTuggle('Definitions')} className='definitionsBtn' src='gear_gray.svg' alt='DfnBtn' />
 	    	</div>
 		</header>
 	)

@@ -76,12 +76,12 @@ h4 {
 
 }
 
-.englishHelpPage, .hebrewHelpPage {
+.englishHelpPage, .hebrewHelpPage, .englishDefinitions, .hebrewDefinitions {
   display: none;
 }
 
 .helpPage, .definitionsPage {
-  display: none;
+  /*display: none;*/
   position: absolute;
   height: 100vh;
   top: 0;
@@ -90,11 +90,7 @@ h4 {
   z-index: 2;
 }
 
-.helpPage {
-  display: block;
-}
-
-.help, .Definitions {
+.help, .englishDefinitions, .hebrewDefinitions {
   width: 505px;
 }
 
