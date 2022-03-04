@@ -7,7 +7,8 @@ const Header = (props) => {
 	const {language, endOfGame, gameName, HelpComponent, changeLanguage} = props
 	const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard')
 	const playAgain = document.querySelector('.playAgain')	
-	const messages = document.querySelector('.messages')	
+	const messages = document.querySelector('.messages')
+
 	const displayTuggle = (pageClass) => {
 		let pageLanguage
 		if (language === 'עב' && hebrewKeyboard.style.display === 'block') {
@@ -21,23 +22,23 @@ const Header = (props) => {
 		}
 		console.log(pageLanguage)
 		// all the conditions are for know if to display help and play again button or not
-		const helpPage = document.querySelector(pageLanguage)
+		const helpOrDefinitionsPage = document.querySelector(pageLanguage)
 		const tries = document.querySelector('.tries')
-		if (helpPage.style.display !== 'block' && !endOfGame) {
+		if (helpOrDefinitionsPage.style.display !== 'block' && !endOfGame) {
 			tries.style.display = 'none'
-			helpPage.style.display = 'block'
-		} else if (helpPage.style.display !== 'block') {
+			helpOrDefinitionsPage.style.display = 'block'
+		} else if (helpOrDefinitionsPage.style.display !== 'block') {
 		    playAgain.style.display = 'none'	
 		    messages.style.display = 'none'	
 			tries.style.display = 'none'
-			helpPage.style.display = 'block'
+			helpOrDefinitionsPage.style.display = 'block'
 		} else if (endOfGame) {
-			helpPage.style.display = 'none'
+			helpOrDefinitionsPage.style.display = 'none'
 			tries.style.display = 'block'
 		    playAgain.style.display = 'block'	
 		} else {			
 			tries.style.display = 'block'
-			helpPage.style.display = 'none'
+			helpOrDefinitionsPage.style.display = 'none'
 		}
 	}
 
