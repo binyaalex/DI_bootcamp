@@ -217,28 +217,6 @@ section {
   font-weight: bold;
 }
 
-.green {
-  background-color: #6AAA64;
-}
-
-.yellow {
-  background-color: #C9B458;
-}
-
-.gray {
-  background-color: gray;
-}
-
-/*.resultPage {
-  display: none;
-  position: absolute;
-  text-align: center;
-  top: 70px;
-  background: white;
-  padding: 19px 40px;
-  border-radius: 15px;
-}*/
-
 .tries {
   margin: 5px 0
 }

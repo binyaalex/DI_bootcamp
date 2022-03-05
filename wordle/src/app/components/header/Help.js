@@ -1,5 +1,7 @@
+import {connect} from 'react-redux';
+
 const Help = (props) => {
-	const {displayTuggle} = props
+	const {colors, displayTuggle} = props
 	return (
 		<div className='helpPage'>
 			<div className='englishHelpPage'>
@@ -17,7 +19,7 @@ const Help = (props) => {
 						<section>
 							<p className='examples'>Examples</p>
 							<div className='example'>
-					          <div className='helpLetterBox firstLetter green helpColorLetter'>
+					          <div style={{backgroundColor: colors.green}} className='helpLetterBox firstLetter helpColorLetter'>
 					            W
 					          </div>
 					          <div className='helpLetterBox'>
@@ -38,7 +40,7 @@ const Help = (props) => {
 					          <div className='helpLetterBox firstLetter'>
 					            P
 					          </div>
-					          <div className='helpLetterBox yellow helpColorLetter'>
+					          <div style={{backgroundColor: colors.yellow}} className='helpLetterBox helpColorLetter'>
 					            I
 					          </div>
 					          <div className='helpLetterBox'>
@@ -62,7 +64,7 @@ const Help = (props) => {
 					          <div className='helpLetterBox'>
 					            G
 					          </div>
-					          <div className='helpLetterBox gray helpColorLetter'>
+					          <div style={{backgroundColor: colors.gray}} className='helpLetterBox helpColorLetter'>
 					            U
 					          </div>
 					          <div className='helpLetterBox'>
@@ -86,7 +88,7 @@ const Help = (props) => {
 						<section className='hebrewSection'>
 							<p>.נחש את  <strong>המילה</strong> בשישה נסיונות</p>
 							<p>.כל נסיון חייב להיות מילה בת 5 אותיות. לחץ על אנטר  על מנת לבדוק אם זו המילה</p>
-							<p>.אחרי כל ניחוש, הצבע של האות יתשנה להראות כמה הניסיון קרוב למילה</p>
+							<p>.אחרי כל ניסיון, הצבע של האות יתשנה להראות כמה הניסיון קרוב למילה</p>
 						</section>
 						<section className='hebrewSection'>
 							<p className='examples'>דוגמאות</p>
@@ -103,7 +105,7 @@ const Help = (props) => {
 					          <div className='helpLetterBox'>
 					            ס
 					          </div>
-					          <div className='helpLetterBox hebrewFirstLetter gray helpColorLetter'>
+					          <div style={{backgroundColor: colors.gray}} className='helpLetterBox hebrewFirstLetter helpColorLetter'>
 					            נ
 					          </div>
 					        </div>
@@ -118,7 +120,7 @@ const Help = (props) => {
 					          <div className='helpLetterBox'>
 					            ק
 					          </div>
-					          <div className='helpLetterBox yellow helpColorLetter'>
+					          <div style={{backgroundColor: colors.yellow}} className='helpLetterBox helpColorLetter'>
 					            י
 					          </div>
 					          <div className='helpLetterBox hebrewFirstLetter'>
@@ -133,7 +135,7 @@ const Help = (props) => {
 					          <div className='helpLetterBox'>
 					            ב
 					          </div>
-					          <div className='helpLetterBox green helpColorLetter'>
+					          <div style={{backgroundColor: colors.green}} className='helpLetterBox helpColorLetter'>
 					            ו
 					          </div>
 					          <div className='helpLetterBox'>
@@ -152,4 +154,11 @@ const Help = (props) => {
 		</div>
 	)
 }
-export default Help
+
+const mapStateToProps = (state) => {
+  return {
+    colors: state.colors,
+  }
+}
+
+export default connect(mapStateToProps)(Help) 

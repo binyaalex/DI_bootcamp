@@ -4,7 +4,7 @@ import Help from './Help'
 import Definitions from './Definitions'
 
 const Header = (props) => {
-	const {language, endOfGame, gameName, HelpComponent, changeLanguage} = props
+	const {language, endOfGame, gameName, changeLanguage} = props
 	const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard')
 	const playAgain = document.querySelector('.playAgain')	
 	const messages = document.querySelector('.messages')
@@ -65,7 +65,6 @@ const mapStateToProps = (state) => {
     language: state.language,
     endOfGame: state.endOfGame,
     gameName: state.gameName,
-    HelpComponent: 'Help',
   }
 }
 
