@@ -4,7 +4,7 @@ import Help from './Help'
 import Definitions from './Definitions'
 
 const Header = (props) => {
-	const {language, endOfGame, gameName, changeLanguage} = props
+	const {language, endOfGame, gameName, screenMode, changeLanguage} = props
 	const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard')
 	const playAgain = document.querySelector('.playAgain')	
 	const messages = document.querySelector('.messages')
@@ -43,7 +43,7 @@ const Header = (props) => {
 	}
 
 	return (
-		<header className='mainHeader'>
+		<header style={{borderBottom: screenMode.headerBorderBottom}} className='mainHeader'>
 	    	<div>
 				<div onClick={() => displayTuggle('HelpPage')} className='helpBtn'>?</div>
 			</div>
@@ -65,6 +65,7 @@ const mapStateToProps = (state) => {
     language: state.language,
     endOfGame: state.endOfGame,
     gameName: state.gameName,
+    screenMode: state.screenMode
   }
 }
 

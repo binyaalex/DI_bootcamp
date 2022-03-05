@@ -3,7 +3,7 @@ import {changeHardModeAction, changeScreenModeAction, changeHighContrastModeActi
 
 
 const Definitions = (props) => {
-	const {changeHardMode, changeScreenMode, changeHighContrastMode, displayTuggle, turn} = props
+	const {changeHardMode, changeScreenMode, changeHighContrastMode, displayTuggle, turn, screenMode} = props
 
 	const showModeDisableMsg = (messageClass) => {
 		const messages = document.querySelector('.messages')
@@ -21,7 +21,7 @@ const Definitions = (props) => {
 	}
 
 	return (
-		<div className='definitionsPage'>
+		<div style={{backgroundColor: screenMode.BGC}} className='definitionsPage'>
 			<div className='englishDefinitions'>
 				<header className='definitionsHeader'>
 					<h5>SETTING</h5>
@@ -100,6 +100,7 @@ const Definitions = (props) => {
 const mapStateToProps = (state) => {
   return {
     turn: state.turn,
+    screenMode: state.screenMode
   }
 }
 

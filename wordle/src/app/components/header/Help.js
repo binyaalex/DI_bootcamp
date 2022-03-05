@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 
 const Help = (props) => {
-	const {colors, displayTuggle} = props
+	const {colors, displayTuggle, screenMode} = props
 	return (
-		<div className='helpPage'>
+		<div style={{backgroundColor: screenMode.BGC}} className='helpPage'>
 			<div className='englishHelpPage'>
 				<div className='help'>
 					<header className='helpHeader'>
@@ -158,6 +158,7 @@ const Help = (props) => {
 const mapStateToProps = (state) => {
   return {
     colors: state.colors,
+    screenMode: state.screenMode,
   }
 }
 

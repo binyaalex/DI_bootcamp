@@ -27,10 +27,10 @@ const App = (props) => {
 
     // get screenMode
     document.body.style.backgroundColor = screenMode.BGC
-    document.querySelector('.definitionsPage').style.backgroundColor = screenMode.BGC
-    document.querySelector('.helpPage').style.backgroundColor = screenMode.BGC
-    document.querySelector('.allDad').style.color = screenMode.color
-    document.querySelector('.mainHeader').style.borderBottom = screenMode.headerBorderBottom
+    // document.querySelector('.definitionsPage').style.backgroundColor = screenMode.BGC
+    // document.querySelector('.helpPage').style.backgroundColor = screenMode.BGC
+    // document.querySelector('.allDad').style.color = screenMode.color
+    // document.querySelector('.mainHeader').style.borderBottom = screenMode.headerBorderBottom
 
     // make dark mode and high contrast btns disabled during the game
     if (turn > 0) {
@@ -140,7 +140,7 @@ const App = (props) => {
   });
 
   return (
-    <div className='allDad'>
+    <div style={{color: screenMode.color}} className='allDad'>
       <div className='all'>
         <Header />
         <Tries />
