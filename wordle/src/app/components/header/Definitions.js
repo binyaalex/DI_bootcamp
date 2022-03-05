@@ -33,10 +33,10 @@ const Definitions = (props) => {
 							<h6>Hard Mode</h6>
 							<div className='btnExplanation'>Any revealed hints must be used in subsequent guesses</div>
 						</div>
-							<label className="switch">
-								<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
-								<span className="slider round"></span>
-							</label>
+						<label className="switch">
+							<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
+							<span className="slider round"></span>
+						</label>
 					</section>
 					<section className='darkMode'>
 						<h6>Dark Mode</h6>
@@ -65,31 +65,31 @@ const Definitions = (props) => {
 				</header>
 				<main>
 					<section className='hardMode'>
-						<div className='modeTitle'>
-							<h6>Hard Mode</h6>
-							<div className='btnExplanation'>Any revealed hints must be used in subsequent guesses</div>
-						</div>
-							<label className="switch">
-								<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
-								<span className="slider round"></span>
-							</label>
+						<label className="switch">
+							<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
+							<span className="slider round"></span>
+						</label>
+						<div className='hebrewModeTitle'>
+							<h6>רמה קשה</h6>
+							<div className='btnExplanation'>מחויב להשתמש בכל הרמזים מניחושים קודמים</div>
+						</div>	
 					</section>
 					<section className='darkMode'>
-						<h6>Dark Mode</h6>
 						<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
 							<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
 							<span className="slider round"></span>
 						</label>
+						<h6>מצב לילה</h6>
 					</section>
 					<section className='highContracstMode'>
-						<div className='modeTitle'>
-							<h6>High Contrast Mode</h6>
-							<div className='btnExplanation'>For improved color vision</div>
-						</div>
 						<label onClick={() => showModeDisableMsg('.highContrastModeDisable')} className="switch">
 							<input onClick={changeHighContrastMode} className='highContrastModeInput' type="checkbox" />
 							<span className="slider round"></span>
 						</label>
+						<div className='hebrewModeTitle'>
+							<h6>מצב עיוורון צבעים</h6>
+							<div className='btnExplanation'>לשיפור  ניגודיות הצבעים</div>
+						</div>
 					</section>				
 				</main>
 			</div>

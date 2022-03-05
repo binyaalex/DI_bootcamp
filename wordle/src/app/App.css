@@ -106,7 +106,7 @@ h4 {
   margin: 9px 0;
 }
 
-.hebrewHelpMain, .hebrewSection {
+.hebrewHelpMain, .hebrewSection, .hebrewModeTitle {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
