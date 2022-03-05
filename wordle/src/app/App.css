@@ -205,6 +205,10 @@ input:checked + .slider:before {
   top: 10px;
 }
 
+.hebrewX {
+  left: 0;
+}
+
 section {
   border-bottom: 1px solid lightgray;
 }

@@ -61,7 +61,7 @@ const Definitions = (props) => {
 			<div className='hebrewDefinitions'>
 				<header className='definitionsHeader'>
 					<h5>הגדרות</h5>
-					<div onClick={() => displayTuggle('Definitions')} className='x'>X</div>
+					<div onClick={() => displayTuggle('Definitions')} className='hebrewX x'>X</div>
 				</header>
 				<main>
 					<section className='hardMode'>

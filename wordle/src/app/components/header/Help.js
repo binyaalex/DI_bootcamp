@@ -80,7 +80,7 @@ const Help = (props) => {
 				<div className='help'>
 					<header className='helpHeader'>
 						<h5 className='hebrewHelpHead'>הוראות</h5>
-						<div onClick={() => displayTuggle('HelpPage')} className='x'>X</div>
+						<div onClick={() => displayTuggle('HelpPage')} className='hebrewX x'>X</div>
 					</header>
 					<main className='hebrewHelpMain'>
 						<section className='hebrewSection'>
