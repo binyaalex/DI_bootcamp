@@ -72,10 +72,6 @@ h4 {
   height: 24px;
 }
 
-.hardModeBtn {
-
-}
-
 .englishHelpPage, .hebrewHelpPage, .englishDefinitions, .hebrewDefinitions {
   display: none;
 }
@@ -107,13 +103,18 @@ h4 {
   margin: 9px 0;
 }
 
-.hebrewHelpMain, .hebrewSection, .hebrewModeTitle {
+.hebrewHelpMain, .hebrewModeTitle {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
-.highContracstMode, .hardMode, .darkMode {
+.hebrewSectionMode {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.sectionMode {
   display: flex;
   justify-content: space-between;
   padding: 16px 0;

@@ -35,7 +35,7 @@ const Definitions = (props) => {
 				<div onClick={() => displayTuggle('.definitionsPage')} className='x'>X</div>
 			</header>
 			<main>
-				<section className='hardMode'>
+				<section className='sectionMode'>
 					<div className='modeTitle'>
 						<h6>{definitions.hardModeHead}</h6>
 						<div className='btnExplanation'>{definitions.hardModeExplanation}</div>
@@ -45,14 +45,14 @@ const Definitions = (props) => {
 						<span className="slider round"></span>
 					</label>
 				</section>
-				<section className='darkMode'>
+				<section className='sectionMode'>
 					<h6>{definitions.darkModeHead}</h6>
 					<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
 						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
 						<span className="slider round"></span>
 					</label>
 				</section>
-				<section className='highContracstMode'>
+				<section className='sectionMode'>
 					<div className='modeTitle'>
 						<h6>{definitions.highContrastModeHead}</h6>
 						<div className='btnExplanation'>{definitions.highContrastModeExplanation}</div>
@@ -62,7 +62,7 @@ const Definitions = (props) => {
 						<span className="slider round"></span>
 					</label>
 				</section>				
-			</main>		
+			</main>
 		</div>
 	)
 }

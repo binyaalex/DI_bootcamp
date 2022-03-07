@@ -3,14 +3,20 @@ const changeLanguage = () => {
 	const languageBtn = document.querySelector('.languageBtn')
 	const englishKeyboard = document.querySelector('.englishKeyboard')
 	const hebrewKeyboard = document.querySelector('.hebrewKeyboard')
+	const sectionModes = document.querySelectorAll('.sectionMode')
+	const modeTitles = document.querySelectorAll('.modeTitle')
 	if (languageBtn.textContent === 'עב') {
 		languageBtn.textContent = 'EN'
 		englishKeyboard.style.display = 'none'
 		hebrewKeyboard.style.display = 'block'
+		sectionModes.forEach(sectionMode => sectionMode.classList.add('hebrewSectionMode'))
+		modeTitles.forEach(sectionMode => sectionMode.classList.add('hebrewModeTitle'))
 	} else {
 		languageBtn.textContent = 'עב'
 		hebrewKeyboard.style.display = 'none'
 		englishKeyboard.style.display = 'block'
+		sectionModes.forEach(sectionMode => sectionMode.classList.remove('hebrewSectionMode'))
+		modeTitles.forEach(sectionMode => sectionMode.classList.remove('hebrewModeTitle'))
 	}
 }
 
