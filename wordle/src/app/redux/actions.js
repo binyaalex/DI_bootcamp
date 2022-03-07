@@ -4,22 +4,25 @@ const changeLanguage = () => {
 	const englishKeyboard = document.querySelector('.englishKeyboard')
 	const hebrewKeyboard = document.querySelector('.hebrewKeyboard')
 	const sectionModes = document.querySelectorAll('.sectionMode')
-	const hebrewChangeFlex = document.querySelectorAll('.hebrewChangeFlex')
+	const hebrewChangeFlexs = document.querySelectorAll('.hebrewChangeFlex')
 	const h5s = document.querySelectorAll('h5')
+	const closes = document.querySelectorAll('.x')
 	if (languageBtn.textContent === 'עב') {
 		languageBtn.textContent = 'EN'
 		englishKeyboard.style.display = 'none'
 		hebrewKeyboard.style.display = 'block'
 		sectionModes.forEach(sectionMode => sectionMode.classList.add('hebrewSectionMode'))
-		hebrewChangeFlex.forEach(sectionMode => sectionMode.classList.add('hebrewflex'))
-		h5s.forEach(sectionMode => sectionMode.classList.add('hebrewHead'))
+		hebrewChangeFlexs.forEach(hebrewChangeFlex => hebrewChangeFlex.classList.add('hebrewflex'))
+		h5s.forEach(h5 => h5.classList.add('hebrewHead'))
+		closes.forEach(close => close.classList.add('hebrewX'))
 	} else {
 		languageBtn.textContent = 'עב'
 		hebrewKeyboard.style.display = 'none'
 		englishKeyboard.style.display = 'block'
 		sectionModes.forEach(sectionMode => sectionMode.classList.remove('hebrewSectionMode'))
-		hebrewChangeFlex.forEach(sectionMode => sectionMode.classList.remove('hebrewflex'))
-		h5s.forEach(sectionMode => sectionMode.classList.remove('hebrewHead'))
+		hebrewChangeFlexs.forEach(hebrewChangeFlex => hebrewChangeFlex.classList.remove('hebrewflex'))
+		h5s.forEach(h5 => h5.classList.remove('hebrewHead'))
+		closes.forEach(close => close.classList.remove('hebrewX'))
 	}
 }
 
