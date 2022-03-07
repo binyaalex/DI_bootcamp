@@ -10,6 +10,7 @@ const Header = (props) => {
 	const messages = document.querySelector('.messages')
 
 	const displayTuggle = (pageClass) => {
+		// document.querySelector('.')
 		let pageLanguage
 		if (language === 'עב' && hebrewKeyboard.style.display === 'block') {
 			hebrewKeyboard.style.display = 'none'

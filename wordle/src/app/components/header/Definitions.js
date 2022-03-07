@@ -3,7 +3,15 @@ import {changeHardModeAction, changeScreenModeAction, changeHighContrastModeActi
 
 
 const Definitions = (props) => {
-	const {changeHardMode, changeScreenMode, changeHighContrastMode, displayTuggle, turn, screenMode} = props
+	const {
+		   changeHardMode,
+		   changeScreenMode, 
+		   changeHighContrastMode, 
+		   displayTuggle, 
+		   turn, 
+		   screenMode, 
+		   definitions
+		} = props
 
 	const showModeDisableMsg = (messageClass) => {
 		const messages = document.querySelector('.messages')
@@ -24,14 +32,14 @@ const Definitions = (props) => {
 		<div style={{backgroundColor: screenMode.BGC}} className='definitionsPage'>
 			<div className='englishDefinitions'>
 				<header className='definitionsHeader'>
-					<h5>SETTING</h5>
+					<h5>{definitions.head}</h5>
 					<div onClick={() => displayTuggle('Definitions')} className='x'>X</div>
 				</header>
 				<main>
 					<section className='hardMode'>
 						<div className='modeTitle'>
-							<h6>Hard Mode</h6>
-							<div className='btnExplanation'>Any revealed hints must be used in subsequent guesses</div>
+							<h6>{definitions.hardModeHead}</h6>
+							<div className='btnExplanation'>{definitions.hardModeExplanation}</div>
 						</div>
 						<label className="switch">
 							<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
@@ -39,7 +47,7 @@ const Definitions = (props) => {
 						</label>
 					</section>
 					<section className='darkMode'>
-						<h6>Dark Mode</h6>
+						<h6>{definitions.darkModeHead}</h6>
 						<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
 							<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
 							<span className="slider round"></span>
@@ -47,8 +55,8 @@ const Definitions = (props) => {
 					</section>
 					<section className='highContracstMode'>
 						<div className='modeTitle'>
-							<h6>High Contrast Mode</h6>
-							<div className='btnExplanation'>For improved color vision</div>
+							<h6>{definitions.highContrastModeHead}</h6>
+							<div className='btnExplanation'>{definitions.highContrastModeExplanation}</div>
 						</div>
 						<label onClick={() => showModeDisableMsg('.highContrastModeDisable')} className="switch">
 							<input onClick={changeHighContrastMode} className='highContrastModeInput' type="checkbox" />
@@ -100,7 +108,8 @@ const Definitions = (props) => {
 const mapStateToProps = (state) => {
   return {
     turn: state.turn,
-    screenMode: state.screenMode
+    screenMode: state.screenMode,
+    definitions: state.definitions,
   }
 }
 

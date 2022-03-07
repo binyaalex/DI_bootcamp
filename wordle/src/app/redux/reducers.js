@@ -61,7 +61,15 @@ export const initState = {
 			wrongLanguage: 'Bro you on Hebrew',
 			darkModeDisable: 'Dark mode can only be enabled at the start of a round',
 			highContrastModeDisable: 'High contrast mode can only be enabled at the start of a round'
-		}
+		},
+		definitions: {
+			head: 'SETTING',
+			hardModeHead: 'Hard Mode',
+			hardModeExplanation: 'Any revealed hints must be used in subsequent guesses',
+			darkModeHead: 'Dark Mode',
+			highContrastModeHead: 'High Contrast Mode',
+			highContrastModeExplanation: 'For improved color vision',
+		},
 	}
 
 export const reducer = (state=initState, action={}) => {
@@ -291,7 +299,15 @@ export const reducer = (state=initState, action={}) => {
 						wrongLanguage: 'אחותי את על אנגלית',
 						darkModeDisable: 'מצב לילה אפשר להפעיל רק בתחילת סיבוב',
 						highContrastModeDisable: 'מצב  ניגודיות גבוהה אפשר להפעיל רק בתחילת סיבוב',
-					}
+					},
+					definitions: {
+						head: 'הגדרות',
+						hardModeHead: 'רמה קשה',
+						hardModeExplanation: 'מחויב להשתמש בכל הרמזים מניחושים קודמים',
+						darkModeHead: 'מצב לילה',
+						highContrastModeHead: 'מצב עיוורון צבעים',
+						highContrastModeExplanation: 'לשיפור  ניגודיות הצבעים',
+					},
 				 }
 
 		// change language to english
