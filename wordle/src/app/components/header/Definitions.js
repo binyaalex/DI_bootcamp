@@ -30,77 +30,39 @@ const Definitions = (props) => {
 
 	return (
 		<div style={{backgroundColor: screenMode.BGC}} className='definitionsPage'>
-			<div className='englishDefinitions'>
-				<header className='definitionsHeader'>
-					<h5>{definitions.head}</h5>
-					<div onClick={() => displayTuggle('Definitions')} className='x'>X</div>
-				</header>
-				<main>
-					<section className='hardMode'>
-						<div className='modeTitle'>
-							<h6>{definitions.hardModeHead}</h6>
-							<div className='btnExplanation'>{definitions.hardModeExplanation}</div>
-						</div>
-						<label className="switch">
-							<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
-							<span className="slider round"></span>
-						</label>
-					</section>
-					<section className='darkMode'>
-						<h6>{definitions.darkModeHead}</h6>
-						<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
-							<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
-							<span className="slider round"></span>
-						</label>
-					</section>
-					<section className='highContracstMode'>
-						<div className='modeTitle'>
-							<h6>{definitions.highContrastModeHead}</h6>
-							<div className='btnExplanation'>{definitions.highContrastModeExplanation}</div>
-						</div>
-						<label onClick={() => showModeDisableMsg('.highContrastModeDisable')} className="switch">
-							<input onClick={changeHighContrastMode} className='highContrastModeInput' type="checkbox" />
-							<span className="slider round"></span>
-						</label>
-					</section>				
-				</main>
-			</div>
-
-			<div className='hebrewDefinitions'>
-				<header className='definitionsHeader'>
-					<h5>הגדרות</h5>
-					<div onClick={() => displayTuggle('Definitions')} className='hebrewX x'>X</div>
-				</header>
-				<main>
-					<section className='hardMode'>
-						<label className="switch">
-							<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
-							<span className="slider round"></span>
-						</label>
-						<div className='hebrewModeTitle'>
-							<h6>רמה קשה</h6>
-							<div className='btnExplanation'>מחויב להשתמש בכל הרמזים מניחושים קודמים</div>
-						</div>	
-					</section>
-					<section className='darkMode'>
-						<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
-							<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
-							<span className="slider round"></span>
-						</label>
-						<h6>מצב לילה</h6>
-					</section>
-					<section className='highContracstMode'>
-						<label onClick={() => showModeDisableMsg('.highContrastModeDisable')} className="switch">
-							<input onClick={changeHighContrastMode} className='highContrastModeInput' type="checkbox" />
-							<span className="slider round"></span>
-						</label>
-						<div className='hebrewModeTitle'>
-							<h6>מצב עיוורון צבעים</h6>
-							<div className='btnExplanation'>לשיפור  ניגודיות הצבעים</div>
-						</div>
-					</section>				
-				</main>
-			</div>
+			<header className='definitionsHeader'>
+				<h5>{definitions.head}</h5>
+				<div onClick={() => displayTuggle('.definitionsPage')} className='x'>X</div>
+			</header>
+			<main>
+				<section className='hardMode'>
+					<div className='modeTitle'>
+						<h6>{definitions.hardModeHead}</h6>
+						<div className='btnExplanation'>{definitions.hardModeExplanation}</div>
+					</div>
+					<label className="switch">
+						<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
+						<span className="slider round"></span>
+					</label>
+				</section>
+				<section className='darkMode'>
+					<h6>{definitions.darkModeHead}</h6>
+					<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
+						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
+						<span className="slider round"></span>
+					</label>
+				</section>
+				<section className='highContracstMode'>
+					<div className='modeTitle'>
+						<h6>{definitions.highContrastModeHead}</h6>
+						<div className='btnExplanation'>{definitions.highContrastModeExplanation}</div>
+					</div>
+					<label onClick={() => showModeDisableMsg('.highContrastModeDisable')} className="switch">
+						<input onClick={changeHighContrastMode} className='highContrastModeInput' type="checkbox" />
+						<span className="slider round"></span>
+					</label>
+				</section>				
+			</main>		
 		</div>
 	)
 }
