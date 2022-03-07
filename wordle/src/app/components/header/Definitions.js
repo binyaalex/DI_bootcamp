@@ -36,7 +36,7 @@ const Definitions = (props) => {
 			</header>
 			<main>
 				<section className='sectionMode'>
-					<div className='modeTitle'>
+					<div className='modeTitle hebrewChangeFlex'>
 						<h6>{definitions.hardModeHead}</h6>
 						<div className='btnExplanation'>{definitions.hardModeExplanation}</div>
 					</div>
@@ -53,7 +53,7 @@ const Definitions = (props) => {
 					</label>
 				</section>
 				<section className='sectionMode'>
-					<div className='modeTitle'>
+					<div className='modeTitle hebrewChangeFlex'>
 						<h6>{definitions.highContrastModeHead}</h6>
 						<div className='btnExplanation'>{definitions.highContrastModeExplanation}</div>
 					</div>

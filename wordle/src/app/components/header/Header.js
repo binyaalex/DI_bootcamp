@@ -40,7 +40,7 @@ const Header = (props) => {
 	return (
 		<header style={{borderBottom: screenMode.headerBorderBottom}} className='mainHeader'>
 	    	<div>
-				<div onClick={() => displayTuggle('HelpPage')} className='helpBtn'>?</div>
+				<div onClick={() => displayTuggle('.helpPage')} className='helpBtn'>?</div>
 			</div>
 			<Help displayTuggle={displayTuggle} />
 			<Definitions displayTuggle={displayTuggle} />
