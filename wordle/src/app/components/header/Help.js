@@ -1,79 +1,79 @@
 import {connect} from 'react-redux';
 
 const Help = (props) => {
-	const {colors, displayTuggle, screenMode} = props
+	const {colors, displayTuggle, screenMode, help} = props
 	return (
 		<div style={{backgroundColor: screenMode.BGC}} className='helpPage'>
 			<div className='englishHelpPage'>
 				<div className='help'>
 					<header className='helpHeader'>
-						<h5>HOW TO PLAY</h5>
+						<h5>{help.helpHead}</h5>
 						<div onClick={() => displayTuggle('HelpPage')} className='x'>X</div>
 					</header>
 					<main>
 						<section className='instructions'>
-							<p>Guess the <strong>WORDLE</strong> in six tries.</p>
-							<p>Each guess must be a valid 5 letter word. Hit the enter button to submit.</p>
-							<p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+							<p>{help.instructionP1A}<strong>{help.instructionP1Strong}</strong>{help.instructionP1B}</p>
+							<p>{help.instructionP2}</p>
+							<p>{help.instructionP3}</p>
 						</section>
 						<section>
-							<p className='examples'>Examples</p>
-							<div className='example'>
-					          <div style={{backgroundColor: colors.green}} className='helpLetterBox firstLetter helpColorLetter'>
-					            W
+							<p className='examples'>{help.examplesHead}</p>
+		    			    <div className='example'>
+					          <div style={{backgroundColor: colors.gray}} className='helpLetterBox firstLetter helpColorLetter'>
+					            {help.grayExample1}
 					          </div>
 					          <div className='helpLetterBox'>
-					            E
+					            {help.grayExample2}
 					          </div>
 					          <div className='helpLetterBox'>
-					            A
+					            {help.grayExample3}
 					          </div>
 					          <div className='helpLetterBox'>
-					            R
+					            {help.grayExample4}
 					          </div>
 					          <div className='helpLetterBox'>
-					            Y
+					            {help.grayExample5}
 					          </div>
 					        </div>
-					        <p>The letter <strong>W</strong> is in the word and in the correct spot.</p>
+					        <p>{help.grayExplanationA}<strong>{help.grayExplanationStrong}</strong>{help.grayExplanationB}</p>
 					        <div className='example'>
 					          <div className='helpLetterBox firstLetter'>
-					            P
+					            {help.yellowExample1}
 					          </div>
 					          <div style={{backgroundColor: colors.yellow}} className='helpLetterBox helpColorLetter'>
-					            I
+					            {help.yellowExample2}
 					          </div>
 					          <div className='helpLetterBox'>
-					            L
+					            {help.yellowExample3}
 					          </div>
 					          <div className='helpLetterBox'>
-					            L
+					            {help.yellowExample4}
 					          </div>
 					          <div className='helpLetterBox'>
-					            S
+					            {help.yellowExample5}
 					          </div>
 					        </div>
-					        <p>The letter <strong>I</strong> is in the word but in the wrong spot.</p>
-		    			    <div className='example'>
+					        <p>{help.yellowExplanationA}<strong>{help.yellowExplanationStrong}</strong>{help.yellowExplanationB}</p>
+							<div className='example'>
 					          <div className='helpLetterBox firstLetter'>
-					            V
+					            {help.greenExample1}
 					          </div>
 					          <div className='helpLetterBox'>
-					            A
+					            {help.greenExample2}
+					          </div>
+					          <div style={{backgroundColor: colors.green}} className='helpLetterBox helpColorLetter'>
+					            {help.greenExample3}
 					          </div>
 					          <div className='helpLetterBox'>
-					            G
-					          </div>
-					          <div style={{backgroundColor: colors.gray}} className='helpLetterBox helpColorLetter'>
-					            U
+					            {help.greenExample4}
 					          </div>
 					          <div className='helpLetterBox'>
-					            E
+					            {help.greenExample5}
 					          </div>
 					        </div>
-					        <p>The letter <strong>U</strong> is not in the word in any spot.</p>
+					        <p>{help.greenExplanationA}<strong>{help.greenExplanationStrong}</strong>{help.greenExplanationB}</p>
 						</section>
-						<p><strong>A new WORDLE will be available each refresh!</strong></p>
+						<p><strong>{help.footer}</strong></p>
 					</main>
 				</div>
 			</div>
@@ -159,6 +159,7 @@ const mapStateToProps = (state) => {
   return {
     colors: state.colors,
     screenMode: state.screenMode,
+    help: state.help,
   }
 }
 
