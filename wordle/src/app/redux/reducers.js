@@ -39,6 +39,11 @@ export const initState = {
 			green: 'rgb(106, 170, 100)'
 		},
 		result: [],
+		keyboard: {
+			qToP: ['q','w','e','r','t','y','u','i','o','p'],
+  			aToL: ['a','s','d','f','g','h','j','k','l'],
+  			enterToDel: ['enter','z','x','c','v','b','n','m','del'],
+		},
 		turn: 0,
 		hardMode: false,
 		screenMode: {

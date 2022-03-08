@@ -298,7 +298,7 @@ button {
   border: 0;
 }
 
-.qToP, .enterToBackspace {
+.qToP, .enterToDel {
   display: flex;
   justify-content: center;
   margin: 0 auto 8px;
@@ -310,7 +310,7 @@ button {
   justify-content: center;
 }
 
-.qToP > *, .enterToBackspace > *, .aToL > * {
+.qToP > *, .enterToDel > *, .aToL > * {
   height: 58px;
   width: 43px;
   border-radius: 2px;
@@ -321,7 +321,7 @@ button {
   margin: 0 6px 0 0;
 }
 
-.notL {
+.notLetter {
   flex: 1.5;
 }
 
@@ -404,7 +404,7 @@ button {
     width: 100%;
   }
 
-  .qToP > *, .enterToBackspace > *, .aToL > * {
+  .qToP > *, .enterToDel > *, .aToL > * {
     width: 8vw;
   }
 }

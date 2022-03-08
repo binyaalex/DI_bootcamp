@@ -1,46 +1,39 @@
 import {connect} from 'react-redux';
 import {changeAction, enterAction, delAction} from '../../redux/actions';
-
+import KeyboardLetter from './KeyboardLetter'
 
 const Keyboard = (props) => {
-  const {change2, enter, del} = props
+  const {change2, enter, del, keyboard} = props
 	return (
 	  <div className='keyboards'>   
 
       <div className='englishKeyboard'>
         <div className='qToP'>
-          <button onClick={change2} className='boardLetter'>Q</button>
-          <button onClick={change2} className='boardLetter'>W</button>
-          <button onClick={change2} className='boardLetter'>E</button>
-          <button onClick={change2} className='boardLetter'>R</button>
-          <button onClick={change2} className='boardLetter'>T</button>
-          <button onClick={change2} className='boardLetter'>Y</button>
-          <button onClick={change2} className='boardLetter'>U</button>
-          <button onClick={change2} className='boardLetter'>I</button>
-          <button onClick={change2} className='boardLetter'>O</button>
-          <button onClick={change2} className='boardLetter'>P</button>
+          {
+            keyboard.qToP.map((letter) => {
+              return (
+                <KeyboardLetter letter={letter} key={letter} />
+              )
+            })
+          }
         </div>
         <div className='aToL'>
-          <button onClick={change2} className='boardLetter'>A</button>
-          <button onClick={change2} className='boardLetter'>S</button>
-          <button onClick={change2} className='boardLetter'>D</button>
-          <button onClick={change2} className='boardLetter'>F</button>
-        	<button onClick={change2} className='boardLetter'>G</button>
-          <button onClick={change2} className='boardLetter'>H</button>
-          <button onClick={change2} className='boardLetter'>J</button>
-          <button onClick={change2} className='boardLetter'>K</button>
-          <button onClick={change2} className='boardLetter'>L</button>
+          {
+            keyboard.aToL.map((letter) => {
+              return (
+                <KeyboardLetter letter={letter} key={letter} />
+              )
+            })
+          }
         </div>
-        <div className='enterToBackspace'>
-          <button onClick={enter} className='notL boardLetter'>ENTER</button>
-          <button onClick={change2} className='boardLetter'>Z</button>
-          <button onClick={change2} className='boardLetter'>X</button>
-          <button onClick={change2} className='boardLetter'>C</button>
-          <button onClick={change2} className='boardLetter'>V</button>
-          <button onClick={change2} className='boardLetter'>B</button>
-          <button onClick={change2} className='boardLetter'>N</button>
-          <button onClick={change2} className='boardLetter'>M</button>
-          <button onClick={del} className='notL boardLetter'>DEL</button>
+        <div className='enterToDel'>
+          {
+            keyboard.enterToDel.map((letter) => {
+              return (
+                <KeyboardLetter letter={letter} key={letter} />
+              )
+            })
+          }
         </div>
       </div>
 
@@ -87,6 +80,12 @@ const Keyboard = (props) => {
 	)
 }
 
+const mapStateToProps = (state) => {
+  return {
+    keyboard: state.keyboard,
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     change2: (e) => dispatch(changeAction(e.target.textContent)),
@@ -95,4 +94,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Keyboard) 
+export default connect(mapStateToProps, mapDispatchToProps)(Keyboard) 
