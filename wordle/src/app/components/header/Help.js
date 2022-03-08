@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import ExampleList from './ExampleList';
+import ExampleList from './examples/ExampleList';
 
 const Help = (props) => {
 	const {displayTuggle, screenMode, help} = props

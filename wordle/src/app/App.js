@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/header/Header'
-import Tries from './components/main/Tries'
+import Tries from './components/main/tries/Tries'
 import Keyboard from './components/main/Keyboard'
 import Messages from './components/temporary-components/Messages'
 import PlayAgain from './components/temporary-components/PlayAgain'
