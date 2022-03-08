@@ -103,6 +103,8 @@ export const initState = {
 			darkModeHead: 'Dark Mode',
 			highContrastModeHead: 'High Contrast Mode',
 			highContrastModeExplanation: 'For improved color vision',
+			github: 'Github',
+			linkedin: 'Linkedin',
 		},
 	}
 
@@ -375,6 +377,8 @@ export const reducer = (state=initState, action={}) => {
 						darkModeHead: 'מצב לילה',
 						highContrastModeHead: 'מצב עיוורון צבעים',
 						highContrastModeExplanation: 'לשיפור  ניגודיות הצבעים',
+						github: 'גיטהאב',
+						linkedin: 'לינקדאין',
 					},
 				 }
 

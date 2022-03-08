@@ -61,7 +61,23 @@ const Definitions = (props) => {
 						<input onClick={changeHighContrastMode} className='highContrastModeInput' type="checkbox" />
 						<span className="slider round"></span>
 					</label>
-				</section>				
+				</section>
+				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank">
+					<section className='sectionMode'>
+						<div className='modeTitle hebrewChangeFlex'>
+							<h6>{definitions.github}</h6>
+						</div>
+						<i class="fab fa-brands fa-github"></i>
+					</section>
+				</a>
+				<a className='hebrewChangeFlex' href="https://www.linkedin.com/in/benjamin-alexander-b39863195" target="_blank">
+					<section className='sectionMode'>
+						<div className='modeTitle hebrewChangeFlex'>
+							<h6>{definitions.linkedin}</h6>
+						</div>
+						<i class="fab fa-brands fa-linkedin"></i>
+					</section>
+				</a>
 			</main>
 		</div>
 	)
