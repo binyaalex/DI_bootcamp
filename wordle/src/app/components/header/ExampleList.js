@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Example from './Example';
 
 const ExampleList = (props) => {
-	const {colors, displayTuggle, screenMode, help, color, language} = props
+	const {colors, screenMode, help, color, language} = props
   	// const arr = ['gray', 'yellow', 'green']
   	useEffect(() => {
 		const examplesLetters = document.querySelectorAll('.helpLetterBox')

@@ -405,7 +405,7 @@ export const reducer = (state=initState, action={}) => {
 		  } else {
 			screenMode = initState.screenMode
 			changeScreenModeColors = {
-				gray: 'rgb(58,58,60)',
+				gray: 'rgb(120,124,126)',
 				yellow: state.colors.yellow,
 				green: state.colors.green,
 			}
