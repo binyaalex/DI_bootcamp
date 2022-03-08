@@ -7,17 +7,26 @@ const ExampleList = (props) => {
   	const arr = ['gray', 'yellow', 'green']
   	useEffect(() => {
 		const examplesLetters = document.querySelectorAll('.helpLetterBox')
+		examplesLetters.forEach((letter, i) =>{
+			letter.classList.remove('helpColorLetter')
+			letter.style.backgroundColor = ''
 			if (language === 'EN') {
+				if (i === 3 || i === 6 || i === 10) {
+					letter.classList.add('helpColorLetter')
+				}
 				examplesLetters[3].style.backgroundColor = colors.gray
-				examplesLetters[3].classList.add('helpColorLetter')
 				examplesLetters[6].style.backgroundColor = colors.yellow
-				examplesLetters[6].classList.add('helpColorLetter')
 				examplesLetters[10].style.backgroundColor = colors.green
-				examplesLetters[10].classList.add('helpColorLetter')
+			} else {
+				if (i === 4 || i === 8 || i === 12) {
+					letter.classList.add('helpColorLetter')
+				}
+				examplesLetters[4].style.backgroundColor = colors.gray
+				examplesLetters[8].style.backgroundColor = colors.yellow
+				examplesLetters[12].style.backgroundColor = colors.green
 			}
-		// }
+		})
  	});
- 	console.log(help)
 	return (
 		<>
 	          {
