@@ -396,7 +396,6 @@ export const reducer = (state=initState, action={}) => {
 				keyboardRegularBG: '#818384',
 				headerBorderBottom: '1px solid #3A3A3C',
 			}
-			console.log(state.colors.green)
 			changeScreenModeColors = {
 				gray: 'rgb(58,58,60)',
 				yellow: state.colors.yellow,

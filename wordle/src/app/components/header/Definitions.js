@@ -62,20 +62,20 @@ const Definitions = (props) => {
 						<span className="slider round"></span>
 					</label>
 				</section>
-				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank">
+				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank" rel="noreferrer">
 					<section className='sectionMode'>
 						<div className='modeTitle hebrewChangeFlex'>
 							<h6>{definitions.github}</h6>
 						</div>
-						<i class="fab fa-brands fa-github"></i>
+						<i className="fab fa-brands fa-github"></i>
 					</section>
 				</a>
-				<a className='hebrewChangeFlex' href="https://www.linkedin.com/in/benjamin-alexander-b39863195" target="_blank">
+				<a className='hebrewChangeFlex' href="https://www.linkedin.com/in/benjamin-alexander-b39863195" target="_blank" rel="noreferrer">
 					<section className='sectionMode'>
 						<div className='modeTitle hebrewChangeFlex'>
 							<h6>{definitions.linkedin}</h6>
 						</div>
-						<i class="fab fa-brands fa-linkedin"></i>
+						<i className="fab fa-brands fa-linkedin"></i>
 					</section>
 				</a>
 			</main>

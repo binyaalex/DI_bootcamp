@@ -1,13 +1,10 @@
 import {connect} from 'react-redux';
-import React, { useEffect } from 'react';
 import ExampleLetter from './ExampleLetter';
 
 const Example = (props) => {
-	const {colors, displayTuggle, screenMode, help, color} = props
+	const {help, color} = props
   	const arr = [0, 1, 2, 3, 4]
-  	useEffect(() => {
-		
- 	});
+  	
 	return (
 		<>
 		    <div className='example'>
@@ -26,8 +23,6 @@ const Example = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    colors: state.colors,
-    screenMode: state.screenMode,
     help: state.help,
   }
 }

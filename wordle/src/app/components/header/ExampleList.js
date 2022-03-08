@@ -3,8 +3,7 @@ import React, { useEffect } from 'react';
 import Example from './Example';
 
 const ExampleList = (props) => {
-	const {colors, screenMode, help, color, language} = props
-  	// const arr = ['gray', 'yellow', 'green']
+	const {colors, help, language} = props
   	useEffect(() => {
 		const examplesLetters = document.querySelectorAll('.helpLetterBox')
 		examplesLetters.forEach((letter, i) =>{
@@ -43,7 +42,6 @@ const ExampleList = (props) => {
 const mapStateToProps = (state) => {
   return {
     colors: state.colors,
-    screenMode: state.screenMode,
     help: state.help,
     language: state.language,
   }

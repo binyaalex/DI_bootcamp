@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import ExampleList from './ExampleList';
 
 const Help = (props) => {
-	const {colors, displayTuggle, screenMode, help} = props
+	const {displayTuggle, screenMode, help} = props
 	return (
 		<div style={{backgroundColor: screenMode.BGC}} className='helpPage'>
 			<header className='helpHeader'>
@@ -18,59 +18,6 @@ const Help = (props) => {
 				<section className='examples hebrewChangeFlex'>
 					<p className='examplesHead'>{help.examplesHead}</p>
 					<ExampleList />
-{/*    			    <div className='example'>
-			          <div style={{backgroundColor: colors.gray}} className='helpLetterBox firstLetter helpColorLetter'>
-			            {help.grayExample1}
-			          </div>
-			          <div className='helpLetterBox'>
-			            {help.grayExample2}
-			          </div>
-			          <div className='helpLetterBox'>
-			            {help.grayExample3}
-			          </div>
-			          <div className='helpLetterBox'>
-			            {help.grayExample4}
-			          </div>
-			          <div className='helpLetterBox lastLetter'>
-			            {help.grayExample5}
-			          </div>
-			        </div>
-			        <p>{help.grayExplanationA}<strong>{help.grayExplanationStrong}</strong>{help.grayExplanationB}</p>*/}
-{/*			        <div className='example'>
-			          <div className='helpLetterBox firstLetter'>
-			            {help.yellowExample1}
-			          </div>
-			          <div style={{backgroundColor: colors.yellow}} className='helpLetterBox helpColorLetter'>
-			            {help.yellowExample2}
-			          </div>
-			          <div className='helpLetterBox'>
-			            {help.yellowExample3}
-			          </div>
-			          <div className='helpLetterBox'>
-			            {help.yellowExample4}
-			          </div>
-			          <div className='helpLetterBox lastLetter'>
-			            {help.yellowExample5}
-			          </div>
-			        </div>
-			        <p>{help.yellowExplanationA}<strong>{help.yellowExplanationStrong}</strong>{help.yellowExplanationB}</p>
-					<div className='example'>
-			          <div className='helpLetterBox firstLetter'>
-			            {help.greenExample1}
-			          </div>
-			          <div className='helpLetterBox'>
-			            {help.greenExample2}
-			          </div>
-			          <div style={{backgroundColor: colors.green}} className='helpLetterBox helpColorLetter'>
-			            {help.greenExample3}
-			          </div>
-			          <div className='helpLetterBox'>
-			            {help.greenExample4}
-			          </div>
-			          <div className='helpLetterBox lastLetter'>
-			            {help.greenExample5}
-			          </div>
-			        </div>*/}
 			        <p>{help.greenExplanationA}<strong>{help.greenExplanationStrong}</strong>{help.greenExplanationB}</p>
 				</section>
 				<p><strong>{help.footer}</strong></p>
@@ -81,7 +28,6 @@ const Help = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    colors: state.colors,
     screenMode: state.screenMode,
     help: state.help,
   }
