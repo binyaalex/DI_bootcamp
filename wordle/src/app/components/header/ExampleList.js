@@ -4,19 +4,19 @@ import Example from './Example';
 
 const ExampleList = (props) => {
 	const {colors, displayTuggle, screenMode, help, color, language} = props
-  	const arr = ['gray', 'yellow', 'green']
+  	// const arr = ['gray', 'yellow', 'green']
   	useEffect(() => {
 		const examplesLetters = document.querySelectorAll('.helpLetterBox')
 		examplesLetters.forEach((letter, i) =>{
 			letter.classList.remove('helpColorLetter')
 			letter.style.backgroundColor = ''
 			if (language === 'EN') {
-				if (i === 3 || i === 6 || i === 10) {
+				if (i === 0 || i === 6 || i === 13) {
 					letter.classList.add('helpColorLetter')
 				}
-				examplesLetters[3].style.backgroundColor = colors.gray
+				examplesLetters[0].style.backgroundColor = colors.green
 				examplesLetters[6].style.backgroundColor = colors.yellow
-				examplesLetters[10].style.backgroundColor = colors.green
+				examplesLetters[13].style.backgroundColor = colors.gray
 			} else {
 				if (i === 4 || i === 8 || i === 12) {
 					letter.classList.add('helpColorLetter')
@@ -30,7 +30,7 @@ const ExampleList = (props) => {
 	return (
 		<>
 	          {
-		        arr.map((el, i) => {
+		        help.examplesOrder.map((el, i) => {
 		          return (
 		            <Example i={i} key={i} color={el} />
 		          )

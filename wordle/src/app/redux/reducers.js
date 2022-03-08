@@ -70,9 +70,10 @@ export const initState = {
 			instructionP2: 'Each guess must be a valid 5 letter word. Hit the enter button to submit.',
 			instructionP3: 'After each guess, the color of the tiles will change to show how close your guess was to the word.',
 			examplesHead: 'Examples',
+			examplesOrder: [ 'green', 'yellow', 'gray'],
 			gray: {
 				letters: ['V', 'A', 'G', 'U', 'E'],
-				strongLetter: 'V',
+				strongLetter: 'U',
 				explanationB: ' is not in the word in any spot.',	
 			},
 			yellow: {
@@ -82,7 +83,7 @@ export const initState = {
 			},
 			green: {
 				letters: ['W', 'E', 'A', 'R', 'Y'],
-				strongLetter: 'A',
+				strongLetter: 'W',
 				explanationB: ' is in the word and in the correct spot.',	
 			},
 			explanationA: 'The letter ',
@@ -336,6 +337,7 @@ export const reducer = (state=initState, action={}) => {
 						instructionP2: '.כל נסיון חייב להיות מילה בת 5 אותיות. לחץ על אנטר  על מנת לבדוק אם זו המילה',
 						instructionP3: '.אחרי כל ניסיון, הצבע של האות ישתנה להראות כמה הניסיון קרוב למילה',
 						examplesHead: 'דוגמאות',
+						examplesOrder: ['gray', 'yellow', 'green'],
 						gray: {
 							letters: ['ן', 'ו', 'י', 'ס', 'נ'],
 							strongLetter: 'נ',
