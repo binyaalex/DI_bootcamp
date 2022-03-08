@@ -7,11 +7,15 @@ const changeLanguage = () => {
 	const hebrewChangeFlexs = document.querySelectorAll('.hebrewChangeFlex')
 	const h5s = document.querySelectorAll('h5')
 	const closes = document.querySelectorAll('.x')
+	const definitionsPage = document.querySelector('.definitionsPage')
+	const helpPage = document.querySelector('.helpPage')
 
 	if (languageBtn.textContent === 'עב') {
 		languageBtn.textContent = 'EN'
 		englishKeyboard.style.display = 'none'
-		hebrewKeyboard.style.display = 'block'
+		if (definitionsPage.style.display !== 'block' && helpPage.style.display !== 'block') {
+			hebrewKeyboard.style.display = 'block'
+		}
 
 		// for design hebrew pages will start from the right
 		sectionModes.forEach(sectionMode => sectionMode.classList.add('hebrewSectionMode'))
