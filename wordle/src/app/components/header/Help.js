@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import ExampleList from './ExampleList';
 
 const Help = (props) => {
 	const {colors, displayTuggle, screenMode, help} = props
@@ -16,7 +17,8 @@ const Help = (props) => {
 				</section>
 				<section className='examples hebrewChangeFlex'>
 					<p className='examplesHead'>{help.examplesHead}</p>
-    			    <div className='example'>
+					<ExampleList />
+{/*    			    <div className='example'>
 			          <div style={{backgroundColor: colors.gray}} className='helpLetterBox firstLetter helpColorLetter'>
 			            {help.grayExample1}
 			          </div>
@@ -33,8 +35,8 @@ const Help = (props) => {
 			            {help.grayExample5}
 			          </div>
 			        </div>
-			        <p>{help.grayExplanationA}<strong>{help.grayExplanationStrong}</strong>{help.grayExplanationB}</p>
-			        <div className='example'>
+			        <p>{help.grayExplanationA}<strong>{help.grayExplanationStrong}</strong>{help.grayExplanationB}</p>*/}
+{/*			        <div className='example'>
 			          <div className='helpLetterBox firstLetter'>
 			            {help.yellowExample1}
 			          </div>
@@ -68,7 +70,7 @@ const Help = (props) => {
 			          <div className='helpLetterBox lastLetter'>
 			            {help.greenExample5}
 			          </div>
-			        </div>
+			        </div>*/}
 			        <p>{help.greenExplanationA}<strong>{help.greenExplanationStrong}</strong>{help.greenExplanationB}</p>
 				</section>
 				<p><strong>{help.footer}</strong></p>
