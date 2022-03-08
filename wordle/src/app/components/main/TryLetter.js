@@ -3,14 +3,11 @@ import {connect} from 'react-redux';
 const TryLetter = (props) => {
 	const {userWord, turn, writingDirection, i} = props
 	return (
-		<>
-          <div className='letterBox letterBoxWT'>
-        {/* taking the letter from the state,
-            using writingDirection for hebrew right to left */}
-            {userWord[turn][writingDirection[i]]}
-          </div>
-
-		</>
+    <div className='letterBox letterBoxWT'>
+  {/* taking the letter from the state,
+      using writingDirection for hebrew right to left */}
+      {userWord[turn][writingDirection[i]]}
+    </div>
 	)
 }
 
