@@ -13,7 +13,6 @@ import {finalToRegular} from './redux/reducers';
 
 const App = (props) => {
   const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode, colors} = props
-  
   useEffect(() => {
     const triesBoxes = document.querySelectorAll('.letterBox')
     const boardLetters = document.querySelectorAll('.boardLetter')
@@ -76,6 +75,7 @@ const App = (props) => {
               if (result[writingDirection[i]] === colors.gray &&
                   boardLetters[d].style.backgroundColor === colors.yellow) {
               } else {
+                console.log(result[writingDirection[i]])
                 boardLetters[d].style.backgroundColor = result[writingDirection[i]]
                 boardLetters[d].style.color = 'white'
                 lastTry[writingDirection[i]].style.border = '0'
@@ -122,8 +122,8 @@ const App = (props) => {
 
     // for initialize the design (background and border color of letters in the tries and keyboard)
     } else {
-      // const boardLetters = document.querySelectorAll('.boardLetter')
       for (let i = 0; i < triesBoxes.length; i++) {
+        console.log(1)
         triesBoxes[i].style.backgroundColor = `${screenMode.BGC}`
         triesBoxes[i].style.borderColor = `${screenMode.letterBorderC}`
         triesBoxes[i].style.color = `${screenMode.color}`
@@ -131,10 +131,16 @@ const App = (props) => {
           triesBoxes[i].style.border = `2px solid ${screenMode.letterBorderC}`
         }  
       }
-      for (let i = 0; i < boardLetters.length; i++) {
-        boardLetters[i].style.backgroundColor = `${screenMode.keyboardRegularBG}`
-        boardLetters[i].style.color = `${screenMode.color}`
-      }
+      
+      // for taking the letters after change language
+      setTimeout(function() { 
+        const boardLetters2 = document.querySelectorAll('.boardLetter')
+        for (let i = 0; i < boardLetters2.length; i++) {
+          boardLetters2[i].style.backgroundColor = `${screenMode.keyboardRegularBG}`
+          boardLetters2[i].style.color = `${screenMode.color}`
+          console.log(boardLetters2[i].style.backgroundColor)
+        }
+      }, 1)        
     }
 
   });

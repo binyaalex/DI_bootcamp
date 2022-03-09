@@ -5,17 +5,10 @@ import Definitions from './Definitions'
 
 const Header = (props) => {
 	const {language, endOfGame, gameName, screenMode, changeLanguage} = props
-	const hebrewKeyboard = document.body.querySelector('.hebrewKeyboard')
 	const playAgain = document.querySelector('.playAgain')	
 	const messages = document.querySelector('.messages')
 
 	const displayTuggle = (pageClass) => {
-		if (language === 'עב' && hebrewKeyboard.style.display === 'block') {
-			hebrewKeyboard.style.display = 'none'
-		} else if (language === 'עב') {
-			hebrewKeyboard.style.display = 'block'
-		} else {
-		}
 		// all the conditions are for know if to display help and play again button or not
 		const helpOrDefinitionsPage = document.querySelector(pageClass)
 		const tries = document.querySelector('.tries')
