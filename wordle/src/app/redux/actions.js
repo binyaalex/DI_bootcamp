@@ -7,7 +7,7 @@ const changeLanguage = () => {
 	const closes = document.querySelectorAll('.x')
 
 	if (languageBtn.textContent === 'עב') {
-		languageBtn.textContent = 'EN'
+		// languageBtn.textContent = 'EN'
 
 		// for design hebrew pages will start from the right
 		sectionModes.forEach(sectionMode => sectionMode.classList.add('hebrewSectionMode'))
@@ -15,7 +15,7 @@ const changeLanguage = () => {
 		h5s.forEach(h5 => h5.classList.add('hebrewHead'))
 		closes.forEach(close => close.classList.add('hebrewX'))
 	} else {
-		languageBtn.textContent = 'עב'
+		// languageBtn.textContent = 'עב'
 		sectionModes.forEach(sectionMode => sectionMode.classList.remove('hebrewSectionMode'))
 		hebrewChangeFlexs.forEach(hebrewChangeFlex => hebrewChangeFlex.classList.remove('hebrewflex'))
 		h5s.forEach(h5 => h5.classList.remove('hebrewHead'))

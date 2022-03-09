@@ -4,7 +4,7 @@ import Help from './Help'
 import Definitions from './Definitions'
 
 const Header = (props) => {
-	const {endOfGame, gameName, screenMode, changeLanguage} = props
+	const {endOfGame, gameName, screenMode, languageBtn, changeLanguage} = props
 	const playAgain = document.querySelector('.playAgain')	
 	const messages = document.querySelector('.messages')
 
@@ -41,7 +41,7 @@ const Header = (props) => {
 	    		<h4>{gameName}</h4>
 			</div>
 	    	<div className='leftHeader'>
-	    		<div onClick={changeLanguage}  className='languageBtn'>עב</div>
+	    		<div onClick={changeLanguage}  className='languageBtn'>{languageBtn}</div>
 	    		<img onClick={() => displayTuggle('.definitionsPage')} className='definitionsBtn' src='gear_gray.svg' alt='DfnBtn' />
 	    	</div>
 		</header>
@@ -52,7 +52,8 @@ const mapStateToProps = (state) => {
   return {
     endOfGame: state.endOfGame,
     gameName: state.gameName,
-    screenMode: state.screenMode
+    screenMode: state.screenMode,
+    languageBtn: state.languageBtn,
   }
 }
 

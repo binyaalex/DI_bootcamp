@@ -26,6 +26,7 @@ export const finalToRegular = (letter) => {
 
 export const initState = {
 		language: 'EN',
+		languageBtn: 'עב',
 		gameName: 'WORDLE',
 		playAgain: 'Play Again',
 		letters: ".*[A-Z].*",
@@ -314,6 +315,7 @@ export const reducer = (state=initState, action={}) => {
 		  randomNum = Math.floor(Math.random() * HebrewWords.length);
 		  return {...state,
 					language: 'עב',
+					languageBtn: 'EN',
 					gameName: 'פיצוח',
 					playAgain: 'עוד פעם',
 					letters: ".*[א-ת].*",
