@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/header/Header'
 import Tries from './components/main/tries/Tries'
-import Keyboard from './components/main/Keyboard'
+import Keyboard from './components/main/keyboard/Keyboard'
 import Messages from './components/temporary-components/Messages'
 import PlayAgain from './components/temporary-components/PlayAgain'
 import {connect} from 'react-redux';
@@ -131,7 +131,7 @@ const App = (props) => {
           triesBoxes[i].style.border = `2px solid ${screenMode.letterBorderC}`
         }  
       }
-      
+
       // for taking the letters after change language
       setTimeout(function() { 
         const boardLetters2 = document.querySelectorAll('.boardLetter')
