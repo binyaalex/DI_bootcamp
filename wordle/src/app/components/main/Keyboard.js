@@ -1,9 +1,8 @@
 import {connect} from 'react-redux';
-import {changeAction, enterAction, delAction} from '../../redux/actions';
 import KeyboardLetter from './KeyboardLetter'
 
 const Keyboard = (props) => {
-  const {change2, enter, del, keyboard} = props
+  const {keyboard} = props
 	return (
 	  <div className='keyboard'>   
       <div className='englishKeyboard'>
@@ -45,12 +44,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    change2: (e) => dispatch(changeAction(e.target.textContent)),
-    enter: () => dispatch(enterAction()),
-    del: () => dispatch(delAction()),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Keyboard) 
+export default connect(mapStateToProps)(Keyboard) 

@@ -1,21 +1,13 @@
 // change language function
 const changeLanguage = () => {
 	const languageBtn = document.querySelector('.languageBtn')
-	const englishKeyboard = document.querySelector('.englishKeyboard')
-	const hebrewKeyboard = document.querySelector('.hebrewKeyboard')
 	const sectionModes = document.querySelectorAll('.sectionMode')
 	const hebrewChangeFlexs = document.querySelectorAll('.hebrewChangeFlex')
 	const h5s = document.querySelectorAll('h5')
 	const closes = document.querySelectorAll('.x')
-	const definitionsPage = document.querySelector('.definitionsPage')
-	const helpPage = document.querySelector('.helpPage')
 
 	if (languageBtn.textContent === 'עב') {
 		languageBtn.textContent = 'EN'
-		// englishKeyboard.style.display = 'none'
-		// if (definitionsPage.style.display !== 'block' && helpPage.style.display !== 'block') {
-		// 	hebrewKeyboard.style.display = 'block'
-		// }
 
 		// for design hebrew pages will start from the right
 		sectionModes.forEach(sectionMode => sectionMode.classList.add('hebrewSectionMode'))
@@ -24,8 +16,6 @@ const changeLanguage = () => {
 		closes.forEach(close => close.classList.add('hebrewX'))
 	} else {
 		languageBtn.textContent = 'עב'
-		// hebrewKeyboard.style.display = 'none'
-		// englishKeyboard.style.display = 'block'
 		sectionModes.forEach(sectionMode => sectionMode.classList.remove('hebrewSectionMode'))
 		hebrewChangeFlexs.forEach(hebrewChangeFlex => hebrewChangeFlex.classList.remove('hebrewflex'))
 		h5s.forEach(h5 => h5.classList.remove('hebrewHead'))
