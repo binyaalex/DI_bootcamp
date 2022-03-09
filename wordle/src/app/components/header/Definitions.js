@@ -63,7 +63,7 @@ const Definitions = (props) => {
 					</label>
 				</section>
 				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank" rel="noreferrer">
-					<section className='sectionMode'>
+					<section className='sectionMode' style={{color: screenMode.color}}>
 						<div className='modeTitle hebrewChangeFlex'>
 							<h6>{definitions.github}</h6>
 						</div>
@@ -71,11 +71,11 @@ const Definitions = (props) => {
 					</section>
 				</a>
 				<a className='hebrewChangeFlex' href="https://www.linkedin.com/in/benjamin-alexander-b39863195" target="_blank" rel="noreferrer">
-					<section className='sectionMode'>
+					<section className='sectionMode' style={{color: screenMode.color}}>
 						<div className='modeTitle hebrewChangeFlex'>
 							<h6>{definitions.linkedin}</h6>
 						</div>
-						<i className="fab fa-brands fa-linkedin"></i>
+						<i style={{color: screenMode.color}} className="fab fa-brands fa-linkedin"></i>
 					</section>
 				</a>
 			</main>
