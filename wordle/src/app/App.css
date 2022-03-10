@@ -213,7 +213,7 @@ input:checked + .slider:before {
 }
 
 section {
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid gray;
 }
 
 .examplesHead {
@@ -252,10 +252,10 @@ a {
     100% { transform: translate(0%, 0%) ; }
 }
 
-.letterBox, .helpLetterBox, .resultSquer {
+.letterBox, .helpLetterBox {
   width: 45px;
   height: 45px;
-  border: 2px solid lightgray;
+  border: 2px solid gray;
   border-radius: 2px;
   margin: 4px;
   display: flex;

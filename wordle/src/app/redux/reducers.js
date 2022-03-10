@@ -411,7 +411,7 @@ export const reducer = (state=initState, action={}) => {
 		  if (state.screenMode.BGC === 'white') {
 			screenMode = {
 				BGC: 'black',
-				color: 'white',
+				color: '#D7DADC',
 				letterBG: '#3A3A3C',
 				letterBorderC: '#3A3A3C',
 				fullLetterBorderC: '#818384',
