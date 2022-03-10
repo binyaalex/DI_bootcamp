@@ -37,14 +37,9 @@ const Definitions = (props) => {
 			</header>
 			<main>
 				<ModeBtn clickFunction={changeHardMode} title={definitions.hardModeHead} explanation={definitions.hardModeExplanation} inputClassName={'hardModeInput'} />
+				<ModeBtn clickFunction={changeScreenMode} title={definitions.darkModeHead} inputClassName={'darkModeInput'} />
 				<ModeBtn clickFunction={changeHighContrastMode} title={definitions.highContrastModeHead} explanation={definitions.highContrastModeExplanation} inputClassName={'highContrastModeInput'} />
-				<section className='sectionMode'>
-					<h6>{definitions.darkModeHead}</h6>
-					<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
-						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
-						<span className="slider round"></span>
-					</label>
-				</section>
+				
 				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank" rel="noreferrer">
 					<section className='sectionMode' style={{color: screenMode.color}}>
 						<div className='modeTitle hebrewChangeFlex'>
