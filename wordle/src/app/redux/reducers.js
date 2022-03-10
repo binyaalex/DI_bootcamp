@@ -35,9 +35,9 @@ export const initState = {
 		dailyWord: WORDS[randomNum],
 		userWord: ['','','','','',''],
 		colors: {
-			gray: 'rgb(120,124,126)',
+			gray: 'rgb(120, 124, 126)',
 			yellow: 'rgb(201, 180, 88)',
-			green: 'rgb(106, 170, 100)'
+			green: 'rgb(106, 170, 100)',
 		},
 		result: [],
 		keyboard: {
@@ -168,7 +168,12 @@ export const reducer = (state=initState, action={}) => {
 					letter = finalToRegular(tries[c].children[state.writingDirection[b]].textContent)
 
 					// check the green letters
+					console.log(tries[c].children[state.writingDirection[b]])
+					console.log(tries[c].children[state.writingDirection[b]].style.backgroundColor)
+					console.log(state.colors.green)
 					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === state.colors.green) {
+						console.log(letter)
+						console.log(userWord[b])
 						if (letter !== userWord[b]) {
 							IsGreenLetterInUserWord = false
 						}
@@ -312,6 +317,7 @@ export const reducer = (state=initState, action={}) => {
 
 		// change language to hebrew
 		case 'עב':
+		console.log(state.hardMode)
 		  randomNum = Math.floor(Math.random() * HebrewWords.length);
 		  return {...state,
 					language: 'עב',
@@ -384,6 +390,7 @@ export const reducer = (state=initState, action={}) => {
 
 		// change language to english
 		case 'EN':
+		console.log(state.hardMode)
 		  randomNum = Math.floor(Math.random() * WORDS.length);
 		  const oldScreenMode = state.screenMode
 		  const oldHardMode = state.hardMode
@@ -411,14 +418,14 @@ export const reducer = (state=initState, action={}) => {
 				headerBorderBottom: '1px solid #3A3A3C',
 			}
 			changeScreenModeColors = {
-				gray: 'rgb(58,58,60)',
+				gray: 'rgb(58, 58, 60)',
 				yellow: state.colors.yellow,
 				green: state.colors.green,
 			}
 		  } else {
 			screenMode = initState.screenMode
 			changeScreenModeColors = {
-				gray: 'rgb(120,124,126)',
+				gray: 'rgb(120, 124, 126)',
 				yellow: state.colors.yellow,
 				green: state.colors.green,
 			}
@@ -429,8 +436,8 @@ export const reducer = (state=initState, action={}) => {
 		  if (state.colors.green === 'rgb(106, 170, 100)') {
 			colors = {
 				gray: state.colors.gray,
-				yellow: 'rgb(230,113,54)',
-				green: 'rgb(133,192,249)',
+				yellow: 'rgb(230, 113, 54)',
+				green: 'rgb(133, 192, 249)',
 			}
 		  } else {
 			colors = initState.colors

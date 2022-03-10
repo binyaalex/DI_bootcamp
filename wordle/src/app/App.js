@@ -12,8 +12,9 @@ import {finalToRegular} from './redux/reducers';
 
 
 const App = (props) => {
-  const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode, colors} = props
+  const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode, colors, hardMode} = props
   useEffect(() => {
+    console.log(colors)
     const triesBoxes = document.querySelectorAll('.letterBox')
     const boardLetters = document.querySelectorAll('.boardLetter')
     const messages = document.querySelector('.messages')
@@ -49,7 +50,7 @@ const App = (props) => {
     }
     if (firstLoad) {
       const lastTry = document.querySelector('.tries').children[turn-1].children 
- 
+      console.log(hardMode)
       // color the letters of the last try according the result
       let i = 0;                  
       // do it in a loop by timeout for showing letter by letter
@@ -168,6 +169,7 @@ const mapStateToProps = (state) => {
     writingDirection: state.writingDirection,
     screenMode: state.screenMode,
     colors: state.colors,
+    hardMode: state.hardMode,
   }
 }
 
