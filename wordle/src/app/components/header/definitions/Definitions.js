@@ -51,6 +51,7 @@ const Definitions = (props) => {
 					</label>
 				</section>*/}
 				<LinkBtn link={'https://github.com/binyaalex/DI_bootcamp/tree/main/wordle'} title={definitions.github} icon={"fab fa-brands fa-github"} />
+				<LinkBtn link={'https://www.linkedin.com/in/benjamin-alexander-b39863195'} title={definitions.linkedin} icon={"fab fa-brands fa-linkedin"} />
 {/*				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank" rel="noreferrer">
 					<section className='sectionMode' style={{color: screenMode.color}}>
 						<div className='modeTitle hebrewChangeFlex'>
@@ -58,7 +59,7 @@ const Definitions = (props) => {
 						</div>
 						<i className="fab fa-brands fa-github"></i>
 					</section>
-				</a>*/}
+				</a>
 				<a className='hebrewChangeFlex' href="https://www.linkedin.com/in/benjamin-alexander-b39863195" target="_blank" rel="noreferrer">
 					<section className='sectionMode' style={{color: screenMode.color}}>
 						<div className='modeTitle hebrewChangeFlex'>
@@ -66,7 +67,7 @@ const Definitions = (props) => {
 						</div>
 						<i style={{color: screenMode.color}} className="fab fa-brands fa-linkedin"></i>
 					</section>
-				</a>
+				</a>*/}
 			</main>
 		</div>
 	)
