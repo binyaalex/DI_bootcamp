@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {changeLanguageAction} from '../../redux/actions';
-import Help from './Help'
+import Help from './help/Help'
 import Definitions from './definitions/Definitions'
 
 const Header = (props) => {
