@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {changeLanguageAction} from '../../redux/actions';
 import Help from './Help'
-import Definitions from './Definitions'
+import Definitions from './definitions/Definitions'
 
 const Header = (props) => {
 	const {endOfGame, gameName, screenMode, languageBtn, changeLanguage} = props

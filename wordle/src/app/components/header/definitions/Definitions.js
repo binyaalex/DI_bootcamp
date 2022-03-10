@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import ModeBtn from './ModeBtn'
-import {changeHardModeAction, changeScreenModeAction, changeHighContrastModeAction} from '../../redux/actions';
+import {changeHardModeAction, changeScreenModeAction, changeHighContrastModeAction} from '../../../redux/actions';
 
 
 const Definitions = (props) => {
@@ -39,7 +39,7 @@ const Definitions = (props) => {
 				<ModeBtn clickFunction={changeHardMode} title={definitions.hardModeHead} explanation={definitions.hardModeExplanation} inputClassName={'hardModeInput'} />
 				<ModeBtn clickFunction={changeScreenMode} title={definitions.darkModeHead} inputClassName={'darkModeInput'} />
 				<ModeBtn clickFunction={changeHighContrastMode} title={definitions.highContrastModeHead} explanation={definitions.highContrastModeExplanation} inputClassName={'highContrastModeInput'} />
-				
+
 				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank" rel="noreferrer">
 					<section className='sectionMode' style={{color: screenMode.color}}>
 						<div className='modeTitle hebrewChangeFlex'>
