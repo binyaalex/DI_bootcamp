@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import ModeBtn from './ModeBtn'
 import {changeHardModeAction, changeScreenModeAction, changeHighContrastModeAction} from '../../redux/actions';
 
 
@@ -35,30 +36,12 @@ const Definitions = (props) => {
 				<div onClick={() => displayTuggle('.definitionsPage')} className='x'>X</div>
 			</header>
 			<main>
-				<section className='sectionMode'>
-					<div className='modeTitle hebrewChangeFlex'>
-						<h6>{definitions.hardModeHead}</h6>
-						<div className='btnExplanation'>{definitions.hardModeExplanation}</div>
-					</div>
-					<label className="switch">
-						<input onClick={changeHardMode} className='hardModeInput' type="checkbox" />
-						<span className="slider round"></span>
-					</label>
-				</section>
+				<ModeBtn clickFunction={changeHardMode} title={definitions.hardModeHead} explanation={definitions.hardModeExplanation} inputClassName={'hardModeInput'} />
+				<ModeBtn clickFunction={changeHighContrastMode} title={definitions.highContrastModeHead} explanation={definitions.highContrastModeExplanation} inputClassName={'highContrastModeInput'} />
 				<section className='sectionMode'>
 					<h6>{definitions.darkModeHead}</h6>
 					<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
 						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
-						<span className="slider round"></span>
-					</label>
-				</section>
-				<section className='sectionMode'>
-					<div className='modeTitle hebrewChangeFlex'>
-						<h6>{definitions.highContrastModeHead}</h6>
-						<div className='btnExplanation'>{definitions.highContrastModeExplanation}</div>
-					</div>
-					<label onClick={() => showModeDisableMsg('.highContrastModeDisable')} className="switch">
-						<input onClick={changeHighContrastMode} className='highContrastModeInput' type="checkbox" />
 						<span className="slider round"></span>
 					</label>
 				</section>

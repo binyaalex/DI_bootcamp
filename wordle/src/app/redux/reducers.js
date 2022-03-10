@@ -397,6 +397,7 @@ export const reducer = (state=initState, action={}) => {
 		  const oldColors = state.colors
 		  return {...initState, dailyWord: WORDS[randomNum], screenMode: oldScreenMode, hardMode: oldHardMode, colors: oldColors}
 		case 'CHANGE_HARD_MODE':
+		console.log('CHANGE_HARD_MODE')
 		  let newHardMode
 		  if (state.hardMode) {
 		  	newHardMode = false
