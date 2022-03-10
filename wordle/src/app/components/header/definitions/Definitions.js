@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import ModeBtn from './ModeBtn'
+import LinkBtn from './LinkBtn'
 import {changeHardModeAction, changeScreenModeAction, changeHighContrastModeAction} from '../../../redux/actions';
 
 
@@ -42,21 +43,22 @@ const Definitions = (props) => {
 				<ModeBtn clickFunction={changeHardMode} showModeDisableMsg={showModeDisableMsg} disableParameter={'.notDisable'} title={definitions.hardModeHead} explanation={definitions.hardModeExplanation} inputClassName={'hardModeInput'} />
 				<ModeBtn clickFunction={changeScreenMode} showModeDisableMsg={showModeDisableMsg} disableParameter={'.darkModeDisable'} title={definitions.darkModeHead} inputClassName={'darkModeInput'} />
 				<ModeBtn clickFunction={changeHighContrastMode} showModeDisableMsg={showModeDisableMsg} disableParameter={'.highContrastModeDisable'} title={definitions.highContrastModeHead} explanation={definitions.highContrastModeExplanation} inputClassName={'highContrastModeInput'} />
-				<section className='sectionMode'>
+{/*				<section className='sectionMode'>
 					<h6>{definitions.darkModeHead}</h6>
 					<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
 						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
 						<span className="slider round"></span>
 					</label>
-				</section>
-				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank" rel="noreferrer">
+				</section>*/}
+				<LinkBtn link={'https://github.com/binyaalex/DI_bootcamp/tree/main/wordle'} title={definitions.github} icon={"fab fa-brands fa-github"} />
+{/*				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank" rel="noreferrer">
 					<section className='sectionMode' style={{color: screenMode.color}}>
 						<div className='modeTitle hebrewChangeFlex'>
 							<h6>{definitions.github}</h6>
 						</div>
 						<i className="fab fa-brands fa-github"></i>
 					</section>
-				</a>
+				</a>*/}
 				<a className='hebrewChangeFlex' href="https://www.linkedin.com/in/benjamin-alexander-b39863195" target="_blank" rel="noreferrer">
 					<section className='sectionMode' style={{color: screenMode.color}}>
 						<div className='modeTitle hebrewChangeFlex'>
