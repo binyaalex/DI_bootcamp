@@ -17,15 +17,18 @@ const Definitions = (props) => {
 	const showModeDisableMsg = (messageClass) => {
 		const messages = document.querySelector('.messages')
 		if (turn) {
-			// put message that the user can't change dark mode during the game
-			const message = document.querySelector(messageClass)	
-	  		messages.style.display = 'block'
-		  	message.style.display = 'block'
-		  	const undisplay = () => {
-        		messages.style.display = 'none'
-		  		message.style.display = 'none'
-		  	}
-		  	setTimeout(undisplay, 2500)
+			// for hard mode that can change during the game
+			if (messageClass !== '.notDisable') {
+				// put message that the user can't change dark mode during the game
+				const message = document.querySelector(messageClass)	
+		  		messages.style.display = 'block'
+			  	message.style.display = 'block'
+			  	const undisplay = () => {
+	        		messages.style.display = 'none'
+			  		message.style.display = 'none'
+			  	}
+			  	setTimeout(undisplay, 2500)
+			}
 		}
 	}
 
@@ -36,10 +39,16 @@ const Definitions = (props) => {
 				<div onClick={() => displayTuggle('.definitionsPage')} className='x'>X</div>
 			</header>
 			<main>
-				<ModeBtn clickFunction={changeHardMode} title={definitions.hardModeHead} explanation={definitions.hardModeExplanation} inputClassName={'hardModeInput'} />
-				<ModeBtn clickFunction={changeScreenMode} title={definitions.darkModeHead} inputClassName={'darkModeInput'} />
-				<ModeBtn clickFunction={changeHighContrastMode} title={definitions.highContrastModeHead} explanation={definitions.highContrastModeExplanation} inputClassName={'highContrastModeInput'} />
-
+				<ModeBtn clickFunction={changeHardMode} showModeDisableMsg={showModeDisableMsg} disableParameter={'.notDisable'} title={definitions.hardModeHead} explanation={definitions.hardModeExplanation} inputClassName={'hardModeInput'} />
+				<ModeBtn clickFunction={changeScreenMode} showModeDisableMsg={showModeDisableMsg} disableParameter={'.darkModeDisable'} title={definitions.darkModeHead} inputClassName={'darkModeInput'} />
+				<ModeBtn clickFunction={changeHighContrastMode} showModeDisableMsg={showModeDisableMsg} disableParameter={'.highContrastModeDisable'} title={definitions.highContrastModeHead} explanation={definitions.highContrastModeExplanation} inputClassName={'highContrastModeInput'} />
+				<section className='sectionMode'>
+					<h6>{definitions.darkModeHead}</h6>
+					<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
+						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
+						<span className="slider round"></span>
+					</label>
+				</section>
 				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank" rel="noreferrer">
 					<section className='sectionMode' style={{color: screenMode.color}}>
 						<div className='modeTitle hebrewChangeFlex'>
