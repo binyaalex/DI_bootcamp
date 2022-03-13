@@ -1,4 +1,4 @@
-import './App.css';
+import './Wordle.css';
 import Header from './components/header/Header'
 import Tries from './components/main/tries/Tries'
 import Keyboard from './components/main/keyboard/Keyboard'
@@ -10,8 +10,7 @@ import {changeAction, endTheGameAction} from './redux/actions';
 import {finalToRegular} from './redux/reducers';
 
 
-
-const App = (props) => {
+const Wordle = (props) => {
   const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode, colors, hardMode} = props
   useEffect(() => {
     const triesBoxes = document.querySelectorAll('.letterBox')
@@ -143,7 +142,7 @@ const App = (props) => {
 
   return (
     <div style={{color: screenMode.color}} className='allDad'>
-      <div className='all'>
+      <div className='wordleAll'>
         <Header />
         <Tries />
         <Keyboard />
@@ -175,5 +174,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App) 
+export default connect(mapStateToProps, mapDispatchToProps)(Wordle) 
 
