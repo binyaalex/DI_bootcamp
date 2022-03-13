@@ -14,7 +14,6 @@ import {finalToRegular} from './redux/reducers';
 const App = (props) => {
   const {result, turn, change1, dailyWord, endTheGame, writingDirection, screenMode, colors, hardMode} = props
   useEffect(() => {
-    console.log(colors)
     const triesBoxes = document.querySelectorAll('.letterBox')
     const boardLetters = document.querySelectorAll('.boardLetter')
     const messages = document.querySelector('.messages')
@@ -50,7 +49,6 @@ const App = (props) => {
     }
     if (firstLoad) {
       const lastTry = document.querySelector('.tries').children[turn-1].children 
-      console.log(hardMode)
       // color the letters of the last try according the result
       let i = 0;                  
       // do it in a loop by timeout for showing letter by letter
@@ -76,7 +74,6 @@ const App = (props) => {
               if (result[writingDirection[i]] === colors.gray &&
                   boardLetters[d].style.backgroundColor === colors.yellow) {
               } else {
-                console.log(result[writingDirection[i]])
                 boardLetters[d].style.backgroundColor = result[writingDirection[i]]
                 boardLetters[d].style.color = 'white'
                 lastTry[writingDirection[i]].style.border = '0'
@@ -124,7 +121,6 @@ const App = (props) => {
     // for initialize the design (background and border color of letters in the tries and keyboard)
     } else {
       for (let i = 0; i < triesBoxes.length; i++) {
-        console.log(1)
         triesBoxes[i].style.backgroundColor = `${screenMode.BGC}`
         triesBoxes[i].style.borderColor = `${screenMode.letterBorderC}`
         triesBoxes[i].style.color = `${screenMode.color}`
@@ -139,7 +135,6 @@ const App = (props) => {
         for (let i = 0; i < boardLetters2.length; i++) {
           boardLetters2[i].style.backgroundColor = `${screenMode.keyboardRegularBG}`
           boardLetters2[i].style.color = `${screenMode.color}`
-          console.log(boardLetters2[i].style.backgroundColor)
         }
       }, 1)        
     }

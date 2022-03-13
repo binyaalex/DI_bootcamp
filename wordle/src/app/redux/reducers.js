@@ -168,12 +168,7 @@ export const reducer = (state=initState, action={}) => {
 					letter = finalToRegular(tries[c].children[state.writingDirection[b]].textContent)
 
 					// check the green letters
-					console.log(tries[c].children[state.writingDirection[b]])
-					console.log(tries[c].children[state.writingDirection[b]].style.backgroundColor)
-					console.log(state.colors.green)
 					if (tries[c].children[state.writingDirection[b]].style.backgroundColor === state.colors.green) {
-						console.log(letter)
-						console.log(userWord[b])
 						if (letter !== userWord[b]) {
 							IsGreenLetterInUserWord = false
 						}
@@ -317,7 +312,6 @@ export const reducer = (state=initState, action={}) => {
 
 		// change language to hebrew
 		case 'עב':
-		console.log(state.hardMode)
 		  randomNum = Math.floor(Math.random() * HebrewWords.length);
 		  return {...state,
 					language: 'עב',
@@ -390,14 +384,12 @@ export const reducer = (state=initState, action={}) => {
 
 		// change language to english
 		case 'EN':
-		console.log(state.hardMode)
 		  randomNum = Math.floor(Math.random() * WORDS.length);
 		  const oldScreenMode = state.screenMode
 		  const oldHardMode = state.hardMode
 		  const oldColors = state.colors
 		  return {...initState, dailyWord: WORDS[randomNum], screenMode: oldScreenMode, hardMode: oldHardMode, colors: oldColors}
 		case 'CHANGE_HARD_MODE':
-		console.log('CHANGE_HARD_MODE')
 		  let newHardMode
 		  if (state.hardMode) {
 		  	newHardMode = false

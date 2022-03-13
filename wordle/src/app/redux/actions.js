@@ -40,7 +40,6 @@ const blackBox = (turn, fullBorder, emptyBorder) => {
 
 // when the user write a letter or press the keyboard
 export const changeAction = (e) => {
-	console.log(e)
 	let language = document.querySelector('.languageBtn').textContent
     const messages = document.querySelector('.messages')
     const wrongLanguageMsg = document.querySelector('.wrongLanguageMsg')
@@ -218,7 +217,6 @@ export const changeScreenModeAction = () => {
 }
 
 export const changeHighContrastModeAction = () => {
-	console.log('CHANGE_HIGE_CONTRAST_MODE')
 	return {
 		type:'CHANGE_HIGE_CONTRAST_MODE',
 	}

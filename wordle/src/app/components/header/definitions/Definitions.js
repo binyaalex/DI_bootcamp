@@ -52,22 +52,7 @@ const Definitions = (props) => {
 				</section>*/}
 				<LinkBtn link={'https://github.com/binyaalex/DI_bootcamp/tree/main/wordle'} title={definitions.github} icon={"fab fa-brands fa-github"} />
 				<LinkBtn link={'https://www.linkedin.com/in/benjamin-alexander-b39863195'} title={definitions.linkedin} icon={"fab fa-brands fa-linkedin"} />
-{/*				<a className='hebrewChangeFlex' href="https://github.com/binyaalex/DI_bootcamp/tree/main/wordle" target="_blank" rel="noreferrer">
-					<section className='sectionMode' style={{color: screenMode.color}}>
-						<div className='modeTitle hebrewChangeFlex'>
-							<h6>{definitions.github}</h6>
-						</div>
-						<i className="fab fa-brands fa-github"></i>
-					</section>
-				</a>
-				<a className='hebrewChangeFlex' href="https://www.linkedin.com/in/benjamin-alexander-b39863195" target="_blank" rel="noreferrer">
-					<section className='sectionMode' style={{color: screenMode.color}}>
-						<div className='modeTitle hebrewChangeFlex'>
-							<h6>{definitions.linkedin}</h6>
-						</div>
-						<i style={{color: screenMode.color}} className="fab fa-brands fa-linkedin"></i>
-					</section>
-				</a>*/}
+
 			</main>
 		</div>
 	)
