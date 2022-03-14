@@ -433,7 +433,11 @@ export const reducer = (state=initState, action={}) => {
 				green: 'rgb(133, 192, 249)',
 			}
 		  } else {
-			colors = initState.colors
+			colors = {
+				gray: state.colors.gray,
+				yellow: 'rgb(201, 180, 88)',
+				green: 'rgb(106, 170, 100)',
+			}
 		  }
 		  return {...state, colors: colors}	
 		case 'END':

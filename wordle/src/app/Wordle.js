@@ -24,7 +24,7 @@ const Wordle = (props) => {
     document.body.addEventListener('keydown', change1) // for real keyboard
 
     // get screenMode
-    document.body.style.backgroundColor = screenMode.BGC
+    document.querySelector('.allDad').style.backgroundColor = screenMode.BGC
     // document.querySelector('.definitionsPage').style.backgroundColor = screenMode.BGC
     // document.querySelector('.helpPage').style.backgroundColor = screenMode.BGC
     // document.querySelector('.allDad').style.color = screenMode.color

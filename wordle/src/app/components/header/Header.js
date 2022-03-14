@@ -11,21 +11,16 @@ const Header = (props) => {
 	const displayTuggle = (pageClass) => {
 		// all the conditions are for know if to display help and play again button or not
 		const helpOrDefinitionsPage = document.querySelector(pageClass)
-		const tries = document.querySelector('.tries')
 		if (helpOrDefinitionsPage.style.display !== 'block' && !endOfGame) {
-			tries.style.display = 'none'
 			helpOrDefinitionsPage.style.display = 'block'
 		} else if (helpOrDefinitionsPage.style.display !== 'block') {
 		    playAgain.style.display = 'none'	
 		    messages.style.display = 'none'	
-			tries.style.display = 'none'
 			helpOrDefinitionsPage.style.display = 'block'
 		} else if (endOfGame) {
 			helpOrDefinitionsPage.style.display = 'none'
-			tries.style.display = 'block'
 		    playAgain.style.display = 'block'	
 		} else {			
-			tries.style.display = 'block'
 			helpOrDefinitionsPage.style.display = 'none'
 		}
 	}
