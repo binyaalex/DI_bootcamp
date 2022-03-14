@@ -8,22 +8,17 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Projects from './components/Projects'
 import Contacts from './components/Contacts'
+import Wordle from './wordle/Wordle'
+import All from './components/All'
 import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <div className="all">
-            <Navbar />
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/projects' element={<Projects />} />
-            </Routes>
-            <Contacts />
-        </div>
-      </div>
+      <Routes>
+        <Route path='/projects/wordle' element={<Wordle />} />
+        <Route path='/*' element={<All />} />
+      </Routes>
     </BrowserRouter>
   );
 }

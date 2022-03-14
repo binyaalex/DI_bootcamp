@@ -129,10 +129,10 @@ a:visited {
 
 .cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   overflow-y: scroll;
-  height: 97%;
+  height: 90%;
 }
 
 .cards::-webkit-scrollbar {
@@ -144,12 +144,18 @@ a:visited {
   background-color: #F4F4F4;
   border: 9px solid #6B4DE9;
   border-radius: 10px;
-  margin: 5px 0;
+  margin: 5px;
+  height: 203px;
+  text-align: left;
 }
 
 .projectImg {
   height: 100px;
   width: 180px;
+}
+
+.card-body {
+  padding: 0 7px;
 }
 
 .title {
