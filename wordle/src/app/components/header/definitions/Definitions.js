@@ -40,19 +40,39 @@ const Definitions = (props) => {
 				<div onClick={() => displayTuggle('.definitionsPage')} className='x'>X</div>
 			</header>
 			<main>
-				<ModeBtn clickFunction={changeHardMode} showModeDisableMsg={showModeDisableMsg} disableParameter={'.notDisable'} title={definitions.hardModeHead} explanation={definitions.hardModeExplanation} inputClassName={'hardModeInput'} />
-				<ModeBtn clickFunction={changeScreenMode} showModeDisableMsg={showModeDisableMsg} disableParameter={'.darkModeDisable'} title={definitions.darkModeHead} inputClassName={'darkModeInput'} />
-				<ModeBtn clickFunction={changeHighContrastMode} showModeDisableMsg={showModeDisableMsg} disableParameter={'.highContrastModeDisable'} title={definitions.highContrastModeHead} explanation={definitions.highContrastModeExplanation} inputClassName={'highContrastModeInput'} />
-{/*				<section className='sectionMode'>
-					<h6>{definitions.darkModeHead}</h6>
-					<label onClick={() => showModeDisableMsg('.darkModeDisable')} className="switch">
-						<input onClick={changeScreenMode} className='darkModeInput' type="checkbox" />
-						<span className="slider round"></span>
-					</label>
-				</section>*/}
-				<LinkBtn link={'https://github.com/binyaalex/DI_bootcamp/tree/main/wordle'} title={definitions.github} icon={"fab fa-brands fa-github"} />
-				<LinkBtn link={'https://www.linkedin.com/in/benjamin-alexander-b39863195'} title={definitions.linkedin} icon={"fab fa-brands fa-linkedin"} />
-
+				<ModeBtn 
+					clickFunction={changeHardMode}
+					showModeDisableMsg={showModeDisableMsg} 
+					disableParameter={'.notDisable'} 
+					title={definitions.hardModeHead} 
+					explanation={definitions.hardModeExplanation} 
+					inputClassName={'hardModeInput'} 
+				/>
+				<ModeBtn 
+					clickFunction={changeScreenMode} 
+					showModeDisableMsg={showModeDisableMsg} 
+					disableParameter={'.darkModeDisable'} 
+					title={definitions.darkModeHead} 
+					inputClassName={'darkModeInput'} 
+				/>
+				<ModeBtn 
+					clickFunction={changeHighContrastMode} 
+					showModeDisableMsg={showModeDisableMsg} 
+					disableParameter={'.highContrastModeDisable'} 
+					title={definitions.highContrastModeHead} 
+					explanation={definitions.highContrastModeExplanation} 
+					inputClassName={'highContrastModeInput'} 
+				/>
+				<LinkBtn 
+					link={'https://github.com/binyaalex/DI_bootcamp/tree/main/wordle'} 
+					title={definitions.github} 
+					icon={"fab fa-brands fa-github"} 
+				/>
+				<LinkBtn 
+					link={'https://www.linkedin.com/in/benjamin-alexander-b39863195'} 
+					title={definitions.linkedin} 
+					icon={"fab fa-brands fa-linkedin"} 
+				/>
 			</main>
 		</div>
 	)
