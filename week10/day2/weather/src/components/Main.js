@@ -3,7 +3,6 @@ import {getData, getChange} from '../redux/actions';
 
 const Main = (props) => {
 	const {handleClick, handleChange, weather, city, country, location, temperature, humidity, condition, display} = props
-	console.log(display)
 	return (
 		<main>
 			<h1>Weather Finder</h1>

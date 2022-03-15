@@ -24,14 +24,15 @@ class Video {
 let video0 = new Video(`Hey Jude`, `Jhon Dou`, 4.6)
 video0.watch()
 
-const array = [[`video1`, `Hey Jude1`, `Jhon Dou1`, 4.1],
-               [`video2`, `Hey Jude2`, `Jhon Dou2`, 4.2],
-               [`video3`, `Hey Jude3`, `Jhon Dou3`, 4.3],
-               [`video4`, `Hey Jude4`, `Jhon Dou4`, 4.4],
-               [`video5`, `Hey Jude5`, `Jhon Dou5`, 4.5]]
+const array = [[`Hey Jude1`, `Jhon Dou1`, 4.1],
+               [`Hey Jude2`, `Jhon Dou2`, 4.2],
+               [`Hey Jude3`, `Jhon Dou3`, 4.3],
+               [`Hey Jude4`, `Jhon Dou4`, 4.4],
+               [`Hey Jude5`, `Jhon Dou5`, 4.5]]
 
 for (let i = 0; i < array.length; i++) {
-     array[i][0] = new Video(array[i][1], array[i][2], array[i][3]);
+     let video = new Video(array[i][1], array[i][2], array[i][3]);
+     console.log(video)
 }
 
 

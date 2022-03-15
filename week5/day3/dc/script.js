@@ -1,3 +1,4 @@
+// dc1
 function makeAllCaps(arr) {
     return new Promise((resolve, reject) =>{
         if (!arr.some(el => typeof(el) !== `string`)) {
@@ -7,8 +8,8 @@ function makeAllCaps(arr) {
             throw new Error(`your array not full of strings`)
         }
     })
-
 }
+
 function sortWords (arr) {
     return new Promise((resolve, reject) =>{
         arr.sort()
@@ -20,7 +21,9 @@ let arr1 = [`wer`, `sd`]
 makeAllCaps(arr1)
     .then(res => sortWords(res))
     .then(res => console.log(res))
+    .catch(err => console.log(err))
 
+// dc2
 let morse = `{
   "0": "-----",
   "1": ".----",
@@ -68,43 +71,41 @@ let morse = `{
   "(": "-.--.",
   ")": "-.--.-"
 }`
-let morseO = {}
-function toJs(json) {
+
+toJs(morse)
+    .then(toMorse)
+    .then(joinWords)
+    .catch(err=> console.log(err))
+
+//convert json to string
+function toJs(jsonString) {
     return new Promise((resolve, reject) =>{
-        if (json.length > 0) {
-            resolve(JSON.parse(json))
+        if (jsonString.length > 0) {
+            resolve(JSON.parse(jsonString))
         } else {
             reject(`your json is empety`)
         }
     })
 }
-let objOk
-let wordToMorse = []
-toJs(morse)
-    .then(res => res)
-    .then(res => toMorse(res))
-    .then(res => joinWords(res))
 
 function toMorse(morse) {
+    let wordOk
+    let wordMorse = []
     let word = prompt(`write a word`)
-    // console.log(morse)
     let morseKeyArr = Object.keys(morse)
-    // console.log(morseKeyArr)
-    for (let i = word.length - 1; i >= 0; i--) {
-        objOk = morseKeyArr.some(el => el === word[i])
-    }
-    for (let i = 0; i < word.length; i++) {
-        for (let key in morse) {
-            if (key === word[i]) {
-                wordToMorse.push(morse[key])
-            }
-        } 
-    }
     return new Promise((resolve, reject) =>{
-        if (objOk) {
-            resolve(wordToMorse)
+        for (let letter of word) {
+            wordOk = morseKeyArr.some(el => el === letter) // check if all chart character good
+            for (let key in morse) {
+                if (key === letter) {
+                    wordMorse.push(morse[key]) //make array of the morse letters of the word
+                }
+            }
+        }
+        if (wordOk) {
+            resolve(wordMorse)
         } else {
-            reject(`you use character that not alowwed`)
+            reject(`you use character that not allowed`)
         }
     })
 }

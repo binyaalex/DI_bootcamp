@@ -1,19 +1,16 @@
-import Nav from 'react-bootstrap/Nav'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	return (
 		<>
-			<Nav activeKey="/home">
-			  <Nav.Item>
-			    <Nav.Link>Home</Nav.Link>
-			  </Nav.Item>
-			  <Nav.Item>
-			    <Nav.Link eventKey="link-1">Projects</Nav.Link>
-			  </Nav.Item>
-			  <Nav.Item>
-			    <Nav.Link eventKey="link-2">Contact</Nav.Link>
-			  </Nav.Item>
-			</Nav>
+			<nav>
+			  <div>
+			  	<Link to="/">Home</Link>
+			  </div>
+			  <div>
+			  	<Link to="/projects">Projects</Link>
+			  </div>
+			</nav>
 		</>
 	)
 }

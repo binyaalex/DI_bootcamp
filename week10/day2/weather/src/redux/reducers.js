@@ -6,7 +6,6 @@ const initState = {
 	humidity: '',
 	condition: '',
 	display: 'none',
-	data: {}
 }
 
 export const reducer = (state=initState, action={}) => {
@@ -22,7 +21,6 @@ export const reducer = (state=initState, action={}) => {
 				display: 'unset'
 			}
 		case 'CHANGE':
-		console.log(action.payload)
 			return {...state, city:action.payload}
 		default:
 			return{...state}

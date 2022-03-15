@@ -28,7 +28,8 @@ const Sign = (props) => {
 			      		<input onChange={black} type="password" id='userInputPassword' name="password" placeholder="write your password" className="password"/>
 					</div>
 				</div>
-				<Link onClick={signInF} to="/main" className="signLink signBtn" >Sign In</Link>
+				<Link to='/login'>already sign in? press here</Link>
+				<button onClick={signInF} className="signLink signBtn" >Sign In</button>
 			</section>
 		</div>
 	)

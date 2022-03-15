@@ -1,3 +1,4 @@
+
 const div = document.querySelector(`div`)
 let xhr = new XMLHttpRequest();
 
@@ -39,7 +40,7 @@ xhr.onerror = function() {
 };
 
 const displayUser = (gifs) => {
-	console.log(gifs)
+    console.log(gifs)
     // let results = document.getElementById("results")
     // let img = document.querySelector(`img`)
     // img.setAttribute(`src`, "https://giphy.com/gifs/cheezburger-sun-mornings-CPutABwbvXC92")

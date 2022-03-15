@@ -12,17 +12,30 @@ import Main from './components/Main';
 import Login from './components/Login';
 import io from 'socket.io-client';
 
+
 let socket = io("http://localhost:5000", {
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "abcd"
   }
 });
+// const socket = io('http://localhost:5000', { transports : ['websocket'] });
+// const socket = io('https://chat-app-benji.herokuapp.com/', { transports : ['websocket'] });
+// const socket = io("https://chat-app-benji.herokuapp.com/", {
+//   withCredentials: true,
+//   extraHeaders: {
+//     "my-custom-header": "abcd"
+//   }
+// });
+
+let userInputNumber = 1
+let userInputName = ''
 
 function App() {
 
-  // const navigate = useNavigate();
-  const ENDPOINT = 'http://localhost:5000/';
+  const navigate = useNavigate();
+  const ENDPOINT = 'http://localhost:5000';
+  // const ENDPOINT = 'https://chat-app-benji.herokuapp.com/';
 
   useEffect(() => {
         socket = io(ENDPOINT);
@@ -49,7 +62,7 @@ function App() {
         })
 
         socket.on('getuser', user=> {
-          console.log(user)
+          navigate('/main')
           let greeting = document.createElement('h1')
           greeting.textContent = `Hello ${user[0].username}`
           const conversation = document.querySelector('.conversation')
@@ -108,18 +121,14 @@ function App() {
         })
   }, []);
 
-  let userInputName
-  let userInputNumber
   const signInF = () => {
-    console.log(1)
     userInputName = document.getElementById('userInputName').value
     userInputNumber = document.getElementById('userInputNumber').value
     let userInputPassword = document.getElementById('userInputPassword').value
-    console.log(userInputPassword)
     socket.emit('userName', userInputName)
     socket.emit('userPassword', userInputPassword)
+    console.log(userInputNumber)
     socket.emit('userNumber', userInputNumber)
-    // window.location.href = '/main'
   }
 
   const LogInF = () => {
@@ -128,7 +137,6 @@ function App() {
     let userInputPassword = document.getElementById('userInputPassword').value
     socket.emit('loginUserPassword', userInputPassword)
     socket.emit('loginUserNumber', userInputNumber)
-
   }
 
   let sendNum
@@ -144,6 +152,7 @@ function App() {
 
   const getRoomsF = (data) => {
     const contactList = document.querySelector('.contactList')
+    console.log(contactList)
     const conversation = document.querySelector('.conversation')
     for (let i = 0; i < data.length; i++) {
       let person = document.createElement('p')
@@ -172,6 +181,7 @@ function App() {
   }
 
   let roomNumber = ''
+  console.log(userInputNumber)
   const add = () => {
     console.log('userInputNumber:', userInputNumber)
     const contactList = document.querySelector('.contactList')
@@ -181,6 +191,7 @@ function App() {
     unReadMessages.style.display = 'none'
     unReadMessages.classList.add(`unReadMessages${sendNum}`)
     person.textContent = sendName
+    person.appendChild(unReadMessages)
     socket.emit('sendNumber', sendNum)    
     person.addEventListener('click', getInRoom)
     contactList.appendChild(person)
@@ -238,10 +249,14 @@ function App() {
     document.querySelector('.sendMessageDiv').style.display = 'flex'
   }
 
-  const sendMessage = () => {
-    let messageText = document.getElementById('messageInput').value
-    socket.emit('chat', messageText)
-    document.getElementById('messageInput').value = ''
+  const sendMessage = (e) => {
+    console.log(e)
+    if (e.key === 'Enter' || e.type === 'click') {
+      console.log('send')
+      let messageText = document.getElementById('messageInput').value
+      socket.emit('chat', messageText)
+      document.getElementById('messageInput').value = ''
+    }
   }
 
   return (

@@ -24,3 +24,5 @@ function showUsers(obj) {
 function hello () {
   alert(`hello from js`)
 }
+
+getUser()

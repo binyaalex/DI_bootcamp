@@ -20,11 +20,12 @@ const Login = (props) => {
 			      		<input onChange={black} type="number" id='userInputNumber' name="userInputNumber" placeholder="write your phone number" className="userInputNumber"/>
 					</div>
 					<div className='inputAndI'>
-						<i class="fas fa-lock"></i>
+						<i class="fas fa-lock"></i>
 			      		<input onChange={black} type="password" id='userInputPassword' name="password" placeholder="write your password" className="password"/>
 					</div>
 				</div>
-				<Link onClick={LogInF} to="/main" className="signLink signBtn" >Log In</Link>
+				<Link to='/'>Didn't sign in yet? press here</Link>
+				<button onClick={LogInF} className="signLink signBtn" >Log In</button>
 			</section>
 		</div>
 	)

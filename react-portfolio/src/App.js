@@ -1,16 +1,25 @@
+import { render } from "react-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import Navbar from './components/Navbar'
 import Home from './components/Home'
+import Projects from './components/Projects'
+import Contacts from './components/Contacts'
+import Wordle from './wordle/Wordle'
+import All from './components/All'
 import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <div className="all">
-        <Navbar />
-        <Home />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/projects/wordle' element={<Wordle />} />
+        <Route path='/*' element={<All />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

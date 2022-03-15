@@ -7,12 +7,6 @@ const Movie = (props) => {
 	const {movieObj, handleClick} = props
 	console.log(movieObj)
 	const {Poster, Title, Genre, Released, Rated, imdbRating, Director, Writer, Actors} = movieObj
-	while (movieObj === {}) {
-		console.log(1)
-		return (
-			<h1>loading</h1>
-		)
-	}
 	return (
 		<>
 			<section>

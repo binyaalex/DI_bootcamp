@@ -13,3 +13,7 @@ console.log(fruits)
 let moreFruits = ["Banana", ["Apples", ["Oranges"], "Blueberries"]];
 Oranges = moreFruits[1][1][0];
 console.log(Oranges)
+
+const add = () => {
+	console.log(1)
+}

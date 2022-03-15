@@ -3,15 +3,22 @@ const express = require('express')
 const knex = require('knex');
 
 const db = knex({
-  client: 'pg',
+  client: 'pg', // pg for postgres
   connection: {
-    host: '127.0.0.1',
-    port: '5432',
-    user: 'postgres',
-    password: 'test',
-    database: 'chatapp'
+   connectionString: `postgres://ojnhkaqwjgnvru:f086d34f792a9ee6cb69ca5786aecb99544df4c9832dcb04db1a03dee586332f@ec2-54-195-195-81.eu-west-1.compute.amazonaws.com:5432/d1a39ou49649o1`,
+   ssl: { rejectUnauthorized: false }
   }
-})
+});
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     host: '127.0.0.1',
+//     port: '5432',
+//     user: 'postgres',
+//     password: 'test',
+//     database: 'chatapp'
+//   }
+// })
 
 
 const app = express()
@@ -20,12 +27,20 @@ const port = process.env.PORT || 5000
 const socketio = require('socket.io')
 const io = socketio(server, {
   cors: {
+    // origin: "https://chat-benji.herokuapp.com",
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true
   }
 });
+
+// const io = require("socket.io")(server, {
+//   allowRequest: (req, callback) => {
+//     const noOriginHeader = req.headers.origin === undefined;
+//     callback(null, noOriginHeader);
+//   }
+// });
 app.use(cors())
 
 const getApiAndEmit = socket => {
@@ -78,7 +93,7 @@ io.on('connection', socket => {
           })
           .returning('*')
           .then(data => {
-            console.log(data)
+            console.log('data:',data)
             socket.emit('getrooms', data)
           })
           .catch(e => {
@@ -119,9 +134,9 @@ io.on('connection', socket => {
         .insert(
           [
             {
+              password: socket.userPassword,
               phone_number: socket.userNumber,
-              username: socket.userName,
-              password: socket.userPassword
+              username: socket.userName
             }
           ]
         )
@@ -130,11 +145,12 @@ io.on('connection', socket => {
           console.log('data:', data)
         })
         .catch(e => {
-          console.log('error:',e)
+          console.log('error:', e)
         })
         db.select('*').from('users')
         .where({phone_number: socket.userNumber})
         .then(data => {
+          console.log(data)
           socket.emit('getuser', data)
         })
         .catch(e => {

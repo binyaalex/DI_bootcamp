@@ -54,6 +54,32 @@ body {
   width: 80%;
   border-radius: 35px;
   padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  padding: 10px 15px;
+  color: #6B4DE9;
+}
+
+nav > * {
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+
+nav > *:hover {
+  background-color: rgb(243, 234, 255);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
 }
 
 .home {
@@ -65,7 +91,7 @@ body {
 }
 
 .about {
-  padding-right: 0px;
+  padding-right: 30px;
   text-align: left;
   min-width: 275px;
   max-width: 390px;
@@ -88,4 +114,56 @@ body {
   border-radius: 130px;
   height: 220px;
   width: 220px;
+}
+
+/*.contacts {
+  position: absolute;
+  bottom: 60px;
+  right: 40%;
+}*/
+
+.contacts > * {
+  margin: 0 10px;
+  color: #6B4DE9;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 90%;
+}
+
+.cards::-webkit-scrollbar {
+    width: 0;
+}
+
+.card {
+  width: 180px;
+  background-color: #F4F4F4;
+  border: 9px solid #6B4DE9;
+  border-radius: 10px;
+  margin: 5px;
+  height: 203px;
+  text-align: left;
+}
+
+.projectImg {
+  height: 100px;
+  width: 180px;
+}
+
+.card-body {
+  padding: 0 7px;
+}
+
+.title {
+  font-size: 20px;
+  color: #6B4DE9;
+}
+
+.cardText {
+  margin: 5px 0;
+  color: black;
 }
