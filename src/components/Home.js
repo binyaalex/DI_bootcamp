@@ -9,7 +9,7 @@ const Home = () => {
 				<Link to="/projects" className='projectsBtn'>My Projects</Link>
 			</div>
 			<div className='imgDiv'>
-				<img className='profileImg' src='profile-photo.jpg' />
+				<img className='profileImg' src='profile-photo.jpg' alt='my-photo' />
 			</div>
 		</div>
 	)

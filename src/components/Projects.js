@@ -2,25 +2,22 @@ import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 
 const Projects = () => {
-
-	const undisplayPortfolio = () => {
-		document.querySelector('.App').style.display = 'none'
-	}
-
 	return (
 		<div className='projects'>
 			<div className='cards'>
-				<Link to="/projects/wordle" onClick={undisplayPortfolio} >
+				<a href='https://github.com/binyaalex/DI_bootcamp/tree/main/wordle' target='-blank'>
 					<Card className='card'>
 					  <Card.Img className='projectImg' variant="top" src="wordle.jpg" />
 					  <Card.Body>
 					    <Card.Title className='title'>Wordle Game</Card.Title>
 					    <Card.Text className='cardText'>
-					      Fun words game, using React and Redux.
+					      Fun words game, using React and Redux.<br/>
+					    	<a href='https://hebrewordle.herokuapp.com' target='-blank'>The Game </a>
+					    	<a href='https://github.com/binyaalex/DI_bootcamp/tree/main/wordle' target='-blank'>Github</a>
 					    </Card.Text>
 					  </Card.Body>
 					</Card>
-				</Link>
+				</a>
 				<a href='https://github.com/binyaalex/DI_bootcamp/tree/main/finalProject' target='-blank'>
 					<Card className='card'>
 					  <Card.Img className='projectImg' variant="top" src="chat-app.jpg" />
